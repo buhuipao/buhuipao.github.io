@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on 不会跑</title>
+    <link>https://buhuipao.github.io/categories/network/</link>
+    <description>Recent content in Network on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 22 Jun 2017 03:27:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/categories/network/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LeetCode-minimum_path_sum</title>
+      <link>https://buhuipao.github.io/2017/06/22/leetcode-minimum_path_sum/</link>
+      <pubDate>Thu, 22 Jun 2017 03:27:52 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/22/leetcode-minimum_path_sum/</guid>
+      <description>经典的动态规划题，三种解法都是动态规划，但是最后一种空间复杂度最小，原题链接： https://leetcode.com/problems/minimum-path-sum/ Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note:</description>
+    </item>
+    
+    <item>
+      <title>TCP的滑动窗口和拥塞控制</title>
+      <link>https://buhuipao.github.io/2016/10/09/tcp-window_control/</link>
+      <pubDate>Sun, 09 Oct 2016 10:32:23 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/10/09/tcp-window_control/</guid>
+      <description>TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口</description>
+    </item>
+    
+    <item>
+      <title>关于fork和操作系统一些知识</title>
+      <link>https://buhuipao.github.io/2016/09/16/fork-system-status-route/</link>
+      <pubDate>Fri, 16 Sep 2016 11:16:48 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/16/fork-system-status-route/</guid>
+      <description>A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： main{ fork() || fork() } 共创建了（３）个进程 解释是： fork()给子进程返回一个</description>
+    </item>
+    
+    <item>
+      <title>[转载]TCP/IP的三次握手的详细过程</title>
+      <link>https://buhuipao.github.io/2016/09/10/tcp-ip-connect/</link>
+      <pubDate>Sat, 10 Sep 2016 09:11:09 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/10/tcp-ip-connect/</guid>
+      <description>TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接: 位码即tcp标志位,有6种标示:SYN(synchro</description>
+    </item>
+    
+  </channel>
+</rss>

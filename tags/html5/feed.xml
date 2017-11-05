@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html5 on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/html5/</link>
+    <description>Recent content in Html5 on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 19 Nov 2015 15:53:12 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/tags/html5/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>历经4个预览版本，Drupal8 终于完工</title>
+      <link>https://buhuipao.github.io/2015/11/19/drupal8/</link>
+      <pubDate>Thu, 19 Nov 2015 15:53:12 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2015/11/19/drupal8/</guid>
+      <description>再经过多次修改开发之后，今晚（2015/11/19）Drupal8终于完工，这是一个伟大的工程，意味着Drupal又进入了新的的时代，一个移</description>
+    </item>
+    
+  </channel>
+</rss>

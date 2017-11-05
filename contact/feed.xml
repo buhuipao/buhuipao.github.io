@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Contacts on 不会跑</title>
+    <link>https://buhuipao.github.io/contact/</link>
+    <description>Recent content in Contacts on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 10 Jan 2015 04:06:57 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/contact/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>联系我们</title>
+      <link>https://buhuipao.github.io/contact/</link>
+      <pubDate>Sat, 10 Jan 2015 04:06:57 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/contact/</guid>
+      <description>QQ：990283049； 通信地址：湖南省长沙市雨花区万家丽南路960号； &amp;nbsp;</description>
+    </item>
+    
+  </channel>
+</rss>

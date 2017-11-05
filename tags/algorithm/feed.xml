@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/algorithm/</link>
+    <description>Recent content in Algorithm on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 06 Jun 2017 08:09:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/tags/algorithm/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LeetCode-Serialize and Deserialize BST</title>
+      <link>https://buhuipao.github.io/2017/06/06/leetcode-serialize-and-deserialize-bst/</link>
+      <pubDate>Tue, 06 Jun 2017 08:09:10 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/06/leetcode-serialize-and-deserialize-bst/</guid>
+      <description>序列化和反序列化一个二叉搜索树，题目的意思是想让我利用搜索树的性质来做，但是我还是坚持了使用按层和先序遍历的方法，仅供参考，原题如下： Serialization is the</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Top_K_Frequent_Elements</title>
+      <link>https://buhuipao.github.io/2017/06/05/leetcode-top_k_frequent_elements/</link>
+      <pubDate>Sun, 04 Jun 2017 17:29:09 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/05/leetcode-top_k_frequent_elements/</guid>
+      <description>Given a non-empty array of integers, return the k most frequent elements. For example, Given [1,1,1,2,2,3] and k = 2, return [1,2]. Note: You may assume k is always valid, 1 ≤ k ≤ number of unique elements. Your algorithm&amp;#8217;s time complexity must be better than O(n log n), where n is the array&amp;#8217;s size. # _*_ coding: utf-8 _*_ class Solution(object): def topKFrequent(self, nums, k): &#34;&#34;&#34; :type nums: List[int]</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–统计更小值数量</title>
+      <link>https://buhuipao.github.io/2017/05/19/leetcode-countsmaller/</link>
+      <pubDate>Fri, 19 May 2017 08:45:55 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/19/leetcode-countsmaller/</guid>
+      <description>Time: O(nlogn) Space: O(n) You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]. Example: Given nums = [5, 2, 6, 1] To the right of 5 there are 2 smaller elements (2 and 1). To the right of 2 there is only 1 smaller</description>
+    </item>
+    
+  </channel>
+</rss>
