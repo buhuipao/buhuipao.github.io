@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 不会跑</title>
+    <link>https://buhuipao.github.io/categories/python/</link>
+    <description>Recent content in Python on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 17 Sep 2017 10:01:47 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/categories/python/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>转换BST为一个双向链表</title>
+      <link>https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sun, 17 Sep 2017 10:01:47 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</guid>
+      <description>经典二叉树题：转换一个二叉树为一个双向链表； # -*- coding:utf-8 -*- # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def Convert(self, pRootOfTree): root = pRootOfTree if not root: return root stack, node, head = [root], root.left, None while stack or node: while</description>
+    </item>
+    
+    <item>
+      <title>稳定婚姻匹配问题</title>
+      <link>https://buhuipao.github.io/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 26 Aug 2017 16:06:53 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>倒水问题-经典面试题</title>
+      <link>https://buhuipao.github.io/2017/08/26/%E5%80%92%E6%B0%B4%E9%97%AE%E9%A2%98-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Sat, 26 Aug 2017 15:56:21 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/08/26/%E5%80%92%E6%B0%B4%E9%97%AE%E9%A2%98-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <description>有两个容器，容积分别为A升和B升，有无限多的水，现在需要C升水, 如何倒？ 举个例子，3，5升的桶，需要倒出4升水，可以这么做： 3 % 5 = 3 //把</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Unique_Binary_Search_Trees</title>
+      <link>https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/</link>
+      <pubDate>Sat, 15 Jul 2017 01:13:02 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/</guid>
+      <description>题目的意思就是给你1到n个数，你能组成多少种BST，解题思路就是：以每一个数做一次BST的root节点，然后求和所有次数即可，然后每次以i为</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-LFU_Cache</title>
+      <link>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</link>
+      <pubDate>Sun, 02 Jul 2017 14:30:22 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</guid>
+      <description>LeetCode的设计题，比起之前的LRU稍微难点，但是根据《现代操作系统》的解释，需要使用一个counter进行频率的计数，下面给出的并不</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Find_Median_from_Data_Stream</title>
+      <link>https://buhuipao.github.io/2017/07/01/leetcode-find_median_from_data_stream/</link>
+      <pubDate>Sat, 01 Jul 2017 04:42:14 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/07/01/leetcode-find_median_from_data_stream/</guid>
+      <description>LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Binary_Search_Tree_Iterator</title>
+      <link>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</link>
+      <pubDate>Fri, 30 Jun 2017 17:05:57 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</guid>
+      <description>一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Design_Twitter</title>
+      <link>https://buhuipao.github.io/2017/06/29/leetcode-design_twitter/</link>
+      <pubDate>Thu, 29 Jun 2017 07:36:15 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/29/leetcode-design_twitter/</guid>
+      <description>经典的设计题，以前校招笔试遇到过，题意就是：让你设计一个小的推特系统，能够发推、收到推送、关注和取消关注某人，我的做法是直接采用一个数据表（</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Min_Stack</title>
+      <link>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</link>
+      <pubDate>Thu, 29 Jun 2017 03:08:00 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</guid>
+      <description>经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Reorder_List</title>
+      <link>https://buhuipao.github.io/2017/06/29/leetcode-reorder_list/</link>
+      <pubDate>Thu, 29 Jun 2017 02:40:50 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/29/leetcode-reorder_list/</guid>
+      <description>经典的链表题，考查了反转链表和一些细节，题意也很明白，把L0→L1→…→Ln-1→Ln变为L0→Ln→L1→Ln-1→L2→Ln-2→…即可</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Partition_List</title>
+      <link>https://buhuipao.github.io/2017/06/29/leetcode-partition_list/</link>
+      <pubDate>Wed, 28 Jun 2017 17:08:33 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/29/leetcode-partition_list/</guid>
+      <description>晚上送妹子回家后做了这个链表的题，怕自己忘了睡前总结下。 题目的意思就是：给定一个链表和一个数，把小于这个数的节点放前边，此外的都移到后边，而</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Linked_List_Cycle_II</title>
+      <link>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle_ii/</link>
+      <pubDate>Wed, 28 Jun 2017 09:55:00 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle_ii/</guid>
+      <description>判断链表是否存在循环的变形题，需要你找出链表循环的开始节点，解题思路：先用快慢指针便利链表知道快慢指针指向同一个节点，然后让快指针从head</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Linked_List_Cycle</title>
+      <link>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle/</link>
+      <pubDate>Wed, 28 Jun 2017 09:30:13 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle/</guid>
+      <description>经典的链表题，判断一个链表是否存在循环，而且不许使用额外的空间，解题思路：只要分别设定一个快慢指针，当快慢指针重合时就证明有循环，原题链接：</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Copy_List_with_Random_Pointer</title>
+      <link>https://buhuipao.github.io/2017/06/28/leetcode-copy_list_with_random_pointer/</link>
+      <pubDate>Wed, 28 Jun 2017 08:31:03 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/28/leetcode-copy_list_with_random_pointer/</guid>
+      <description>一个比较经典的链表操作题，深度复制一个链表，链表包含一个next指针和一个random的指针，目前比较多的方法是hash表和自我复制法（在自</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Remove_Nth_Node_From_End_of_List</title>
+      <link>https://buhuipao.github.io/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</link>
+      <pubDate>Wed, 28 Jun 2017 08:18:03 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</guid>
+      <description>比较简单的一个题，意思就是删除链表中倒数第几个节点，需要最后考虑下删除的是否恰巧为头节点，原题链接：https://leetcode.com</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Longest_Increasing_Subsequence</title>
+      <link>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</link>
+      <pubDate>Fri, 23 Jun 2017 10:03:46 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</guid>
+      <description>经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode</description>
+    </item>
+    
+    <item>
+      <title>Python三目运算符两种写法及exec的用法</title>
+      <link>https://buhuipao.github.io/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Fri, 23 Jun 2017 05:29:44 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>三目运算符第一种写法： In [302]: a = 1 if 5 3 else 0 In [303]: a Out[303]: 1 In [304]: a = 1 if 2 3 else 0 In [305]: a Out[305]: 0 三目运算符的第二种写法： In [295]: [5, 3][True] Out[295]: 3 In [296]: [5, 3][False] Out[296]: 5 In [306]: L Out[306]: True</description>
+    </item>
+    
+    <item>
+      <title>Python二分查找的一个库–bisect</title>
+      <link>https://buhuipao.github.io/2017/06/23/python_bisect/</link>
+      <pubDate>Fri, 23 Jun 2017 04:52:44 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/23/python_bisect/</guid>
+      <description>今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Edit_Distance</title>
+      <link>https://buhuipao.github.io/2017/06/22/leetcode-edit_distance/</link>
+      <pubDate>Thu, 22 Jun 2017 14:52:57 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/22/leetcode-edit_distance/</guid>
+      <description>比较特殊的动态规划过程，原题链接：https://leetcode.com/problems/edit-distance/ Given two words word1 and word2, find the minimum</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Delect_Operation_for_Two_Strings</title>
+      <link>https://buhuipao.github.io/2017/06/22/leetcode-delect_operation_for_two_strings/</link>
+      <pubDate>Thu, 22 Jun 2017 12:26:12 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/22/leetcode-delect_operation_for_two_strings/</guid>
+      <description>LCS的变形题目, 只要求出两个字符串的最长公共子序列，那么最终需要进行删除操作的就是m＋n－2*result。 Given two words word1 and word2, find the minimum number of steps required to make</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Best_Time_to_Buy_and_Sell_Stock</title>
+      <link>https://buhuipao.github.io/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</link>
+      <pubDate>Thu, 22 Jun 2017 04:21:50 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</guid>
+      <description>动态规划的小题目，买卖股票， 原题链接：https://leetcode.com/problems/best-time-to-buy-and-</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Longest_Consecutive_Sequence</title>
+      <link>https://buhuipao.github.io/2017/06/21/leetcode-longest_consecutive_sequence/</link>
+      <pubDate>Wed, 21 Jun 2017 09:46:10 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/21/leetcode-longest_consecutive_sequence/</guid>
+      <description>题目的意思就是求出列表里最长的连续序列, 原题如下： Given an unsorted array of integers, find the length of the longest consecutive elements sequence. For example, Given [100, 4, 200, 1, 3, 2], The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4. Your algorithm should run in O(n) complexity.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Remove_Duplicates_from_Sorted_Array</title>
+      <link>https://buhuipao.github.io/2017/06/20/leetcode-remove_duplicates_from_sorted_array/</link>
+      <pubDate>Tue, 20 Jun 2017 05:13:19 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/20/leetcode-remove_duplicates_from_sorted_array/</guid>
+      <description>题目比较简单，就是需要你找出数组里面不同数字的个数，但是也要求把这些项搬运到nums数组的前面去 Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length. Do</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-power_of_three</title>
+      <link>https://buhuipao.github.io/2017/06/19/leetcode-power_of_three/</link>
+      <pubDate>Mon, 19 Jun 2017 07:50:03 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/19/leetcode-power_of_three/</guid>
+      <description>Given an integer, write a function to determine if it is a power of three. Follow up: Could you do it without using any loop / recursion? # _*_ coding: utf-8 _*_ class Solution(object): def isPowerOfThree(self, n): &#34;&#34;&#34; :type n: int :rtype: bool &#34;&#34;&#34; import math if n &amp;lt; 1: return False # 四舍五入, 因为最后的取对数会有少许</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-clone_graph</title>
+      <link>https://buhuipao.github.io/2017/06/10/leetcode-clone_graph/</link>
+      <pubDate>Sat, 10 Jun 2017 14:03:15 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/10/leetcode-clone_graph/</guid>
+      <description>克隆一个图， 用了两个遍历方法如下： Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ&amp;#8217;s undirected graph serialization: Nodes are labeled uniquely. We use # as a separator for each node, and , as a separator for node label and each neighbor of the node. As an example, consider</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-binary-tree-level-order-traversal</title>
+      <link>https://buhuipao.github.io/2017/06/07/leetcode-binary-tree-level-order-traversal/</link>
+      <pubDate>Wed, 07 Jun 2017 07:30:11 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/07/leetcode-binary-tree-level-order-traversal/</guid>
+      <description>Given a binary tree, return the level order traversal of its nodes&amp;#8217; values. (ie, from left to right, level by level). For example: Given binary tree [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 return its level order traversal as: [ [3], [9,20], [15,7] ] # _*_ coding: utf-8 _*_ class TreeNode(object): def __init__(self, x): self.val = x self.left = None self.right = None class Solution(object): def levelOrder(self,</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Lowest_Common_Ancestor_of_a_Binary_Search_Tree</title>
+      <link>https://buhuipao.github.io/2017/06/06/leetcode-lowest_common_ancestor_of_a_binary_search_tree/</link>
+      <pubDate>Tue, 06 Jun 2017 09:15:08 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/06/leetcode-lowest_common_ancestor_of_a_binary_search_tree/</guid>
+      <description>Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST. According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itse</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Serialize and Deserialize BST</title>
+      <link>https://buhuipao.github.io/2017/06/06/leetcode-serialize-and-deserialize-bst/</link>
+      <pubDate>Tue, 06 Jun 2017 08:09:10 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/06/leetcode-serialize-and-deserialize-bst/</guid>
+      <description>序列化和反序列化一个二叉搜索树，题目的意思是想让我利用搜索树的性质来做，但是我还是坚持了使用按层和先序遍历的方法，仅供参考，原题如下： Serialization is the</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-delete_a_node_in_BST</title>
+      <link>https://buhuipao.github.io/2017/06/06/leetcode-delete_a_node_in_bst/</link>
+      <pubDate>Tue, 06 Jun 2017 03:48:12 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/06/leetcode-delete_a_node_in_bst/</guid>
+      <description>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST. Basically, the deletion can be divided into two stages: Search for a node to remove. If the node is found, delete the node. Note: Time complexity should be O(height of tree). 也就是必须在树上</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Top_K_Frequent_Elements</title>
+      <link>https://buhuipao.github.io/2017/06/05/leetcode-top_k_frequent_elements/</link>
+      <pubDate>Sun, 04 Jun 2017 17:29:09 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/05/leetcode-top_k_frequent_elements/</guid>
+      <description>Given a non-empty array of integers, return the k most frequent elements. For example, Given [1,1,1,2,2,3] and k = 2, return [1,2]. Note: You may assume k is always valid, 1 ≤ k ≤ number of unique elements. Your algorithm&amp;#8217;s time complexity must be better than O(n log n), where n is the array&amp;#8217;s size. # _*_ coding: utf-8 _*_ class Solution(object): def topKFrequent(self, nums, k): &#34;&#34;&#34; :type nums: List[int]</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–brick_wall</title>
+      <link>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</link>
+      <pubDate>Sat, 03 Jun 2017 04:59:20 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</guid>
+      <description>比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–longest_substring_without_repeating_char</title>
+      <link>https://buhuipao.github.io/2017/06/03/leetcode-longest_substring_without_repeating_char/</link>
+      <pubDate>Sat, 03 Jun 2017 03:46:40 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/03/leetcode-longest_substring_without_repeating_char/</guid>
+      <description>这是一个面试的经典题，明显是个送分题：） Given a string, find the length of the longest substring without repeating characters. Examples: Given &amp;#8220;abcabcbb&amp;#8221;, the answer is &amp;#8220;abc&amp;#8221;, which the length is 3. Given &amp;#8220;bbbbb&amp;#8221;, the answer is &amp;#8220;b&amp;#8221;, with the length of 1. Given &amp;#8220;pwwkew&amp;#8221;, the answer is &amp;#8220;wke&amp;#8221;, with the length of 3. Note that the</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Convert_Sorted_List_to_Binary_Search_Tree</title>
+      <link>https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</link>
+      <pubDate>Fri, 02 Jun 2017 04:13:46 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</guid>
+      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class TreeNode(object): def __init__(self, x): self.val = x self.left = None self.right = None class Solution(object): def sortedListToBST(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: TreeNode 每次找到中位数，然后</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Remove_Duplicates_from_Sorted_List_II</title>
+      <link>https://buhuipao.github.io/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</link>
+      <pubDate>Thu, 01 Jun 2017 15:37:25 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</guid>
+      <description>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return 1-&amp;gt;2-&amp;gt;5. Given 1-&amp;gt;1-&amp;gt;1-&amp;gt;2-&amp;gt;3, return 2-&amp;gt;3. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def deleteDuplicates(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; if not head or not head.next: return head dummy = ListNode(None) node,</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–reverse_linked_list_II</title>
+      <link>https://buhuipao.github.io/2017/06/01/leetcode-reverse_linked_list_ii/</link>
+      <pubDate>Thu, 01 Jun 2017 12:50:11 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/01/leetcode-reverse_linked_list_ii/</guid>
+      <description>Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL. Note: Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def reverseBetween(self, head, m, n): &#34;&#34;&#34; :type</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Remove-Linked-List-Elements</title>
+      <link>https://buhuipao.github.io/2017/05/29/leetcode-remove-linked-list-elements/</link>
+      <pubDate>Sun, 28 May 2017 17:26:57 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/29/leetcode-remove-linked-list-elements/</guid>
+      <description>Remove all elements from a linked list of integers that have value val.
+Example
+Given: 1 &amp;#8211;&amp;gt; 2 &amp;#8211;&amp;gt; 6 &amp;#8211;&amp;gt; 3 &amp;#8211;&amp;gt; 4 &amp;#8211;&amp;gt; 5 &amp;#8211;&amp;gt; 6, val = 6
+Return: 1 &amp;#8211;&amp;gt; 2 &amp;#8211;&amp;gt; 3 &amp;#8211;&amp;gt; 4 &amp;#8211;&amp;gt; 5
+# _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def removeElements(self, head, val): &#34;&#34;&#34; :type head: ListNode :type val: int :rtype: ListNode &#34;</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Palindrome-Linked-List</title>
+      <link>https://buhuipao.github.io/2017/05/28/leetcode-palindrome-linked-list/</link>
+      <pubDate>Sun, 28 May 2017 15:41:00 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/28/leetcode-palindrome-linked-list/</guid>
+      <description>Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space? # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def isPalindrome(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: bool &#34;&#34;&#34; if not head or not head.next: return True if not head.next.next: if head.val == head.next.val: return True else: return</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–odd-even-linked-list</title>
+      <link>https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/</link>
+      <pubDate>Sun, 28 May 2017 11:43:15 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/</guid>
+      <description>最近主要练习链表的变换，这个题很经典，特别是容易忽略末尾出现的闭环 Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–reverse-nodes-in-k-group</title>
+      <link>https://buhuipao.github.io/2017/05/28/leetcode-reverse-nodes-in-k-group/</link>
+      <pubDate>Sun, 28 May 2017 06:03:17 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/28/leetcode-reverse-nodes-in-k-group/</guid>
+      <description>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–MergeKList</title>
+      <link>https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/</link>
+      <pubDate>Mon, 22 May 2017 13:57:33 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/</guid>
+      <description># _*_ coding: utf-8 _*_ &#39;&#39;&#39; Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def mergeKLists(self, lists): &#34;&#34;&#34; :type lists: List[ListNode] :rtype: ListNode 采用并归的思想 &#34;&#34;&#34; # 过滤空链表 _list = filter(lambda node: node, lists) return self.merge_help(_list) def merge_help(self,</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–链表排序O(nlogn)</title>
+      <link>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</link>
+      <pubDate>Sun, 21 May 2017 05:36:41 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</guid>
+      <description># _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 =</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–统计更小值数量</title>
+      <link>https://buhuipao.github.io/2017/05/19/leetcode-countsmaller/</link>
+      <pubDate>Fri, 19 May 2017 08:45:55 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/19/leetcode-countsmaller/</guid>
+      <description>Time: O(nlogn) Space: O(n) You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]. Example: Given nums = [5, 2, 6, 1] To the right of 5 there are 2 smaller elements (2 and 1). To the right of 2 there is only 1 smaller</description>
+    </item>
+    
+    <item>
+      <title>LeetCode－－实现字典树</title>
+      <link>https://buhuipao.github.io/2017/05/18/leetcode-imp-trietree/</link>
+      <pubDate>Thu, 18 May 2017 13:34:59 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/18/leetcode-imp-trietree/</guid>
+      <description>class TrieNode(object): def __init__(self): self.is_word = False # 某个节点是否为单词，一般默认为path（路径） # 当有单词录入时，变为True self.leaves = {} class Trie(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. &#34;&#34;&#34; self.root = TrieNode() def insert(self, word): &#34;&#34;&#34; Inserts a word</description>
+    </item>
+    
+    <item>
+      <title>算法－－按层打印二叉树</title>
+      <link>https://buhuipao.github.io/2017/05/18/algorithm-print-tree/</link>
+      <pubDate>Thu, 18 May 2017 11:54:27 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/18/algorithm-print-tree/</guid>
+      <description># _*_ coding: utf-8 _*_ # 按层打印二叉树 class TreeNode(object): def __init__(self, val): self.val = val self.left = None self.right = None class PrintTree(object): def printTree(self, root): if not root: return &#39;&#39;&#39; 定义next_last为下一层的最后一个，cur_last为当前层</description>
+    </item>
+    
+    <item>
+      <title>LeetCode－－字典树的添加和搜索单词</title>
+      <link>https://buhuipao.github.io/2017/05/18/leetcode_trietree/</link>
+      <pubDate>Thu, 18 May 2017 08:44:26 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/18/leetcode_trietree/</guid>
+      <description># _*_ coding: utf-8 _*_ &#39;&#39;&#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&#34;bad&#34;) addWord(&#34;dad&#34;) addWord(&#34;mad&#34;) search(&#34;pad&#34;) -&amp;gt; false</description>
+    </item>
+    
+    <item>
+      <title>记一道去哪儿的笔试题</title>
+      <link>https://buhuipao.github.io/2016/10/16/qunar-coding-test/</link>
+      <pubDate>Sun, 16 Oct 2016 03:14:58 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/10/16/qunar-coding-test/</guid>
+      <description>昨天参加了去哪儿的笔试题，给我分的软件开发卷，两道编程和一个系统设计，两道都不没有完全通过，有一道后来知道自己考虑不周，于是打算重新写一边，</description>
+    </item>
+    
+    <item>
+      <title>记一道Google Test</title>
+      <link>https://buhuipao.github.io/2016/10/12/google-test/</link>
+      <pubDate>Wed, 12 Oct 2016 10:34:50 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/10/12/google-test/</guid>
+      <description>自己算法太烂太渣，只有慢慢练，一个运维还是得会写代码，看得懂代码。所以最近一边面试一边自己找题目练习。原题是： Problem The Constitution of a certain country states that the leader is the person with</description>
+    </item>
+    
+    <item>
+      <title>记网易笔试两道编程题</title>
+      <link>https://buhuipao.github.io/2016/09/12/netease-coding-test/</link>
+      <pubDate>Mon, 12 Sep 2016 14:28:47 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/12/netease-coding-test/</guid>
+      <description>第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 1 # coding:utf-8 2 3 import sys 4 import math 5 6 for line in sys.stdin: 7 a = line.split() 8 R = int(a[0]) 9 10 r</description>
+    </item>
+    
+    <item>
+      <title>理解Python中super()和__init__()方法</title>
+      <link>https://buhuipao.github.io/2016/09/07/python_super__init__/</link>
+      <pubDate>Wed, 07 Sep 2016 07:20:07 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/07/python_super__init__/</guid>
+      <description>在实用多线程编程时，在栈溢出网站有看到多种方法，比如直接用函数，有用class继承，代码如下： class Mon(object): def __init__(self): print &#34;Mon created&#34; class Child(Base): def __init__(self): Mon.__init__(self) ... 但也有发现另外一种继</description>
+    </item>
+    
+    <item>
+      <title>记一个京东技术运营的编程题</title>
+      <link>https://buhuipao.github.io/2016/09/06/jingdong-codingtest/</link>
+      <pubDate>Tue, 06 Sep 2016 09:50:39 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/06/jingdong-codingtest/</guid>
+      <description>昨晚参加了京东2016秋招的技术类笔试，无奈自己编程基础不扎实，昨晚一个编程题弄了45来分钟也没完整解决，今天实习比较闲，所以依据记忆终于解</description>
+    </item>
+    
+    <item>
+      <title>Python爬虫–爬取糗事百科段子</title>
+      <link>https://buhuipao.github.io/2016/08/25/python-spider-duanzi/</link>
+      <pubDate>Thu, 25 Aug 2016 04:43:26 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/25/python-spider-duanzi/</guid>
+      <description>学习python爬虫，先从爬糗事百科开始。 #!/bin/env python #-*- coding:utf-8 -*- import urllib2 import urllib import re import thread class DZ(object): def __init__(self): self.pagenum = 1 self.user_agent = &#39;Mazilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39; self.headers = {&#39;User-Agent&#39;: self.user_agent} self.stories = [] self.enable = False self.pageIndex = 1 #传入某一页的索</description>
+    </item>
+    
+    <item>
+      <title>Python—-str,list,dict,set,tuple的互相转换和操作</title>
+      <link>https://buhuipao.github.io/2016/07/29/python-str-list-dict-set-tuple/</link>
+      <pubDate>Fri, 29 Jul 2016 08:08:45 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/07/29/python-str-list-dict-set-tuple/</guid>
+      <description>Python的字符操作很常用，应此需要熟记于心； 将str转换为list以及list转化为str： &amp;gt;&amp;gt;s=&#39;abcdef&#39; &amp;gt;&amp;gt;l=list(s) &amp;gt;&amp;gt;l &amp;gt;&amp;gt;[&#39;a&#39;, &#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;f&#39;] &amp;gt;&amp;gt;&#39;&#39;.join(l) &amp;gt;&amp;gt;&#39;abcdef&#39;</description>
+    </item>
+    
+  </channel>
+</rss>

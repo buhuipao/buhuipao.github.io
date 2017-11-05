@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hashtab on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/hashtab/</link>
+    <description>Recent content in Hashtab on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 03 Jun 2017 04:59:20 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/tags/hashtab/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LeetCode–brick_wall</title>
+      <link>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</link>
+      <pubDate>Sat, 03 Jun 2017 04:59:20 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</guid>
+      <description>比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–longest_substring_without_repeating_char</title>
+      <link>https://buhuipao.github.io/2017/06/03/leetcode-longest_substring_without_repeating_char/</link>
+      <pubDate>Sat, 03 Jun 2017 03:46:40 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/03/leetcode-longest_substring_without_repeating_char/</guid>
+      <description>这是一个面试的经典题，明显是个送分题：） Given a string, find the length of the longest substring without repeating characters. Examples: Given &amp;#8220;abcabcbb&amp;#8221;, the answer is &amp;#8220;abc&amp;#8221;, which the length is 3. Given &amp;#8220;bbbbb&amp;#8221;, the answer is &amp;#8220;b&amp;#8221;, with the length of 1. Given &amp;#8220;pwwkew&amp;#8221;, the answer is &amp;#8220;wke&amp;#8221;, with the length of 3. Note that the</description>
+    </item>
+    
+  </channel>
+</rss>

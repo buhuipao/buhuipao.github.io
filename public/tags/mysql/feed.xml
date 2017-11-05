@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/mysql/</link>
+    <description>Recent content in Mysql on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Aug 2016 15:56:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/tags/mysql/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>本站的改造升级，全站https失败</title>
+      <link>https://buhuipao.github.io/2016/08/29/web-update-https/</link>
+      <pubDate>Mon, 29 Aug 2016 15:56:52 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/29/web-update-https/</guid>
+      <description>最近的找工作压力很大，我这”洁癖男“在压力下想换个思路转一下注意力，以便下一步高效复习准备接下来的运维开发的笔试面试。于是想起自己的网站如今</description>
+    </item>
+    
+    <item>
+      <title>Mysql的基本操作（1）</title>
+      <link>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</link>
+      <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</guid>
+      <description>登陆数据库： mysql buhuipao_db -u buhuipao -p123456 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接</description>
+    </item>
+    
+  </channel>
+</rss>

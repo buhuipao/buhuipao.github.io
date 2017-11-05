@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heap on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/heap/</link>
+    <description>Recent content in Heap on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 01 Jul 2017 04:42:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/tags/heap/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LeetCode-Find_Median_from_Data_Stream</title>
+      <link>https://buhuipao.github.io/2017/07/01/leetcode-find_median_from_data_stream/</link>
+      <pubDate>Sat, 01 Jul 2017 04:42:14 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/07/01/leetcode-find_median_from_data_stream/</guid>
+      <description>LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之</description>
+    </item>
+    
+  </channel>
+</rss>

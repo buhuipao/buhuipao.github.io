@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on 不会跑</title>
+    <link>https://buhuipao.github.io/categories/web/</link>
+    <description>Recent content in Web on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 03 Apr 2017 09:18:45 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/categories/web/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>果然我也遇到了gevent.hub.LoopExit的报错了</title>
+      <link>https://buhuipao.github.io/2017/04/03/%E6%9E%9C%E7%84%B6%E6%88%91%E4%B9%9F%E9%81%87%E5%88%B0%E4%BA%86gevent-hub-loopexit%E7%9A%84%E6%8A%A5%E9%94%99%E4%BA%86/</link>
+      <pubDate>Mon, 03 Apr 2017 09:18:45 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/04/03/%E6%9E%9C%E7%84%B6%E6%88%91%E4%B9%9F%E9%81%87%E5%88%B0%E4%BA%86gevent-hub-loopexit%E7%9A%84%E6%8A%A5%E9%94%99%E4%BA%86/</guid>
+      <description>gevent.hub.LoopExit: (&amp;#8216;This operation would block forever&amp;#8217;, &amp;gt; threadpool=&amp;gt;)
+http://xiaorui.cc/2016/08/07/%E5%85%B3%E4%BA%8Egevent-queue%E9%81%AD%E9%81%87hub-loopexit%E9%97%AE%E9%A2%98/</description>
+    </item>
+    
+    <item>
+      <title>历经4个预览版本，Drupal8 终于完工</title>
+      <link>https://buhuipao.github.io/2015/11/19/drupal8/</link>
+      <pubDate>Thu, 19 Nov 2015 15:53:12 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2015/11/19/drupal8/</guid>
+      <description>再经过多次修改开发之后，今晚（2015/11/19）Drupal8终于完工，这是一个伟大的工程，意味着Drupal又进入了新的的时代，一个移</description>
+    </item>
+    
+  </channel>
+</rss>
