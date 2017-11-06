@@ -54,6 +54,10 @@ paginatePath = "post"
     URL = "/note"
     Weight = 2
   [[Menu.Main]]
+    Name = "友链"
+    URL = "/link"
+    Weight = 3
+  [[Menu.Main]]
     Name = "关于"
     URL = "/about"
-    Weight = 3
+    Weight = 4
