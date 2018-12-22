@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>成长 on 不会跑</title>
+    <link>https://buhuipao.github.io/categories/%E6%88%90%E9%95%BF/</link>
+    <description>Recent content in 成长 on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 06 Nov 2017 01:16:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/categories/%E6%88%90%E9%95%BF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>九月到十月的总结记录</title>
+      <link>https://buhuipao.github.io/2017/11/06/read-note/</link>
+      <pubDate>Mon, 06 Nov 2017 01:16:52 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/11/06/read-note/</guid>
+      <description>总结起自己最近的两个月，大概就是有了以下的一些收获: 为了现在领导给我的第一个任务，八月是把后端写了(包括从零开始学golang), 九月一直在</description>
+    </item>
+    
+  </channel>
+</rss>

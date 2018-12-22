@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Python</title><meta name="generator" content="Hugo 0.52" /><link rel="alternate" type="application/rss+xml" title="不会跑 Feed" href="https://buhuipao.github.io/categories/python/index.xml"><link rel="canonical" href="https://buhuipao.github.io/categories/python/">
+        
+
+<link rel="dns-prefetch" href="https://use.fontawesome.com/" />
+<link rel="preconnect" href="https://use.fontawesome.com/" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+
+
+<link rel="stylesheet" href="https://buhuipao.github.io/css/foundation.min.d6ffcedc40c296407dc2dc9da20a8c23f773b6a4d85035aef269a254accbaf1c.css" integrity="sha256-1v/O3EDClkB9wtydogqMI/dztqTYUDWu8mmiVKzLrxw=">
+  <link rel="stylesheet" href="/styles.css" ><link rel="stylesheet" href="/css/bundle.b010d4ae7b22b4c9b4ac378e41b35ddb569242c8cf167dfc6e2ea6b3e5adc73f.css" integrity="sha256-sBDUrnsitMm0rDeOQbNd21aSQsjPFn38bi6ms+Wtxz8=">
+    <link rel="stylesheet" href="https://buhuipao.github.io/css/list.min.98c794b9463ca90b39ad9aa66fd65a2e60ffb9c822b873df28bf5f0389bf2b73.css" integrity="sha256-mMeUuUY8qQs5rZqmb9ZaLmD/ucgiuHPfKL9fA4m/K3M=">
+
+
+<link rel="preload" media="print" type="text/css" href="https://buhuipao.github.io/css/print.min.2e0961e511885e38a09cc9a9ff3de5ce7d7d2186bb9ed98a61f176688d4ef61a.css" integrity="sha256-Lglh5RGIXjignMmp/z3lzn19IYa7ntmKYfF2aI1O9ho=" as="style"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
+
+<link rel="preload" href="https://buhuipao.github.io/index.json" as="fetch" />
+
+<link rel="stylesheet" href="https://buhuipao.github.io/css/widgets/search.min.5561d0b8fcf8e2a7d3d0fcbe830ba8a5743255be7f849e564d3849a7cc1ba725.css" integrity="sha256-VWHQuPz44qfT0Py+gwuopXQyVb5/hJ5WTThJp8wbpyU=">
+<link rel="stylesheet" href="https://buhuipao.github.io/css/widgets/taglist.min.59f177c0ac5a5ae6b88ede8a87029d4012b1bdf53e37d2ccf5873832626a77f3.css" integrity="sha256-WfF3wKxaWua4jt6KhwKdQBKxvfU+N9LM9Yc4MmJqd/M=">
+
+    <meta name="theme-color" content="#2073c9">
+    <meta name="apple-mobile-web-app-title" content="不会跑">
+    <meta name="application-name" content="不会跑">
+
+    </head>
+    <body itemscope itemtype="http://schema.org/WebPage">
+        <div class="off-canvas-wrapper">
+            <button id="off-canvas-toggle" type="button" class="button hide-for-medium" aria-label="Open Menu" data-toggle="main-nav-off-canvas">
+                <span class="fas fa-bars"></span>
+            </button>
+            <div class="off-canvas position-left" id="main-nav-off-canvas" data-off-canvas>
+                <nav>
+                    <ul class="vertical menu drilldown" data-drilldown><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/" >
+            首页
+        </a></li><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/note" >
+            学习总结
+        </a></li><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/link" >
+            友链
+        </a></li><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/about" >
+            关于
+        </a></li></ul>
+                </nav>
+            </div>
+        <div id="site-container" class="grid-container full off-canvas-content">
+                <div class="grid-x full grid-container data-off-canvas-content">
+                    <div id="site-header" class="cell">
+                        <a href="https://buhuipao.github.io/">
+                            <header class="small-text-center medium-text-left grid-x">
+                                <div id="site-title-container" class="cell shrink grid-y">
+                                    <div id="site-title" class="cell shrink" itemprop="name">不会跑</div>
+                                    
+                                </div>
+                            </header>
+                        </a>
+                        <nav id="main-nav" class="small-hide">
+                          <ul class="dropdown menu" data-dropdown-menu><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/" >
+            首页
+        </a></li><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/note" >
+            学习总结
+        </a></li><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/link" >
+            友链
+        </a></li><li itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a class="main-nav button" tabindex="0" href="https://buhuipao.github.io/about" >
+            关于
+        </a></li></ul>
+                        </nav>
+                        </div>
+                    <div id="main-container" class="cell grid-x grid-padding-x grid-container" role="main" itemprop="mainContentOfPage">
+                        
+                        
+                        
+                        
+                        
+                        
+<main id="post-list" class="cell medium-8"><header id="page-header">
+			<h1 id="page-title">Category: Python</h1>
+		</header>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/">
+                <h2 itemprop="headline">LeetCode–brick_wall</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">June 03, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall
+                    
+                        <a href="https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/">
+                            [Read more<span class="sr-text"> from LeetCode–brick_wall</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/06/03/leetcode-longest_substring_without_repeating_char/">
+                <h2 itemprop="headline">LeetCode–longest_substring_without_repeating_char</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">June 03, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>这是一个面试的经典题，明显是个送分题：） Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the length of 1. Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the
+                    
+                        <a href="https://buhuipao.github.io/2017/06/03/leetcode-longest_substring_without_repeating_char/">
+                            [Read more<span class="sr-text"> from LeetCode–longest_substring_without_repeating_char</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/">
+                <h2 itemprop="headline">LeetCode–Convert_Sorted_List_to_Binary_Search_Tree</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">June 02, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class TreeNode(object): def __init__(self, x): self.val = x self.left = None self.right = None class Solution(object): def sortedListToBST(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: TreeNode 每次找到中位数，然后
+                    
+                        <a href="https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/">
+                            [Read more<span class="sr-text"> from LeetCode–Convert_Sorted_List_to_Binary_Search_Tree</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/">
+                <h2 itemprop="headline">LeetCode–Remove_Duplicates_from_Sorted_List_II</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">June 01, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example, Given 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5, return 1-&gt;2-&gt;5. Given 1-&gt;1-&gt;1-&gt;2-&gt;3, return 2-&gt;3. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def deleteDuplicates(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; if not head or not head.next: return head dummy = ListNode(None) node,
+                    
+                        <a href="https://buhuipao.github.io/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/">
+                            [Read more<span class="sr-text"> from LeetCode–Remove_Duplicates_from_Sorted_List_II</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/06/01/leetcode-reverse_linked_list_ii/">
+                <h2 itemprop="headline">LeetCode–reverse_linked_list_II</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">June 01, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2 and n = 4, return 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL. Note: Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def reverseBetween(self, head, m, n): &#34;&#34;&#34; :type
+                    
+                        <a href="https://buhuipao.github.io/2017/06/01/leetcode-reverse_linked_list_ii/">
+                            [Read more<span class="sr-text"> from LeetCode–reverse_linked_list_II</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/05/29/leetcode-remove-linked-list-elements/">
+                <h2 itemprop="headline">LeetCode–Remove-Linked-List-Elements</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">May 28, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>Remove all elements from a linked list of integers that have value val. Example Given: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6, val = 6 Return: 1 –&gt; 2 –&gt; 3 –&gt; 4 –&gt; 5 # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def removeElements(self, head, val): &#34;&#34;&#34; :type head: ListNode :type val: int
+                    
+                        <a href="https://buhuipao.github.io/2017/05/29/leetcode-remove-linked-list-elements/">
+                            [Read more<span class="sr-text"> from LeetCode–Remove-Linked-List-Elements</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/05/28/leetcode-palindrome-linked-list/">
+                <h2 itemprop="headline">LeetCode–Palindrome-Linked-List</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">May 28, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space? # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def isPalindrome(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: bool &#34;&#34;&#34; if not head or not head.next: return True if not head.next.next: if head.val == head.next.val: return True else: return
+                    
+                        <a href="https://buhuipao.github.io/2017/05/28/leetcode-palindrome-linked-list/">
+                            [Read more<span class="sr-text"> from LeetCode–Palindrome-Linked-List</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/">
+                <h2 itemprop="headline">LeetCode–odd-even-linked-list</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">May 28, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>最近主要练习链表的变换，这个题很经典，特别是容易忽略末尾出现的闭环 Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do
+                    
+                        <a href="https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/">
+                            [Read more<span class="sr-text"> from LeetCode–odd-Even-Linked-List</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/05/28/leetcode-reverse-nodes-in-k-group/">
+                <h2 itemprop="headline">LeetCode–reverse-nodes-in-k-group</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">May 28, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only
+                    
+                        <a href="https://buhuipao.github.io/2017/05/28/leetcode-reverse-nodes-in-k-group/">
+                            [Read more<span class="sr-text"> from LeetCode–reverse-Nodes-in-K-Group</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"><div>
+        <header class="post-list-title">
+            <a href="https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/">
+                <h2 itemprop="headline">LeetCode–MergeKList</h2>
+            </a>
+            <div class="metadata"><div>
+                <span class="far fa-clock" aria-hidden></span>
+                <span class="sr-text">Published: </span>
+                <time datetime="" itemprop="datePublished">May 22, 2017</time>
+                </div></div>
+        </header>
+        <div class="post-list-summary" itemprop="description">
+            <p># _*_ coding: utf-8 _*_ &#39;&#39;&#39; Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def mergeKLists(self, lists): &#34;&#34;&#34; :type lists: List[ListNode] :rtype: ListNode 采用并归的思想 &#34;&#34;&#34; # 过滤空链表 _list = filter(lambda node: node, lists) return self.merge_help(_list) def merge_help(self,
+                    
+                        <a href="https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/">
+                            [Read more<span class="sr-text"> from LeetCode–MergeKList</span>...]
+                        </a>
+                    </p>
+        </div>
+    </div>
+</article>
+<ul class="pagination grid-x full">
+    <li class="pagination-previous cell small-order-3 medium-auto medium-order-1">
+        <a class="button" href="https://buhuipao.github.io/categories/python/post/3/">
+        Previous
+        </a>
+    </li>
+    <li class="button disabled current cell small-order-1 medium-auto medium-order-2">
+        Page 4 of 6
+    </li>
+    <li class="pagination-next cell auto small-order-2 medium-auto medium-order-3">
+        <a class="button" href="https://buhuipao.github.io/categories/python/post/5/">
+            Next
+        </a>
+    </li>
+</ul></main>
+                        <aside class="cell small-12 small-order-2 medium-4" itemscope itemtype="http://schema.org/WPSideBar">&#34;home&#34; needs to have an output format of &#34;JSON&#34; for search to work!<div class="widget" id="search-container">
+    <header>
+        <span class="widget-header"><span class="fas fa-search fa-xs" aria-hidden></span> Search</span>
+    </header>
+    <input type="search" name="search" id="searchbox" placeholder="Search..." autocomplete="off"/>
+    <div id="search-results" class="grid-y hide"></div>
+</div>
+<div class="widget">
+    
+    
+        
+    
+
+    
+        
+            
+        
+	
+	<header>
+		<span class="widget-header"><span class="fas fa-pencil-alt fa-xs" aria-hidden></span> <a href="https://buhuipao.github.io/post/">Recent Posts</a></span>
+	</header>
+	
+			<a class="widget-header-small button" href="https://buhuipao.github.io/index.xml"><span class="fas fa-rss fa-xs" aria-hidden></span> Subscribe to the Site</a>
+		<a class="widget-header-small button" href="https://buhuipao.github.io/categories/python/index.xml"><span class="fas fa-rss fa-xs" aria-hidden></span> Subscribe to Python</a><ul><li><a href="https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">转换BST为一个双向链表</a></li><li><a href="https://buhuipao.github.io/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/">稳定婚姻匹配问题</a></li><li><a href="https://buhuipao.github.io/2017/08/26/%E5%80%92%E6%B0%B4%E9%97%AE%E9%A2%98-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/">倒水问题-经典面试题</a></li><li><a href="https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/">LeetCode-Unique_Binary_Search_Trees</a></li><li><a href="https://buhuipao.github.io/2017/07/09/linux-buddy-algorithm/">[转]伙伴算法</a></li><li><a href="https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/">LeetCode-LFU_Cache</a></li><li><a href="https://buhuipao.github.io/2017/07/01/leetcode-find_median_from_data_stream/">LeetCode-Find_Median_from_Data_Stream</a></li><li><a href="https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/">LeetCode-Binary_Search_Tree_Iterator</a></li><li><a href="https://buhuipao.github.io/2017/06/29/leetcode-design_twitter/">LeetCode-Design_Twitter</a></li><li><a href="https://buhuipao.github.io/2017/06/29/leetcode-min_stack/">LeetCode-Min_Stack</a></li></ul>
+</div>
+<div class="widget">
+	<header>
+		<span class="widget-header"><span class="fas fa-tags fa-xs" aria-hidden></span> <a href="https://buhuipao.github.io/tags/">Tags</a></span>
+	</header>
+	<div class="grid-x grid-padding-x" id="sidebar-tags"><a class="cell shrink" href="https://buhuipao.github.io/tags/python/" title="python">
+                python
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E7%AE%97%E6%B3%95/" title="算法">
+                算法
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/ip/" title="ip">
+                ip
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E9%93%BE%E8%A1%A8/" title="链表">
+                链表
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/leetcode/" title="leetcode">
+                leetcode
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/linux/" title="linux">
+                linux
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/head/" title="head">
+                head
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/bst/" title="bst">
+                bst
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/shell/" title="shell">
+                shell
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/https/" title="https">
+                https
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/ps/" title="ps">
+                ps
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划">
+                动态规划
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/algorithm/" title="algorithm">
+                algorithm
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/dp/" title="dp">
+                dp
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/host/" title="host">
+                host
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/ssh/" title="ssh">
+                ssh
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/tcp/ip/" title="tcp/ip">
+                tcp/ip
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/bfs/" title="bfs">
+                bfs
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/centos7/" title="centos7">
+                centos7
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/chromebook/" title="chromebook">
+                chromebook
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/docker/" title="docker">
+                docker
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/fork/" title="fork">
+                fork
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/grep/" title="grep">
+                grep
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/hashtab/" title="hashtab">
+                hashtab
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/mysql/" title="mysql">
+                mysql
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/ubuntu/" title="ubuntu">
+                ubuntu
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树">
+                二叉树
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E5%AD%97%E5%85%B8%E6%A0%91/" title="字典树">
+                字典树
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E6%8E%92%E5%BA%8F/" title="排序">
+                排序
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" title="网络协议">
+                网络协议
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/apue/" title="apue">
+                apue
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/aupe/" title="aupe">
+                aupe
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/dfs/" title="dfs">
+                dfs
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/drupal/" title="drupal">
+                drupal
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/exec/" title="exec">
+                exec
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/heap/" title="heap">
+                heap
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/html5/" title="html5">
+                html5
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/java/" title="java">
+                java
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/jtag/" title="jtag">
+                jtag
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/jvm/" title="jvm">
+                jvm
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/lcs/" title="lcs">
+                lcs
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/lfu/" title="lfu">
+                lfu
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/lis/" title="lis">
+                lis
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/mbr/" title="mbr">
+                mbr
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/mongodb/" title="mongodb">
+                mongodb
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/nokia/" title="nokia">
+                nokia
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/qhsusb_dload/" title="qhsusb dload">
+                qhsusb dload
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/stack/" title="stack">
+                stack
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/tree/" title="tree">
+                tree
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6/" title="三目运算符">
+                三目运算符
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="二分查找">
+                二分查找
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E4%BA%8C%E5%88%86%E6%B3%95/" title="二分法">
+                二分法
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E4%BC%99%E4%BC%B4%E7%AE%97%E6%B3%95/" title="伙伴算法">
+                伙伴算法
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E5%86%85%E5%AD%98/" title="内存">
+                内存
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E5%A0%86/" title="堆">
+                堆
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E5%B9%B6%E5%BD%92/" title="并归">
+                并归
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" title="序列化">
+                序列化
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/" title="拥塞控制">
+                拥塞控制
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">
+                数据结构
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" title="滑动窗口">
+                滑动窗口
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E7%88%AC%E8%99%AB/" title="爬虫">
+                爬虫
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E7%A0%81%E5%86%9C/" title="码农">
+                码农
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" title="系统设计">
+                系统设计
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E7%BA%BF%E7%A8%8B/" title="线程">
+                线程
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E8%81%9A%E5%90%88/" title="聚合">
+                聚合
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E8%AE%BE%E8%AE%A1/" title="设计">
+                设计
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%BA%8F%E5%88%97/" title="连续子序列">
+                连续子序列
+			</a><a class="cell shrink" href="https://buhuipao.github.io/tags/%E9%BB%91%E7%A0%96/" title="黑砖">
+                黑砖
+			</a></div>
+</div>
+</aside>
+
+                    </div>
+                    <footer class="cell grid-x full align-middle">
+    <div class="cell medium-4 small-text-center medium-text-left medium-left small-order-1 grid-x">
+        <div class="cell">
+            <small>
+                &copy; 2018
+                <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        map[name:buhuipao].
+                    </span>
+                </span>
+            </small>
+        </div>
+        <div class="cell">
+            <small>
+                Built with <a href="https://gohugo.io">Hugo</a> and <a href="https://bluestnight.com/products/midnight/">Midnight</a>.
+            </small>
+        </div>
+        
+    </div>
+    <div class="cell medium-4 small-text-center medium-text-center small-order-2 grid-x">
+        
+        <div class="cell small-full small-text-center grid-x">
+            
+            
+            
+        </div>
+    </div>
+    <div id="social-icons" class="grid-x cell medium-4 small-text-center small-order-3 medium-text-right">
+</div>
+</footer>
+
+                </div>
+            </div>
+            
+<script type="text/javascript" src="https://buhuipao.github.io/js/iubenda.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+
+<script type="text/javascript" src="https://buhuipao.github.io/js/jquery.slim.min.766486af7a81bc2f1866d9b533267e0b1b850777b2bcf55295f5e285631f81b3.js" integrity="sha256-dmSGr3qBvC8YZtm1MyZ&#43;CxuFB3eyvPVSlfXihWMfgbM=" defer></script><script type="text/javascript" src="https://buhuipao.github.io/js/foundation.min.fb3831ae6e67578c11b76aeb20714c78af6563641917b09680aec5956e012f7f.js" integrity="sha256-&#43;zgxrm5nV4wRt2rrIHFMeK9lY2QZF7CWgK7FlW4BL38=" defer></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js" defer></script><script type="text/javascript" src="https://buhuipao.github.io/js/widgets/search.min.625502731d206a81e3f0928738179a73e2ddb965c7c58cdf5482682374dfd455.js" integrity="sha256-YlUCcx0gaoHj8JKHOBeac&#43;LduWXHxYzfVIJoI3Tf1FU=" defer></script><script type="text/javascript" src="https://buhuipao.github.io/js/index.min.e22883a04526785bb35feb658da4974c160999432286921d7df30235cc21e4f3.js" integrity="sha256-4iiDoEUmeFuzX&#43;tljaSXTBYJmUMihpIdffMCNcwh5PM=" defer></script>
+        </div>
+    </body>
+</html>
