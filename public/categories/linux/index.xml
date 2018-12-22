@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 不会跑</title>
+    <link>https://buhuipao.github.io/categories/linux/</link>
+    <description>Recent content in Linux on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 09 Jul 2017 09:05:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[转]伙伴算法</title>
+      <link>https://buhuipao.github.io/2017/07/09/linux-buddy-algorithm/</link>
+      <pubDate>Sun, 09 Jul 2017 09:05:30 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/07/09/linux-buddy-algorithm/</guid>
+      <description>1.什么是伙伴 两个块大小相同 两个块地址连续 同属于一个大块(第0块和第1块是伙伴，第2块和第3块是伙伴，但是第1块和第2块不是伙伴） 2.伙伴位</description>
+    </item>
+    
+    <item>
+      <title>AUPE-11-线程同步及线程的Fork</title>
+      <link>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</link>
+      <pubDate>Wed, 21 Jun 2017 04:39:30 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</guid>
+      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： # include &#34;pthread_h&#34; int pthread_create(pthread_t * restrict tidp, const pthread_attr_t *resrict attr, void *(*start_rtm) (void), void *restrict arg); 线程同步： 互斥量（锁），但需要避免</description>
+    </item>
+    
+    <item>
+      <title>APUE-8-进程控制之Fork</title>
+      <link>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</link>
+      <pubDate>Wed, 21 Jun 2017 03:15:52 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</guid>
+      <description>最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用get</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://buhuipao.github.io/2017/03/06/test/</link>
+      <pubDate>Mon, 06 Mar 2017 15:03:22 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/03/06/test/</guid>
+      <description>lalala&amp;#8230;.</description>
+    </item>
+    
+    <item>
+      <title>[转载] Http的1.0/1.1/2.0的理解</title>
+      <link>https://buhuipao.github.io/2016/10/11/http-https/</link>
+      <pubDate>Tue, 11 Oct 2016 04:42:16 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/10/11/http-https/</guid>
+      <description>先说Http1.0和Http1.1，都是支持Gzip(之前我有误解)的,http 1.0中默认是关闭的，需要在http头加入&amp;#8221;Co</description>
+    </item>
+    
+    <item>
+      <title>[转载] Linux 文件以及inode</title>
+      <link>https://buhuipao.github.io/2016/09/23/linux-file-inode/</link>
+      <pubDate>Fri, 23 Sep 2016 03:28:25 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/23/linux-file-inode/</guid>
+      <description>inode是一个重要概念，是理解Unix/Linux文件系统和硬盘储存的基础。 我觉得，理解inode，不仅有助于提高系统操作水平，还有助于体</description>
+    </item>
+    
+    <item>
+      <title>关于fork和操作系统一些知识</title>
+      <link>https://buhuipao.github.io/2016/09/16/fork-system-status-route/</link>
+      <pubDate>Fri, 16 Sep 2016 11:16:48 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/16/fork-system-status-route/</guid>
+      <description>A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： main{ fork() || fork() } 共创建了（３）个进程 解释是： fork()给子进程返回一个</description>
+    </item>
+    
+    <item>
+      <title>Linux 进程杂乱总结</title>
+      <link>https://buhuipao.github.io/2016/09/13/linux-process/</link>
+      <pubDate>Tue, 13 Sep 2016 03:46:16 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/13/linux-process/</guid>
+      <description>我们知道在unix/linux中，正常情况下，子进程是通过父进程创建的，子进程在创建新的进程。子进程的结束和父进程的运行是一个异步过程,即父</description>
+    </item>
+    
+    <item>
+      <title>不再缘木求鱼，时间如此宝贵，Docker下ubuntu安装QQ失败</title>
+      <link>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</link>
+      <pubDate>Wed, 07 Sep 2016 16:55:16 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</guid>
+      <description>今下午本来是准备照着国外的一个教程，好好跟着过写一遍如何用python写一个异步web服务端，但是无意中看到一个QQ的新闻，于是想起来很久之</description>
+    </item>
+    
+    <item>
+      <title>本站的改造升级，全站https失败</title>
+      <link>https://buhuipao.github.io/2016/08/29/web-update-https/</link>
+      <pubDate>Mon, 29 Aug 2016 15:56:52 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/29/web-update-https/</guid>
+      <description>最近的找工作压力很大，我这”洁癖男“在压力下想换个思路转一下注意力，以便下一步高效复习准备接下来的运维开发的笔试面试。于是想起自己的网站如今</description>
+    </item>
+    
+    <item>
+      <title>计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手</title>
+      <link>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</link>
+      <pubDate>Sun, 28 Aug 2016 13:21:37 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</guid>
+      <description>ARP/RARP协议 路由选择协议 TCP/IP协议 UDP协议 DNS协议 NAT协议 DHCP协议 HTTP协议 一个举例 ARP/RARP协议 地址解析协</description>
+    </item>
+    
+    <item>
+      <title>计算机网络基础知识总结（1）–网络层，IP，主机，子网</title>
+      <link>https://buhuipao.github.io/2016/08/28/network-ip-mask-host/</link>
+      <pubDate>Sun, 28 Aug 2016 13:09:25 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/28/network-ip-mask-host/</guid>
+      <description>网络层次划分 OSI七层网络模型 IP地址 子网掩码及网络划分 计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进行数据交换而建</description>
+    </item>
+    
+    <item>
+      <title>【转载WIKI】关于MBR–主引导记录</title>
+      <link>https://buhuipao.github.io/2016/08/20/mbr-wiki/</link>
+      <pubDate>Sat, 20 Aug 2016 09:32:31 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/20/mbr-wiki/</guid>
+      <description>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后</description>
+    </item>
+    
+    <item>
+      <title>Linux下/etc的hosts,hosts.conf,hostname, resolv.conf,hosts.deny/allow文件解释</title>
+      <link>https://buhuipao.github.io/2016/08/16/linux-etc-host/</link>
+      <pubDate>Tue, 16 Aug 2016 03:31:21 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/16/linux-etc-host/</guid>
+      <description>hosts文件： hosts文件的作用相当如DNS，提供IP地址到hostname的对应。 说明： 早期的互联网计算机少，单机hosts文件里足够</description>
+    </item>
+    
+    <item>
+      <title>/etc/hosts.allow和/etc/hosts.deny配置解释</title>
+      <link>https://buhuipao.github.io/2016/08/16/etchosts-allow-etchosts-deny/</link>
+      <pubDate>Tue, 16 Aug 2016 03:27:27 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/16/etchosts-allow-etchosts-deny/</guid>
+      <description>/etc/hosts.allow和/etc/hosts.deny两个文件是控制远程访问设置的， 修改/etc/hosts.allow文件 sshd:210.13.118.* sshd:222.127.15.* 两</description>
+    </item>
+    
+    <item>
+      <title>保持SSH连接不断线（服务端，客户端）</title>
+      <link>https://buhuipao.github.io/2016/08/12/ssh-keep-connected/</link>
+      <pubDate>Fri, 12 Aug 2016 04:26:12 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2016/08/12/ssh-keep-connected/</guid>
+      <description>最近一直游荡于各个校招群，清早群里有人问到如何保持ssh连接，群内有人提出用screen，和nohup等解决办法，不久前我配置Ganglia</description>
+    </item>
+    
+    <item>
+      <title>搬运墙外Chromebook的Chrubuntu方法安装ubuntu</title>
+      <link>https://buhuipao.github.io/2015/10/27/chromebook_chrubuntu_ubuntu/</link>
+      <pubDate>Mon, 26 Oct 2015 16:03:39 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2015/10/27/chromebook_chrubuntu_ubuntu/</guid>
+      <description>使用ChrUbuntu安装Ubuntu到新chrome笔记本 自从我开始ChrUbuntu回来 2010年12月 ,这一直是必要使用Chrome O</description>
+    </item>
+    
+  </channel>
+</rss>

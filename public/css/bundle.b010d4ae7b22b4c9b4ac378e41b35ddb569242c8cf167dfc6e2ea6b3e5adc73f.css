@@ -1,0 +1,928 @@
+html {
+    font-size: 16px;
+}
+hr {
+    width: 25%;
+    margin: auto auto 1rem;
+}
+
+blockquote {
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-fg-main);
+    color: var(--color-fg-main-faded);
+}
+
+blockquote > p:first-child::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding-right: 0.5rem;
+    content: "\f10d";
+}
+
+blockquote > p:last-child::after {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding-left: 0.5rem;
+    content: "\f10e";
+}
+
+a { text-decoration: none; }
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+input[type=search] {
+    padding: 0.5rem;
+}
+
+[type="search"] {
+    margin-bottom: 0;
+}
+/* Generated from the "Monokai" Chroma theme */
+/* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: 100%; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { background-color: #ffffcc; display: block; width: 100% }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em; display: block; }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em; }
+/* Keyword */ .chroma .k { color: #66d9ef }
+/* KeywordConstant */ .chroma .kc { color: #66d9ef }
+/* KeywordDeclaration */ .chroma .kd { color: #66d9ef }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #66d9ef }
+/* KeywordReserved */ .chroma .kr { color: #66d9ef }
+/* KeywordType */ .chroma .kt { color: #66d9ef }
+/* NameAttribute */ .chroma .na { color: #a6e22e }
+/* NameClass */ .chroma .nc { color: #a6e22e }
+/* NameConstant */ .chroma .no { color: #66d9ef }
+/* NameDecorator */ .chroma .nd { color: #a6e22e }
+/* NameException */ .chroma .ne { color: #a6e22e }
+/* NameFunction */ .chroma .nf { color: #a6e22e }
+/* NameOther */ .chroma .nx { color: #a6e22e }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #e6db74 }
+/* LiteralString */ .chroma .s { color: #e6db74 }
+/* LiteralStringAffix */ .chroma .sa { color: #e6db74 }
+/* LiteralStringBacktick */ .chroma .sb { color: #e6db74 }
+/* LiteralStringChar */ .chroma .sc { color: #e6db74 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #e6db74 }
+/* LiteralStringDoc */ .chroma .sd { color: #e6db74 }
+/* LiteralStringDouble */ .chroma .s2 { color: #e6db74 }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #e6db74 }
+/* LiteralStringInterpol */ .chroma .si { color: #e6db74 }
+/* LiteralStringOther */ .chroma .sx { color: #e6db74 }
+/* LiteralStringRegex */ .chroma .sr { color: #e6db74 }
+/* LiteralStringSingle */ .chroma .s1 { color: #e6db74 }
+/* LiteralStringSymbol */ .chroma .ss { color: #e6db74 }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #a6e22e }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+@font-face {
+  font-family: "Clear Sans";
+  src: url('fonts/clear-sans/ClearSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  src: url('fonts/clear-sans/ClearSans-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  src: url('fonts/clear-sans/ClearSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  src: url('fonts/clear-sans/ClearSans-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya";
+  src: url('fonts/alegreya/Alegreya-Regular.woff2') format('woff2'), url('fonts/alegreya/Alegreya-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Alegreya";
+  src: url('fonts/alegreya/Alegreya-Italic.woff2') format('woff2'), url('fonts/alegreya/Alegreya-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Alegreya";
+  src: url('fonts/alegreya/Alegreya-Bold.woff2') format('woff2'), url('fonts/alegreya/Alegreya-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Alegreya";
+  src: url('fonts/alegreya/Alegreya-BoldItalic.woff2') format('woff2'), url('fonts/alegreya/Alegreya-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Zilla Slab";
+  src: url('fonts/zilla-slab/ZillaSlab-Regular.woff2') format('woff2'), url('fonts/zilla-slab/ZillaSlab-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Zilla Slab";
+  src: url('fonts/zilla-slab/ZillaSlab-RegularItalic.woff2') format('woff2'), url('fonts/zilla-slab/ZillaSlab-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Zilla Slab";
+  src: url('fonts/zilla-slab/ZillaSlab-Bold.woff2') format('woff2'), url('fonts/zilla-slab/ZillaSlab-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Zilla Slab";
+  src: url('fonts/zilla-slab/ZillaSlab-BoldItalic.woff2') format('woff2'), url('fonts/zilla-slab/ZillaSlab-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('fonts/sourcecodepro/SourceCodePro-Regular.woff2') format('woff2'), url('fonts/sourcecodepro/SourceCodePro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('fonts/sourcecodepro/SourceCodePro-It.woff2') format('woff2'), url('fonts/sourcecodepro/SourceCodePro-It.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('fonts/sourcecodepro/SourceCodePro-Bold.woff2') format('woff2'), url('fonts/sourcecodepro/SourceCodePro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('fonts/sourcecodepro/SourceCodePro-BoldIt.woff2') format('woff2'), url('fonts/sourcecodepro/SourceCodePro-BoldIt.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Secret Typewriter";
+  src: url('fonts/secret-typewriter/secret-typewriter.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'aquiline-two';
+  src: url('fonts/aquiline-two/aquiline-two.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'blokletters';
+  src: url('fonts/blokletters/blokletters-regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'blokletters';
+  src: url('fonts/blokletters/blokletters-bold.woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'blokletters';
+  src: url('fonts/blokletters/blokletters-light.woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:'calligraffiti';
+  src: url('fonts/calligraffiti/calligraffiti.woff2') format('woff2'), url('fonts/calligraffiti/calligraffiti.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'felipa';
+  src: url('fonts/felipa/felipa.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:'note-this';
+  src: url('fonts/note-this/note-this.woff2') format('woff2'), url('fonts/note-this/note-this.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'over-the-rainbow';
+  src: url('fonts/over-the-rainbow/over-the-rainbow.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+header:not(.fa), h1, h2, h3, h4, h5, h6, .widget-header:not(.fas):not(.far):not(.fab), .button, #menu-toggle {
+  font-family: var(--font-header);
+}
+
+.serif, .serif * {
+  font-family: "Alegreya", serif !important;
+}
+
+.slab-serif, .slab-serif * {
+  font-family: "Zilla Slab", serif !important;
+}
+
+.sans-serif, .sans-serif * {
+  font-family: "Clear Sans", sans-serif !important;
+}
+
+.typewriter, .typewriter * {
+  font-family: "Secret Typewriter", monospace !important;
+}
+/* Base classes */
+.button, .drilldown a, .pagination .button, .dropdown.menu .is-active > a, .dropdown.menu a {
+    background-color: var(--color-bg-alt);
+    color: var(--color-fg-alt);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+    transition: unset;
+}
+
+.button.disabled, .button:disabled {
+    background-color: var(--color-bg-alt-transparent);
+    color: var(--color-fg-alt-transparent);
+}
+
+.button:hover:not(.disabled):not(disabled), .button:focus:not(.disabled):not(disabled),
+.button:active:not(.disabled):not(disabled), .button.active,
+.drilldown a:hover:not(.disabled):not(disabled), .drilldown a:focus:not(.disabled):not(disabled),
+.drilldown a:active:not(.disabled):not(disabled), .drilldown a.active,
+.dropdown.menu a.button.active {
+    background-color: var(--color-bg-accent);
+    color: var(--color-fg-accent) !important;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.no-select {
+    /* Thanks to https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting-using-css#4407335 */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.no-border {
+    border: 0 !important;
+}
+
+.hcenter {
+    justify-content: center;
+}
+
+.vcenter {
+    align-items: center;
+}
+
+.left  { order: -1; }
+.right { order:  1; }
+.hide { display: none !important; }
+
+.disabled {
+    /*pointer-events: none;*/
+    cursor: default;
+}
+
+/* Non-button elements that can be clicked for behavior */
+.clickable {
+    color: var(--color-bg-accent-transparent);
+}
+
+.clickable:hover {
+    color: var(--color-bg-accent);
+    cursor: pointer;
+}
+
+.badge {
+    background-color: var(--color-bg-alt);
+    color: var(--color-fg-alt);
+}
+
+a:hover .badge, .badge:hover {
+    background-color: var(--color-bg-accent);
+    color: var(--color-fg-accent);
+}
+
+/* Hide text meant for screen readers */
+/* Copied from https://rianrietveld.com/2015/04/04/the-screen-reader-text-class-why-and-how/ */
+.sr-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+    /* Not (currently) supported by browsers */
+    speak: none;
+}
+
+@media screen and (max-width: 39.9375em) {
+    .small-text-right { text-align: right; }
+    .small-text-center { text-align: center; }
+    .small-text-left { text-align: left; }
+}
+
+@media screen and (min-width: 40em) {
+    .medium-text-right { text-align: right; }
+    .medium-text-center { text-align: center; }
+    .medium-text-left { text-align: left; }
+}
+
+@media screen and (min-width: 64em) {
+    .large-text-right { text-align: right; }
+    .large-text-center { text-align: center; }
+    .large-text-left { text-align: left; }
+}
+/* Site main - pagination */
+.pagination a.button {
+  color: var(--color-fg-alt)
+}
+
+.pagination .pagination-next {
+  align-self: flex-end;
+}
+
+.pagination .pagination-page-number {
+  align-self: center;
+  text-align: center;
+  flex-shrink: 2;
+  font-weight: bold;
+}
+
+.pagination li {
+    margin-right: 0;
+}
+
+/* Entire page */
+/* Screen size selectors match Foundation's for consistency */
+@media screen and (max-width: 39.9375em) {
+    body {
+        background-image: var(--image-bg-sm);
+    }
+
+    #main-nav {
+        display: none;
+    }
+
+    #main-container {
+        border-top: 3px solid var(--color-border-header);
+    }
+}
+
+@media screen and (min-width: 40em) {
+    body {
+        background-image: var(--image-bg-md);
+    }
+}
+
+@media screen and (min-width: 64em) {
+    body {
+        background-image: var(--image-bg-lg);
+    }
+}
+
+::-moz-selection {
+  color: var(--color-fg-accent);
+  background-color: var(--color-bg-accent);
+}
+
+::selection {
+  color: var(--color-fg-accent);
+  background-color: var(--color-bg-accent);
+}
+
+#site-container {
+    margin: auto;
+    background-color: var(--color-bg-main);
+    width: 100%;
+    max-width: 1080px;
+    margin: 25px auto;
+}
+
+body {
+    background-color: var(--color-bg-page);
+    color: var(--color-fg-main);
+    background-attachment: var(--bg-attach);
+    background-repeat: var(--bg-repeat);
+    background-size: var(--bg-size);
+}
+
+#site-container a:hover {
+    text-decoration: underline;
+}
+
+/* Site header */
+
+#site-header ::-moz-selection, .tag ::-moz-selection {
+    color: var(--color-fg-main);
+    background-color: var(--color-bg-main);
+}
+
+#site-header ::selection, .tag ::selection {
+    color: var(--color-fg-main);
+    background-color: var(--color-bg-main);
+}
+
+header a:hover, header a:active, header a:focus {
+    text-decoration: underline;
+    color: var(--color-fg-main);
+}
+
+header a, header a:link, header a:visited,  {
+    color: var(--color-fg-main);
+    text-decoration: none;
+}
+
+#site-header a:hover, #site-header a:active {
+    text-decoration: none;
+}
+
+#site-header {
+    background-color: var(--color-bg-accent);
+    color: var(--color-fg-accent);
+}
+
+#site-header header {
+    align-items: center;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+#site-thumbnail {
+    display: block;
+    /* Tested working with multiple sites -
+    no vertical shift when thumbnail loads */
+    max-height: 5.8rem;
+    max-width: 5.8rem;
+    padding-left: 0;
+    padding-right: 0.5rem;
+    border-radius: var(--thumbnail-radius);
+}
+
+#site-header header div {
+    padding-left: var(--site-header-padding);
+}
+
+#site-title, #site-tagline {
+    text-transform: uppercase;
+    font-weight: bold;
+    display:inline-block;
+    color: var(--color-fg-accent);
+    line-height: 1;
+}
+
+#site-title, #site-tagline, #site-title-container {
+    flex-shrink: 1;
+}
+
+#site-title {
+    padding-bottom: var(--site-title-padding-bottom);
+    font-size: var(--site-title-size);
+}
+
+#site-tagline {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--color-fg-accent);
+}
+
+:not(pre) > code {
+    background-color: var(--color-bg-code);
+    color: var(--color-bg-accent);
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    display: inline-block;
+    padding: 0 0.2rem;
+    font-size: 0.9rem;
+    border: none;
+}
+
+pre code {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+a code, code a {
+    color: var(--color-bg-accent);
+}
+
+del code {
+    text-decoration: line-through;
+}
+
+a:hover code, code a:hover { text-decoration: underline; }
+
+pre, pre code {
+    background-color: var(--color-bg-alt) !important;
+    color: var(--color-fg-alt);
+    font-size: 0.9rem;
+    border: none;
+}
+
+pre {
+    padding: 1.2rem;
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+#main-container {
+    padding-top: 15px;
+    margin: auto;
+}
+
+#page-header h1 {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+main {
+    padding: 1rem 0.7rem;
+}
+
+main a, main a:hover, .callout a, .callout a:hover {
+    color: var(--color-bg-accent);
+}
+
+main a, .callout a {
+    font-weight: bold;
+}
+
+main header a, main header a:link, main header a:visited, main header a:hover, main header a:active, main header a:focus {
+    color: var(--color-fg-main);
+}
+
+article {
+    margin-bottom: 1rem;
+}
+
+.callout {
+    border: 1px solid var(--color-bg-accent);
+    display: block;
+    background-color: var(--color-bg-alert);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+    width: 100%;
+    color: var(--color-fg-main);
+}
+
+.callout a, .callout a:hover, .callout code {
+    color: var(--color-fg-alert-link);
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+.callout p:first-child { margin-top: 0; }
+
+/* Sidebar */
+
+aside {
+    padding-bottom: 20px;
+}
+
+aside a:link:not(.button), aside a:visited:not(.button) {
+    color: var(--color-fg-main);
+    text-decoration: none;
+}
+
+aside a:hover, aside a:active, aside a:focus {
+    text-decoration: underline;
+}
+
+/* Footer */
+
+footer {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-bg-alt);
+    color: var(--color-fg-alt);
+    border-top: 3px solid var(--color-border-main);
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+footer a {
+    color: var(--color-bg-accent);
+}
+
+footer .row { align-items: center; }
+
+#social-icons {
+    font-size: 1.5rem;
+}
+
+#social-icons a:link,
+#social-icons a:visited,
+#social-icons a:active,
+#social-icons a:focus {
+    color: var(--color-fg-alt);
+    text-decoration: none;
+}
+
+#social-icons a:hover {
+    color: var(--color-bg-accent);
+}
+
+#social-icons .fab:not(.fa-square):not(.fa-circle)::before,
+#social-icons .fas:not(.fa-square):not(.fa-circle)::before,
+#social-icons .far:not(.fa-square):not(.fa-circle)::before {
+    color: var(--color-bg-alt);
+}
+
+#social-icons .fab:not(.fa-square):not(.fa-circle):hover::before,
+#social-icons .fas:not(.fa-square):not(.fa-circle):hover::before,
+#social-icons .far:not(.fa-square):not(.fa-circle):hover::before {
+    color: var(--color-fg-accent);
+}
+
+#main-nav {
+    background-color: var(--color-bg-alt);
+    border-top: 2px solid var(--color-border-nav);
+    border-bottom: 2px solid var(--color-border-main);
+}
+
+.dropdown.menu > li {
+    margin-right: 0.5rem;
+}
+
+#off-canvas-toggle {
+    z-index: 1;
+    position: sticky;
+    position: -webkit-sticky;
+    left: 0;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+}
+
+.off-canvas {
+    background-color: var(--color-bg-alt);
+    color: var(--color-fg-alt);
+}
+
+.drilldown li {
+    width: 100%;
+    max-width: 100%;
+}
+
+.dropdown.menu .button {
+    text-align: left;
+}
+
+.is-dropdown-submenu {
+    border-color: var(--color-fg-alt);
+}
+
+/* Foundation is this specific, so I need to be too */
+
+.drilldown .is-drilldown-submenu {
+    background-color: var(--color-bg-alt);
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border-top-color: var(--color-fg-alt);
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a:hover::after,
+.dropdown.menu > li.is-dropdown-submenu-parent > a:active::after,
+.dropdown.menu > li.is-dropdown-submenu-parent > a:focus::after,
+.dropdown.menu > li.is-dropdown-submenu-parent > a.active::after {
+    border-top-color: var(--color-fg-accent);
+}
+
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a::after {
+    border-left-color: var(--color-fg-alt);
+    border-right-color: var(--color-fg-alt);
+}
+
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a:hover::after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a:active::after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a:focus::after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a.active::after {
+    border-left-color: var(--color-fg-accent);
+    background-color: var(--color-bg-accent);
+}
+
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a.button {
+    padding-left: 1rem;
+}
+
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a:hover::after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a:active::after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a:focus::after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left > a.active::after {
+    border-left-color: var(--color-fg-accent);
+    border-right-color: var(--color-fg-accent);
+    background-color: var(--color-bg-accent);
+    margin-right: 1rem;
+}
+
+.drilldown .is-drilldown-submenu-parent a::after {
+    border-left-color: var(--color-fg-alt);
+}
+
+.drilldown .is-drilldown-submenu-parent a:hover::after,
+.drilldown .is-drilldown-submenu-parent a:active::after,
+.drilldown .is-drilldown-submenu-parent a:focus::after,
+.drilldown .is-drilldown-submenu-parent a.active::after {
+    border-left-color: var(--color-fg-accent);
+}
+
+.drilldown .is-drilldown-submenu-parent a::before {
+    border-right-color: var(--color-fg-alt);
+}
+
+.drilldown .is-drilldown-submenu-parent a:hover::before,
+.drilldown .is-drilldown-submenu-parent a:active::before,
+.drilldown .is-drilldown-submenu-parent a:focus::before,
+.drilldown .is-drilldown-submenu-parent a.active::before {
+    border-right-color: var(--color-fg-accent);
+}
+/* Widgets */
+
+.widget header {
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    border-bottom: 3px solid var(--color-bg-accent);
+}
+
+.widget-header {
+    display: block;
+    font-size: 1.72rem;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem;
+}
+
+.widget-header-small {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.widget-header-small.button {
+    text-align: center;
+}
+
+.widget ul {
+    margin-left: 0;
+}
+
+.widget ul li {
+    border-bottom: 1px dotted var(--color-fg-main);
+    padding: 0.2rem;
+    font-size: 0.9rem;
+    list-style: none;
+}
+
+.widget-title {
+    font-size: 1.3rem;
+}
+
+/* Widgets -- Authorbox/Memberbox */
+
+.memberbox {
+    background-color: var(--color-bg-main);
+    color: var(--color-fg-main);
+    padding: 1rem 0.7rem;
+    border-style: solid hidden;
+    border-color: var(--color-fg-main);
+    border-width: 1px;
+    flex-wrap: nowrap;
+}
+
+.memberbox .member-bio {
+    max-width: 100%;
+    word-break: normal;
+}
+
+.memberbox img {
+    border: 3px solid var(--color-fg-main);
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    min-width: 90px; /* Fixes issue where width is not respected */
+}
+
+.social a, .social .clickable {
+    font-size: 1.5rem;
+    color: var(--color-fg-main);
+}
+
+.social a:hover, .social .clickable:hover {
+    color: var(--color-bg-accent) !important;
+}
+
+.social .fab:not(.fa-square):not(.fa-circle)::before,
+.social .fab:not(.fa-square):not(.fa-circle)::before,
+.social .fab:not(.fa-square):not(.fa-circle)::before {
+    color: var(--color-bg-main);
+}
+
+.social .fab:not(.fa-square):not(.fa-circle):hover::before,
+.social .fab:not(.fa-square):not(.fa-circle):hover::before,
+.social .fab:not(.fa-square):not(.fa-circle):hover::before {
+    color: var(--color-fg-accent);
+}
+
+@media only screen and (max-width: 639px) {
+    #social-icons {
+        justify-content: center !important;
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    #social-icons {
+        justify-content: flex-end !important;
+    }
+}

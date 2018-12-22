@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>排序 on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/%E6%8E%92%E5%BA%8F/</link>
+    <description>Recent content in 排序 on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 04 Jun 2017 17:29:09 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/tags/%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LeetCode-Top_K_Frequent_Elements</title>
+      <link>https://buhuipao.github.io/2017/06/05/leetcode-top_k_frequent_elements/</link>
+      <pubDate>Sun, 04 Jun 2017 17:29:09 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/06/05/leetcode-top_k_frequent_elements/</guid>
+      <description>Given a non-empty array of integers, return the k most frequent elements. For example, Given [1,1,1,2,2,3] and k = 2, return [1,2]. Note: You may assume k is always valid, 1 ≤ k ≤ number of unique elements. Your algorithm&amp;#8217;s time complexity must be better than O(n log n), where n is the array&amp;#8217;s size. # _*_ coding: utf-8 _*_ class Solution(object): def topKFrequent(self, nums, k): &#34;&#34;&#34; :type nums: List[int]</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–链表排序O(nlogn)</title>
+      <link>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</link>
+      <pubDate>Sun, 21 May 2017 05:36:41 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</guid>
+      <description># _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 =</description>
+    </item>
+    
+  </channel>
+</rss>

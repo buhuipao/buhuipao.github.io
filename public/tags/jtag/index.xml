@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jtag on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/jtag/</link>
+    <description>Recent content in Jtag on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 10 May 2015 02:16:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://buhuipao.github.io/tags/jtag/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>windows10手机版回滚wp8.1突变QHSUSB_DLOAD模式，非JTAG黑砖修复</title>
+      <link>https://buhuipao.github.io/2015/05/10/windowsphone_comeback/</link>
+      <pubDate>Sun, 10 May 2015 02:16:52 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2015/05/10/windowsphone_comeback/</guid>
+      <description>许多尝试windows10手机版的朋友们，由于觉得新的系统存在太多的BUG,于是乎准备回滚到wp8.1，但是悲剧发生了，大量的用户的LUMI</description>
+    </item>
+    
+  </channel>
+</rss>

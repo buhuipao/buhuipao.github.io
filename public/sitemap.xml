@@ -438,14 +438,14 @@
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/categories/algorithm/</loc>
-    <lastmod>2017-09-17T10:01:47+00:00</lastmod>
+    <loc>https://buhuipao.github.io/tags/algorithm/</loc>
+    <lastmod>2017-06-06T08:09:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/tags/algorithm/</loc>
-    <lastmod>2017-06-06T08:09:10+00:00</lastmod>
+    <loc>https://buhuipao.github.io/categories/algorithm/</loc>
+    <lastmod>2017-09-17T10:01:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -504,13 +504,13 @@
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/categories/docker/</loc>
+    <loc>https://buhuipao.github.io/tags/docker/</loc>
     <lastmod>2016-09-07T16:55:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/tags/docker/</loc>
+    <loc>https://buhuipao.github.io/categories/docker/</loc>
     <lastmod>2016-09-07T16:55:16+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -624,14 +624,14 @@
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/categories/linux/</loc>
-    <lastmod>2017-07-09T09:05:30+00:00</lastmod>
+    <loc>https://buhuipao.github.io/tags/linux/</loc>
+    <lastmod>2016-09-23T03:28:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/tags/linux/</loc>
-    <lastmod>2016-09-23T03:28:25+00:00</lastmod>
+    <loc>https://buhuipao.github.io/categories/linux/</loc>
+    <lastmod>2017-07-09T09:05:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -690,14 +690,14 @@
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/categories/python/</loc>
-    <lastmod>2017-09-17T10:01:47+00:00</lastmod>
+    <loc>https://buhuipao.github.io/tags/python/</loc>
+    <lastmod>2017-06-19T07:50:03+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/tags/python/</loc>
-    <lastmod>2017-06-19T07:50:03+00:00</lastmod>
+    <loc>https://buhuipao.github.io/categories/python/</loc>
+    <lastmod>2017-09-17T10:01:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -708,14 +708,14 @@
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/categories/shell/</loc>
-    <lastmod>2016-09-13T05:09:02+00:00</lastmod>
+    <loc>https://buhuipao.github.io/tags/shell/</loc>
+    <lastmod>2016-09-23T03:28:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/tags/shell/</loc>
-    <lastmod>2016-09-23T03:28:25+00:00</lastmod>
+    <loc>https://buhuipao.github.io/categories/shell/</loc>
+    <lastmod>2016-09-13T05:09:02+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -738,7 +738,7 @@
   </url>
   
   <url>
-    <loc>https://buhuipao.github.io/tags/tcp/ip/</loc>
+    <loc>https://buhuipao.github.io/tags/tcp-ip/</loc>
     <lastmod>2016-09-10T09:11:09+00:00</lastmod>
     <priority>0</priority>
   </url>
