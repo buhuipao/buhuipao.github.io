@@ -1,121 +1,118 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Leetcode on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/leetcode/</link>
-    <description>Recent content in Leetcode on 不会跑</description>
+    <title>leetcode on 不会跑</title>
+    <link>https://buhuipao.com/tags/leetcode/</link>
+    <description>Recent content in leetcode on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 15 Jul 2017 01:13:02 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Sat, 15 Jul 2017 01:13:02 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode-Unique_Binary_Search_Trees</title>
-      <link>https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/</link>
+      <link>https://buhuipao.com/2017/07/15/leetcode-unique_binary_search_trees/</link>
       <pubDate>Sat, 15 Jul 2017 01:13:02 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/</guid>
+      <guid>https://buhuipao.com/2017/07/15/leetcode-unique_binary_search_trees/</guid>
       <description>题目的意思就是给你1到n个数，你能组成多少种BST，解题思路就是：以每一个数做一次BST的root节点，然后求和所有次数即可，然后每次以i为</description>
     </item>
     
     <item>
       <title>LeetCode-LFU_Cache</title>
-      <link>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</link>
+      <link>https://buhuipao.com/2017/07/02/leetcode-lfu_cache/</link>
       <pubDate>Sun, 02 Jul 2017 14:30:22 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</guid>
+      <guid>https://buhuipao.com/2017/07/02/leetcode-lfu_cache/</guid>
       <description>LeetCode的设计题，比起之前的LRU稍微难点，但是根据《现代操作系统》的解释，需要使用一个counter进行频率的计数，下面给出的并不</description>
     </item>
     
     <item>
       <title>LeetCode-Find_Median_from_Data_Stream</title>
-      <link>https://buhuipao.github.io/2017/07/01/leetcode-find_median_from_data_stream/</link>
+      <link>https://buhuipao.com/2017/07/01/leetcode-find_median_from_data_stream/</link>
       <pubDate>Sat, 01 Jul 2017 04:42:14 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/07/01/leetcode-find_median_from_data_stream/</guid>
+      <guid>https://buhuipao.com/2017/07/01/leetcode-find_median_from_data_stream/</guid>
       <description>LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之</description>
     </item>
     
     <item>
       <title>LeetCode-Binary_Search_Tree_Iterator</title>
-      <link>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</link>
+      <link>https://buhuipao.com/2017/07/01/leetcode-binary_search_tree_iterator/</link>
       <pubDate>Fri, 30 Jun 2017 17:05:57 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</guid>
+      <guid>https://buhuipao.com/2017/07/01/leetcode-binary_search_tree_iterator/</guid>
       <description>一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两</description>
     </item>
     
     <item>
       <title>LeetCode-Design_Twitter</title>
-      <link>https://buhuipao.github.io/2017/06/29/leetcode-design_twitter/</link>
+      <link>https://buhuipao.com/2017/06/29/leetcode-design_twitter/</link>
       <pubDate>Thu, 29 Jun 2017 07:36:15 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/29/leetcode-design_twitter/</guid>
+      <guid>https://buhuipao.com/2017/06/29/leetcode-design_twitter/</guid>
       <description>经典的设计题，以前校招笔试遇到过，题意就是：让你设计一个小的推特系统，能够发推、收到推送、关注和取消关注某人，我的做法是直接采用一个数据表（</description>
     </item>
     
     <item>
       <title>LeetCode-Min_Stack</title>
-      <link>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</link>
+      <link>https://buhuipao.com/2017/06/29/leetcode-min_stack/</link>
       <pubDate>Thu, 29 Jun 2017 03:08:00 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</guid>
+      <guid>https://buhuipao.com/2017/06/29/leetcode-min_stack/</guid>
       <description>经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈</description>
     </item>
     
     <item>
       <title>LeetCode-Reorder_List</title>
-      <link>https://buhuipao.github.io/2017/06/29/leetcode-reorder_list/</link>
+      <link>https://buhuipao.com/2017/06/29/leetcode-reorder_list/</link>
       <pubDate>Thu, 29 Jun 2017 02:40:50 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/29/leetcode-reorder_list/</guid>
+      <guid>https://buhuipao.com/2017/06/29/leetcode-reorder_list/</guid>
       <description>经典的链表题，考查了反转链表和一些细节，题意也很明白，把L0→L1→…→Ln-1→Ln变为L0→Ln→L1→Ln-1→L2→Ln-2→…即可</description>
     </item>
     
     <item>
       <title>LeetCode-Partition_List</title>
-      <link>https://buhuipao.github.io/2017/06/29/leetcode-partition_list/</link>
+      <link>https://buhuipao.com/2017/06/29/leetcode-partition_list/</link>
       <pubDate>Wed, 28 Jun 2017 17:08:33 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/29/leetcode-partition_list/</guid>
+      <guid>https://buhuipao.com/2017/06/29/leetcode-partition_list/</guid>
       <description>晚上送妹子回家后做了这个链表的题，怕自己忘了睡前总结下。 题目的意思就是：给定一个链表和一个数，把小于这个数的节点放前边，此外的都移到后边，而</description>
     </item>
     
     <item>
       <title>LeetCode-Linked_List_Cycle_II</title>
-      <link>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle_ii/</link>
+      <link>https://buhuipao.com/2017/06/28/leetcode-linked_list_cycle_ii/</link>
       <pubDate>Wed, 28 Jun 2017 09:55:00 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle_ii/</guid>
+      <guid>https://buhuipao.com/2017/06/28/leetcode-linked_list_cycle_ii/</guid>
       <description>判断链表是否存在循环的变形题，需要你找出链表循环的开始节点，解题思路：先用快慢指针便利链表知道快慢指针指向同一个节点，然后让快指针从head</description>
     </item>
     
     <item>
       <title>LeetCode-Linked_List_Cycle</title>
-      <link>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle/</link>
+      <link>https://buhuipao.com/2017/06/28/leetcode-linked_list_cycle/</link>
       <pubDate>Wed, 28 Jun 2017 09:30:13 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/28/leetcode-linked_list_cycle/</guid>
+      <guid>https://buhuipao.com/2017/06/28/leetcode-linked_list_cycle/</guid>
       <description>经典的链表题，判断一个链表是否存在循环，而且不许使用额外的空间，解题思路：只要分别设定一个快慢指针，当快慢指针重合时就证明有循环，原题链接：</description>
     </item>
     
     <item>
       <title>LeetCode-Copy_List_with_Random_Pointer</title>
-      <link>https://buhuipao.github.io/2017/06/28/leetcode-copy_list_with_random_pointer/</link>
+      <link>https://buhuipao.com/2017/06/28/leetcode-copy_list_with_random_pointer/</link>
       <pubDate>Wed, 28 Jun 2017 08:31:03 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/28/leetcode-copy_list_with_random_pointer/</guid>
+      <guid>https://buhuipao.com/2017/06/28/leetcode-copy_list_with_random_pointer/</guid>
       <description>一个比较经典的链表操作题，深度复制一个链表，链表包含一个next指针和一个random的指针，目前比较多的方法是hash表和自我复制法（在自</description>
     </item>
     
     <item>
       <title>LeetCode-Remove_Nth_Node_From_End_of_List</title>
-      <link>https://buhuipao.github.io/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</link>
+      <link>https://buhuipao.com/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</link>
       <pubDate>Wed, 28 Jun 2017 08:18:03 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</guid>
+      <guid>https://buhuipao.com/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</guid>
       <description>比较简单的一个题，意思就是删除链表中倒数第几个节点，需要最后考虑下删除的是否恰巧为头节点，原题链接：https://leetcode.com</description>
     </item>
     

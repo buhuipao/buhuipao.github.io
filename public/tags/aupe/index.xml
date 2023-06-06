@@ -1,23 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aupe on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/aupe/</link>
-    <description>Recent content in Aupe on 不会跑</description>
+    <title>AUPE on 不会跑</title>
+    <link>https://buhuipao.com/tags/aupe/</link>
+    <description>Recent content in AUPE on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 21 Jun 2017 04:39:30 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/aupe/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Wed, 21 Jun 2017 04:39:30 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/aupe/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AUPE-11-线程同步及线程的Fork</title>
-      <link>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</link>
+      <link>https://buhuipao.com/2017/06/21/aupe-11-thread_fork/</link>
       <pubDate>Wed, 21 Jun 2017 04:39:30 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</guid>
-      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： # include &#34;pthread_h&#34; int pthread_create(pthread_t * restrict tidp, const pthread_attr_t *resrict attr, void *(*start_rtm) (void), void *restrict arg); 线程同步： 互斥量（锁），但需要避免</description>
+      <guid>https://buhuipao.com/2017/06/21/aupe-11-thread_fork/</guid>
+      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自</description>
     </item>
     
   </channel>

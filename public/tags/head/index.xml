@@ -1,104 +1,101 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Head on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/head/</link>
-    <description>Recent content in Head on 不会跑</description>
+    <title>head on 不会跑</title>
+    <link>https://buhuipao.com/tags/head/</link>
+    <description>Recent content in head on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 02 Jun 2017 04:13:46 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/head/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Fri, 02 Jun 2017 04:13:46 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/head/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode–Convert_Sorted_List_to_Binary_Search_Tree</title>
-      <link>https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</link>
+      <link>https://buhuipao.com/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</link>
       <pubDate>Fri, 02 Jun 2017 04:13:46 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</guid>
-      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class TreeNode(object): def __init__(self, x): self.val = x self.left = None self.right = None class Solution(object): def sortedListToBST(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: TreeNode 每次找到中位数，然后</description>
+      <guid>https://buhuipao.com/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</guid>
+      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.</description>
     </item>
     
     <item>
       <title>LeetCode–Remove_Duplicates_from_Sorted_List_II</title>
-      <link>https://buhuipao.github.io/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</link>
+      <link>https://buhuipao.com/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</link>
       <pubDate>Thu, 01 Jun 2017 15:37:25 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</guid>
-      <description>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return 1-&amp;gt;2-&amp;gt;5. Given 1-&amp;gt;1-&amp;gt;1-&amp;gt;2-&amp;gt;3, return 2-&amp;gt;3. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def deleteDuplicates(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; if not head or not head.next: return head dummy = ListNode(None) node,</description>
+      <guid>https://buhuipao.com/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</guid>
+      <description>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return 1-&amp;gt;2-&amp;gt;5. Given 1-&amp;gt;1-&amp;gt;1-&amp;gt;2-&amp;gt;3, return 2-&amp;gt;3. 自己的提交虽然全部通过测试用例，但是leetcode评分为1.46％，感觉太差劲</description>
     </item>
     
     <item>
       <title>LeetCode–reverse_linked_list_II</title>
-      <link>https://buhuipao.github.io/2017/06/01/leetcode-reverse_linked_list_ii/</link>
+      <link>https://buhuipao.com/2017/06/01/leetcode-reverse_linked_list_ii/</link>
       <pubDate>Thu, 01 Jun 2017 12:50:11 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/01/leetcode-reverse_linked_list_ii/</guid>
-      <description>Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL. Note: Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def reverseBetween(self, head, m, n): &#34;&#34;&#34; :type</description>
+      <guid>https://buhuipao.com/2017/06/01/leetcode-reverse_linked_list_ii/</guid>
+      <description>Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL. Note: Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.</description>
     </item>
     
     <item>
       <title>LeetCode–Remove-Linked-List-Elements</title>
-      <link>https://buhuipao.github.io/2017/05/29/leetcode-remove-linked-list-elements/</link>
+      <link>https://buhuipao.com/2017/05/29/leetcode-remove-linked-list-elements/</link>
       <pubDate>Sun, 28 May 2017 17:26:57 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/05/29/leetcode-remove-linked-list-elements/</guid>
-      <description>Remove all elements from a linked list of integers that have value val. Example Given: 1 &amp;#8211;&amp;gt; 2 &amp;#8211;&amp;gt; 6 &amp;#8211;&amp;gt; 3 &amp;#8211;&amp;gt; 4 &amp;#8211;&amp;gt; 5 &amp;#8211;&amp;gt; 6, val = 6 Return: 1 &amp;#8211;&amp;gt; 2 &amp;#8211;&amp;gt; 3 &amp;#8211;&amp;gt; 4 &amp;#8211;&amp;gt; 5 # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def removeElements(self, head, val): &#34;&#34;&#34; :type head: ListNode :type val: int</description>
+      <guid>https://buhuipao.com/2017/05/29/leetcode-remove-linked-list-elements/</guid>
+      <description>Remove all elements from a linked list of integers that have value val. Example Given: 1 –&amp;gt; 2 –&amp;gt; 6 –&amp;gt; 3 –&amp;gt; 4 –&amp;gt; 5 –&amp;gt; 6, val = 6 Return: 1 –&amp;gt; 2 –&amp;gt; 3 –</description>
     </item>
     
     <item>
       <title>LeetCode–Palindrome-Linked-List</title>
-      <link>https://buhuipao.github.io/2017/05/28/leetcode-palindrome-linked-list/</link>
+      <link>https://buhuipao.com/2017/05/28/leetcode-palindrome-linked-list/</link>
       <pubDate>Sun, 28 May 2017 15:41:00 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/05/28/leetcode-palindrome-linked-list/</guid>
-      <description>Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space? # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def isPalindrome(self, head): &#34;&#34;&#34; :type head: ListNode :rtype: bool &#34;&#34;&#34; if not head or not head.next: return True if not head.next.next: if head.val == head.next.val: return True else: return</description>
+      <guid>https://buhuipao.com/2017/05/28/leetcode-palindrome-linked-list/</guid>
+      <description>Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space?</description>
     </item>
     
     <item>
       <title>LeetCode–odd-even-linked-list</title>
-      <link>https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/</link>
+      <link>https://buhuipao.com/2017/05/28/leetcode-odd-even-linked-list/</link>
       <pubDate>Sun, 28 May 2017 11:43:15 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/</guid>
+      <guid>https://buhuipao.com/2017/05/28/leetcode-odd-even-linked-list/</guid>
       <description>最近主要练习链表的变换，这个题很经典，特别是容易忽略末尾出现的闭环 Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do</description>
     </item>
     
     <item>
       <title>LeetCode–reverse-nodes-in-k-group</title>
-      <link>https://buhuipao.github.io/2017/05/28/leetcode-reverse-nodes-in-k-group/</link>
+      <link>https://buhuipao.com/2017/05/28/leetcode-reverse-nodes-in-k-group/</link>
       <pubDate>Sun, 28 May 2017 06:03:17 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/05/28/leetcode-reverse-nodes-in-k-group/</guid>
+      <guid>https://buhuipao.com/2017/05/28/leetcode-reverse-nodes-in-k-group/</guid>
       <description>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only</description>
     </item>
     
     <item>
       <title>LeetCode–MergeKList</title>
-      <link>https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/</link>
+      <link>https://buhuipao.com/2017/05/22/leetcode-mergeklist/</link>
       <pubDate>Mon, 22 May 2017 13:57:33 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/</guid>
-      <description># _*_ coding: utf-8 _*_ &#39;&#39;&#39; Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def mergeKLists(self, lists): &#34;&#34;&#34; :type lists: List[ListNode] :rtype: ListNode 采用并归的思想 &#34;&#34;&#34; # 过滤空链表 _list = filter(lambda node: node, lists) return self.merge_help(_list) def merge_help(self,</description>
+      <guid>https://buhuipao.com/2017/05/22/leetcode-mergeklist/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>LeetCode–链表排序O(nlogn)</title>
-      <link>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</link>
+      <link>https://buhuipao.com/2017/05/21/leetcode-sortlink/</link>
       <pubDate>Sun, 21 May 2017 05:36:41 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</guid>
-      <description># _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 =</description>
+      <guid>https://buhuipao.com/2017/05/21/leetcode-sortlink/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>Linux 常用命令–ps，head/tail， less/more</title>
-      <link>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</link>
+      <link>https://buhuipao.com/2016/09/13/linux-ps-head-tail-less-more/</link>
       <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</guid>
-      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2</description>
+      <guid>https://buhuipao.com/2016/09/13/linux-ps-head-tail-less-more/</guid>
+      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem</description>
     </item>
     
   </channel>

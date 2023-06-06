@@ -1,22 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Apue on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/apue/</link>
-    <description>Recent content in Apue on 不会跑</description>
+    <title>APUE on 不会跑</title>
+    <link>https://buhuipao.com/tags/apue/</link>
+    <description>Recent content in APUE on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 21 Jun 2017 03:15:52 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/apue/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Wed, 21 Jun 2017 03:15:52 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/apue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>APUE-8-进程控制之Fork</title>
-      <link>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</link>
+      <link>https://buhuipao.com/2017/06/21/apue-8-process_fork/</link>
       <pubDate>Wed, 21 Jun 2017 03:15:52 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</guid>
+      <guid>https://buhuipao.com/2017/06/21/apue-8-process_fork/</guid>
       <description>最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用get</description>
     </item>
     

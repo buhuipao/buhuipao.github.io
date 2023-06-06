@@ -1,32 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ubuntu on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/ubuntu/</link>
+    <link>https://buhuipao.com/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 07 Sep 2016 16:55:16 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Wed, 07 Sep 2016 16:55:16 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>不再缘木求鱼，时间如此宝贵，Docker下ubuntu安装QQ失败</title>
-      <link>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</link>
+      <link>https://buhuipao.com/2016/09/08/docker-ubuntu-qq-failed/</link>
       <pubDate>Wed, 07 Sep 2016 16:55:16 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</guid>
+      <guid>https://buhuipao.com/2016/09/08/docker-ubuntu-qq-failed/</guid>
       <description>今下午本来是准备照着国外的一个教程，好好跟着过写一遍如何用python写一个异步web服务端，但是无意中看到一个QQ的新闻，于是想起来很久之</description>
     </item>
     
     <item>
       <title>搬运墙外Chromebook的Chrubuntu方法安装ubuntu</title>
-      <link>https://buhuipao.github.io/2015/10/27/chromebook_chrubuntu_ubuntu/</link>
+      <link>https://buhuipao.com/2015/10/27/chromebook_chrubuntu_ubuntu/</link>
       <pubDate>Mon, 26 Oct 2015 16:03:39 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2015/10/27/chromebook_chrubuntu_ubuntu/</guid>
-      <description>使用ChrUbuntu安装Ubuntu到新chrome笔记本 自从我开始ChrUbuntu回来 2010年12月 ,这一直是必要使用Chrome O</description>
+      <guid>https://buhuipao.com/2015/10/27/chromebook_chrubuntu_ubuntu/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;lt;span id=&amp;quot;OUTFOX_JTR_TRANS_NODE-44&amp;quot; class=&amp;quot;OUTFOX_JTR_TRANS_NODE&amp;quot;&amp;gt;这将安装32位版本的Xubuntu和最新LTS版</description>
     </item>
     
   </channel>

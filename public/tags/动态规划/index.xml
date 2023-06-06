@@ -1,58 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>动态规划 on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+    <link>https://buhuipao.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
     <description>Recent content in 动态规划 on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Jun 2017 10:03:46 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Fri, 23 Jun 2017 10:03:46 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode-Longest_Increasing_Subsequence</title>
-      <link>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</link>
+      <link>https://buhuipao.com/2017/06/23/leetcode-longest_increasing_subsequence/</link>
       <pubDate>Fri, 23 Jun 2017 10:03:46 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</guid>
+      <guid>https://buhuipao.com/2017/06/23/leetcode-longest_increasing_subsequence/</guid>
       <description>经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode</description>
     </item>
     
     <item>
       <title>LeetCode-Edit_Distance</title>
-      <link>https://buhuipao.github.io/2017/06/22/leetcode-edit_distance/</link>
+      <link>https://buhuipao.com/2017/06/22/leetcode-edit_distance/</link>
       <pubDate>Thu, 22 Jun 2017 14:52:57 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/22/leetcode-edit_distance/</guid>
+      <guid>https://buhuipao.com/2017/06/22/leetcode-edit_distance/</guid>
       <description>比较特殊的动态规划过程，原题链接：https://leetcode.com/problems/edit-distance/ Given two words word1 and word2, find the minimum</description>
     </item>
     
     <item>
       <title>LeetCode-Delect_Operation_for_Two_Strings</title>
-      <link>https://buhuipao.github.io/2017/06/22/leetcode-delect_operation_for_two_strings/</link>
+      <link>https://buhuipao.com/2017/06/22/leetcode-delect_operation_for_two_strings/</link>
       <pubDate>Thu, 22 Jun 2017 12:26:12 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/22/leetcode-delect_operation_for_two_strings/</guid>
+      <guid>https://buhuipao.com/2017/06/22/leetcode-delect_operation_for_two_strings/</guid>
       <description>LCS的变形题目, 只要求出两个字符串的最长公共子序列，那么最终需要进行删除操作的就是m＋n－2*result。 Given two words word1 and word2, find the minimum number of steps required to make</description>
     </item>
     
     <item>
       <title>LeetCode-Best_Time_to_Buy_and_Sell_Stock</title>
-      <link>https://buhuipao.github.io/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</link>
+      <link>https://buhuipao.com/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</link>
       <pubDate>Thu, 22 Jun 2017 04:21:50 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</guid>
+      <guid>https://buhuipao.com/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</guid>
       <description>动态规划的小题目，买卖股票， 原题链接：https://leetcode.com/problems/best-time-to-buy-and-</description>
     </item>
     
     <item>
       <title>LeetCode-minimum_path_sum</title>
-      <link>https://buhuipao.github.io/2017/06/22/leetcode-minimum_path_sum/</link>
+      <link>https://buhuipao.com/2017/06/22/leetcode-minimum_path_sum/</link>
       <pubDate>Thu, 22 Jun 2017 03:27:52 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/22/leetcode-minimum_path_sum/</guid>
+      <guid>https://buhuipao.com/2017/06/22/leetcode-minimum_path_sum/</guid>
       <description>经典的动态规划题，三种解法都是动态规划，但是最后一种空间复杂度最小，原题链接： https://leetcode.com/problems/minimum-path-sum/ Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note:</description>
     </item>
     

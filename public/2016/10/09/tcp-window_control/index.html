@@ -1,814 +1,162 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>TCP的滑动窗口和拥塞控制 - 不会跑</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-  
-  <meta name="description" content="TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口">
-  
-  <meta itemprop="name" content="TCP的滑动窗口和拥塞控制 - 不会跑">
-  <meta itemprop="description" content="TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口">
-  <meta itemprop="image" content="https://buhuipao.github.io/img/author.jpg">
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@buhuipao" />
-  <meta name="twitter:title" content="TCP的滑动窗口和拥塞控制 - 不会跑" />
-  
-  <meta name="twitter:description" content="">
-  
-  <link rel="shortcut icon" href="https://buhuipao.github.io/img/favicon.ico"/>
-  <link rel="apple-touch-icon" href="https://buhuipao.github.io/apple-touch-icon.png" />
-  <link rel="apple-touch-icon-precomposed" href="https://buhuipao.github.io/apple-touch-icon.png" />
-  <link rel="stylesheet" href="https://buhuipao.github.io/highlight/styles/github.css">
-  <script src="https://buhuipao.github.io/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <link rel="stylesheet" href="https://buhuipao.github.io/font/hack/css/hack.min.css">
-  <link rel="stylesheet" href="https://buhuipao.github.io/css/style.css">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>TCP的滑动窗口和拥塞控制 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="TCP的滑动窗口和拥塞控制">
+<meta itemprop="description" content="TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口"><meta itemprop="datePublished" content="2016-10-09T10:32:23+00:00" />
+<meta itemprop="dateModified" content="2016-10-09T10:32:23+00:00" />
+<meta itemprop="wordCount" content="2388">
+<meta itemprop="keywords" content="IP,拥塞控制,滑动窗口," /><meta property="og:title" content="TCP的滑动窗口和拥塞控制" />
+<meta property="og:description" content="TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buhuipao.com/2016/10/09/tcp-window_control/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2016-10-09T10:32:23+00:00" />
+<meta property="article:modified_time" content="2016-10-09T10:32:23+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TCP的滑动窗口和拥塞控制"/>
+<meta name="twitter:description" content="TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.com/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://buhuipao.com/css/dark.css" />
+
+	<script src="https://buhuipao.com/js/feather.min.js"></script>
+	
+		<script src="https://buhuipao.com/js/main.js"></script>
 </head>
 
 <body>
-  <header>
-    <div>
-  
-  <div id="imglogo">
-    <a href="https://buhuipao.github.io/"><img src="https://buhuipao.github.io/img/buhuipao-logo.svg" alt="不会跑" title="不会跑"/></a>
-  </div>
-  
-  <div id="textlogo">
-    <h1 class="site-name"><a href="https://buhuipao.github.io/" title="不会跑">不会跑</a></h1>
-    <h2 class="blog-motto">不忘初心，方得始终</h2>
-  </div>
-  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
-  <nav class="animated">
-    <ul>
-      
-      <li><a href="/">首页</a></li>
-      
-      <li><a href="/note">学习总结</a></li>
-      
-      <li><a href="/link">友链</a></li>
-      
-      <li><a href="/about">关于</a></li>
-      
-      <li>
-        <form class="search" method="get" action="https://www.google.com/search">
-          <div>
-            <input type="text" id="search" name="q" placeholder="搜索">
-          </div>
-        </form>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-  </header>
-  <div id="container">
-    <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody">
-    <header class="article-info clearfix">
-  <h1 itemprop="name">
-      <a href="https://buhuipao.github.io/2016/10/09/tcp-window_control/" title="TCP的滑动窗口和拥塞控制" itemprop="url">TCP的滑动窗口和拥塞控制</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="https://www.buhuipao.com" title=""></a>
-    
-  </p>
-  <p class="article-time">
-    <time datetime="2016-10-09 10:32:23 &#43;0000 &#43;0000" itemprop="datePublished">2016年10月09日</time>
-  </p>
-</header>
-
-	<div class="article-content">
-    
-    <p>TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。</p>
-
-<p>一.滑动窗口</p>
-
-<p>所谓滑动窗口:发送窗口中相关的有四个概念：已发送并收到确认的数据（不再发送窗口和发送缓冲区之内）、已发送但未收到确认的数据（位于发送窗口之中）、允许发送但尚未发送的数据以及发送窗口外发送缓冲区内暂时不允许发送的数据；每次成功发送数据之后，发送窗口就会在发送缓冲区中按顺序移动，将新的数据包含到窗口中准备发送；</p>
-
-<p>其中发送端窗口分为两部分，前半部分为已发送但未确认，后半部分为允许发送但未发送；接收端窗口为允许接受。每次发送一段数据后，发送端收到接收端的ＡＣＫ后，窗口左端P1向右移动，右端P3也向右移动，但是原已发送未确认和允许发送未发送的分界点P2暂时不动，这样允许发送尚未发送区变宽，接下来接续发送数据，P2向右朝P3靠近直到重合。这样发送端的发送窗口已满，可用窗口为０，停止发送。数据全部到达接收端。接收端也发出了确认信息。</p>
-
-<p>这个是时候可能接收端没有收到确认信息，于是等着，认为接收端任然没有收到此段数据。在经过一段时间后，超时计数器起作用，发送端将重发数据，指导收到接收端的确认为止。</p>
-
-<p>接收端有时候接收到未按顺利到达的数据，假设发送端发送３１，３２，３３，但是接收端只接收到３２，３３此时接收端发送的确认报文段中的确认号依然是３１，而不能是３２，３３，后面快重传会提到这个。</p>
-
-<p>二.流量控制</p>
-
-<p><strong>　发送方的发送窗口不能超过接收方给出的接收窗口数值。而且，TCP的窗口单位是字节不是报文段。</strong>接收端的窗口大小是建立在接收缓存上的，回复发送端确认号ACK时也回复接收窗大小。</p>
-
-<p>有时候会出现这种情况，接收端发送接收窗为０的报文段后，接收端接收缓存又有一些空间了，于是向发送端发送接收窗大小为２００的报文段，假如此报文段丢失了，发送端一直在等接收端发送非０窗口的报文段，接收端也理所当然以为发送端收到它的２００接收窗报文段，两边都将等下去。这时TCP为解决此问题，为每个链接设置一个持续计时器(persistence timer).只要发送端收到接收端的０窗口报文段，就启动持续计时器，若时间到期，就发送一个０窗口探测报文段（仅携带一字节数据），接收端确认此报文段时就给出此时的接受窗口大小。假如任然是０，重新启动持续计时器。</p>
-
-<p>考虑到传输效率，应用进程把数据传到发送的缓存后,剩下发送任务由TCP控制，TCP有三种控制发送时机，</p>
-
-<p>1)TCP设定一个变量（等于最大报文段长度MSS），当缓存大小达到MSS字节数时发送;</p>
-
-<p>2)由发送方的应用进程指明要求发送报文段，即TCP支持的推送(push)操作；</p>
-
-<p>3)发送方一个计时器到限，发送当前缓存数据(长度不超过MSS).</p>
-
-<p>有时候用户只发送一个字节长度的数据，加上２０字节的TCP首部，再加上20的IP首部就是４１字节，利用率太低，还占带宽。于是在TCP现实中采用Nagle算法，算法如下：应用程序现将数据慢慢送到缓存区，则先发送一个字节，当接收端回复确认报文段后，把缓存区的所有数据组成一个报文段发出去，同时继续缓存数据，只有收到前一个报文段的确认之后才将全部缓存数据组段发出去。Nagle算法还规定，当到达的数据达到发送窗口的一半时或者达到报文段最大长度时，就立即发送一个报文段。</p>
-
-<p>另一种情况就是反过来，假如接收端的应用程序每次只从接收端缓存读取一个字节，这时接收端一空出一个字节缓存空间，就立即给发送端发送接受窗口为１的报文段，这样也是和浪费。所以同理，接收端也采取同之前发送端类似的策略，等接收缓存出现一半空闲空间或者足够容纳一个最初报文段空间时，再通知发送端的此前接收窗口大小。</p>
-
-<p>两种方法配合使用。</p>
-
-<p>三.TCP拥塞控制</p>
-
-<p>拥塞控制就是防止过多数据注入网络，避免网络中路由器的过载丢弃报文段，是这整个网络的控制，而流量控制是端对端通信量的控制。拥塞控制方法有四种算法分别是: 1)慢开始；２）拥塞避免；3)快重传；４）快恢复</p>
-
-<p>１）慢开始算法。发送方维持一个叫做拥塞窗口(cwnd)的状态变量，发送方先不知道网络情况，先设置cwnd为一个最大报文段MSS的数值，本来单位是字节方便叙述理解，将cwnd的单位设为段个数，则第一次设置cwnd=1的M1报文段，收到确认报文段确认后加倍，第二次就是cwnd=2的M2的报文段。除此之外还需要设置一个慢开始的门限ssthresh，</p>
-
-<p>当cwnd<ssthresh，继续使用慢开始； 　　　当cwnd>ssthresh,换用拥塞避免;</p>
-
-<p>当cwnd=ssthresh，两种皆可。</p>
-
-<p>２）拥塞避免算法。它让cwnd不再增长那么快，缓慢加１，于是cwnd就呈线性。</p>
-
-<p><img class="aligncenter size-large wp-image-919" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-1024x522.jpg" alt="慢开始" width="640" height="326" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-1024x522.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-150x77.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-300x153.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-768x392.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" /></p>
-
-<p>无论在哪个阶段，只要出现拥塞，就<strong>把ssthresh设置为拥塞时发送窗口cwnd的一半，并接着重新设置cwnd为１</strong>。</p>
-
-<p>３）快重传；</p>
-
-<p>４）快恢复。快重传算法要求接收方收到一个失序的报文段时立即出现重复确认，目的是为了让发送方及早知道有报文未达到对方。假设接收方接收到M1,M2,M４,M５，M6，没有收到M３,根据快重传算法，接受方在接收到M4,M5,M6时都会回复确认M2,算法规定党收到三个重复确认时就重传M3,不必等为M3设置的重传计数器到期。接下来和之前一样，**把cwnd减半并设置新ssthresh＝cwnd，接着开始执行拥塞避免算法，cwnd缓慢加１。</p>
-
-<p><img class="aligncenter size-large wp-image-922" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-1024x519.jpg" alt="拥塞" width="640" height="324" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-1024x519.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-150x76.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-300x152.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-768x389.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" /></p>
-
-<p>** 。</p>
-
-<p><img class="aligncenter size-large wp-image-920" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-1024x420.jpg" alt="kuaihuifu" width="640" height="263" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-1024x420.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-150x62.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-300x123.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-768x315.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" /></p>
-
-<p>请注意，<strong>有的快速重传是把cwnd继续加三个，理由是你既然有三个后续的报文端到达，可能M3不是拥塞丢失，cwnd还是可以继续增大，那么就增大３个。</strong></p>
-
-<p>最后，虽然cwnd可以在不拥塞的情况下一直增大，但是这是在假定接收端的缓存空间足够大。接收端会根据自己的情况设置一个接受窗口rwnd,所以，最终发送端发送窗口的上限值由Min(cwnd,rwnd)决定。</p>
-
-<p>最后附加三次握手，四次挥手的图片。</p>
-
-<p><img class="aligncenter size-large wp-image-925" src="http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-1024x520.jpg" alt="TCP_3_connect" width="640" height="325" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-1024x520.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-150x76.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-300x152.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-768x390.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" /><img class="aligncenter size-large wp-image-926" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-1024x706.jpg" alt="TCP_4_close" width="640" height="441" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-1024x706.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-150x103.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-300x207.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-768x530.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" /></p>
-
-    
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://buhuipao.com/">
+				<img src="https://avatars.githubusercontent.com/u/14309948?v=4" alt="不会跑" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://buhuipao.com/">不会跑</a></h1>
+	<div class="site-description"><p>work for life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
 	</div>
-  <footer class="article-footer clearfix">
-  
 
-<div class="article-tags">
-  <span></span>
-  
-  <a href="https://buhuipao.github.io/tags/ip">IP</a>
-  
-  <a href="https://buhuipao.github.io/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6">拥塞控制</a>
-  
-  <a href="https://buhuipao.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">滑动窗口</a>
-  
-</div>
-
-
-
-
-
-<div class="article-categories">
-  <span></span>
-  
-  <a class="article-category-link" href="https://buhuipao.github.io/categories/network">Network</a>
-  
-</div>
-
-
-
-  <div class="article-share" id="share">
-    <div data-url="https://buhuipao.github.io/2016/10/09/tcp-window_control/" data-title="TCP的滑动窗口和拥塞控制" data-tsina="5250083917" class="share clearfix">
-    </div>
-  </div>
-</footer>
-
-	</article>
-  
-
-
-
-</div>
-
-    <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-  
-
-<div class="categorieslist">
-  <p class="asidetitle">分类</p>
-  <ul>
-    
-    <li><a href="https://buhuipao.github.io/categories/algorithm" title="algorithm">algorithm<sup>43</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/database" title="database">database<sup>2</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/docker" title="docker">docker<sup>2</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/linux" title="linux">linux<sup>17</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/network" title="network">network<sup>4</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/python" title="python">python<sup>52</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/shell" title="shell">shell<sup>5</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/web" title="web">web<sup>2</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/%e6%88%90%e9%95%bf" title="成长">成长<sup>1</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/%e6%96%b0%e9%97%bb" title="新闻">新闻<sup>3</sup></a></li>
-    
-  </ul>
-</div>
-
-
-
-  
-
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-      
-			<li><a href="https://buhuipao.github.io/tags/algorithm" title="algorithm">algorithm<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/apue" title="apue">apue<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/aupe" title="aupe">aupe<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/bfs" title="bfs">bfs<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/bst" title="bst">bst<sup>9</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/centos7" title="centos7">centos7<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/chromebook" title="chromebook">chromebook<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/dfs" title="dfs">dfs<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/docker" title="docker">docker<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/dp" title="dp">dp<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/drupal" title="drupal">drupal<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/exec" title="exec">exec<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/fork" title="fork">fork<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/grep" title="grep">grep<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/hashtab" title="hashtab">hashtab<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/head" title="head">head<sup>10</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/heap" title="heap">heap<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/host" title="host">host<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/html5" title="html5">html5<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/https" title="https">https<sup>5</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ip" title="ip">ip<sup>15</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/java" title="java">java<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/jtag" title="jtag">jtag<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/jvm" title="jvm">jvm<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/lcs" title="lcs">lcs<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/leetcode" title="leetcode">leetcode<sup>12</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/lfu" title="lfu">lfu<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/linux" title="linux">linux<sup>12</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/lis" title="lis">lis<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/mbr" title="mbr">mbr<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/mongodb" title="mongodb">mongodb<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/mysql" title="mysql">mysql<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/nokia" title="nokia">nokia<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ps" title="ps">ps<sup>5</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/python" title="python">python<sup>30</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/qhsusb_dload" title="qhsusb_dload">qhsusb_dload<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/shell" title="shell">shell<sup>6</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ssh" title="ssh">ssh<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/stack" title="stack">stack<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/tcp/ip" title="tcp/ip">tcp/ip<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/tree" title="tree">tree<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ubuntu" title="ubuntu">ubuntu<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%b8%89%e7%9b%ae%e8%bf%90%e7%ae%97%e7%ac%a6" title="三目运算符">三目运算符<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%be" title="二分查找">二分查找<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%b3%95" title="二分法">二分法<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%8f%89%e6%a0%91" title="二叉树">二叉树<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%bc%99%e4%bc%b4%e7%ae%97%e6%b3%95" title="伙伴算法">伙伴算法<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%86%85%e5%ad%98" title="内存">内存<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" title="动态规划">动态规划<sup>5</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%a0%86" title="堆">堆<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%ad%97%e5%85%b8%e6%a0%91" title="字典树">字典树<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%b9%b6%e5%bd%92" title="并归">并归<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%ba%8f%e5%88%97%e5%8c%96" title="序列化">序列化<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6" title="拥塞控制">拥塞控制<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%8e%92%e5%ba%8f" title="排序">排序<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" title="数据结构">数据结构<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3" title="滑动窗口">滑动窗口<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%88%ac%e8%99%ab" title="爬虫">爬虫<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%a0%81%e5%86%9c" title="码农">码农<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%ae%97%e6%b3%95" title="算法">算法<sup>24</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%b3%bb%e7%bb%9f%e8%ae%be%e8%ae%a1" title="系统设计">系统设计<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%ba%bf%e7%a8%8b" title="线程">线程<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae" title="网络协议">网络协议<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e8%81%9a%e5%90%88" title="聚合">聚合<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e8%ae%be%e8%ae%a1" title="设计">设计<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e8%bf%9e%e7%bb%ad%e5%ad%90%e5%ba%8f%e5%88%97" title="连续子序列">连续子序列<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e9%93%be%e8%a1%a8" title="链表">链表<sup>15</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e9%bb%91%e7%a0%96" title="黑砖">黑砖<sup>1</sup></a></li>
-      
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">首页</a>
+			</li>
+			
+			<li>
+				<a href="/post">文章</a>
+			</li>
+			
+			<li>
+				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
 		</ul>
+	</nav>
 </div>
 
 
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">09</span>
+							<span class="rest">Oct 2016</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">TCP的滑动窗口和拥塞控制</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。</p>
+<p>一.滑动窗口</p>
+<p>所谓滑动窗口:发送窗口中相关的有四个概念：已发送并收到确认的数据（不再发送窗口和发送缓冲区之内）、已发送但未收到确认的数据（位于发送窗口之中）、允许发送但尚未发送的数据以及发送窗口外发送缓冲区内暂时不允许发送的数据；每次成功发送数据之后，发送窗口就会在发送缓冲区中按顺序移动，将新的数据包含到窗口中准备发送；</p>
+<p>其中发送端窗口分为两部分，前半部分为已发送但未确认，后半部分为允许发送但未发送；接收端窗口为允许接受。每次发送一段数据后，发送端收到接收端的ＡＣＫ后，窗口左端P1向右移动，右端P3也向右移动，但是原已发送未确认和允许发送未发送的分界点P2暂时不动，这样允许发送尚未发送区变宽，接下来接续发送数据，P2向右朝P3靠近直到重合。这样发送端的发送窗口已满，可用窗口为０，停止发送。数据全部到达接收端。接收端也发出了确认信息。</p>
+<p>这个是时候可能接收端没有收到确认信息，于是等着，认为接收端任然没有收到此段数据。在经过一段时间后，超时计数器起作用，发送端将重发数据，指导收到接收端的确认为止。</p>
+<p>接收端有时候接收到未按顺利到达的数据，假设发送端发送３１，３２，３３，但是接收端只接收到３２，３３此时接收端发送的确认报文段中的确认号依然是３１，而不能是３２，３３，后面快重传会提到这个。</p>
+<p>二.流量控制</p>
+<p>**　发送方的发送窗口不能超过接收方给出的接收窗口数值。而且，TCP的窗口单位是字节不是报文段。**接收端的窗口大小是建立在接收缓存上的，回复发送端确认号ACK时也回复接收窗大小。</p>
+<p>有时候会出现这种情况，接收端发送接收窗为０的报文段后，接收端接收缓存又有一些空间了，于是向发送端发送接收窗大小为２００的报文段，假如此报文段丢失了，发送端一直在等接收端发送非０窗口的报文段，接收端也理所当然以为发送端收到它的２００接收窗报文段，两边都将等下去。这时TCP为解决此问题，为每个链接设置一个持续计时器(persistence timer).只要发送端收到接收端的０窗口报文段，就启动持续计时器，若时间到期，就发送一个０窗口探测报文段（仅携带一字节数据），接收端确认此报文段时就给出此时的接受窗口大小。假如任然是０，重新启动持续计时器。</p>
+<p>考虑到传输效率，应用进程把数据传到发送的缓存后,剩下发送任务由TCP控制，TCP有三种控制发送时机，</p>
+<p>1)TCP设定一个变量（等于最大报文段长度MSS），当缓存大小达到MSS字节数时发送;</p>
+<p>2)由发送方的应用进程指明要求发送报文段，即TCP支持的推送(push)操作；</p>
+<p>3)发送方一个计时器到限，发送当前缓存数据(长度不超过MSS).</p>
+<p>有时候用户只发送一个字节长度的数据，加上２０字节的TCP首部，再加上20的IP首部就是４１字节，利用率太低，还占带宽。于是在TCP现实中采用Nagle算法，算法如下：应用程序现将数据慢慢送到缓存区，则先发送一个字节，当接收端回复确认报文段后，把缓存区的所有数据组成一个报文段发出去，同时继续缓存数据，只有收到前一个报文段的确认之后才将全部缓存数据组段发出去。Nagle算法还规定，当到达的数据达到发送窗口的一半时或者达到报文段最大长度时，就立即发送一个报文段。</p>
+<p>另一种情况就是反过来，假如接收端的应用程序每次只从接收端缓存读取一个字节，这时接收端一空出一个字节缓存空间，就立即给发送端发送接受窗口为１的报文段，这样也是和浪费。所以同理，接收端也采取同之前发送端类似的策略，等接收缓存出现一半空闲空间或者足够容纳一个最初报文段空间时，再通知发送端的此前接收窗口大小。</p>
+<p>两种方法配合使用。</p>
+<p>三.TCP拥塞控制</p>
+<p>拥塞控制就是防止过多数据注入网络，避免网络中路由器的过载丢弃报文段，是这整个网络的控制，而流量控制是端对端通信量的控制。拥塞控制方法有四种算法分别是: 1)慢开始；２）拥塞避免；3)快重传；４）快恢复</p>
+<p>１）慢开始算法。发送方维持一个叫做拥塞窗口(cwnd)的状态变量，发送方先不知道网络情况，先设置cwnd为一个最大报文段MSS的数值，本来单位是字节方便叙述理解，将cwnd的单位设为段个数，则第一次设置cwnd=1的M1报文段，收到确认报文段确认后加倍，第二次就是cwnd=2的M2的报文段。除此之外还需要设置一个慢开始的门限ssthresh，</p>
+<p>当cwnd&lt;ssthresh，继续使用慢开始； 　　　当cwnd&gt;ssthresh,换用拥塞避免;</p>
+<p>当cwnd=ssthresh，两种皆可。</p>
+<p>２）拥塞避免算法。它让cwnd不再增长那么快，缓慢加１，于是cwnd就呈线性。</p>
+<!-- raw HTML omitted -->
+<p>无论在哪个阶段，只要出现拥塞，就<strong>把ssthresh设置为拥塞时发送窗口cwnd的一半，并接着重新设置cwnd为１</strong>。</p>
+<p>３）快重传；</p>
+<p>４）快恢复。快重传算法要求接收方收到一个失序的报文段时立即出现重复确认，目的是为了让发送方及早知道有报文未达到对方。假设接收方接收到M1,M2,M４,M５，M6，没有收到M３,根据快重传算法，接受方在接收到M4,M5,M6时都会回复确认M2,算法规定党收到三个重复确认时就重传M3,不必等为M3设置的重传计数器到期。接下来和之前一样，**把cwnd减半并设置新ssthresh＝cwnd，接着开始执行拥塞避免算法，cwnd缓慢加１。</p>
+<!-- raw HTML omitted -->
+<p>** 。</p>
+<!-- raw HTML omitted -->
+<p>请注意，<strong>有的快速重传是把cwnd继续加三个，理由是你既然有三个后续的报文端到达，可能M3不是拥塞丢失，cwnd还是可以继续增大，那么就增大３个。</strong></p>
+<p>最后，虽然cwnd可以在不拥塞的情况下一直增大，但是这是在假定接收端的缓存空间足够大。接收端会根据自己的情况设置一个接受窗口rwnd,所以，最终发送端发送窗口的上限值由Min(cwnd,rwnd)决定。</p>
+<p>最后附加三次握手，四次挥手的图片。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 
-  
-  <div class="archiveslist">
-    <p class="asidetitle">归档</p>
-    <ul class="archive-list">
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-11">2017年11月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-08">2017年08月</a><span class="archive-list-count">2</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-07">2017年07月</a><span class="archive-list-count">4</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-06">2017年06月</a><span class="archive-list-count">32</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-05">2017年05月</a><span class="archive-list-count">10</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-04">2017年04月</a><span class="archive-list-count">2</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-03">2017年03月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-10">2016年10月</a><span class="archive-list-count">4</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-09">2016年09月</a><span class="archive-list-count">9</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-08">2016年08月</a><span class="archive-list-count">9</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-07">2016年07月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-04">2016年04月</a><span class="archive-list-count">3</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-02">2016年02月</a><span class="archive-list-count">2</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-10">2015年10月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-06">2015年06月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-05">2015年05月</a><span class="archive-list-count">1</span>
-      </li>
-      
-    </ul>
+			</div>
 
-  </div>
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/ip">IP</a></li>
+							
+							<li><a href="/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6">拥塞控制</a></li>
+							
+							<li><a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">滑动窗口</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
 
-
-  
-
-<div class="tagcloudlist">
-  <p class="asidetitle">标签云</p>
-  <div class="tagcloudlist clearfix">
-    
-    <a href="https://buhuipao.github.io/tags/algorithm" style="font-size: 12px;">algorithm</a>
-    
-    <a href="https://buhuipao.github.io/tags/apue" style="font-size: 12px;">apue</a>
-    
-    <a href="https://buhuipao.github.io/tags/aupe" style="font-size: 12px;">aupe</a>
-    
-    <a href="https://buhuipao.github.io/tags/bfs" style="font-size: 12px;">bfs</a>
-    
-    <a href="https://buhuipao.github.io/tags/bst" style="font-size: 12px;">bst</a>
-    
-    <a href="https://buhuipao.github.io/tags/centos7" style="font-size: 12px;">centos7</a>
-    
-    <a href="https://buhuipao.github.io/tags/chromebook" style="font-size: 12px;">chromebook</a>
-    
-    <a href="https://buhuipao.github.io/tags/dfs" style="font-size: 12px;">dfs</a>
-    
-    <a href="https://buhuipao.github.io/tags/docker" style="font-size: 12px;">docker</a>
-    
-    <a href="https://buhuipao.github.io/tags/dp" style="font-size: 12px;">dp</a>
-    
-    <a href="https://buhuipao.github.io/tags/drupal" style="font-size: 12px;">drupal</a>
-    
-    <a href="https://buhuipao.github.io/tags/exec" style="font-size: 12px;">exec</a>
-    
-    <a href="https://buhuipao.github.io/tags/fork" style="font-size: 12px;">fork</a>
-    
-    <a href="https://buhuipao.github.io/tags/grep" style="font-size: 12px;">grep</a>
-    
-    <a href="https://buhuipao.github.io/tags/hashtab" style="font-size: 12px;">hashtab</a>
-    
-    <a href="https://buhuipao.github.io/tags/head" style="font-size: 12px;">head</a>
-    
-    <a href="https://buhuipao.github.io/tags/heap" style="font-size: 12px;">heap</a>
-    
-    <a href="https://buhuipao.github.io/tags/host" style="font-size: 12px;">host</a>
-    
-    <a href="https://buhuipao.github.io/tags/html5" style="font-size: 12px;">html5</a>
-    
-    <a href="https://buhuipao.github.io/tags/https" style="font-size: 12px;">https</a>
-    
-    <a href="https://buhuipao.github.io/tags/ip" style="font-size: 12px;">ip</a>
-    
-    <a href="https://buhuipao.github.io/tags/java" style="font-size: 12px;">java</a>
-    
-    <a href="https://buhuipao.github.io/tags/jtag" style="font-size: 12px;">jtag</a>
-    
-    <a href="https://buhuipao.github.io/tags/jvm" style="font-size: 12px;">jvm</a>
-    
-    <a href="https://buhuipao.github.io/tags/lcs" style="font-size: 12px;">lcs</a>
-    
-    <a href="https://buhuipao.github.io/tags/leetcode" style="font-size: 12px;">leetcode</a>
-    
-    <a href="https://buhuipao.github.io/tags/lfu" style="font-size: 12px;">lfu</a>
-    
-    <a href="https://buhuipao.github.io/tags/linux" style="font-size: 12px;">linux</a>
-    
-    <a href="https://buhuipao.github.io/tags/lis" style="font-size: 12px;">lis</a>
-    
-    <a href="https://buhuipao.github.io/tags/mbr" style="font-size: 12px;">mbr</a>
-    
-    <a href="https://buhuipao.github.io/tags/mongodb" style="font-size: 12px;">mongodb</a>
-    
-    <a href="https://buhuipao.github.io/tags/mysql" style="font-size: 12px;">mysql</a>
-    
-    <a href="https://buhuipao.github.io/tags/nokia" style="font-size: 12px;">nokia</a>
-    
-    <a href="https://buhuipao.github.io/tags/ps" style="font-size: 12px;">ps</a>
-    
-    <a href="https://buhuipao.github.io/tags/python" style="font-size: 12px;">python</a>
-    
-    <a href="https://buhuipao.github.io/tags/qhsusb_dload" style="font-size: 12px;">qhsusb_dload</a>
-    
-    <a href="https://buhuipao.github.io/tags/shell" style="font-size: 12px;">shell</a>
-    
-    <a href="https://buhuipao.github.io/tags/ssh" style="font-size: 12px;">ssh</a>
-    
-    <a href="https://buhuipao.github.io/tags/stack" style="font-size: 12px;">stack</a>
-    
-    <a href="https://buhuipao.github.io/tags/tcp/ip" style="font-size: 12px;">tcp/ip</a>
-    
-    <a href="https://buhuipao.github.io/tags/tree" style="font-size: 12px;">tree</a>
-    
-    <a href="https://buhuipao.github.io/tags/ubuntu" style="font-size: 12px;">ubuntu</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%b8%89%e7%9b%ae%e8%bf%90%e7%ae%97%e7%ac%a6" style="font-size: 12px;">三目运算符</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%be" style="font-size: 12px;">二分查找</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%b3%95" style="font-size: 12px;">二分法</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%8f%89%e6%a0%91" style="font-size: 12px;">二叉树</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%bc%99%e4%bc%b4%e7%ae%97%e6%b3%95" style="font-size: 12px;">伙伴算法</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%86%85%e5%ad%98" style="font-size: 12px;">内存</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" style="font-size: 12px;">动态规划</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%a0%86" style="font-size: 12px;">堆</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%ad%97%e5%85%b8%e6%a0%91" style="font-size: 12px;">字典树</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%b9%b6%e5%bd%92" style="font-size: 12px;">并归</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%ba%8f%e5%88%97%e5%8c%96" style="font-size: 12px;">序列化</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6" style="font-size: 12px;">拥塞控制</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%8e%92%e5%ba%8f" style="font-size: 12px;">排序</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" style="font-size: 12px;">数据结构</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3" style="font-size: 12px;">滑动窗口</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%88%ac%e8%99%ab" style="font-size: 12px;">爬虫</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%a0%81%e5%86%9c" style="font-size: 12px;">码农</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%ae%97%e6%b3%95" style="font-size: 12px;">算法</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%b3%bb%e7%bb%9f%e8%ae%be%e8%ae%a1" style="font-size: 12px;">系统设计</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%ba%bf%e7%a8%8b" style="font-size: 12px;">线程</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae" style="font-size: 12px;">网络协议</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e8%81%9a%e5%90%88" style="font-size: 12px;">聚合</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e8%ae%be%e8%ae%a1" style="font-size: 12px;">设计</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e8%bf%9e%e7%bb%ad%e5%ad%90%e5%ba%8f%e5%88%97" style="font-size: 12px;">连续子序列</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e9%93%be%e8%a1%a8" style="font-size: 12px;">链表</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e9%bb%91%e7%a0%96" style="font-size: 12px;">黑砖</a>
-    
-  </div>
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'buhuipao';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Copyright buhuipao |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
 </div>
 
-
-
-  
-
-</aside>
-</div>
-
-  </div>
-  <footer><div id="footer" >
-  
-  <div class="line">
-    <span></span>
-    <div style='background:no-repeat url("https://buhuipao.github.io/img/buhuipao.png") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
-  </div>
-  
-  
-  <section class="info">
-    <p>《深入理解计算机系统》<br>《UNIX环境高级编程》</p>
-  </section>
-  
-  <div class="social-font clearfix">
-    
-    <a href="http://weibo.com/buhuipao" target="_blank" title="weibo"></a>
-    
-    
-    <a href="https://twitter.com/buhuipao" target="_blank" title="twitter"></a>
-    
-    
-    <a href="https://github.com/buhuipao" target="_blank" title="github"></a>
-    
-    
-    <a href="https://www.facebook.com/profile.php?id=100009431134667" target="_blank" title="facebook"></a>
-    
-    
-    <a href="https://www.linkedin.com/in/%e5%8d%8e-%e9%99%88-26a19313a" target="_blank" title="linkedin"></a>
-    
-  </div>
-  <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2018
-    
-    <a href="https://buhuipao.github.io/" title="不会跑">不会跑</a>
-    
-  </p>
-</div>
-</footer>
-  <script src="https://buhuipao.github.io/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-done = false;
-$(document).ready(function(){
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize();
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  $('form.search').on('submit', function (event) {
-    if (false === done) {
-      event.preventDefault();
-      var orgVal = $(this).find('#search').val();
-      $(this).find('#search').val('site:https:\/\/buhuipao.github.io\/ ' + orgVal);
-      done = true;
-      $(this).submit();
-    }
-  });
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});
-</script>
-
-
-<link rel="stylesheet" href="https://buhuipao.github.io/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="https://buhuipao.github.io/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-});
-</script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-109197138-1', 'auto');
-  ga('send', 'pageview');
-  $('#messagesbsb').remove();
-</script>
-
-
-
+<script>feather.replace()</script>
 </body>
 </html>
