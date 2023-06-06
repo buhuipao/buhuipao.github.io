@@ -1,173 +1,124 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>搬运墙外Chromebook的Chrubuntu方法安装ubuntu - 不会跑</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-  
-  <meta name="description" content="使用ChrUbuntu安装Ubuntu到新chrome笔记本 自从我开始ChrUbuntu回来 2010年12月 ,这一直是必要使用Chrome O">
-  
-  <meta itemprop="name" content="搬运墙外Chromebook的Chrubuntu方法安装ubuntu - 不会跑">
-  <meta itemprop="description" content="使用ChrUbuntu安装Ubuntu到新chrome笔记本 自从我开始ChrUbuntu回来 2010年12月 ,这一直是必要使用Chrome O">
-  <meta itemprop="image" content="https://buhuipao.github.io/img/author.jpg">
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@buhuipao" />
-  <meta name="twitter:title" content="搬运墙外Chromebook的Chrubuntu方法安装ubuntu - 不会跑" />
-  
-  <meta name="twitter:description" content="">
-  
-  <link rel="shortcut icon" href="https://buhuipao.github.io/img/favicon.ico"/>
-  <link rel="apple-touch-icon" href="https://buhuipao.github.io/apple-touch-icon.png" />
-  <link rel="apple-touch-icon-precomposed" href="https://buhuipao.github.io/apple-touch-icon.png" />
-  <link rel="stylesheet" href="https://buhuipao.github.io/highlight/styles/github.css">
-  <script src="https://buhuipao.github.io/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <link rel="stylesheet" href="https://buhuipao.github.io/font/hack/css/hack.min.css">
-  <link rel="stylesheet" href="https://buhuipao.github.io/css/style.css">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>搬运墙外Chromebook的Chrubuntu方法安装ubuntu - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="搬运墙外Chromebook的Chrubuntu方法安装ubuntu">
+<meta itemprop="description" content="&lt;p&gt; &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-44&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;这将安装32位版本的Xubuntu和最新LTS版"><meta itemprop="datePublished" content="2015-10-26T16:03:39+00:00" />
+<meta itemprop="dateModified" content="2015-10-26T16:03:39+00:00" />
+<meta itemprop="wordCount" content="2876">
+<meta itemprop="keywords" content="chromebook,Ubuntu," /><meta property="og:title" content="搬运墙外Chromebook的Chrubuntu方法安装ubuntu" />
+<meta property="og:description" content="&lt;p&gt; &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-44&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;这将安装32位版本的Xubuntu和最新LTS版" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buhuipao.com/2015/10/27/chromebook_chrubuntu_ubuntu/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2015-10-26T16:03:39+00:00" />
+<meta property="article:modified_time" content="2015-10-26T16:03:39+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="搬运墙外Chromebook的Chrubuntu方法安装ubuntu"/>
+<meta name="twitter:description" content="&lt;p&gt; &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-44&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;这将安装32位版本的Xubuntu和最新LTS版"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.com/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://buhuipao.com/css/dark.css" />
+
+	<script src="https://buhuipao.com/js/feather.min.js"></script>
+	
+		<script src="https://buhuipao.com/js/main.js"></script>
 </head>
 
 <body>
-  <header>
-    <div>
-  
-  <div id="imglogo">
-    <a href="https://buhuipao.github.io/"><img src="https://buhuipao.github.io/img/buhuipao-logo.svg" alt="不会跑" title="不会跑"/></a>
-  </div>
-  
-  <div id="textlogo">
-    <h1 class="site-name"><a href="https://buhuipao.github.io/" title="不会跑">不会跑</a></h1>
-    <h2 class="blog-motto">不忘初心，方得始终</h2>
-  </div>
-  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
-  <nav class="animated">
-    <ul>
-      
-      <li><a href="/">首页</a></li>
-      
-      <li><a href="/note">学习总结</a></li>
-      
-      <li><a href="/link">友链</a></li>
-      
-      <li><a href="/about">关于</a></li>
-      
-      <li>
-        <form class="search" method="get" action="https://www.google.com/search">
-          <div>
-            <input type="text" id="search" name="q" placeholder="搜索">
-          </div>
-        </form>
-      </li>
-    </ul>
-  </nav>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://buhuipao.com/">
+				<img src="https://avatars.githubusercontent.com/u/14309948?v=4" alt="不会跑" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://buhuipao.com/">不会跑</a></h1>
+	<div class="site-description"><p>work for life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">首页</a>
+			</li>
+			
+			<li>
+				<a href="/post">文章</a>
+			</li>
+			
+			<li>
+				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
 </div>
 
-  </header>
-  <div id="container">
-    <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody">
-    <header class="article-info clearfix">
-  <h1 itemprop="name">
-      <a href="https://buhuipao.github.io/2015/10/27/chromebook_chrubuntu_ubuntu/" title="搬运墙外Chromebook的Chrubuntu方法安装ubuntu" itemprop="url">搬运墙外Chromebook的Chrubuntu方法安装ubuntu</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="https://www.buhuipao.com" title=""></a>
-    
-  </p>
-  <p class="article-time">
-    <time datetime="2015-10-26 16:03:39 &#43;0000 &#43;0000" itemprop="datePublished">2015年10月26日</time>
-  </p>
-</header>
 
-	<div class="article-content">
-    
-    <p><a href="//www.bluehost.com/track/buhuipao/" target="_blank"><br /> <img border="0" src="//bluehost-cdn.com/media/partner/images/buhuipao/760x80/bh-760x80-04-dy.png" /><br /> </a></p>
-
-<h1 style="text-align: center;">
-  <strong><span id="OUTFOX_JTR_TRANS_NODE-3" class="OUTFOX_JTR_TRANS_NODE">使用ChrUbuntu安装Ubuntu到新chrome笔记本</span></strong>
-</h1>
-
-<div id="post-body-3234478954455221800" class="post-body entry-content">
-  <p>
-    <span id="OUTFOX_JTR_TRANS_NODE-4" class="OUTFOX_JTR_TRANS_NODE">自从我开始ChrUbuntu回来 </span><a href="http://chromeos-cr48.blogspot.com/2010/12/easy-way-to-install-ubuntu-on-your-cr.html" target="_blank"><span id="OUTFOX_JTR_TRANS_NODE-5" class="OUTFOX_JTR_TRANS_NODE">2010年12月 </span></a><span id="OUTFOX_JTR_TRANS_NODE-6" class="OUTFOX_JTR_TRANS_NODE">,这一直是必要使用Chrome OS和Ubuntu Linux内核为了解决一些兼容性问题Chromebook架构。 与Chromebook像素的变化和更新Haswell-based chrome笔记本之类的 </span><a href="http://www.amazon.com/gp/product/B00FNPD1OY/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00FNPD1OY&linkCode=as2&tag=chro48-20"><span id="OUTFOX_JTR_TRANS_NODE-7" class="OUTFOX_JTR_TRANS_NODE">宏碁C720 </span></a><span id="OUTFOX_JTR_TRANS_NODE-8" class="OUTFOX_JTR_TRANS_NODE">和 </span><a href="http://www.amazon.com/gp/product/B00FGOTA9M/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00FGOTA9M&linkCode=as2&tag=chro48-20"><span id="OUTFOX_JTR_TRANS_NODE-9" class="OUTFOX_JTR_TRANS_NODE">惠普Chromebook 14 </span></a><span id="OUTFOX_JTR_TRANS_NODE-10" class="OUTFOX_JTR_TRANS_NODE">。 每个这些模型的支持 </span><a href="https://plus.google.com/100479847213284361344/posts/QhmBpn5GNE9" target="_blank"><span id="OUTFOX_JTR_TRANS_NODE-11" class="OUTFOX_JTR_TRANS_NODE">从更传统的PC BIOS启动模式 </span></a><span id="OUTFOX_JTR_TRANS_NODE-12" class="OUTFOX_JTR_TRANS_NODE">这使得它易于使用股票Ubuntu内核。 </span>
-  </p>
-  
-  <p>
-    <a href="http://www.buhuipao.com/wp-content/uploads/2015/10/ubuntu.jpg"><img class="aligncenter wp-image-678" src="http://www.buhuipao.com/wp-content/uploads/2015/10/ubuntu-1024x640.jpg" alt="ubuntu" width="680" height="425" srcset="http://www.buhuipao.com/wp-content/uploads/2015/10/ubuntu-1024x640.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2015/10/ubuntu-150x94.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2015/10/ubuntu-300x188.jpg 300w" sizes="(max-width: 680px) 100vw, 680px" /></a>
-  </p>
-  
-  <div>
-  </div>
-  
-
-<p><div>
-    <span id="OUTFOX_JTR_TRANS_NODE-13" class="OUTFOX_JTR_TRANS_NODE"> 这ChrUbuntu释放是一个 </span><u><span id="OUTFOX_JTR_TRANS_NODE-14" class="OUTFOX_JTR_TRANS_NODE">预览 </span></u><span id="OUTFOX_JTR_TRANS_NODE-15" class="OUTFOX_JTR_TRANS_NODE">只 支持基于x86的chrome笔记本,像素和更新(阅读:基于arm的惠普Chromebook 11不支持,也不旧的宏碁C7、三星550,等。这些设备使用旧s9ryd脚本)。 我希望最终将这个脚本在主sr9yd ChrUbuntu安装脚本,但现在,我推荐这个脚本在这些更新的旧设备。 </span>
-  </div></p>
-
-<p><div>
-    <b><span id="OUTFOX_JTR_TRANS_NODE-16" class="OUTFOX_JTR_TRANS_NODE">注意: </span></b><span id="OUTFOX_JTR_TRANS_NODE-17" class="OUTFOX_JTR_TRANS_NODE">触控板仅支持13.10和更高版本。 我正在向12.04补丁触摸板驱动程序。 现在坚持13.10或使用USB鼠标。 </span>
-  </div></p>
-
-<p><div>
-    <span id="OUTFOX_JTR_TRANS_NODE-18" class="OUTFOX_JTR_TRANS_NODE"> 下面的步骤安装ChrUbuntu像素或Haswell-based Chromebook: </span>
-  </div></p>
-
-<p><div>
-    <div>
-      <ol>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-19" class="OUTFOX_JTR_TRANS_NODE">首先,确保你的Chromebook处于开发模式。 模型相关的指令可以 </span><a href="http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices"><span id="OUTFOX_JTR_TRANS_NODE-20" class="OUTFOX_JTR_TRANS_NODE">在这里找到 </span></a><span id="OUTFOX_JTR_TRANS_NODE-21" class="OUTFOX_JTR_TRANS_NODE">。 </span>
-        </li>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-22" class="OUTFOX_JTR_TRANS_NODE">开 始你的铬设备关机。打开但不要登录。 确保你有一个WiFi或以太网连接配置。 不推荐3 g / 4 g。 按CTRL + ALT + = &gt;(= &gt; F2的向前箭头键将PC)。 不要使用正常的CTRL + ALT + T方法来获取一个壳。 使用CTRL + ALT + = &gt;方法虽然没有人登录。 </span>
-        </li>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-23" class="OUTFOX_JTR_TRANS_NODE">作为用户chronos登录,不需要密码。 </span>
-        </li>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-24" class="OUTFOX_JTR_TRANS_NODE">作为chronos用户和不改变目录或运行其他命令,运行: </span><span id="OUTFOX_JTR_TRANS_NODE-25" class="OUTFOX_JTR_TRANS_NODE">curl &#8211; l &#8211; o <a href="http://goo。">http://goo。</a> gl / 9 sgchs;sudo bash 9 sgchs </span><span id="OUTFOX_JTR_TRANS_NODE-26" class="OUTFOX_JTR_TRANS_NODE">确保你有正确的命令。 &#8211; o &#8211; l后旋度都是大写字母。 9 sgchs所有小写字母和数字,听起来像“九ess啊看到aich ess”如果你大声说出来。 如果你得到一个“未找到”错误,确保你有互联网连接和你输入正确的命令。 </span>
-        </li>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-27" class="OUTFOX_JTR_TRANS_NODE">你会被提示一些信息关于你的Chromebook和ChrUbuntu安装的版本。 按回车键继续。 </span>
-        </li>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-28" class="OUTFOX_JTR_TRANS_NODE">Chrome OS状态分区,数据和设置默认存储只是短11 gb(除了像素有32或64 gb的SSD),脚本收缩状态分区为ChrUbuntu腾出空间。 你可以选择放弃从5 gb ChrUbuntu 10 gb的1 gb的增量(注意:如果你已经安装了一个更大的SSD铬设备,你的最大数量和建议将会更大)。 我建议不会高于9 10留给Chrome OS很少自由空间(小于1 gb)。 </span>
-        </li>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-29" class="OUTFOX_JTR_TRANS_NODE">一旦你输入一个数字,你的硬盘重新分区。 一段时间后,它将重新启动并初始化状态分区。 这个过程需要男童分钟然后Chromebook再次重新启动,显示欢迎屏幕你得到当你第一次打开你的Chromebook纸箱。 </span><b><span id="OUTFOX_JTR_TRANS_NODE-30" class="OUTFOX_JTR_TRANS_NODE">专家提示: </span></b><span id="OUTFOX_JTR_TRANS_NODE-31" class="OUTFOX_JTR_TRANS_NODE">不喜欢Ubuntu或它的任何变体? 你现在可以停止和填补准备Linux USB引导磁盘 </span><a href="https://fedoraproject.org/wiki/How_to_create_and_use_Live_USB"><span id="OUTFOX_JTR_TRANS_NODE-32" class="OUTFOX_JTR_TRANS_NODE">Fedora </span></a><span id="OUTFOX_JTR_TRANS_NODE-33" class="OUTFOX_JTR_TRANS_NODE">, </span><a href="http://www.debian.org/releases/stable/i386/ch04s03.html.en"><span id="OUTFOX_JTR_TRANS_NODE-34" class="OUTFOX_JTR_TRANS_NODE">Debian </span></a><span id="OUTFOX_JTR_TRANS_NODE-35" class="OUTFOX_JTR_TRANS_NODE">, </span><a href="http://community.linuxmint.com/tutorial/view/744"><span id="OUTFOX_JTR_TRANS_NODE-36" class="OUTFOX_JTR_TRANS_NODE">薄荷 </span></a><span id="OUTFOX_JTR_TRANS_NODE-37" class="OUTFOX_JTR_TRANS_NODE">在开车或者几乎任何其他发行版。 然后点击CTRL + L发起遗留的引导。 格式和操作系统安装到sda和确保安装GRUB的/dev/sda7分区,你应该去好! </span>
-        </li>
-        <li>
-          <span id="OUTFOX_JTR_TRANS_NODE-38" class="OUTFOX_JTR_TRANS_NODE">再通过Chrome OS安装过程,直到你到达谷歌登录页面。 你需要有一个WiFi或以太网连接在这一点上。 现在按照步骤2到5了。 这一次脚本会发现你已经让位给Ubuntu并开始下载ChrUbuntu。 </span><b><span id="OUTFOX_JTR_TRANS_NODE-39" class="OUTFOX_JTR_TRANS_NODE">专家提示: </span></b><span id="OUTFOX_JTR_TRANS_NODE-40" class="OUTFOX_JTR_TRANS_NODE">在这里您可以安装其他版本的Ubuntu ! 看你有什么选项运行: </span><span id="OUTFOX_JTR_TRANS_NODE-41" class="OUTFOX_JTR_TRANS_NODE">curl &#8211; l &#8211; o <a href="http://goo。">http://goo。</a> gl / 9 sgchs;sudo bash 9 sgchs &#8211; h </span><span id="OUTFOX_JTR_TRANS_NODE-42" class="OUTFOX_JTR_TRANS_NODE">自定义安装一个例子是: </span> <p>
-            <span id="OUTFOX_JTR_TRANS_NODE-43" class="OUTFOX_JTR_TRANS_NODE">curl &#8211; l &#8211; o <a href="http://goo。">http://goo。</a> gl / 9 sgchs;sudo bash 9 sgchs &#8211; m xubuntu-desktop &#8211; i386 &#8211; u </span>
-          </p></p>
-
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">26</span>
+							<span class="rest">Oct 2015</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">搬运墙外Chromebook的Chrubuntu方法安装ubuntu</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>      &lt;p&gt;
         &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-44&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;这将安装32位版本的Xubuntu和最新LTS版(12.04.3写),而不是一个64位13.10统一桌面(默认)。 一些可能的味道替代统一(- m选项): &lt;/span&gt;
       &lt;/p&gt;
-
+      
       &lt;p&gt;
         &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-45&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;默认的 &lt;/span&gt;&lt;/b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-46&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;——ubuntu桌面 &lt;/span&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-47&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;kubuntu-desktop &lt;/span&gt;&lt;/b&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-48&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;lubuntu-desktop &lt;/span&gt;&lt;/b&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-49&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;xubuntu-desktop &lt;/span&gt;&lt;/b&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-50&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;edubuntu-desktop &lt;/span&gt;&lt;/b&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-51&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;ubuntu-standard &lt;/span&gt;&lt;/b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-52&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;——没有GUI安装 &lt;/span&gt;
       &lt;/p&gt;
-
+      
       &lt;p&gt;
         &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-53&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;一些可能的版本(- u选项): &lt;/span&gt;
       &lt;/p&gt;
-
+      
       &lt;p&gt;
         &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-54&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;lts &lt;/span&gt;&lt;/b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-55&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;——最新LTS Ubuntu版本,12.04.3在撰写本文时 &lt;/span&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-56&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;最新的 &lt;/span&gt;&lt;/b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-57&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;——最新官方版本,目前13.10 &lt;/span&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-58&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;dev &lt;/span&gt;&lt;/b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-59&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;——不稳定的开发Ubuntu发布。 专家! 如果这休息,不要感到惊讶。 &lt;/span&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-60&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;12.10 &lt;/span&gt;&lt;/b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-61&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;——Ubuntu 12.10版本 &lt;/span&gt;
       &lt;/p&gt;
-
+      
       &lt;p&gt;
         &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-62&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;可能的架构(- a选项): &lt;/span&gt;
       &lt;/p&gt;
-
+      
       &lt;p&gt;
         &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-63&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;amd64 &lt;/span&gt;&lt;/b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-64&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;——默认 &lt;/span&gt;&lt;br /&gt; &lt;b&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-65&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;i386 &lt;/span&gt;&lt;/b&gt;
       &lt;/p&gt;
-
+      
       &lt;p&gt;
         &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-66&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;&amp;#8211; t目标桌子选项是完全未经考验的现在! &lt;/span&gt;&lt;/li&gt; 
-
+        
         &lt;li&gt;
           &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-67&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;在安装期间(5 &amp;#8211; 15分钟内)。 你会看到一些提示选择您的编码,语言环境和语言。 对大多数人来说,默认应该没事的,只是按Enter键,如果你想改变它们。 后来,你会被提示来决定应该安装GRUB的地方。 你必须sda复选框旁边的为了引导工作! &lt;/span&gt;
         &lt;/li&gt;
@@ -177,57 +128,57 @@
         &lt;li&gt;
           &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-69&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;在屏幕可怕的开发模式,点击CTRL + L,而不是按CTRL + D。 你会看到ChrUbuntu启动! 用户名是“用户”和密码“用户”。 &lt;/span&gt;
         &lt;/li&gt;&lt;/ol&gt; &lt;/div&gt; 
-
+        
         &lt;div&gt;
           &lt;p&gt;
             &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-70&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt; 就是这样! 现在你可以按CTRL + L引导ChrUbuntu(L的遗产,传统操作系统)或按CTRL + D启动Chrome OS(D在默认OS磁盘上)。 &lt;/span&gt;
           &lt;/p&gt;
-
+          
           &lt;p&gt;
             &lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-71&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt; 最后但重要的是,我想给一个大感谢+ &lt;/span&gt;&lt;a href=&quot;https://plus.google.com/100479847213284361344/posts&quot; target=&quot;_blank&quot;&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-72&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;比尔·理查森 &lt;/span&gt;&lt;/a&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-73&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;,+ &lt;/span&gt;&lt;a href=&quot;https://plus.google.com/102325349472273329333/posts&quot; target=&quot;_blank&quot;&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-74&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;罗恩Minnich &lt;/span&gt;&lt;/a&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-75&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;, &lt;/span&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-76&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;+ &lt;/span&gt;&lt;a href=&quot;https://plus.google.com/101550095383851162852/posts&quot; target=&quot;_blank&quot;&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-77&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;Stefan Reinauer &lt;/span&gt;&lt;/a&gt;&lt;span id=&quot;OUTFOX_JTR_TRANS_NODE-78&quot; class=&quot;OUTFOX_JTR_TRANS_NODE&quot;&gt;和其他员工工作的低级Chrome OS硬件/软件,使一个真正令人难以置信的强大和开放Chrome OS平台! 伟大作品的家伙! &lt;/span&gt;
           &lt;/p&gt;
-
+          
           &lt;hr /&gt;
         &lt;/div&gt;&lt;/div&gt; 
-
+        
         &lt;div&gt;
           此文为搬运墙外原著的chromebook安装ubuntu的最新教程（Googel翻译），意在帮助墙内的初级chromebook用户，不喜勿喷，也希望原作者理解我们天朝的子民。本人并不是有意抄袭和盗用，请理解理解！向原著致敬！
         &lt;/div&gt;
-
+        
         &lt;div&gt;
         &lt;/div&gt;
-
+        
         &lt;div&gt;
           &lt;strong&gt;&lt;del&gt;以下为原文，上文的机器翻译如若不对，轻自己对照理解操作！&lt;/del&gt;&lt;/strong&gt;
         &lt;/div&gt;&lt;/div&gt; 
-
+        
         &lt;div&gt;
           &lt;hr /&gt;
-
+          
           &lt;h3 class=&quot;post-title entry-title&quot; style=&quot;text-align: center;&quot;&gt;
             ChrUbuntu for New Chromebooks: Now with more Ubuntu
           &lt;/h3&gt;
-
+          
           &lt;div id=&quot;post-body-3234478954455221800&quot; class=&quot;post-body entry-content&quot;&gt;
             &lt;p&gt;
               Since I started ChrUbuntu back in&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&lt;a href=&quot;http://chromeos-cr48.blogspot.com/2010/12/easy-way-to-install-ubuntu-on-your-cr.html&quot; target=&quot;_blank&quot;&gt;December of 2010&lt;/a&gt;, it&amp;#8217;s always been necessary to utilize the Chrome OS Linux kernel with Ubuntu in order to solve some compatibility issues with the Chromebook architecture. That&amp;#8217;s changed with the Chromebook Pixel and the newer Haswell-based Chromebooks like the&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/B00FNPD1OY/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00FNPD1OY&amp;linkCode=as2&amp;tag=chro48-20&quot;&gt;Acer C720&lt;/a&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;and&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/B00FGOTA9M/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00FGOTA9M&amp;linkCode=as2&amp;tag=chro48-20&quot;&gt;HP Chromebook 14&lt;/a&gt;. Each of these models supports&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://plus.google.com/100479847213284361344/posts/QhmBpn5GNE9&quot; target=&quot;_blank&quot;&gt;booting from a more traditional PC BIOS mode&lt;/a&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;which makes it simple to use stock Ubuntu kernels on them.
             &lt;/p&gt;
-
+            
             &lt;div&gt;
             &lt;/div&gt;
-
+            
             &lt;div&gt;
               This ChrUbuntu release is a&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&lt;u&gt;preview&lt;/u&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;that will only support x86-based Chromebooks, Pixel and newer (read: the ARM-based HP Chromebook 11 is not supported, nor are the older Acer C7, Samsung 550, etc. Use the old s9ryd script for these devices). I hope to eventually wrap this script back in to the main sr9yd ChrUbuntu install script but for now, I recommend this script on these newer devices over the old one.
             &lt;/div&gt;
-
+            
             &lt;div&gt;
               &lt;b&gt;Note:&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;The trackpad is only supported with 13.10 and higher. I&amp;#8217;m working to backport the trackpad drivers to 12.04. For now stick with 13.10 or use a USB mouse.
             &lt;/div&gt;
-
+            
             &lt;div&gt;
               Here are the steps to install ChrUbuntu on a Pixel or Haswell-based Chromebook:
             &lt;/div&gt;
-
+            
             &lt;div&gt;
               &lt;div&gt;
                 &lt;ol&gt;
@@ -256,38 +207,38 @@
                     Go through the Chrome OS setup process again until you get to the Google login page. You&amp;#8217;ll need to have a WiFi or Ethernet connection again at this point. Now follow steps 2 through 5 again. This time the script will see that you&amp;#8217;ve already made room for Ubuntu and start downloading ChrUbuntu.&lt;b&gt;Pro Tip:&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;Here&amp;#8217;s where you can install other versions of Ubuntu! To see what options you have run:curl -L -O http://goo.gl/9sgchs; sudo bash 9sgchs -h &lt;p&gt;
                       An example custom installation would be:
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       curl -L -O http://goo.gl/9sgchs; sudo bash 9sgchs -m xubuntu-desktop -u lts -a i386
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       which would install the 32-bit version of Xubuntu and the latest LTS release (12.04.3 as of writing) rather than a 64-bit 13.10 Unity desktop (which is the default). Some possible flavor alternatives to Unity (-m option) are:
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       &lt;b&gt;default&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt; &amp;#8212; ubuntu-desktop&lt;br /&gt; &lt;b&gt;kubuntu-desktop&lt;/b&gt;&lt;br /&gt; &lt;b&gt;lubuntu-desktop&lt;/b&gt;&lt;br /&gt; &lt;b&gt;xubuntu-desktop&lt;/b&gt;&lt;br /&gt; &lt;b&gt;edubuntu-desktop&lt;/b&gt;&lt;br /&gt; &lt;b&gt;ubuntu-standard&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt; &amp;#8212; no GUI installed
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       some possible versions (-u option) are:
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       &lt;b&gt;lts&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&amp;#8212; latest LTS Ubuntu release, 12.04.3 as of this writing&lt;br /&gt; &lt;b&gt;latest&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&amp;#8212; latest official release, currently 13.10&lt;br /&gt; &lt;b&gt;dev&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&amp;#8212; unstable development Ubuntu release. Experts only! If this breaks, don&amp;#8217;t be surprised.&lt;br /&gt; &lt;b&gt;12.10&lt;/b&gt;&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&amp;#8212; Ubuntu 12.10 release
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       the possible architectures (-a option) are:
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       &lt;b&gt;amd64&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;&lt;/b&gt; &amp;#8212; default&lt;br /&gt; &lt;b&gt;i386&lt;/b&gt;
                     &lt;/p&gt;
-
+                    
                     &lt;p&gt;
                       the -t target desk option is completely untested right now!&lt;/li&gt; 
-
+                      
                       &lt;li&gt;
                         During the installation (within the first 5-15 minutes). You&amp;#8217;ll see a few prompts to select your encoding, locale and language. For most people, the defaults should be fine, just press Enter but change them if you&amp;#8217;d like. Later on, you&amp;#8217;ll be prompted to decide where GRUB should be installed. YOU MUST CHECK THE BOX NEXT TO /dev/sda in order for boot to work!
                       &lt;/li&gt;
@@ -297,678 +248,55 @@
                       &lt;li&gt;
                         At the scary developer mode screen, hit CTRL+L instead of CTRL+D. You&amp;#8217;ll see ChrUbuntu start up! The username is &amp;#8220;user&amp;#8221; and the password is &amp;#8220;user&amp;#8221;.
                       &lt;/li&gt;&lt;/ol&gt; &lt;/div&gt; 
-
+                      
                       &lt;div&gt;
                         &lt;p&gt;
                           That&amp;#8217;s it! Now you can just press CTRL+L to boot ChrUbuntu (L as in Legacy, traditional OS) or CTRL+D to boot Chrome OS (D as in Default OS on Disk).
                         &lt;/p&gt;
-
+                        
                         &lt;p&gt;
                           Last but least, I want to give a big thank you to +&lt;a href=&quot;https://plus.google.com/100479847213284361344/posts&quot; target=&quot;_blank&quot;&gt;Bill Richardson&lt;/a&gt;, +&lt;a href=&quot;https://plus.google.com/102325349472273329333/posts&quot; target=&quot;_blank&quot;&gt;Ron Minnich&lt;/a&gt;,&lt;span class=&quot;Apple-converted-space&quot;&gt; &lt;/span&gt;+&lt;a href=&quot;https://plus.google.com/101550095383851162852/posts&quot; target=&quot;_blank&quot;&gt;Stefan Reinauer&lt;/a&gt; and other Googlers who work on the low-level Chrome OS hardware/software and have made a truly incredible, powerful and open Chrome OS platform! Great work guys!
                         &lt;/p&gt;
-                      &lt;/div&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;
-</code></pre>
+                      &lt;/div&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</code></pre>
 
-    
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/chromebook">chromebook</a></li>
+							
+							<li><a href="/tags/ubuntu">Ubuntu</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'buhuipao';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
 	</div>
-  <footer class="article-footer clearfix">
-  
-
-<div class="article-tags">
-  <span></span>
-  
-  <a href="https://buhuipao.github.io/tags/chromebook">chromebook</a>
-  
-  <a href="https://buhuipao.github.io/tags/ubuntu">Ubuntu</a>
-  
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Copyright buhuipao |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
 </div>
 
-
-
-
-
-<div class="article-categories">
-  <span></span>
-  
-  <a class="article-category-link" href="https://buhuipao.github.io/categories/linux">Linux</a>
-  
-</div>
-
-
-
-  <div class="article-share" id="share">
-    <div data-url="https://buhuipao.github.io/2015/10/27/chromebook_chrubuntu_ubuntu/" data-title="搬运墙外Chromebook的Chrubuntu方法安装ubuntu" data-tsina="5250083917" class="share clearfix">
-    </div>
-  </div>
-</footer>
-
-	</article>
-  
-
-
-
-</div>
-
-    <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-  
-
-<div class="categorieslist">
-  <p class="asidetitle">分类</p>
-  <ul>
-    
-    <li><a href="https://buhuipao.github.io/categories/algorithm" title="algorithm">algorithm<sup>43</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/database" title="database">database<sup>2</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/docker" title="docker">docker<sup>2</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/linux" title="linux">linux<sup>17</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/network" title="network">network<sup>4</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/python" title="python">python<sup>52</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/shell" title="shell">shell<sup>5</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/web" title="web">web<sup>2</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/%e6%88%90%e9%95%bf" title="成长">成长<sup>1</sup></a></li>
-    
-    <li><a href="https://buhuipao.github.io/categories/%e6%96%b0%e9%97%bb" title="新闻">新闻<sup>3</sup></a></li>
-    
-  </ul>
-</div>
-
-
-
-  
-
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-      
-			<li><a href="https://buhuipao.github.io/tags/algorithm" title="algorithm">algorithm<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/apue" title="apue">apue<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/aupe" title="aupe">aupe<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/bfs" title="bfs">bfs<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/bst" title="bst">bst<sup>9</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/centos7" title="centos7">centos7<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/chromebook" title="chromebook">chromebook<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/dfs" title="dfs">dfs<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/docker" title="docker">docker<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/dp" title="dp">dp<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/drupal" title="drupal">drupal<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/exec" title="exec">exec<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/fork" title="fork">fork<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/grep" title="grep">grep<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/hashtab" title="hashtab">hashtab<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/head" title="head">head<sup>10</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/heap" title="heap">heap<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/host" title="host">host<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/html5" title="html5">html5<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/https" title="https">https<sup>5</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ip" title="ip">ip<sup>15</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/java" title="java">java<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/jtag" title="jtag">jtag<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/jvm" title="jvm">jvm<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/lcs" title="lcs">lcs<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/leetcode" title="leetcode">leetcode<sup>12</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/lfu" title="lfu">lfu<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/linux" title="linux">linux<sup>12</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/lis" title="lis">lis<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/mbr" title="mbr">mbr<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/mongodb" title="mongodb">mongodb<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/mysql" title="mysql">mysql<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/nokia" title="nokia">nokia<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ps" title="ps">ps<sup>5</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/python" title="python">python<sup>30</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/qhsusb_dload" title="qhsusb_dload">qhsusb_dload<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/shell" title="shell">shell<sup>6</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ssh" title="ssh">ssh<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/stack" title="stack">stack<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/tcp/ip" title="tcp/ip">tcp/ip<sup>3</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/tree" title="tree">tree<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/ubuntu" title="ubuntu">ubuntu<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%b8%89%e7%9b%ae%e8%bf%90%e7%ae%97%e7%ac%a6" title="三目运算符">三目运算符<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%be" title="二分查找">二分查找<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%b3%95" title="二分法">二分法<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%8f%89%e6%a0%91" title="二叉树">二叉树<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e4%bc%99%e4%bc%b4%e7%ae%97%e6%b3%95" title="伙伴算法">伙伴算法<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%86%85%e5%ad%98" title="内存">内存<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" title="动态规划">动态规划<sup>5</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%a0%86" title="堆">堆<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%ad%97%e5%85%b8%e6%a0%91" title="字典树">字典树<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%b9%b6%e5%bd%92" title="并归">并归<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e5%ba%8f%e5%88%97%e5%8c%96" title="序列化">序列化<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6" title="拥塞控制">拥塞控制<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%8e%92%e5%ba%8f" title="排序">排序<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" title="数据结构">数据结构<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3" title="滑动窗口">滑动窗口<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%88%ac%e8%99%ab" title="爬虫">爬虫<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%a0%81%e5%86%9c" title="码农">码农<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%ae%97%e6%b3%95" title="算法">算法<sup>24</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%b3%bb%e7%bb%9f%e8%ae%be%e8%ae%a1" title="系统设计">系统设计<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%ba%bf%e7%a8%8b" title="线程">线程<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae" title="网络协议">网络协议<sup>2</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e8%81%9a%e5%90%88" title="聚合">聚合<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e8%ae%be%e8%ae%a1" title="设计">设计<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e8%bf%9e%e7%bb%ad%e5%ad%90%e5%ba%8f%e5%88%97" title="连续子序列">连续子序列<sup>1</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e9%93%be%e8%a1%a8" title="链表">链表<sup>15</sup></a></li>
-      
-			<li><a href="https://buhuipao.github.io/tags/%e9%bb%91%e7%a0%96" title="黑砖">黑砖<sup>1</sup></a></li>
-      
-		</ul>
-</div>
-
-
-
-  
-  <div class="archiveslist">
-    <p class="asidetitle">归档</p>
-    <ul class="archive-list">
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-11">2017年11月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-08">2017年08月</a><span class="archive-list-count">2</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-07">2017年07月</a><span class="archive-list-count">4</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-06">2017年06月</a><span class="archive-list-count">32</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-05">2017年05月</a><span class="archive-list-count">10</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-04">2017年04月</a><span class="archive-list-count">2</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2017-03">2017年03月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-10">2016年10月</a><span class="archive-list-count">4</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-09">2016年09月</a><span class="archive-list-count">9</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-08">2016年08月</a><span class="archive-list-count">9</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-07">2016年07月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-04">2016年04月</a><span class="archive-list-count">3</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2016-02">2016年02月</a><span class="archive-list-count">2</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-10">2015年10月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-06">2015年06月</a><span class="archive-list-count">1</span>
-      </li>
-      
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://buhuipao.github.io/post/#2015-05">2015年05月</a><span class="archive-list-count">1</span>
-      </li>
-      
-    </ul>
-
-  </div>
-
-
-  
-
-<div class="tagcloudlist">
-  <p class="asidetitle">标签云</p>
-  <div class="tagcloudlist clearfix">
-    
-    <a href="https://buhuipao.github.io/tags/algorithm" style="font-size: 12px;">algorithm</a>
-    
-    <a href="https://buhuipao.github.io/tags/apue" style="font-size: 12px;">apue</a>
-    
-    <a href="https://buhuipao.github.io/tags/aupe" style="font-size: 12px;">aupe</a>
-    
-    <a href="https://buhuipao.github.io/tags/bfs" style="font-size: 12px;">bfs</a>
-    
-    <a href="https://buhuipao.github.io/tags/bst" style="font-size: 12px;">bst</a>
-    
-    <a href="https://buhuipao.github.io/tags/centos7" style="font-size: 12px;">centos7</a>
-    
-    <a href="https://buhuipao.github.io/tags/chromebook" style="font-size: 12px;">chromebook</a>
-    
-    <a href="https://buhuipao.github.io/tags/dfs" style="font-size: 12px;">dfs</a>
-    
-    <a href="https://buhuipao.github.io/tags/docker" style="font-size: 12px;">docker</a>
-    
-    <a href="https://buhuipao.github.io/tags/dp" style="font-size: 12px;">dp</a>
-    
-    <a href="https://buhuipao.github.io/tags/drupal" style="font-size: 12px;">drupal</a>
-    
-    <a href="https://buhuipao.github.io/tags/exec" style="font-size: 12px;">exec</a>
-    
-    <a href="https://buhuipao.github.io/tags/fork" style="font-size: 12px;">fork</a>
-    
-    <a href="https://buhuipao.github.io/tags/grep" style="font-size: 12px;">grep</a>
-    
-    <a href="https://buhuipao.github.io/tags/hashtab" style="font-size: 12px;">hashtab</a>
-    
-    <a href="https://buhuipao.github.io/tags/head" style="font-size: 12px;">head</a>
-    
-    <a href="https://buhuipao.github.io/tags/heap" style="font-size: 12px;">heap</a>
-    
-    <a href="https://buhuipao.github.io/tags/host" style="font-size: 12px;">host</a>
-    
-    <a href="https://buhuipao.github.io/tags/html5" style="font-size: 12px;">html5</a>
-    
-    <a href="https://buhuipao.github.io/tags/https" style="font-size: 12px;">https</a>
-    
-    <a href="https://buhuipao.github.io/tags/ip" style="font-size: 12px;">ip</a>
-    
-    <a href="https://buhuipao.github.io/tags/java" style="font-size: 12px;">java</a>
-    
-    <a href="https://buhuipao.github.io/tags/jtag" style="font-size: 12px;">jtag</a>
-    
-    <a href="https://buhuipao.github.io/tags/jvm" style="font-size: 12px;">jvm</a>
-    
-    <a href="https://buhuipao.github.io/tags/lcs" style="font-size: 12px;">lcs</a>
-    
-    <a href="https://buhuipao.github.io/tags/leetcode" style="font-size: 12px;">leetcode</a>
-    
-    <a href="https://buhuipao.github.io/tags/lfu" style="font-size: 12px;">lfu</a>
-    
-    <a href="https://buhuipao.github.io/tags/linux" style="font-size: 12px;">linux</a>
-    
-    <a href="https://buhuipao.github.io/tags/lis" style="font-size: 12px;">lis</a>
-    
-    <a href="https://buhuipao.github.io/tags/mbr" style="font-size: 12px;">mbr</a>
-    
-    <a href="https://buhuipao.github.io/tags/mongodb" style="font-size: 12px;">mongodb</a>
-    
-    <a href="https://buhuipao.github.io/tags/mysql" style="font-size: 12px;">mysql</a>
-    
-    <a href="https://buhuipao.github.io/tags/nokia" style="font-size: 12px;">nokia</a>
-    
-    <a href="https://buhuipao.github.io/tags/ps" style="font-size: 12px;">ps</a>
-    
-    <a href="https://buhuipao.github.io/tags/python" style="font-size: 12px;">python</a>
-    
-    <a href="https://buhuipao.github.io/tags/qhsusb_dload" style="font-size: 12px;">qhsusb_dload</a>
-    
-    <a href="https://buhuipao.github.io/tags/shell" style="font-size: 12px;">shell</a>
-    
-    <a href="https://buhuipao.github.io/tags/ssh" style="font-size: 12px;">ssh</a>
-    
-    <a href="https://buhuipao.github.io/tags/stack" style="font-size: 12px;">stack</a>
-    
-    <a href="https://buhuipao.github.io/tags/tcp/ip" style="font-size: 12px;">tcp/ip</a>
-    
-    <a href="https://buhuipao.github.io/tags/tree" style="font-size: 12px;">tree</a>
-    
-    <a href="https://buhuipao.github.io/tags/ubuntu" style="font-size: 12px;">ubuntu</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%b8%89%e7%9b%ae%e8%bf%90%e7%ae%97%e7%ac%a6" style="font-size: 12px;">三目运算符</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%be" style="font-size: 12px;">二分查找</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%88%86%e6%b3%95" style="font-size: 12px;">二分法</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%ba%8c%e5%8f%89%e6%a0%91" style="font-size: 12px;">二叉树</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e4%bc%99%e4%bc%b4%e7%ae%97%e6%b3%95" style="font-size: 12px;">伙伴算法</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%86%85%e5%ad%98" style="font-size: 12px;">内存</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" style="font-size: 12px;">动态规划</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%a0%86" style="font-size: 12px;">堆</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%ad%97%e5%85%b8%e6%a0%91" style="font-size: 12px;">字典树</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%b9%b6%e5%bd%92" style="font-size: 12px;">并归</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e5%ba%8f%e5%88%97%e5%8c%96" style="font-size: 12px;">序列化</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6" style="font-size: 12px;">拥塞控制</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%8e%92%e5%ba%8f" style="font-size: 12px;">排序</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" style="font-size: 12px;">数据结构</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3" style="font-size: 12px;">滑动窗口</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%88%ac%e8%99%ab" style="font-size: 12px;">爬虫</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%a0%81%e5%86%9c" style="font-size: 12px;">码农</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%ae%97%e6%b3%95" style="font-size: 12px;">算法</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%b3%bb%e7%bb%9f%e8%ae%be%e8%ae%a1" style="font-size: 12px;">系统设计</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%ba%bf%e7%a8%8b" style="font-size: 12px;">线程</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae" style="font-size: 12px;">网络协议</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e8%81%9a%e5%90%88" style="font-size: 12px;">聚合</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e8%ae%be%e8%ae%a1" style="font-size: 12px;">设计</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e8%bf%9e%e7%bb%ad%e5%ad%90%e5%ba%8f%e5%88%97" style="font-size: 12px;">连续子序列</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e9%93%be%e8%a1%a8" style="font-size: 12px;">链表</a>
-    
-    <a href="https://buhuipao.github.io/tags/%e9%bb%91%e7%a0%96" style="font-size: 12px;">黑砖</a>
-    
-  </div>
-</div>
-
-
-
-  
-
-</aside>
-</div>
-
-  </div>
-  <footer><div id="footer" >
-  
-  <div class="line">
-    <span></span>
-    <div style='background:no-repeat url("https://buhuipao.github.io/img/buhuipao.png") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
-  </div>
-  
-  
-  <section class="info">
-    <p>《深入理解计算机系统》<br>《UNIX环境高级编程》</p>
-  </section>
-  
-  <div class="social-font clearfix">
-    
-    <a href="http://weibo.com/buhuipao" target="_blank" title="weibo"></a>
-    
-    
-    <a href="https://twitter.com/buhuipao" target="_blank" title="twitter"></a>
-    
-    
-    <a href="https://github.com/buhuipao" target="_blank" title="github"></a>
-    
-    
-    <a href="https://www.facebook.com/profile.php?id=100009431134667" target="_blank" title="facebook"></a>
-    
-    
-    <a href="https://www.linkedin.com/in/%e5%8d%8e-%e9%99%88-26a19313a" target="_blank" title="linkedin"></a>
-    
-  </div>
-  <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2018
-    
-    <a href="https://buhuipao.github.io/" title="不会跑">不会跑</a>
-    
-  </p>
-</div>
-</footer>
-  <script src="https://buhuipao.github.io/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-done = false;
-$(document).ready(function(){
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize();
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  $('form.search').on('submit', function (event) {
-    if (false === done) {
-      event.preventDefault();
-      var orgVal = $(this).find('#search').val();
-      $(this).find('#search').val('site:https:\/\/buhuipao.github.io\/ ' + orgVal);
-      done = true;
-      $(this).submit();
-    }
-  });
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});
-</script>
-
-
-<link rel="stylesheet" href="https://buhuipao.github.io/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="https://buhuipao.github.io/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-});
-</script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-109197138-1', 'auto');
-  ga('send', 'pageview');
-  $('#messagesbsb').remove();
-</script>
-
-
-
+<script>feather.replace()</script>
 </body>
 </html>

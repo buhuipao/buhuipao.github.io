@@ -1,23 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>爬虫 on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/%E7%88%AC%E8%99%AB/</link>
+    <link>https://buhuipao.com/tags/%E7%88%AC%E8%99%AB/</link>
     <description>Recent content in 爬虫 on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 25 Aug 2016 04:43:26 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Thu, 25 Aug 2016 04:43:26 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python爬虫–爬取糗事百科段子</title>
-      <link>https://buhuipao.github.io/2016/08/25/python-spider-duanzi/</link>
+      <link>https://buhuipao.com/2016/08/25/python-spider-duanzi/</link>
       <pubDate>Thu, 25 Aug 2016 04:43:26 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/08/25/python-spider-duanzi/</guid>
-      <description>学习python爬虫，先从爬糗事百科开始。 #!/bin/env python #-*- coding:utf-8 -*- import urllib2 import urllib import re import thread class DZ(object): def __init__(self): self.pagenum = 1 self.user_agent = &#39;Mazilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39; self.headers = {&#39;User-Agent&#39;: self.user_agent} self.stories = [] self.enable = False self.pageIndex = 1 #传入某一页的索</description>
+      <guid>https://buhuipao.com/2016/08/25/python-spider-duanzi/</guid>
+      <description>学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。</description>
     </item>
     
   </channel>

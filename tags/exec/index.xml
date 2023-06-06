@@ -1,23 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Exec on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/exec/</link>
-    <description>Recent content in Exec on 不会跑</description>
+    <title>exec on 不会跑</title>
+    <link>https://buhuipao.com/tags/exec/</link>
+    <description>Recent content in exec on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Jun 2017 05:29:44 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/exec/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Fri, 23 Jun 2017 05:29:44 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/exec/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python三目运算符两种写法及exec的用法</title>
-      <link>https://buhuipao.github.io/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <link>https://buhuipao.com/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</link>
       <pubDate>Fri, 23 Jun 2017 05:29:44 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
-      <description>三目运算符第一种写法： In [302]: a = 1 if 5 3 else 0 In [303]: a Out[303]: 1 In [304]: a = 1 if 2 3 else 0 In [305]: a Out[305]: 0 三目运算符的第二种写法： In [295]: [5, 3][True] Out[295]: 3 In [296]: [5, 3][False] Out[296]: 5 In [306]: L Out[306]: True</description>
+      <guid>https://buhuipao.com/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>三目运算符第一种写法： 三目运算符的第二种写法： 需要指出的是：exec可以执行一段python代码(在Flask的源码中看见用的比较多)，但是</description>
     </item>
     
   </channel>

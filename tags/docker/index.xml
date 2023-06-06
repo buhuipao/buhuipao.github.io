@@ -1,32 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/docker/</link>
+    <link>https://buhuipao.com/tags/docker/</link>
     <description>Recent content in Docker on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 07 Sep 2016 16:55:16 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Wed, 07 Sep 2016 16:55:16 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>不再缘木求鱼，时间如此宝贵，Docker下ubuntu安装QQ失败</title>
-      <link>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</link>
+      <link>https://buhuipao.com/2016/09/08/docker-ubuntu-qq-failed/</link>
       <pubDate>Wed, 07 Sep 2016 16:55:16 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</guid>
+      <guid>https://buhuipao.com/2016/09/08/docker-ubuntu-qq-failed/</guid>
       <description>今下午本来是准备照着国外的一个教程，好好跟着过写一遍如何用python写一个异步web服务端，但是无意中看到一个QQ的新闻，于是想起来很久之</description>
     </item>
     
     <item>
       <title>Docker的centos7内部启动systemctl出现BUG的解决办法</title>
-      <link>https://buhuipao.github.io/2016/08/13/docker-centos7-systemctl-bug/</link>
+      <link>https://buhuipao.com/2016/08/13/docker-centos7-systemctl-bug/</link>
       <pubDate>Sat, 13 Aug 2016 04:04:01 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/08/13/docker-centos7-systemctl-bug/</guid>
-      <description>Failed to get D-Bus connection: Operation not permitted &amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212; 距离这个问题一天之后，最后我经过Google，在红帽的一个开发者博客找到了答案，经过测验有效，网址为： http://dev</description>
+      <guid>https://buhuipao.com/2016/08/13/docker-centos7-systemctl-bug/</guid>
+      <description>Failed to get D-Bus connection: Operation not permitted ————————————————————— 距离这个问题一天之后，最后我经过Google，在红帽的一个开发者博客找到了答案，经</description>
     </item>
     
   </channel>

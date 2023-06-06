@@ -1,58 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ps on 不会跑</title>
-    <link>https://buhuipao.github.io/tags/ps/</link>
-    <description>Recent content in Ps on 不会跑</description>
+    <title>ps on 不会跑</title>
+    <link>https://buhuipao.com/tags/ps/</link>
+    <description>Recent content in ps on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 03 Jun 2017 04:59:20 +0000</lastBuildDate>
-    
-	<atom:link href="https://buhuipao.github.io/tags/ps/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright buhuipao</copyright>
+    <lastBuildDate>Sat, 03 Jun 2017 04:59:20 +0000</lastBuildDate><atom:link href="https://buhuipao.com/tags/ps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode–brick_wall</title>
-      <link>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</link>
+      <link>https://buhuipao.com/2017/06/03/leetcode-brick_wall/</link>
       <pubDate>Sat, 03 Jun 2017 04:59:20 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</guid>
+      <guid>https://buhuipao.com/2017/06/03/leetcode-brick_wall/</guid>
       <description>比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall</description>
     </item>
     
     <item>
       <title>LeetCode–odd-even-linked-list</title>
-      <link>https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/</link>
+      <link>https://buhuipao.com/2017/05/28/leetcode-odd-even-linked-list/</link>
       <pubDate>Sun, 28 May 2017 11:43:15 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2017/05/28/leetcode-odd-even-linked-list/</guid>
+      <guid>https://buhuipao.com/2017/05/28/leetcode-odd-even-linked-list/</guid>
       <description>最近主要练习链表的变换，这个题很经典，特别是容易忽略末尾出现的闭环 Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do</description>
     </item>
     
     <item>
       <title>[转载] Http的1.0/1.1/2.0的理解</title>
-      <link>https://buhuipao.github.io/2016/10/11/http-https/</link>
+      <link>https://buhuipao.com/2016/10/11/http-https/</link>
       <pubDate>Tue, 11 Oct 2016 04:42:16 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/10/11/http-https/</guid>
-      <description>先说Http1.0和Http1.1，都是支持Gzip(之前我有误解)的,http 1.0中默认是关闭的，需要在http头加入&amp;#8221;Co</description>
+      <guid>https://buhuipao.com/2016/10/11/http-https/</guid>
+      <description>先说Http1.0和Http1.1，都是支持Gzip(之前我有误解)的,http 1.0中默认是关闭的，需要在http头加入”Connecti</description>
     </item>
     
     <item>
       <title>Linux 常用命令–ps，head/tail， less/more</title>
-      <link>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</link>
+      <link>https://buhuipao.com/2016/09/13/linux-ps-head-tail-less-more/</link>
       <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</guid>
-      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2</description>
+      <guid>https://buhuipao.com/2016/09/13/linux-ps-head-tail-less-more/</guid>
+      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem</description>
     </item>
     
     <item>
       <title>[转载]TCP/IP的三次握手的详细过程</title>
-      <link>https://buhuipao.github.io/2016/09/10/tcp-ip-connect/</link>
+      <link>https://buhuipao.com/2016/09/10/tcp-ip-connect/</link>
       <pubDate>Sat, 10 Sep 2016 09:11:09 +0000</pubDate>
       
-      <guid>https://buhuipao.github.io/2016/09/10/tcp-ip-connect/</guid>
+      <guid>https://buhuipao.com/2016/09/10/tcp-ip-connect/</guid>
       <description>TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接: 位码即tcp标志位,有6种标示:SYN(synchro</description>
     </item>
     
