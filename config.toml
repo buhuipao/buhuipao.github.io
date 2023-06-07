@@ -9,7 +9,7 @@ pygmentsUseClasses = true
 paginate = 10
 paginatePath = "post"
 
-copyright = "© Copyright buhuipao"
+copyright = "© Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a>"
 
 googleAnalyticsID = "UA-109197138-1"
 disqusShortname = "buhuipao"
