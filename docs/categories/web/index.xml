@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on 不会跑</title>
+    <link>https://buhuipao.github.io/categories/web/</link>
+    <description>Recent content in Web on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Mon, 03 Apr 2017 09:18:45 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>果然我也遇到了gevent.hub.LoopExit的报错了</title>
+      <link>https://buhuipao.github.io/2017/04/03/%E6%9E%9C%E7%84%B6%E6%88%91%E4%B9%9F%E9%81%87%E5%88%B0%E4%BA%86gevent-hub-loopexit%E7%9A%84%E6%8A%A5%E9%94%99%E4%BA%86/</link>
+      <pubDate>Mon, 03 Apr 2017 09:18:45 +0000</pubDate>
+      
+      <guid>https://buhuipao.github.io/2017/04/03/%E6%9E%9C%E7%84%B6%E6%88%91%E4%B9%9F%E9%81%87%E5%88%B0%E4%BA%86gevent-hub-loopexit%E7%9A%84%E6%8A%A5%E9%94%99%E4%BA%86/</guid>
+      <description>gevent.hub.LoopExit: (‘This operation would block forever’, &amp;lt;Hub at 0x1076b7e10 select default pending=0 ref=0 resolver=&amp;lt;gevent.resolver_thread.Resolver at 0x1077eec90 pool=&amp;lt;ThreadPool at 0x1077eecd0 0/10/10&amp;raquo; threadpool=&amp;lt;ThreadPool at 0x1077eecd0 0/10/10&amp;raquo;) http://xiaorui.cc/2016/08/07/%E5%85%B3%E4%BA%8Egevent-queue%E9%81%AD%E9%81%87hub-loopexit%E9%97%AE%E9%A2%98/</description>
+    </item>
+    
+  </channel>
+</rss>

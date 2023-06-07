@@ -14,7 +14,7 @@
       <pubDate>Sun, 17 Sep 2017 10:01:47 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</guid>
-      <description>经典二叉树题：转换一个二叉树为一个双向链表；</description>
+      <description>经典二叉树题：转换一个二叉树为一个双向链表； # -*- coding:utf-8 -*- # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def Convert(self, pRootOfTree): root = pRootOfTree if not root: return root stack, node, head = [root], root.left, None while stack or node: while</description>
     </item>
     
     <item>

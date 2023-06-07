@@ -2,4 +2,4 @@
 
 set -ex
 
-hugo -D && rm -rf docs &&  mv public docs
+rm -rf public && hugo -D && rm -rf docs &&  mv public docs

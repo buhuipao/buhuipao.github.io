@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Unique_Binary_Search_Trees">
 <meta itemprop="description" content="题目的意思就是给你1到n个数，你能组成多少种BST，解题思路就是：以每一个数做一次BST的root节点，然后求和所有次数即可，然后每次以i为"><meta itemprop="datePublished" content="2017-07-15T01:13:02+00:00" />
 <meta itemprop="dateModified" content="2017-07-15T01:13:02+00:00" />
-<meta itemprop="wordCount" content="227">
+<meta itemprop="wordCount" content="388">
 <meta itemprop="keywords" content="BST,leetcode,tree," /><meta property="og:title" content="LeetCode-Unique_Binary_Search_Trees" />
 <meta property="og:description" content="题目的意思就是给你1到n个数，你能组成多少种BST，解题思路就是：以每一个数做一次BST的root节点，然后求和所有次数即可，然后每次以i为" />
 <meta property="og:type" content="article" />
@@ -39,7 +39,7 @@
 	
 	<h1 class="site-title"><a href="https://buhuipao.github.io/">不会跑</a></h1>
 	<div class="site-description"><p>work for life</p><nav class="nav social">
-			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+			<ul class="flat"><li><a href="https://twitter.com/buhuipao" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
 		</nav>
 	</div>
 
@@ -56,6 +56,10 @@
 			
 			<li>
 				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/categories">目录</a>
 			</li>
 			
 			<li>
@@ -87,11 +91,35 @@
 <p>Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?</p>
 <p>For example,</p>
 <p>Given n = 3, there are a total of 5 unique BST’s.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">   <span class="mi">1</span>         <span class="mi">3</span>     <span class="mi">3</span>      <span class="mi">2</span>      <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    \       <span class="o">/</span>     <span class="o">/</span>      <span class="o">/</span> \      \
+</span></span><span class="line"><span class="cl">     <span class="mi">3</span>     <span class="mi">2</span>     <span class="mi">1</span>      <span class="mi">1</span>   <span class="mi">3</span>      <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="o">/</span>     <span class="o">/</span>       \                 \
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span>     <span class="mi">1</span>         <span class="mi">2</span>                 <span class="mi">3</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">numTrees</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type n: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        每次以i为root节点，那么求n就是以1, 2, 3...n为root节点的总和
+</span></span></span><span class="line"><span class="cl"><span class="s2">        但必须先构建n之前节点的树，求出1～(n-1)的结果
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 空树和一个节点</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 构建n之前的树</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="倒水问题-经典面试题">
 <meta itemprop="description" content="有两个容器，容积分别为A升和B升，有无限多的水，现在需要C升水, 如何倒？ 举个例子，3，5升的桶，需要倒出4升水，可以这么做： 3 % 5 = 3 //把"><meta itemprop="datePublished" content="2017-08-26T15:56:21+00:00" />
 <meta itemprop="dateModified" content="2017-08-26T15:56:21+00:00" />
-<meta itemprop="wordCount" content="292">
+<meta itemprop="wordCount" content="359">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="倒水问题-经典面试题" />
 <meta property="og:description" content="有两个容器，容积分别为A升和B升，有无限多的水，现在需要C升水, 如何倒？ 举个例子，3，5升的桶，需要倒出4升水，可以这么做： 3 % 5 = 3 //把" />
 <meta property="og:type" content="article" />
@@ -39,7 +39,7 @@
 	
 	<h1 class="site-title"><a href="https://buhuipao.github.io/">不会跑</a></h1>
 	<div class="site-description"><p>work for life</p><nav class="nav social">
-			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+			<ul class="flat"><li><a href="https://twitter.com/buhuipao" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
 		</nav>
 	</div>
 
@@ -56,6 +56,10 @@
 			
 			<li>
 				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/categories">目录</a>
 			</li>
 			
 			<li>
@@ -93,9 +97,22 @@
 <p>定理：</p>
 <p>　　对于不完全为0的非负整数a，b，gcd(a，b)表示a，b的最大公约数，必然存在整数对x，y ，使得gcd(a，b)=ax+by.</p>
 <p>　　根据欧几里德扩展算法，Gcd(A, B) = Ax + By，求出A和B的最大公约数，如果C能被最大公约数整除Gcd(A, B) 整除，那就可以实现水缸里恰好为C升水；</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 求最大公约数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">r</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="o">=</span> <span class="n">r</span>
+</span></span><span class="line"><span class="cl">        <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 判断是否可以倒出C升水</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">C</span> <span class="o">%</span> <span class="n">gcd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

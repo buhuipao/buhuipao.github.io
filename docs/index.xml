@@ -32,7 +32,7 @@
       <pubDate>Sun, 17 Sep 2017 10:01:47 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</guid>
-      <description>经典二叉树题：转换一个二叉树为一个双向链表；</description>
+      <description>经典二叉树题：转换一个二叉树为一个双向链表； # -*- coding:utf-8 -*- # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def Convert(self, pRootOfTree): root = pRootOfTree if not root: return root stack, node, head = [root], root.left, None while stack or node: while</description>
     </item>
     
     <item>
@@ -743,7 +743,7 @@
       <pubDate>Tue, 27 Oct 2015 13:13:37 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/about/</guid>
-      <description>通信工程专业，大学折腾了三年，毕业走上了运维研发的道路，深感自己基础不够扎实, 受前公司诸多前同事的影响，恶补计算机基础和底层知识中，欢迎一起</description>
+      <description>2013~2016：计通学院的通信工程专业，大学折腾自学CS三年 2016~2017：校招实习七牛云，走上了运维研发的道路，学习Python和</description>
     </item>
     
     <item>
