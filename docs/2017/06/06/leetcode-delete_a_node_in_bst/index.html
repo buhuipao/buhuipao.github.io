@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-delete_a_node_in_BST">
 <meta itemprop="description" content="Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST. Basically, the deletion can be divided into two stages: Search for a node to remove. If the node is found, delete the node. Note: Time complexity should be O(height of tree). 也就是必须在树上"><meta itemprop="datePublished" content="2017-06-06T03:48:12+00:00" />
 <meta itemprop="dateModified" content="2017-06-06T03:48:12+00:00" />
-<meta itemprop="wordCount" content="146">
+<meta itemprop="wordCount" content="583">
 <meta itemprop="keywords" content="BST,python,算法," /><meta property="og:title" content="LeetCode-delete_a_node_in_BST" />
 <meta property="og:description" content="Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST. Basically, the deletion can be divided into two stages: Search for a node to remove. If the node is found, delete the node. Note: Time complexity should be O(height of tree). 也就是必须在树上" />
 <meta property="og:type" content="article" />
@@ -93,12 +93,115 @@
 <p>If the node is found, delete the node.</p>
 <p>Note: Time complexity should be O(height of tree).</p>
 <p>也就是必须在树上爬着解决问题，不允许先遍历剔除再重新建树，下面是我写的第一个版本，用的迭代方法；</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>下面的是看了LeetCode提交记录后，找到的递归方法, 万恶的递归:);</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">deleteNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type root: TreeNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type key: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: TreeNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="ow">or</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span><span class="n">key</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cur</span> <span class="o">=</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 标记变量</span>
+</span></span><span class="line"><span class="cl">        <span class="n">finded</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 找到节点和父节点</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">cur</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">key</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span> <span class="o">=</span> <span class="n">cur</span>
+</span></span><span class="line"><span class="cl">                <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">key</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span> <span class="o">=</span> <span class="n">cur</span>
+</span></span><span class="line"><span class="cl">                <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">finded</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 是否找到    </span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">finded</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 是否为叶子节点</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">left</span> <span class="ow">or</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 有右孩子，就把右子树的最左的点替换，最后再整理</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果右孩子就是最左点，那么沿用（右孩子的右孩子）为右孩子</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 否则就把父节点的左孩子更新为当前节点的右孩子（用右孩子替换自己）</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cur</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cur</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span>
+</span></span></code></pre></div><p>下面的是看了LeetCode提交记录后，找到的递归方法, 万恶的递归:);</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">deleteNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type root: TreeNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type key: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: TreeNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">root</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">findMax</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">key</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deleteNode</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">key</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">root</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deleteNode</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果左孩子为空，那么直接返回右孩子替换自己</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果右孩子为空，那么直接返回左孩子替换自己</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 找到左子树的最大值替换自己，然后在左子树里把它删掉</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">findMax</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">root</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span>
+</span></span><span class="line"><span class="cl">                <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deleteNode</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span>               
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

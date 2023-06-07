@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode–Remove-Linked-List-Elements">
 <meta itemprop="description" content="Remove all elements from a linked list of integers that have value val. Example Given: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6, val = 6 Return: 1 –&gt; 2 –&gt; 3 –"><meta itemprop="datePublished" content="2017-05-28T17:26:57+00:00" />
 <meta itemprop="dateModified" content="2017-05-28T17:26:57+00:00" />
-<meta itemprop="wordCount" content="81">
+<meta itemprop="wordCount" content="145">
 <meta itemprop="keywords" content="head,python,链表," /><meta property="og:title" content="LeetCode–Remove-Linked-List-Elements" />
 <meta property="og:description" content="Remove all elements from a linked list of integers that have value val. Example Given: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6, val = 6 Return: 1 –&gt; 2 –&gt; 3 –" />
 <meta property="og:type" content="article" />
@@ -91,9 +91,38 @@
 <p>Example</p>
 <p>Given: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6, val = 6</p>
 <p>Return: 1 –&gt; 2 –&gt; 3 –&gt; 4 –&gt; 5</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ListNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">removeElements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type val: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">        <span class="n">pre_head</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre_node</span> <span class="o">=</span> <span class="n">pre_head</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">head</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre_node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre_node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

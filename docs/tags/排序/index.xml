@@ -23,7 +23,7 @@
       <pubDate>Sun, 21 May 2017 05:36:41 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</guid>
-      <description></description>
+      <description># _*_ coding: utf-8 _*_ &amp;#39;&amp;#39;&amp;#39; Sort a linked list in O(n log n) time using constant space complexity. &amp;#39;&amp;#39;&amp;#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &amp;#34;&amp;#34;&amp;#34; :type head: ListNode :rtype: ListNode &amp;#34;&amp;#34;&amp;#34; def merge(self, h1, h2): &amp;#39;&amp;#39;&amp;#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 =</description>
     </item>
     
   </channel>

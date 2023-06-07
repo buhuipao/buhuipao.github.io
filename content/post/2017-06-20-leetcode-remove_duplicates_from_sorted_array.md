@@ -25,7 +25,8 @@ Your function should return length = 2, with the first two elements of nums bein
   
 It doesn&#8217;t matter what you leave beyond the new length.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -44,4 +45,4 @@ class Solution(object):
                 count += 1
                 nums[count] = nums[i]
         return count+1
-</pre>
+```

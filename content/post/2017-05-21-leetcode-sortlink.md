@@ -21,7 +21,8 @@ tags:
   - 链表
 
 ---
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 '''
 Sort a linked list in O(n log n) time using constant space complexity.
@@ -97,4 +98,4 @@ class Solution(object):
 
         # 合并以head和slow(中间节点)作为头节点的链表
         return self.merge(self.sortList(head), self.sortList(slow))
-</pre>
+```

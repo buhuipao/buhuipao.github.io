@@ -66,7 +66,8 @@ twitter.unfollow(1, 2);
   
 twitter.getNewsFeed(1);
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Twitter(object):
@@ -155,11 +156,12 @@ class Twitter(object):
 # param_2 = obj.getNewsFeed(userId)
 # obj.follow(followerId,followeeId)
 # obj.unfollow(followerId,followeeId)
-</pre>
+```
 
 这是leetcode的AC结果里的最优解，主要用了一些其他的库，初始化可以看成他是建立了三个数据表，对比我的写法确实简单明了一些，建议采用此解法。
 
-<pre class="lang:python decode:1">class Twitter1(object):
+```python
+class Twitter1(object):
     def __init__(self):
         self.timer = itertools.count(step=-1)
         self.tweets = collections.defaultdict(collections.deque)
@@ -177,4 +179,4 @@ class Twitter(object):
 
     def unfollow(self, followerId, followeeId):
         self.followees[followerId].discard(followeeId)
-</pre>
+```

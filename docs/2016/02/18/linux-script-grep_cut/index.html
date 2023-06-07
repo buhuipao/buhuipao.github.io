@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Linux重要命令之—grep&amp;&amp;cut - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="Linux重要命令之—grep&amp;&amp;cut">
-<meta itemprop="description" content="grep 的基本用法，找出字符串所在行： 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记： 使用正则表达式： 还可以用e"><meta itemprop="datePublished" content="2016-02-18T13:21:17+00:00" />
+<meta itemprop="description" content="grep 的基本用法，找出字符串所在行： [buhuipao@localhost ~]$ echo -e &#34;this is a word \n next line.&#34; | grep word this is a word 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto"><meta itemprop="datePublished" content="2016-02-18T13:21:17+00:00" />
 <meta itemprop="dateModified" content="2016-02-18T13:21:17+00:00" />
-<meta itemprop="wordCount" content="122">
+<meta itemprop="wordCount" content="436">
 <meta itemprop="keywords" content="grep,Linux,shell," /><meta property="og:title" content="Linux重要命令之—grep&amp;&amp;cut" />
-<meta property="og:description" content="grep 的基本用法，找出字符串所在行： 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记： 使用正则表达式： 还可以用e" />
+<meta property="og:description" content="grep 的基本用法，找出字符串所在行： [buhuipao@localhost ~]$ echo -e &#34;this is a word \n next line.&#34; | grep word this is a word 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2016/02/18/linux-script-grep_cut/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-02-18T13:21:17+00:00" />
 <meta property="article:modified_time" content="2016-02-18T13:21:17+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux重要命令之—grep&amp;&amp;cut"/>
-<meta name="twitter:description" content="grep 的基本用法，找出字符串所在行： 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记： 使用正则表达式： 还可以用e"/>
+<meta name="twitter:description" content="grep 的基本用法，找出字符串所在行： [buhuipao@localhost ~]$ echo -e &#34;this is a word \n next line.&#34; | grep word this is a word 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -88,38 +88,77 @@
 					
 			<div class="markdown">
 				<p>grep 的基本用法，找出字符串所在行：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost ~<span class="o">]</span>$ <span class="nb">echo</span> -e <span class="s2">&#34;this is a word \n next line.&#34;</span> <span class="p">|</span> grep word
+</span></span><span class="line"><span class="cl">this is a word
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <p>找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>使用正则表达式：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>还可以用egrep：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>-o 只输出匹配字符串：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>-v 将匹配的结果反转：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost ~<span class="o">]</span>$ grep -i -n drupal drupal7/install.php  --color<span class="o">=</span>auto
+</span></span><span class="line"><span class="cl">5: * Initiates a browser-based installation of Drupal.
+</span></span><span class="line"><span class="cl">9: * Defines the root directory of the Drupal installation.
+</span></span><span class="line"><span class="cl">11:define<span class="o">(</span><span class="s1">&#39;DRUPAL_ROOT&#39;</span>, getcwd<span class="o">())</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">20:  print <span class="s1">&#39;Your PHP installation is too old. Drupal requires at least PHP 5.2.4. See the &amp;lt;a href=&#34;http://drupal.org/requirements&#34;&amp;gt;system requirements&amp;lt;/a&amp;gt; page for more information.&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">25:require_once DRUPAL_ROOT . <span class="s1">&#39;/includes/install.core.inc&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">26:install_drupal<span class="o">()</span><span class="p">;</span>
+</span></span></code></pre></div><p>使用正则表达式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost ~<span class="o">]</span>$ grep -E <span class="s2">&#34;[a-z]+&#34;</span> script/Readme.txt  <span class="c1">#使用-E， 利用正则表达式，找出所有小写字符</span>
+</span></span><span class="line"><span class="cl">Here some useful scripts ,you can use it <span class="k">for</span> free!
+</span></span></code></pre></div><p>还可以用egrep：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost ~<span class="o">]</span>$ egrep  <span class="s2">&#34;[a-z]+&#34;</span> script/Readme.txt
+</span></span><span class="line"><span class="cl">Here some useful scripts ,you can use it <span class="k">for</span> free!
+</span></span></code></pre></div><p>-o 只输出匹配字符串：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost ~<span class="o">]</span>$ grep -o useful script/Readme.txt 
+</span></span><span class="line"><span class="cl">useful
+</span></span></code></pre></div><p>-v 将匹配的结果反转：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost ~<span class="o">]</span>$ cat test.txt 
+</span></span><span class="line"><span class="cl">NO.1 first line
+</span></span><span class="line"><span class="cl">NO.2 second line 
+</span></span><span class="line"><span class="cl">NO.3 last line
+</span></span><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost ~<span class="o">]</span>$ grep -v NO.2 test.txt 
+</span></span><span class="line"><span class="cl">NO.1 first line
+</span></span><span class="line"><span class="cl">NO.3 last line
+</span></span></code></pre></div><hr>
 <p>cut基本用法：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>-d 自定义分割符：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>切割一段字符：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>cut 补充：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost 4<span class="o">]</span>$ cat test.data 
+</span></span><span class="line"><span class="cl">NO  name    Mark     Percent 
+</span></span><span class="line"><span class="cl"><span class="m">1</span>   hewen   <span class="m">88</span>   <span class="m">90</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span>    huazai <span class="m">34</span>   <span class="m">90</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span>   cengbu  <span class="m">44</span>   <span class="m">98</span> 
+</span></span><span class="line"><span class="cl"><span class="m">4</span>    pipi   <span class="m">83</span>      <span class="m">78</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost 4<span class="o">]</span>$ cut -f 2,4 test.data 
+</span></span><span class="line"><span class="cl">name     Percent 
+</span></span><span class="line"><span class="cl">hewen    <span class="m">90</span>
+</span></span><span class="line"><span class="cl"> huazai  <span class="m">90</span>
+</span></span><span class="line"><span class="cl">cengbu   <span class="m">98</span> 
+</span></span><span class="line"><span class="cl"> pipi   <span class="m">78</span>
+</span></span></code></pre></div><p>-d 自定义分割符：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost 4<span class="o">]</span>$ cat test1.data 
+</span></span><span class="line"><span class="cl">NO <span class="p">;</span>Name <span class="p">;</span>Mark <span class="p">;</span> Percent 
+</span></span><span class="line"><span class="cl"><span class="m">1</span>  <span class="p">;</span>hewen <span class="p">;</span><span class="m">88</span> <span class="p">;</span> <span class="m">90</span>
+</span></span><span class="line"><span class="cl">2<span class="p">;</span> huazai<span class="p">;</span><span class="m">34</span> <span class="p">;</span> <span class="m">90</span>
+</span></span><span class="line"><span class="cl"><span class="m">3</span> <span class="p">;</span>cengbu <span class="p">;</span><span class="m">44</span> <span class="p">;</span> <span class="m">98</span> 
+</span></span><span class="line"><span class="cl">4<span class="p">;</span> pipi<span class="p">;</span><span class="m">83</span>  <span class="p">;</span><span class="m">78</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost 4<span class="o">]</span>$ cut -f <span class="m">3</span> -d<span class="s2">&#34;;&#34;</span> test1.data 
+</span></span><span class="line"><span class="cl">Mark 
+</span></span><span class="line"><span class="cl"><span class="m">88</span> 
+</span></span><span class="line"><span class="cl"><span class="m">34</span> 
+</span></span><span class="line"><span class="cl"><span class="m">44</span> 
+</span></span><span class="line"><span class="cl"><span class="m">83</span>
+</span></span></code></pre></div><p>切割一段字符：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost 4<span class="o">]</span>$ cat test2.data  
+</span></span><span class="line"><span class="cl">fdsfasffdasdsafadsf
+</span></span><span class="line"><span class="cl">fdasfsafdsafdsafdf 
+</span></span><span class="line"><span class="cl">klkliofikfkffklfff
+</span></span><span class="line"><span class="cl">2943040344043444dd
+</span></span><span class="line"><span class="cl"><span class="o">[</span>buhuipao@localhost 4<span class="o">]</span>$ cut -c 1-5 test2.data 
+</span></span><span class="line"><span class="cl">fdsfa
+</span></span><span class="line"><span class="cl">fdasf
+</span></span><span class="line"><span class="cl">klkli
+</span></span><span class="line"><span class="cl"><span class="m">29430</span>
+</span></span></code></pre></div><p>cut 补充：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cut -c -5 test2.data    <span class="c1">#切割每一行第一个到第五个字符</span>
+</span></span><span class="line"><span class="cl">cut -c 5- test2.data     <span class="c1">#切割每一行第五个到最后一个字符</span>
+</span></span><span class="line"><span class="cl">cut -c1-3,8-11 test2.data --output-delimiter <span class="s2">&#34;;&#34;</span>    <span class="c1">#切割两段字符串，并且用；隔开</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

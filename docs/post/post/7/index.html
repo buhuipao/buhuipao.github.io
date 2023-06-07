@@ -81,28 +81,6 @@
 					<div class="post-header">
 	<div class="meta">
 		<div class="date">
-			<span class="day">10</span>
-			<span class="rest">Sep 2016</span>
-		</div>
-	</div>
-	<div class="matter">
-		<h4 class="title small">
-			<a href="/2016/09/10/tcp-ip-connect/">[转载]TCP/IP的三次握手的详细过程</a>
-		</h4>
-		<span class="description">
-			
-				TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接:
-位码即tcp标志位,有6种标示:SYN(synchronous建立联机) ACK(acknowledgement 确认) PSH(push传送) FIN...
-			
-		</span>
-	</div>
-</div>
-
-				</li>
-				<li class="post">
-					<div class="post-header">
-	<div class="meta">
-		<div class="date">
 			<span class="day">07</span>
 			<span class="rest">Sep 2016</span>
 		</div>
@@ -136,9 +114,7 @@
 		<span class="description">
 			
 				在实用多线程编程时，在栈溢出网站有看到多种方法，比如直接用函数，有用class继承，代码如下：
-但也有发现另外一种继承的方法：
-然后在python3里面，super(Child, self).init()被替换为super().init()
-
+class Mon(object): def __init__(self): print &#34;Mon created&#34; class...
 			
 		</span>
 	</div>
@@ -259,8 +235,7 @@ IP地址
 		<span class="description">
 			
 				学习python爬虫，先从爬糗事百科开始。
-是照着别人的，慢慢自己敲的，部分修改，实测可用。
-
+#!/bin/env python #-*- coding:utf-8 -*- import urllib2 import urllib import re import thread class...
 			
 		</span>
 	</div>
@@ -305,6 +280,31 @@ IP地址
 				hosts文件： hosts文件的作用相当如DNS，提供IP地址到hostname的对应。
 说明：
 早期的互联网计算机少，单机hosts文件里足够存放所有联网计算机。不过随着互联网的发展，这就远远不够了。于是就出现了分布式的DNS系统。由D...
+			
+		</span>
+	</div>
+</div>
+
+				</li>
+				<li class="post">
+					<div class="post-header">
+	<div class="meta">
+		<div class="date">
+			<span class="day">16</span>
+			<span class="rest">Aug 2016</span>
+		</div>
+	</div>
+	<div class="matter">
+		<h4 class="title small">
+			<a href="/2016/08/16/etchosts-allow-etchosts-deny/">/etc/hosts.allow和/etc/hosts.deny配置解释</a>
+		</h4>
+		<span class="description">
+			
+				/etc/hosts.allow和/etc/hosts.deny两个文件是控制远程访问设置的，
+修改/etc/hosts.allow文件
+sshd:210.13.118.*
+sshd:222.127.15.*
+两个ip段连接sshd服务，当...
 			
 		</span>
 	</div>

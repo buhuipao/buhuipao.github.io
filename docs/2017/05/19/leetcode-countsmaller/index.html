@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode–统计更小值数量">
 <meta itemprop="description" content="Time: O(nlogn) Space: O(n) You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]. Example: Given nums = [5, 2, 6, 1] To the right of 5 there are 2 smaller elements (2 and 1). To the right of 2 there is only 1 smaller"><meta itemprop="datePublished" content="2017-05-19T08:45:55+00:00" />
 <meta itemprop="dateModified" content="2017-05-19T08:45:55+00:00" />
-<meta itemprop="wordCount" content="114">
+<meta itemprop="wordCount" content="742">
 <meta itemprop="keywords" content="Algorithm,BST,python," /><meta property="og:title" content="LeetCode–统计更小值数量" />
 <meta property="og:description" content="Time: O(nlogn) Space: O(n) You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]. Example: Given nums = [5, 2, 6, 1] To the right of 5 there are 2 smaller elements (2 and 1). To the right of 2 there is only 1 smaller" />
 <meta property="og:type" content="article" />
@@ -101,9 +101,84 @@
 <p>To the right of 1 there is 0 smaller element.</p>
 <p>Return the array [2, 1, 1, 0].</p>
 <p>查找后面有多少各点小于当前值</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">countSmaller</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BST</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        从后面录入节点是为了少一个循环，
+</span></span></span><span class="line"><span class="cl"><span class="s1">        而且从后往前的纪录才是有效的，例如：[8,5,4,2,3,6]
+</span></span></span><span class="line"><span class="cl"><span class="s1">        1) 从前往后录的将会最后两个点将会出错, 错误结果为：[5,3,2,0,1,4]
+</span></span></span><span class="line"><span class="cl"><span class="s1">        2) 从后往前的录入结果为：[5,3,2,0,0,0]
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bst</span><span class="o">.</span><span class="n">insertNode</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">BST</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">class</span> <span class="nc">BSTreeNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># self.count 用于统计在录入过程中，从自己身上踩过且比自己小的节点数量</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 并不是什么统计自己处于BST里面的位置</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">insertNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">            基本思路是，每次插入节点都需要更新她所踩过的节点的self.count
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BSTreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 初始化头节点</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span>
+</span></span><span class="line"><span class="cl">            <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">curr</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 假如一个节点的值比当前节点值小，那么就从左边下去，并更新此节点的self.count(踩过数量)</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 如果此节点存在左节点, 那么就递归替换当前节点, 不存在就作为当前节点左儿子</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">curr</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 如果比当前节点值大，如果那么就递归替换为右儿子，且不更新踩过数量self.count</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">curr</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 如果val小于当前值，就直接递归查找左儿子, 不需要采集当前点上self.count(被踩过的次数)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">val</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">curr</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 右转的时候表示val大于当前点，所以需要收集当前点上的self.count(被踩过的次数),</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 并且加1，因为这也算在当前点上踩过</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span> <span class="n">val</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">curr</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">curr</span><span class="o">.</span><span class="n">count</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 如果相等证明找到此点，也需要收集self.count(被踩过的次数)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">count</span> <span class="o">+</span> <span class="n">curr</span><span class="o">.</span><span class="n">count</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

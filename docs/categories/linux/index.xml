@@ -23,7 +23,7 @@
       <pubDate>Wed, 21 Jun 2017 04:39:30 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</guid>
-      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自</description>
+      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： # include &amp;#34;pthread_h&amp;#34; int pthread_create(pthread_t * restrict tidp, const pthread_attr_t *resrict attr, void *(*start_rtm) (void), void *restrict arg); 线程同步： 互斥量（锁），但需要避免</description>
     </item>
     
     <item>
@@ -33,15 +33,6 @@
       
       <guid>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</guid>
       <description>最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用get</description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://buhuipao.github.io/2017/03/06/test/</link>
-      <pubDate>Mon, 06 Mar 2017 15:03:22 +0000</pubDate>
-      
-      <guid>https://buhuipao.github.io/2017/03/06/test/</guid>
-      <description>lalala….</description>
     </item>
     
     <item>
@@ -59,7 +50,7 @@
       <pubDate>Fri, 16 Sep 2016 11:16:48 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/09/16/fork-system-status-route/</guid>
-      <description>A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给</description>
+      <description>A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： main{ fork() || fork() } 共创建了（３）个进程 解释是： fork()给子进程返回一个</description>
     </item>
     
     <item>

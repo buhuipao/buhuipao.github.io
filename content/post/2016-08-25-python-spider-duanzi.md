@@ -20,7 +20,8 @@ tags:
 ---
 学习python爬虫，先从爬糗事百科开始。
 
-<pre class="lang:python decode:1 " >#!/bin/env python
+```python
+#!/bin/env python
 #-*- coding:utf-8 -*-
 
 import urllib2
@@ -106,6 +107,6 @@ class DZ(object):
 
 spider = DZ()
 spider.start()
-</pre>
+```
 
 是照着别人的，慢慢自己敲的，部分修改，实测可用。

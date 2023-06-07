@@ -26,7 +26,8 @@ Your algorithm should run in O(n) complexity.
 
 下面采用了三种不同的方法进行求解， 分别是排序统计、并查集、集合，最后一种为最优解也是最巧妙的
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class UnionFind(object):
@@ -107,4 +108,4 @@ class Solution(object):
                     Plus_one += 1
                 result = max(result, Plus_one-num)
         return result
-</pre>
+```

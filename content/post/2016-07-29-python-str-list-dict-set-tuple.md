@@ -20,10 +20,11 @@ Python的字符操作很常用，应此需要熟记于心；
   
 将str转换为list以及list转化为str：
 
-<pre class="lang:python decode:1 " >>&gt;&gt;s='abcdef'
+```python
+>&gt;&gt;s='abcdef'
 >&gt;&gt;l=list(s)
 >&gt;&gt;l
 >&gt;&gt;['a', 'b','c','d','e','f']
 >&gt;&gt;''.join(l)
 >&gt;&gt;'abcdef'
-</pre>
+```

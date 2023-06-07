@@ -33,7 +33,8 @@ Given m, n satisfy the following condition:
   
 1 ≤ m ≤ n ≤ length of list.
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class ListNode(object):
@@ -67,4 +68,4 @@ class Solution(object):
         last_unswapped.next, first_swapped.next = prev, cur
         
         return dummy.next
-</pre>
+```

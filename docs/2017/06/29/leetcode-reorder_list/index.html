@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Reorder_List">
 <meta itemprop="description" content="经典的链表题，考查了反转链表和一些细节，题意也很明白，把L0→L1→…→Ln-1→Ln变为L0→Ln→L1→Ln-1→L2→Ln-2→…即可"><meta itemprop="datePublished" content="2017-06-29T02:40:50+00:00" />
 <meta itemprop="dateModified" content="2017-06-29T02:40:50+00:00" />
-<meta itemprop="wordCount" content="190">
+<meta itemprop="wordCount" content="364">
 <meta itemprop="keywords" content="leetcode,算法,链表," /><meta property="og:title" content="LeetCode-Reorder_List" />
 <meta property="og:description" content="经典的链表题，考查了反转链表和一些细节，题意也很明白，把L0→L1→…→Ln-1→Ln变为L0→Ln→L1→Ln-1→L2→Ln-2→…即可" />
 <meta property="og:type" content="article" />
@@ -93,9 +93,49 @@
 <p>You must do this in-place without altering the nodes’ values.</p>
 <p>For example,</p>
 <p>Given {1,2,3,4}, reorder it to {1,4,2,3}.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Definition for singly-linked list.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class ListNode(object):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.next = None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">reorderList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void Do not return anything, modify head in-place instead.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">head</span> <span class="ow">and</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="ow">and</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">slow</span> <span class="o">=</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">fast</span> <span class="ow">and</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span> <span class="o">=</span> <span class="n">slow</span>
+</span></span><span class="line"><span class="cl">                <span class="n">slow</span><span class="p">,</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 确定l2的头节点，下面是链表长度为奇数时,之后是长度为偶数时</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">fast</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span><span class="p">,</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span><span class="p">,</span> <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">slow</span><span class="p">,</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre_l2</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 反转l2</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">l2</span> <span class="ow">and</span> <span class="n">l2</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre_l2</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre_l2</span> <span class="o">=</span> <span class="n">l2</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span> <span class="o">=</span> <span class="n">temp</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre_l2</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 合并head，l2</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l1</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">l2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l1</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">temp1</span><span class="p">,</span> <span class="n">temp2</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

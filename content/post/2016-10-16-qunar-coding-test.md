@@ -38,7 +38,8 @@ output:
 
 我笔试的代码:
 
-<pre class="lang:python decode:1 " >#!/bin/env python
+```python
+#!/bin/env python
 # coding:utf-8
 
 import sys
@@ -86,11 +87,12 @@ else:
                 In[Mi+i] = In[Mi-i]
     Out = map(str, In)
     print ''.join(Out)
-</pre>
+```
 
 改进后的代码:
 
-<pre class="lang:python decode:1 " >1 #!/bin/env python
+```python
+  1 #!/bin/env python
   2 # coding:utf-8
   3 
   4 import sys
@@ -133,4 +135,4 @@ else:
  41             break
  42
  43 print ''.join(In)
-</pre>
+```

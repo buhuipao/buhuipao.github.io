@@ -77,7 +77,7 @@
       <pubDate>Fri, 02 Jun 2017 04:13:46 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</guid>
-      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.</description>
+      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class TreeNode(object): def __init__(self, x): self.val = x self.left = None self.right = None class Solution(object): def sortedListToBST(self, head): &amp;#34;&amp;#34;&amp;#34; :type head: ListNode :rtype: TreeNode 每次找到中位数，然后</description>
     </item>
     
     <item>

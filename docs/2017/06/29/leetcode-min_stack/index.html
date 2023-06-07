@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Min_Stack">
 <meta itemprop="description" content="经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈"><meta itemprop="datePublished" content="2017-06-29T03:08:00+00:00" />
 <meta itemprop="dateModified" content="2017-06-29T03:08:00+00:00" />
-<meta itemprop="wordCount" content="182">
+<meta itemprop="wordCount" content="276">
 <meta itemprop="keywords" content="leetcode,stack,数据结构," /><meta property="og:title" content="LeetCode-Min_Stack" />
 <meta property="og:description" content="经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈" />
 <meta property="og:type" content="article" />
@@ -94,9 +94,54 @@
 <p>pop() — Removes the element on top of the stack.</p>
 <p>top() — Get the top element.</p>
 <p>getMin() — Retrieve the minimum element in the stack.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre tabindex="0"><code># _*_ coding: utf-8 _*_
 
+
+class MinStack(object):
+
+    def __init__(self):
+        &#34;&#34;&#34;
+        initialize your data structure here.
+        &#34;&#34;&#34;
+        self.stack = []
+        self.min = [float(&#39;inf&#39;)]
+
+    def push(self, x):
+        &#34;&#34;&#34;
+        :type x: int
+        :rtype: void
+        &#34;&#34;&#34;
+        self.stack.append(x)
+        if x &amp;lt;= self.min[-1]:
+            self.min.append(x)
+
+    def pop(self):
+        &#34;&#34;&#34;
+        :rtype: void
+        &#34;&#34;&#34;
+        if self.stack[-1] == self.min[-1]:
+            self.min.pop()
+        return self.stack.pop()
+
+    def top(self):
+        &#34;&#34;&#34;
+        :rtype: int
+        &#34;&#34;&#34;
+        return self.stack[-1]
+
+    def getMin(self):
+        &#34;&#34;&#34;
+        :rtype: int
+        &#34;&#34;&#34;
+        return self.min[-1]
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(x)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
+</code></pre>
 			</div>
 
 			<div class="tags">

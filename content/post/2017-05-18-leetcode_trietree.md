@@ -17,7 +17,8 @@ tags:
   - 字典树
 
 ---
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 '''
 设计一种添加和搜索单词的数据结构
@@ -101,4 +102,4 @@ class WordDictionary(object):
                     return True
         return False
 
-</pre>
+```

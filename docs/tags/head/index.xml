@@ -14,7 +14,7 @@
       <pubDate>Fri, 02 Jun 2017 04:13:46 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</guid>
-      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.</description>
+      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class TreeNode(object): def __init__(self, x): self.val = x self.left = None self.right = None class Solution(object): def sortedListToBST(self, head): &amp;#34;&amp;#34;&amp;#34; :type head: ListNode :rtype: TreeNode 每次找到中位数，然后</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Thu, 01 Jun 2017 15:37:25 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</guid>
-      <description>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return 1-&amp;gt;2-&amp;gt;5. Given 1-&amp;gt;1-&amp;gt;1-&amp;gt;2-&amp;gt;3, return 2-&amp;gt;3. 自己的提交虽然全部通过测试用例，但是leetcode评分为1.46％，感觉太差劲</description>
+      <description>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return 1-&amp;gt;2-&amp;gt;5. Given 1-&amp;gt;1-&amp;gt;1-&amp;gt;2-&amp;gt;3, return 2-&amp;gt;3. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def deleteDuplicates(self, head): &amp;#34;&amp;#34;&amp;#34; :type head: ListNode :rtype: ListNode &amp;#34;&amp;#34;&amp;#34; if not head or not head.next: return head dummy = ListNode(None) node,</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@
       <pubDate>Thu, 01 Jun 2017 12:50:11 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/06/01/leetcode-reverse_linked_list_ii/</guid>
-      <description>Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL. Note: Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.</description>
+      <description>Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL. Note: Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list. # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def reverseBetween(self, head, m, n): &amp;#34;&amp;#34;&amp;#34; :type</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@
       <pubDate>Sun, 28 May 2017 15:41:00 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/05/28/leetcode-palindrome-linked-list/</guid>
-      <description>Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space?</description>
+      <description>Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space? # _*_ coding: utf-8 _*_ class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def isPalindrome(self, head): &amp;#34;&amp;#34;&amp;#34; :type head: ListNode :rtype: bool &amp;#34;&amp;#34;&amp;#34; if not head or not head.next: return True if not head.next.next: if head.val == head.next.val: return True else: return</description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@
       <pubDate>Mon, 22 May 2017 13:57:33 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/</guid>
-      <description></description>
+      <description># _*_ coding: utf-8 _*_ &amp;#39;&amp;#39;&amp;#39; Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. &amp;#39;&amp;#39;&amp;#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def mergeKLists(self, lists): &amp;#34;&amp;#34;&amp;#34; :type lists: List[ListNode] :rtype: ListNode 采用并归的思想 &amp;#34;&amp;#34;&amp;#34; # 过滤空链表 _list = filter(lambda node: node, lists) return self.merge_help(_list) def merge_help(self,</description>
     </item>
     
     <item>
@@ -86,7 +86,7 @@
       <pubDate>Sun, 21 May 2017 05:36:41 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/05/21/leetcode-sortlink/</guid>
-      <description></description>
+      <description># _*_ coding: utf-8 _*_ &amp;#39;&amp;#39;&amp;#39; Sort a linked list in O(n log n) time using constant space complexity. &amp;#39;&amp;#39;&amp;#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &amp;#34;&amp;#34;&amp;#34; :type head: ListNode :rtype: ListNode &amp;#34;&amp;#34;&amp;#34; def merge(self, h1, h2): &amp;#39;&amp;#39;&amp;#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 =</description>
     </item>
     
     <item>
@@ -95,7 +95,7 @@
       <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</guid>
-      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem</description>
+      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2</description>
     </item>
     
   </channel>

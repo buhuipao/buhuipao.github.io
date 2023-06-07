@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode–odd-even-linked-list">
 <meta itemprop="description" content="最近主要练习链表的变换，这个题很经典，特别是容易忽略末尾出现的闭环 Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do"><meta itemprop="datePublished" content="2017-05-28T11:43:15+00:00" />
 <meta itemprop="dateModified" content="2017-05-28T11:43:15+00:00" />
-<meta itemprop="wordCount" content="123">
+<meta itemprop="wordCount" content="280">
 <meta itemprop="keywords" content="head,ps,python,链表," /><meta property="og:title" content="LeetCode–odd-even-linked-list" />
 <meta property="og:description" content="最近主要练习链表的变换，这个题很经典，特别是容易忽略末尾出现的闭环 Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do" />
 <meta property="og:type" content="article" />
@@ -97,9 +97,41 @@
 <p>Note:</p>
 <p>The relative order inside both the even and odd groups should remain as it was in the input.</p>
 <p>The first node is considered odd, the second node even and so on …</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ListNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">oddEvenList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        解题思路：就是另外申请一个l2链表用于连接不断便利过程中被取出的偶数项目,最后拼接l1,l2
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">head</span> <span class="ow">and</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="ow">and</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre_l2</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l2</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre_l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">l2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">temp</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">pre_l2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 防止奇数个数节点时最后一个点出现闭环，将出现TLE错误</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">head</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

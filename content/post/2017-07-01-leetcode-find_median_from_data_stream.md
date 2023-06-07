@@ -45,7 +45,8 @@ addNum(3)
   
 findMedian() -> 2
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_ 
+```python
+# _*_ coding: utf-8 _*_ 
 
 
 class MedianFinder(object):
@@ -89,4 +90,4 @@ class MedianFinder(object):
 # obj = MedianFinder()
 # obj.addNum(num)
 # param_2 = obj.findMedian()
-</pre>
+```

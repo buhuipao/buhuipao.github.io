@@ -43,7 +43,8 @@ For each test case, output one line containing Case #x: y, where x is the test c
 
 <img class="aligncenter size-full wp-image-935" src="http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader.png" alt="google_test_leader" width="560" height="281" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader.png 560w, http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader-150x75.png 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader-300x151.png 300w" sizes="(max-width: 560px) 100vw, 560px" />
 
-<pre class="lang:python decode:1 " >1 #!/bin/env python
+```python
+1 #!/bin/env python
 2 # coding:utf-8
 3
 4 '''
@@ -87,4 +88,4 @@ For each test case, output one line containing Case #x: y, where x is the test c
 42             max_str = sorted_str[0]
 43 with open('./Output.in', 'a') as f:
 44      f.write("Case #%d: %s\n" % (j, max_str))
-</pre>
+```

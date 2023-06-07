@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Binary_Search_Tree_Iterator">
 <meta itemprop="description" content="一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两"><meta itemprop="datePublished" content="2017-06-30T17:05:57+00:00" />
 <meta itemprop="dateModified" content="2017-06-30T17:05:57+00:00" />
-<meta itemprop="wordCount" content="328">
+<meta itemprop="wordCount" content="585">
 <meta itemprop="keywords" content="BST,leetcode,设计," /><meta property="og:title" content="LeetCode-Binary_Search_Tree_Iterator" />
 <meta property="og:description" content="一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两" />
 <meta property="og:type" content="article" />
@@ -93,12 +93,88 @@
 <p>Calling next() will return the next smallest number in the BST.</p>
 <p>Note: next() and hasNext() should run in average O(1) time and uses O(h) memory,</p>
 <p>where h is the height of the tree.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>下面是hash表加中序遍历BST的做法，因为考虑到时间复杂为O(1)的做法最常用就是hash表，也确实让next()操作的时间复杂度变成了O(1), 但是由于hash表的存在，内存复杂度一直是O(n);</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Definition for a  binary tree node</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class TreeNode(object):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.left = None</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.right = None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">BSTIterator1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type root: TreeNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        典型的BST的中序遍历
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="k">if</span> <span class="n">root</span> <span class="k">else</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="k">if</span> <span class="n">root</span> <span class="k">else</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">hasNext</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span><span class="o">.</span><span class="n">val</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_node</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">val</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Your BSTIterator will be called like this:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># i, v = BSTIterator(root), []</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># while i.hasNext(): v.append(i.next())</span>
+</span></span></code></pre></div><p>下面是hash表加中序遍历BST的做法，因为考虑到时间复杂为O(1)的做法最常用就是hash表，也确实让next()操作的时间复杂度变成了O(1), 但是由于hash表的存在，内存复杂度一直是O(n);</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">BSTIterator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type root: TreeNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        BST的中序遍历, 建立一个hash表
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cur_node</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="k">if</span> <span class="n">root</span> <span class="k">else</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="k">if</span> <span class="n">root</span> <span class="k">else</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">stack</span> <span class="ow">or</span> <span class="n">cur_node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">cur_node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cur_node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cur_node</span> <span class="o">=</span> <span class="n">cur_node</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur_node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">val</span> <span class="o">=</span> <span class="n">cur_node</span><span class="o">.</span><span class="n">val</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="n">_min</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_min</span> <span class="o">=</span> <span class="n">val</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur_node</span> <span class="o">=</span> <span class="n">cur_node</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 考虑stack为空的情形，显然不让进hashNext的循环</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">val</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">hasNext</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

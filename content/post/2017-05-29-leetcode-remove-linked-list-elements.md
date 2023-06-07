@@ -27,7 +27,8 @@ Given: 1 &#8211;> 2 &#8211;> 6 &#8211;> 3 &#8211;> 4 &#8211;> 5 &#8211;> 6, val 
   
 Return: 1 &#8211;> 2 &#8211;> 3 &#8211;> 4 &#8211;> 5
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class ListNode(object):
@@ -58,4 +59,4 @@ class Solution(object):
             head = head.next
 
         return pre_head.next
-</pre>
+```

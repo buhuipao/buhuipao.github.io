@@ -14,7 +14,7 @@
       <pubDate>Thu, 18 Feb 2016 13:21:17 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/02/18/linux-script-grep_cut/</guid>
-      <description>grep 的基本用法，找出字符串所在行： 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记： 使用正则表达式： 还可以用e</description>
+      <description>grep 的基本用法，找出字符串所在行： [buhuipao@localhost ~]$ echo -e &amp;#34;this is a word \n next line.&amp;#34; | grep word this is a word 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto</description>
     </item>
     
   </channel>

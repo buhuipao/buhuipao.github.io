@@ -30,7 +30,8 @@ Given 1->2->3->3->4->4->5, return 1->2->5.
   
 Given 1->1->1->2->3, return 2->3.
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 class ListNode(object):
     def __init__(self, x):
@@ -66,11 +67,12 @@ class Solution(object):
                 last_uniq = last_uniq.next
                 node = node.next
         return dummy.next
-</pre>
+```
 
 自己的提交虽然全部通过测试用例，但是leetcode评分为1.46％，感觉太差劲于是找到一个更好的简单的解法，贴在下面
 
-<pre class="lang:python decode:1 " ># 以下为他人的解法
+```python
+# 以下为他人的解法
 class Solution1(object):
     '''算法思路：
     每走一步判断当前节点是否应该被添加到列表里边
@@ -88,4 +90,4 @@ class Solution1(object):
 
         tail.next = None
         return dummy.next
-</pre>
+```

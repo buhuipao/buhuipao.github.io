@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Mysql的基本操作（1） - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="Mysql的基本操作（1）">
-<meta itemprop="description" content="登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会"><meta itemprop="datePublished" content="2016-04-25T11:57:38+00:00" />
+<meta itemprop="description" content="登陆数据库： mysql buhuipao_db -u buhuipao -p123456 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接"><meta itemprop="datePublished" content="2016-04-25T11:57:38+00:00" />
 <meta itemprop="dateModified" content="2016-04-25T11:57:38+00:00" />
-<meta itemprop="wordCount" content="452">
+<meta itemprop="wordCount" content="568">
 <meta itemprop="keywords" content="IP,Linux,mysql,shell," /><meta property="og:title" content="Mysql的基本操作（1）" />
-<meta property="og:description" content="登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会" />
+<meta property="og:description" content="登陆数据库： mysql buhuipao_db -u buhuipao -p123456 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2016/04/25/mysql_basic_operation/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-04-25T11:57:38+00:00" />
 <meta property="article:modified_time" content="2016-04-25T11:57:38+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mysql的基本操作（1）"/>
-<meta name="twitter:description" content="登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会"/>
+<meta name="twitter:description" content="登陆数据库： mysql buhuipao_db -u buhuipao -p123456 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -88,39 +88,51 @@
 					
 			<div class="markdown">
 				<p>登陆数据库：</p>
-<!-- raw HTML omitted -->
-<p>注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db；</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mysql buhuipao_db -u buhuipao -p123456
+</span></span></code></pre></div><p>注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db；</p>
 <p>-p后面接密码，直接登陆，不会询问密码，</p>
 <p>使用数据库：</p>
-<!-- raw HTML omitted -->
-<p>假如你登陆的的是root用户，或着具有创建表的权用户，创建表：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>注：primary key 定义这个字段唯一；</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">use buhuipao_db<span class="p">;</span>
+</span></span></code></pre></div><p>假如你登陆的的是root用户，或着具有创建表的权用户，创建表：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">create table employes<span class="o">(</span>
+</span></span><span class="line"><span class="cl">       <span class="p">&amp;</span>gt<span class="p">;</span>emid int not null,
+</span></span><span class="line"><span class="cl">       <span class="p">&amp;</span>gt<span class="p">;</span>name varchar<span class="o">(</span>30<span class="o">)</span>,
+</span></span><span class="line"><span class="cl">       <span class="p">&amp;</span>gt<span class="p">;</span>sex varchar<span class="o">(</span>10<span class="o">)</span>,
+</span></span><span class="line"><span class="cl">       <span class="p">&amp;</span>gt<span class="p">;</span>salary float,
+</span></span><span class="line"><span class="cl">       <span class="p">&amp;</span>gt<span class="p">;</span>primary key <span class="o">(</span>emid<span class="o">))</span> <span class="p">;</span> 
+</span></span></code></pre></div><p>注：primary key 定义这个字段唯一；</p>
 <p>为表插入数据：</p>
-<!-- raw HTML omitted -->
-<p>如果再次插入emid为1的数据，将会出错；</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">insert into employees values<span class="o">(</span>1,<span class="s1">&#39;jiefu&#39;</span>,<span class="s1">&#39;man&#39;</span>,4000.00<span class="o">)</span><span class="p">;</span>
+</span></span></code></pre></div><p>如果再次插入emid为1的数据，将会出错；</p>
 <p>修改表名：</p>
-<!-- raw HTML omitted -->
-<p>为表employees再添加一列字段email：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>如果想用excel导入数据，那么先导出为data.csv,它的分割符为“，”用Editplus打开另存为UTF-8的data.txt,</p>
-<!-- raw HTML omitted -->
-<p>注意：terminated 表示分割符为“，”；相应字段和数据对应起来</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">alter table employee rename employees<span class="p">;</span>
+</span></span></code></pre></div><p>为表employees再添加一列字段email：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">alter table employees add email varchar<span class="o">(</span>20<span class="o">)</span> null<span class="p">;</span>
+</span></span></code></pre></div><p>如果想用excel导入数据，那么先导出为data.csv,它的分割符为“，”用Editplus打开另存为UTF-8的data.txt,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">load data <span class="nb">local</span> infile <span class="s1">&#39;/home/buhuipao/data.txt&#39;</span> into table emploees fields terminated by <span class="s1">&#39;,&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><p>注意：terminated 表示分割符为“，”；相应字段和数据对应起来</p>
 <p>修改某个字段值：UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</p>
-<!-- raw HTML omitted -->
-<p>删除数据表：</p>
-<!-- raw HTML omitted -->
-<p>删除字段：</p>
-<!-- raw HTML omitted -->
-<p>最后便顺提一下怎么用shell脚本操作数据库：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>查询结果将会输出到终端，如果这是一个数据库备份脚本，那么在脚本中显示了MYSQL的用户密码，这是不可取的，所以想要避免这个，那么可以:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>在client-server后面添加对应数据库用户的密码即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">update employees <span class="nb">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;huazai&#39;</span> where <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;jiefu&#39;</span>
+</span></span></code></pre></div><p>删除数据表：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">drop table buhuipao_db<span class="p">;</span>
+</span></span></code></pre></div><p>删除字段：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">alter table drop column sex<span class="p">;</span>
+</span></span></code></pre></div><p>最后便顺提一下怎么用shell脚本操作数据库：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">MYSQL</span><span class="o">=</span>&lt;code&gt;which mysql&lt;/code&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">$MYSQL</span> buhuipao_db -u buhuipao -p123456 -e <span class="s1">&#39;select * from employees;
+</span></span></span><span class="line"><span class="cl"><span class="s1">insert into employees values(1,&#39;</span>jiefu<span class="s1">&#39;,&#39;</span>man<span class="s1">&#39;,4000.00,&#39;</span>admin@buhuipao.com<span class="s1">&#39;);&#39;</span>
+</span></span></code></pre></div><p>查询结果将会输出到终端，如果这是一个数据库备份脚本，那么在脚本中显示了MYSQL的用户密码，这是不可取的，所以想要避免这个，那么可以:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vim /etc/my.cnf 
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This group is read both both by the client and the server</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># use it for options that affect everything</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>client-server<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">password</span><span class="o">=</span><span class="m">123456</span>
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><p>在client-server后面添加对应数据库用户的密码即可。</p>
 
 			</div>
 

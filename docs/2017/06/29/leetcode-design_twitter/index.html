@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Design_Twitter">
 <meta itemprop="description" content="经典的设计题，以前校招笔试遇到过，题意就是：让你设计一个小的推特系统，能够发推、收到推送、关注和取消关注某人，我的做法是直接采用一个数据表（"><meta itemprop="datePublished" content="2017-06-29T07:36:15+00:00" />
 <meta itemprop="dateModified" content="2017-06-29T07:36:15+00:00" />
-<meta itemprop="wordCount" content="468">
+<meta itemprop="wordCount" content="972">
 <meta itemprop="keywords" content="leetcode,系统设计," /><meta property="og:title" content="LeetCode-Design_Twitter" />
 <meta property="og:description" content="经典的设计题，以前校招笔试遇到过，题意就是：让你设计一个小的推特系统，能够发推、收到推送、关注和取消关注某人，我的做法是直接采用一个数据表（" />
 <meta property="og:type" content="article" />
@@ -114,12 +114,115 @@
 <p>// User 1’s news feed should return a list with 1 tweet id -&gt; [5],</p>
 <p>// since user 1 is no longer following user 2.</p>
 <p>twitter.getNewsFeed(1);</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>这是leetcode的AC结果里的最优解，主要用了一些其他的库，初始化可以看成他是建立了三个数据表，对比我的写法确实简单明了一些，建议采用此解法。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Twitter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Initialize your data structure here.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        重点设计是被follow
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tt</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">postTweet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userId</span><span class="p">,</span> <span class="n">tweetId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Compose a new tweet.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type userId: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type tweetId: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">userId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">userId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;followed&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span> <span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;feed&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">userId</span><span class="p">][</span><span class="s1">&#39;post&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">tweetId</span><span class="p">,</span> <span class="n">_time</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">userId</span><span class="p">][</span><span class="s1">&#39;feed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">userId</span><span class="p">,</span> <span class="n">tweetId</span><span class="p">,</span> <span class="n">_time</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 去关注自己的人的feed里加文章</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">userId</span><span class="p">][</span><span class="s1">&#39;followed&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">user</span><span class="p">][</span><span class="s1">&#39;feed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">userId</span><span class="p">,</span> <span class="n">tweetId</span><span class="p">,</span> <span class="n">_time</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">getNewsFeed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Retrieve the 10 most recent tweet ids in the user&#39;s news feed.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Each item in the news feed must be posted by users who the user 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        followed or by the user herself.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Tweets must be ordered from most recent to least recent.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type userId: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">userId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">userId</span><span class="p">][</span><span class="s1">&#39;feed&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">feeds</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">userId</span><span class="p">][</span><span class="s1">&#39;feed&#39;</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">feeds</span><span class="p">[:</span><span class="mi">10</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">follow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">followerId</span><span class="p">,</span> <span class="n">followeeId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Follower follows a followee. If the operation is invalid, it should be a no-op.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type followerId: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type followeeId: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 需要先建立被关注的人，因为等下需要同步他的post</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">followeeId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followeeId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;followed&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span> <span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;feed&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 当前用户不存在则需要建立用户，并且同步他关注人的post</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">followerId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followerId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;followed&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span> <span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;feed&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果两者是同一个人或者已经关注过直接返回</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">followerId</span> <span class="o">==</span> <span class="n">followeeId</span> <span class="ow">or</span> <span class="n">followerId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followeeId</span><span class="p">][</span><span class="s1">&#39;followed&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followeeId</span><span class="p">][</span><span class="s1">&#39;followed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">followerId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followeeId</span><span class="p">][</span><span class="s1">&#39;post&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followerId</span><span class="p">][</span><span class="s1">&#39;feed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">followeeId</span><span class="p">,</span> <span class="n">post</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">post</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">unfollow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">followerId</span><span class="p">,</span> <span class="n">followeeId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type followerId: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type followeeId: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 必须二者都在tt里面</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">followerId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span> <span class="ow">or</span> <span class="n">followeeId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果两者是同一个人直接返回</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">followerId</span> <span class="o">==</span> <span class="n">followeeId</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># unfollow之前还需要检查是否之前follow过</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">followerId</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followeeId</span><span class="p">][</span><span class="s1">&#39;followed&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followeeId</span><span class="p">][</span><span class="s1">&#39;followed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">followerId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followerId</span><span class="p">][</span><span class="s1">&#39;feed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">followeeId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">tt</span><span class="p">[</span><span class="n">followerId</span><span class="p">][</span><span class="s1">&#39;feed&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Your Twitter object will be instantiated and called as such:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj = Twitter()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj.postTweet(userId,tweetId)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># param_2 = obj.getNewsFeed(userId)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj.follow(followerId,followeeId)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj.unfollow(followerId,followeeId)</span>
+</span></span></code></pre></div><p>这是leetcode的AC结果里的最优解，主要用了一些其他的库，初始化可以看成他是建立了三个数据表，对比我的写法确实简单明了一些，建议采用此解法。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Twitter1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">step</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tweets</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">followees</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">postTweet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userId</span><span class="p">,</span> <span class="n">tweetId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tweets</span><span class="p">[</span><span class="n">userId</span><span class="p">]</span><span class="o">.</span><span class="n">appendleft</span><span class="p">((</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="p">),</span> <span class="n">tweetId</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">getNewsFeed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tweets</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tweets</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">followees</span><span class="p">[</span><span class="n">userId</span><span class="p">]</span> <span class="o">|</span> <span class="p">{</span><span class="n">userId</span><span class="p">}))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">tweets</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">follow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">followerId</span><span class="p">,</span> <span class="n">followeeId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">followees</span><span class="p">[</span><span class="n">followerId</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">followeeId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">unfollow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">followerId</span><span class="p">,</span> <span class="n">followeeId</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">followees</span><span class="p">[</span><span class="n">followerId</span><span class="p">]</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">followeeId</span><span class="p">)</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

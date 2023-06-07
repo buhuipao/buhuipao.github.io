@@ -17,14 +17,17 @@ tags:
 ---
 验证是否为Root：
 
-<pre class="lang:shell decode:1 " >if [ $UID != "0" ]; then
+```bash
+if [ $UID != "0" ]; then
     echo "Error: You must be root to run this script, please use root to install lnmp"
     exit 1
-fi</pre>
+fi
+```
 
 发行版本：
 
-<pre class="lang:shell decode:1 " >if grep -Eqi "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then
+```bash
+if grep -Eqi "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then
         DISTRO='CentOS'
         PM='yum'
     elif grep -Eqi "Red Hat Enterprise Linux Server" /etc/issue || grep -Eq "Red Hat Enterprise Linux Server" /etc/*-release; then
@@ -47,4 +50,5 @@ fi</pre>
         PM='apt'
     else
         DISTRO='unknow'
-    fi</pre>
+    fi
+```

@@ -27,7 +27,8 @@ top() &#8212; Get the top element.
   
 getMin() &#8212; Retrieve the minimum element in the stack.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```
+# _*_ coding: utf-8 _*_
 
 
 class MinStack(object):
@@ -74,4 +75,4 @@ class MinStack(object):
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
-</pre>
+```

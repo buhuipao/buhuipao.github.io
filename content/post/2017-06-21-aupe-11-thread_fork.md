@@ -16,10 +16,12 @@ tags:
 
 **线程创建**：
 
-<pre class="lang:c decode:1"># include "pthread_h"
+```c
+# include "pthread_h"
 int pthread_create(pthread_t * restrict tidp,
     const pthread_attr_t *resrict attr,
-    void *(*start_rtm) (void), void *restrict arg);</pre>
+    void *(*start_rtm) (void), void *restrict arg);
+```
 
 **线程同步**：
 
@@ -37,7 +39,8 @@ int pthread_create(pthread_t * restrict tidp,
 
 **线程加锁**：初始化、销毁锁、加锁、试锁、解锁、定时锁
 
-<pre class="lang:c decode:1"># include "pthread_h"
+```c
+# include "pthread_h"
 int pthread_mutex_init(pthread_mutex_t *restrict mudex,
     const pthread_attr_t *resrict attr);
 int pthread_mutex_destroy(pthread_mutex_t *mutex);
@@ -46,7 +49,7 @@ int pthread_mutex_trylock(pthread_mutex_t *mutex);  /*失败将会返回EBUSY*/
 int pthread_mutex_unlock(pthread_mutex_t *mutex);
 int pthread_mutex_timedlock(pthread_mutex_t *mutex, 
     const struct timespace *restrict tsptr);       /*tsptr为绝对时间*/
-</pre>
+```
 
 **避免死锁**：
 
@@ -57,10 +60,12 @@ int pthread_mutex_timedlock(pthread_mutex_t *mutex,
 
 线程fork只会fork当前线程到新的进程中去，如果直接调用exec干其他的活，旧的地址空间被丢弃，不需要关心所得状态，如果不是的话需要在调用exec之前进行相应的清锁工作；主要函数是：
 
-<pre class="lang:c decode:1"># include "pthread_h"
+```c
+# include "pthread_h"
 int pthread_atfork(void (*prepare) (void),   /*在父进程中获取锁*/
            void (*parent) (void),            /*在fork返回前父进程中解锁*/    
-           void (*child) (void));            /*在fork返回前子进程中解锁*/</pre>
+           void (*child) (void));            /*在fork返回前子进程中解锁*/
+```
 
 参考APUE：因为子进程继承的是父进程的锁的拷贝，所有上述并不是解锁了两次，而是各自独自解锁。可以多次调用pthread_atfork函数从而设置多套fork处理程序，但是使用多个处理程序的时候。处理程序的调用顺序并不相同。parent和child是以它们注册时的顺序调用的，而prepare的调用顺序与注册顺序相反。
 

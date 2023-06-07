@@ -23,7 +23,8 @@ find a path from top left to bottom right which minimizes the sum of all numbers
 
 Note: You can only move either down or right at any point in time.
 
-<pre class="lang:python decode:1"># _*_ coding: utd-8 _*_
+```python
+# _*_ coding: utd-8 _*_
 
 
 class Solution(object):
@@ -87,4 +88,4 @@ class Solution(object):
                 elif i != 0 and j != 0:
                     grid[i][j] = min(grid[i-1][j], grid[i][j-1]) + grid[i][j]
         return grid[i][j]
-</pre>
+```

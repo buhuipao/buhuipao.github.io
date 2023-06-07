@@ -21,7 +21,8 @@ random pointer which could point to any node in the list or null.
 
 Return a deep copy of the list.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 # Definition for singly-linked list with a random pointer.
@@ -66,11 +67,12 @@ class Solution(object):
                 temp.next = None
             node = node.next
         return n_head
-</pre>
+```
 
 hash表方法：
 
-<pre class="lang:python decode:1">class Solution(object):
+```python
+class Solution(object):
     def Clone(self, pHead):
         # write code here
          
@@ -101,4 +103,4 @@ hash表方法：
                 new_head.random = random_dic[old_new_dic[id(new_head.random)]]
             new_head = new_head.next
         return p_head
-</pre>
+```

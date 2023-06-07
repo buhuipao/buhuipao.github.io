@@ -38,7 +38,8 @@ For k = 2, you should return: 2->1->4->3->5
 
 For k = 3, you should return: 3->2->1->4->5
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class ListNode(object):
@@ -112,4 +113,4 @@ class Solution(object):
             pre = _cur
             _cur = temp.next
         return end, start
-</pre>
+```

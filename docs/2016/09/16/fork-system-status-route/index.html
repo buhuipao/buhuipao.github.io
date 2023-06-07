@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>关于fork和操作系统一些知识 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="关于fork和操作系统一些知识">
-<meta itemprop="description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给"><meta itemprop="datePublished" content="2016-09-16T11:16:48+00:00" />
+<meta itemprop="description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： main{ fork() || fork() } 共创建了（３）个进程 解释是： fork()给子进程返回一个"><meta itemprop="datePublished" content="2016-09-16T11:16:48+00:00" />
 <meta itemprop="dateModified" content="2016-09-16T11:16:48+00:00" />
-<meta itemprop="wordCount" content="842">
+<meta itemprop="wordCount" content="847">
 <meta itemprop="keywords" content="python," /><meta property="og:title" content="关于fork和操作系统一些知识" />
-<meta property="og:description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给" />
+<meta property="og:description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： main{ fork() || fork() } 共创建了（３）个进程 解释是： fork()给子进程返回一个" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2016/09/16/fork-system-status-route/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-09-16T11:16:48+00:00" />
 <meta property="article:modified_time" content="2016-09-16T11:16:48+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于fork和操作系统一些知识"/>
-<meta name="twitter:description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给"/>
+<meta name="twitter:description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： main{ fork() || fork() } 共创建了（３）个进程 解释是： fork()给子进程返回一个"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -91,9 +91,10 @@
 <li>A: <a href="http://www.nowcoder.com/test/question/done?tid=5114409&amp;qid=26082#summary">牛客网</a>刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。</li>
 </ul>
 <p>题目是：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>共创建了（３）个进程</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">main</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="n">fork</span><span class="p">()</span> <span class="o">||</span> <span class="n">fork</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>共创建了（３）个进程</p>
 <p>解释是：</p>
 <p>fork()给子进程返回一个零值，而给父进程返回一个子进车id；在main这个主进程中，首先执行 <!-- raw HTML omitted -->fork()<!-- raw HTML omitted --> || fork(), 左边的fork()返回一个非零值，根据**||的短路原则**，前面的表达式为真时，后面的表达式不执行，故包含main的这个主进程创建了一个子进程，由于子进程会复制父进程，而且子进程会根据其返回值继续执行，就是说，在子进程中， <!-- raw HTML omitted -->fork()<!-- raw HTML omitted --> ||fork()这条语句左边表达式的返回值是0, 所以||右边的表达式要执行，这时在子进程中又创建了一个进程，即main进程-&gt;子进程-&gt;子进程，一共创建了3个进程。</p>
 <p>一个进程，包括代码、数据和分配给进程的资源。fork（）函数通过系统调用创建一个与原来进程几乎完全相同的进程，</p>

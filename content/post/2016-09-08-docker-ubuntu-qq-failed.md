@@ -28,11 +28,15 @@ tags:
   
 首先在wine-qq-7.8的官网[http://www.longene.org/forum/viewtopic.php?f=6&t=30516] 得知他是基于ubuntu12.04开发测试的，所以果断Docker的ubuntu也用了12.04，但是据测试发现，此12.04ubuntu死活无法开启ssh，毕竟之后的远程登陆需要用到ssh，所以放弃了往上一个版本走。于是改用14.04重新构建镜像，等了许久终于成功啦，启动ubuntu-ssh容器，进入容器后尝试用NX的客户端登陆，成功进入桌面。然后继续下载deb包，然后
 
-<pre class="lang:bash decode:1 " >dpkg -i Win-qq-7.8-longene.deb.</pre>
+```bash
+dpkg -i Win-qq-7.8-longene.deb.
+```
 
 安装成功后，运行
 
-<pre class="lang:bash decode:1 " >/usr/bin/qq</pre>
+```bash
+/usr/bin/qq
+```
 
 没错，失败了！说是找不到Wine，于是重新安装Wine，然后再尝试，缺少一个libgbk-3.0.0库，网上找了好久，没有解决办法，最后在一片2年前文章中发现了类似的错误，但是他最后成功了安装了qq2013，但他最后提醒到，**不要缘木求鱼，不要期望在Linux下安装使用QQ，游戏之类的，专注与自己的事，开发写脚本就好了**。
   

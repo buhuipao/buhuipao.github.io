@@ -27,7 +27,8 @@ Follow up:
   
 Can you solve it without using extra space?
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 # Definition for singly-linked list.
@@ -54,4 +55,4 @@ class Solution(object):
                     fast, slow = fast.next, slow.next
                 return slow
         return
-</pre>
+```

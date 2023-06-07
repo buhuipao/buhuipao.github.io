@@ -24,7 +24,8 @@ Given a singly linked list where elements are sorted in ascending order,
   
 convert it to a height balanced BST.
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class ListNode(object):
@@ -60,4 +61,4 @@ class Solution(object):
         root.left, root.right = map(self.sortedListToBST, [head, slow.next])
         
         return root
-</pre>
+```

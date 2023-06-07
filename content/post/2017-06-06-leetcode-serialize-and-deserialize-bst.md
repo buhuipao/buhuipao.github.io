@@ -35,7 +35,8 @@ Note: Do not use class member/global/static variables to store states. Your seri
   
 先提供简单无脑的按层遍历序列化：
 
-<pre class="lang:python decode:1 " >class TreeNode(object):
+```python
+class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
@@ -81,11 +82,12 @@ class Codec:
                 node.right = TreeNode(data[i+1])
                 _queue.append(node.right)
         return root
-</pre>
+```
 
 接下来的是先序遍历的序列化和反序列化， 之前一直报｀空栈错误｀ ，最后单步调试发现是最后的一个叶子节点的问题，会多出两个&#8217;#&#8217;， 所以反序列化只迭代了倒数第三个字符`xrange(1, len(data)-2, 1)`；其实也可以在序列化时｀return &#8216;$&#8217;.join(result).rstrip(&#8216;#&#8217;)\`, 应该是我没真正掌握先序遍历的‘精髓’:P
 
-<pre class="lang:python decode:1 " >def serialize(self, root):
+```python
+def serialize(self, root):
         """Encodes a tree to a single string.
         :type root: TreeNode
         :rtype: str
@@ -139,4 +141,4 @@ class Codec:
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
 # codec.deserialize(codec.serialize(root))
-</pre>
+```

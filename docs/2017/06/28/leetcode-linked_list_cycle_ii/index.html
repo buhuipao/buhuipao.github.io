@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Linked_List_Cycle_II">
 <meta itemprop="description" content="判断链表是否存在循环的变形题，需要你找出链表循环的开始节点，解题思路：先用快慢指针便利链表知道快慢指针指向同一个节点，然后让快指针从head"><meta itemprop="datePublished" content="2017-06-28T09:55:00+00:00" />
 <meta itemprop="dateModified" content="2017-06-28T09:55:00+00:00" />
-<meta itemprop="wordCount" content="380">
+<meta itemprop="wordCount" content="467">
 <meta itemprop="keywords" content="leetcode,算法,链表," /><meta property="og:title" content="LeetCode-Linked_List_Cycle_II" />
 <meta property="og:description" content="判断链表是否存在循环的变形题，需要你找出链表循环的开始节点，解题思路：先用快慢指针便利链表知道快慢指针指向同一个节点，然后让快指针从head" />
 <meta property="og:type" content="article" />
@@ -94,9 +94,34 @@
 <p>Note: Do not modify the linked list.</p>
 <p>Follow up:</p>
 <p>Can you solve it without using extra space?</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Definition for singly-linked list.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class ListNode(object):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.next = None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">detectCycle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        找到一个链表的循环开始节点
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="n">slow</span> <span class="o">=</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">fast</span> <span class="ow">and</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">slow</span><span class="p">,</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">fast</span> <span class="o">==</span> <span class="n">slow</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="n">fast</span> <span class="o">!=</span> <span class="n">slow</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">fast</span><span class="p">,</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">slow</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

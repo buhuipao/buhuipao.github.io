@@ -20,7 +20,8 @@ tags:
   - 链表
 
 ---
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 '''
 Merge k sorted linked lists and return it as one sorted list.
@@ -76,4 +77,4 @@ class Solution(object):
             node = node.next
         node.next = l1 or l2
         return pre_head.next
-</pre>
+```

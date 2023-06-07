@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-clone_graph">
 <meta itemprop="description" content="克隆一个图， 用了两个遍历方法如下： Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ’s undirected graph serialization: Nodes are labeled uniquely. We use # as a separator for each node, and , as a separator for node label and each neighbor of the node. As"><meta itemprop="datePublished" content="2017-06-10T14:03:15+00:00" />
 <meta itemprop="dateModified" content="2017-06-10T14:03:15+00:00" />
-<meta itemprop="wordCount" content="145">
+<meta itemprop="wordCount" content="260">
 <meta itemprop="keywords" content="BFS,DFS,python,算法," /><meta property="og:title" content="LeetCode-clone_graph" />
 <meta property="og:description" content="克隆一个图， 用了两个遍历方法如下： Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ’s undirected graph serialization: Nodes are labeled uniquely. We use # as a separator for each node, and , as a separator for node label and each neighbor of the node. As" />
 <meta property="og:type" content="article" />
@@ -98,11 +98,58 @@
 <p>Second node is labeled as 1. Connect node 1 to node 2.</p>
 <p>Third node is labeled as 2. Connect node 2 to node 2 (itself), thus forming a self-cycle.</p>
 <p>Visually, the graph looks like the following:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">       <span class="m">1</span>
+</span></span><span class="line"><span class="cl">      / <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     /   <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="m">0</span> --- <span class="m">2</span>
+</span></span><span class="line"><span class="cl">         / <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>         <span class="se">\_</span>/
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># class UndirectedGraphNode:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.label = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.neighbors = []</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># @param node, a undirected graph node</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># @return a undirected graph node</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">cloneGraph1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># BFS</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> 
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">_queue</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([</span><span class="n">node</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">record</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">:</span> <span class="n">UndirectedGraphNode</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">_queue</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">item</span> <span class="o">=</span> <span class="n">_queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">nei</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">neighbors</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">nei</span><span class="o">.</span><span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">record</span><span class="p">[</span><span class="n">nei</span><span class="o">.</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">UndirectedGraphNode</span><span class="p">(</span><span class="n">nei</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nei</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">record</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">neighbors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">nei</span><span class="o">.</span><span class="n">label</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">record</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">cloneGraph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># DFS</span>
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">UndirectedGraphNode</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">nei</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">neighbors</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">neighbors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">nei</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> 
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">record</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

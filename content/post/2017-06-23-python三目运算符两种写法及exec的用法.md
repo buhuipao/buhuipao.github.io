@@ -12,8 +12,8 @@ tags:
 
 ---
 三目运算符第一种写法：
-
-<pre class="lang:python decode:1">In [302]: a = 1 if 5 > 3 else 0
+```python
+In [302]: a = 1 if 5 > 3 else 0
 
 In [303]: a
 Out[303]: 1
@@ -22,11 +22,12 @@ In [304]: a = 1 if 2 > 3 else 0
 
 In [305]: a
 Out[305]: 0
-</pre>
+```
 
 三目运算符的第二种写法：
 
-<pre class="lang:python decode:1">In [295]: [5, 3][True]
+```python
+In [295]: [5, 3][True]
 Out[295]: 3
 
 In [296]: [5, 3][False]
@@ -52,7 +53,8 @@ Out[312]: 5
 
 需要指出的是：exec可以执行一段python代码(在Flask的源码中看见用的比较多)，但是只有副作用没有返回值；
 
-<pre class="lang:python decode:1">In [316]: code = """
+```python
+In [316]: code = """
      ...: def append_five(_list):
      ...:     _list.append(5)
      ...: append_five(A)
@@ -68,17 +70,19 @@ Append Five!
 
 In [323]: A
 Out[323]: [1, 2, 3, 5]
-</pre>
+```
 
 假如你需要得到返回值，那么可以使用python里的eval；
 
-<pre class="lang:python decode:1">In [324]: eval('5 > 3')
+```python
+In [324]: eval('5 > 3')
 Out[324]: True
-</pre>
+```
 
 如果你需要执行一个文件，那么直接：
 
-<pre class="lang:python decode:1">In [327]: !vim test.py
+```python
+In [327]: !vim test.py
 
 In [328]: pwd
 Out[328]: u'/Users/chenhua/Desktop'
@@ -88,11 +92,12 @@ Hello Python
 
 In [330]: !cat test.py
 print('Hello Python')
-</pre>
+```
 
 还有一个可以编译好执行的complie，compile前两个参数分别为字符串、代码文，后一个参数指制被编译的类型件, 返回code object, 使用如下：
 
-<pre class="lang:python decode:1">In [336]: help(compile)
+```python
+In [336]: help(compile)
 
 Help on built-in function compile in module __builtin__:
 
@@ -109,4 +114,4 @@ Hello Python!
 
 In [341]: str
 Out[341]: "print('Hello Python!')"
-</pre>
+```

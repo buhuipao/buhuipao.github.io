@@ -41,7 +41,7 @@
       <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</guid>
-      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem</description>
+      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2</description>
     </item>
     
     <item>

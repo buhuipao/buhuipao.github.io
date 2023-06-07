@@ -23,7 +23,7 @@
       <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</guid>
-      <description>登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会</description>
+      <description>登陆数据库： mysql buhuipao_db -u buhuipao -p123456 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接</description>
     </item>
     
   </channel>

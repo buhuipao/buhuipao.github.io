@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="记一个京东技术运营的编程题">
 <meta itemprop="description" content="昨晚参加了京东2016秋招的技术类笔试，无奈自己编程基础不扎实，昨晚一个编程题弄了45来分钟也没完整解决，今天实习比较闲，所以依据记忆终于解"><meta itemprop="datePublished" content="2016-09-06T09:50:39+00:00" />
 <meta itemprop="dateModified" content="2016-09-06T09:50:39+00:00" />
-<meta itemprop="wordCount" content="556">
+<meta itemprop="wordCount" content="803">
 <meta itemprop="keywords" content="HTTPS,IP,python," /><meta property="og:title" content="记一个京东技术运营的编程题" />
 <meta property="og:description" content="昨晚参加了京东2016秋招的技术类笔试，无奈自己编程基础不扎实，昨晚一个编程题弄了45来分钟也没完整解决，今天实习比较闲，所以依据记忆终于解" />
 <meta property="og:type" content="article" />
@@ -89,26 +89,63 @@
 			<div class="markdown">
 				<p>昨晚参加了京东2016秋招的技术类笔试，无奈自己编程基础不扎实，昨晚一个编程题弄了45来分钟也没完整解决，今天实习比较闲，所以依据记忆终于解决，但不知是否超时。</p>
 <p>题目是：定义一种数由4，7组成，基本规律为：4，7，44，47，74，77，444，447，…然后OJ的输入为：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>第一个N表明要输入多少个数，后面N行就是表示求这个序列里第几个数，例如：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>表示一共要输入4个数，然后分别求序列里第5，6，7，10个数，输出要求为：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>然后我经过观察发现这就是个求这个数处在第几个2的n次方的哪个位置，把最后的位置化为二进制，再替换为4，7输出就好了，下面是基于python2.7的代码，有人可能会说思路这么清晰直接用c，只能说c的字符串处理不熟悉很可能越界，所以直接用python。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>最后记录下京东技术运营的部分附加题，就是叫你写一个脚本取出一个web日志里IP的top10，大概日志格式为：</p>
-<!-- raw HTML omitted -->
-<p>然后我一时手贱，少写了点东西，写成：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>是的没错，写过此类脚本的人都发现了我漏掉了些东西，正确的写法应该是：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>首先是切割的问题，然后就是uniq之后也不是排好逆序的，还得用sort的-nr参数进行数字逆序排列一下，这个脚本很久前写过放在我<a href="https://github.com/buhuipao/Script/blob/master/web_count.sh">github</a>上，学的东西很久不用等于没学，这是一个教训，对于京东的笔试，只能看自己运气了，实力只有这么多。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">N</span>
+</span></span><span class="line"><span class="cl"><span class="n">k1</span>
+</span></span><span class="line"><span class="cl"><span class="n">k2</span>
+</span></span><span class="line"><span class="cl"><span class="o">..</span>
+</span></span><span class="line"><span class="cl"><span class="n">k</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span></code></pre></div><p>第一个N表明要输入多少个数，后面N行就是表示求这个序列里第几个数，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="mi">6</span>
+</span></span><span class="line"><span class="cl"><span class="mi">7</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>
+</span></span></code></pre></div><p>表示一共要输入4个数，然后分别求序列里第5，6，7，10个数，输出要求为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="mi">75</span>
+</span></span><span class="line"><span class="cl"><span class="mi">77</span>
+</span></span><span class="line"><span class="cl"><span class="mi">444</span>
+</span></span><span class="line"><span class="cl"><span class="mi">477</span>
+</span></span></code></pre></div><p>然后我经过观察发现这就是个求这个数处在第几个2的n次方的哪个位置，把最后的位置化为二进制，再替换为4，7输出就好了，下面是基于python2.7的代码，有人可能会说思路这么清晰直接用c，只能说c的字符串处理不熟悉很可能越界，所以直接用python。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="mi">0</span> <span class="c1">#coding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">1</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> <span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="n">Line</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span>     <span class="n">line</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span>         <span class="k">break</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span>     <span class="n">Line</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span> <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Line</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span> <span class="n">K</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span>     <span class="c1">#首先定位到第几个2的n次方</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span>     <span class="n">num</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Line</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span>     <span class="c1">#假设整除直接确定是多少个&#39;7&#39;</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span>     <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>         <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>         <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;7&#39;</span> <span class="o">*</span> <span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>     <span class="c1">#不整除则减去前2的n-1次方的和，再减1(序号从0开始)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>     <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span>         <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">22</span>         <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Line</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">23</span>         <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">k</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">24</span>         <span class="c1">#位数不足则补0(&#39;4&#39;)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">25</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">26</span>             <span class="n">j</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="o">+</span> <span class="n">j</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">27</span>         <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">28</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">29</span>   <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">k</span><span class="p">)</span>
+</span></span></code></pre></div><p>最后记录下京东技术运营的部分附加题，就是叫你写一个脚本取出一个web日志里IP的top10，大概日志格式为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">45.53.112.237 /app/jd.apk <span class="s2">&#34;2016-07-05&#34;</span> <span class="s2">&#34;12:13&#34;</span>
+</span></span></code></pre></div><p>然后我一时手贱，少写了点东西，写成：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>cat /var/log/nginx/access.log <span class="p">|</span> cut -d -f 1<span class="p">|</span> sort<span class="p">|</span>uniq -c<span class="p">|</span>head -n <span class="m">10</span>
+</span></span></code></pre></div><p>是的没错，写过此类脚本的人都发现了我漏掉了些东西，正确的写法应该是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nv">log</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl">awk <span class="s1">&#39;{print $1}&#39;</span> <span class="nv">$log</span><span class="p">|</span> sort <span class="p">|</span>uniq -c <span class="p">|</span> sort -nr <span class="p">|</span> head -n <span class="m">10</span>
+</span></span></code></pre></div><p>首先是切割的问题，然后就是uniq之后也不是排好逆序的，还得用sort的-nr参数进行数字逆序排列一下，这个脚本很久前写过放在我<a href="https://github.com/buhuipao/Script/blob/master/web_count.sh">github</a>上，学的东西很久不用等于没学，这是一个教训，对于京东的笔试，只能看自己运气了，实力只有这么多。</p>
 
 			</div>
 

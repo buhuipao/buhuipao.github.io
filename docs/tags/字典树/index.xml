@@ -14,7 +14,7 @@
       <pubDate>Thu, 18 May 2017 13:34:59 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/05/18/leetcode-imp-trietree/</guid>
-      <description>但是LeetCode的评分是73％ 400ms， 回头看看应该是节点类的抽象开销导致，于是改的简单点直接用字典实现：</description>
+      <description>class TrieNode(object): def __init__(self): self.is_word = False # 某个节点是否为单词，一般默认为path（路径） # 当有单词录入时，变为True self.leaves = {} class Trie(object): def __init__(self): &amp;#34;&amp;#34;&amp;#34; Initialize your data structure here. &amp;#34;&amp;#34;&amp;#34; self.root = TrieNode() def insert(self, word): &amp;#34;&amp;#34;&amp;#34; Inserts a word</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Thu, 18 May 2017 08:44:26 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/05/18/leetcode_trietree/</guid>
-      <description></description>
+      <description># _*_ coding: utf-8 _*_ &amp;#39;&amp;#39;&amp;#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&amp;#34;bad&amp;#34;) addWord(&amp;#34;dad&amp;#34;) addWord(&amp;#34;mad&amp;#34;) search(&amp;#34;pad&amp;#34;) -&amp;amp;gt; false</description>
     </item>
     
   </channel>

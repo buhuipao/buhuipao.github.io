@@ -25,7 +25,8 @@ For example,
   
 Given {1,2,3,4}, reorder it to {1,4,2,3}.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 # Definition for singly-linked list.
 # class ListNode(object):
@@ -67,4 +68,4 @@ class Solution(object):
                 l1.next = l2
                 l2.next = temp1
                 l1, l2 = temp1, temp2
-</pre>
+```

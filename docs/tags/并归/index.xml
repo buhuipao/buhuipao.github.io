@@ -14,7 +14,7 @@
       <pubDate>Mon, 22 May 2017 13:57:33 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/05/22/leetcode-mergeklist/</guid>
-      <description></description>
+      <description># _*_ coding: utf-8 _*_ &amp;#39;&amp;#39;&amp;#39; Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. &amp;#39;&amp;#39;&amp;#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def mergeKLists(self, lists): &amp;#34;&amp;#34;&amp;#34; :type lists: List[ListNode] :rtype: ListNode 采用并归的思想 &amp;#34;&amp;#34;&amp;#34; # 过滤空链表 _list = filter(lambda node: node, lists) return self.merge_help(_list) def merge_help(self,</description>
     </item>
     
   </channel>

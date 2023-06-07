@@ -19,7 +19,8 @@ tags:
   - 算法
 
 ---
-<pre class="lang:python decode:1 " >class TrieNode(object):
+```python
+class TrieNode(object):
     def __init__(self):
         self.is_word = False
         # 某个节点是否为单词，一般默认为path（路径）
@@ -105,11 +106,12 @@ class Trie(object):
 # obj.insert(word)
 # param_2 = obj.search(word)
 # param_3 = obj.startsWith(prefix)
-</pre>
+```
 
 但是LeetCode的评分是73％ 400ms， 回头看看应该是节点类的抽象开销导致，于是改的简单点直接用字典实现：
 
-<pre class="lang:python decode:1 " >class Trie(object):
+```python
+class Trie(object):
 
     def __init__(self):
         """
@@ -158,4 +160,4 @@ class Trie(object):
                 return False
             _cur = _cur[c]
         return True
-</pre>
+```

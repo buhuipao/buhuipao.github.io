@@ -25,23 +25,26 @@ For example:
   
 Given binary tree [3,9,20,null,null,15,7],
 
-<pre class="lang:bash decode:1 " >3
+```bash
+    3
    / \
   9  20
     /  \
    15   7
-</pre>
+```
 
 return its level order traversal as:
 
-<pre class="lang:bash decode:1 " >[
+```bash
+[
   [3],
   [9,20],
   [15,7]
 ]
-</pre>
+```
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class TreeNode(object):
@@ -89,4 +92,4 @@ class Solution(object):
             # 用之前的叶子找到下一层不为空的叶子
             level = [kid for n in level for kid in (n.left, n.right) if kid]
         return res
-</pre>
+```

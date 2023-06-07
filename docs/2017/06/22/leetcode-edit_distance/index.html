@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Edit_Distance">
 <meta itemprop="description" content="比较特殊的动态规划过程，原题链接：https://leetcode.com/problems/edit-distance/ Given two words word1 and word2, find the minimum"><meta itemprop="datePublished" content="2017-06-22T14:52:57+00:00" />
 <meta itemprop="dateModified" content="2017-06-22T14:52:57+00:00" />
-<meta itemprop="wordCount" content="237">
+<meta itemprop="wordCount" content="432">
 <meta itemprop="keywords" content="dp,动态规划,算法," /><meta property="og:title" content="LeetCode-Edit_Distance" />
 <meta property="og:description" content="比较特殊的动态规划过程，原题链接：https://leetcode.com/problems/edit-distance/ Given two words word1 and word2, find the minimum" />
 <meta property="og:type" content="article" />
@@ -94,9 +94,58 @@
 <p>a) Insert a character</p>
 <p>b) Delete a character</p>
 <p>c) Replace a character</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><strong>虽然这两种用法我都已经解出，但是回忆起又一次在线笔试题，计算编辑的成本我就细思极恐，比如插入一个字符消耗1个能量，删除一个字符消耗2个能量，替换一个字符消耗3个能量，给定两个字符串求最少的编辑能耗…待我想出来了再给出解题代码，知道解法的大神也请联系我，已跪！</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">minDistance1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">,</span> <span class="n">word2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word1: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word2: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;A B G C _ F&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;_ B _ D E _&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">m</span> <span class="ow">or</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">word1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">temp</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">minDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">,</span> <span class="n">word2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word1: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word2: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        减少了空间复杂度，时间复杂度依然为O(m*n)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">m</span> <span class="ow">or</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp1</span><span class="p">,</span> <span class="n">dp2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp1</span><span class="p">,</span> <span class="n">dp2</span> <span class="o">=</span> <span class="n">dp2</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">word1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">diff</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp2</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">diff</span><span class="p">,</span> <span class="n">dp1</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dp2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp2</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+</span></span></code></pre></div><p><strong>虽然这两种用法我都已经解出，但是回忆起又一次在线笔试题，计算编辑的成本我就细思极恐，比如插入一个字符消耗1个能量，删除一个字符消耗2个能量，替换一个字符消耗3个能量，给定两个字符串求最少的编辑能耗…待我想出来了再给出解题代码，知道解法的大神也请联系我，已跪！</strong></p>
 
 			</div>
 

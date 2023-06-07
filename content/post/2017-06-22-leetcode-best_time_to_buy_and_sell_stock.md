@@ -37,7 +37,8 @@ Output: 0
 
 In this case, no transaction is done, i.e. max profit = 0.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -55,4 +56,4 @@ class Solution(object):
                 dp[0] = max(prices[i] - dp[1], dp[0])
             dp[1] = min(prices[i], dp[1])
         return dp[0]
-</pre>
+```

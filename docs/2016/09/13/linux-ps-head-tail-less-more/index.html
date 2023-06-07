@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Linux 常用命令–ps，head/tail， less/more - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="Linux 常用命令–ps，head/tail， less/more">
-<meta itemprop="description" content="PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=&#43;pmem"><meta itemprop="datePublished" content="2016-09-13T05:09:02+00:00" />
+<meta itemprop="description" content="PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2"><meta itemprop="datePublished" content="2016-09-13T05:09:02+00:00" />
 <meta itemprop="dateModified" content="2016-09-13T05:09:02+00:00" />
-<meta itemprop="wordCount" content="222">
+<meta itemprop="wordCount" content="619">
 <meta itemprop="keywords" content="head,IP,ps," /><meta property="og:title" content="Linux 常用命令–ps，head/tail， less/more" />
-<meta property="og:description" content="PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=&#43;pmem" />
+<meta property="og:description" content="PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-09-13T05:09:02+00:00" />
 <meta property="article:modified_time" content="2016-09-13T05:09:02+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux 常用命令–ps，head/tail， less/more"/>
-<meta name="twitter:description" content="PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=&#43;pmem"/>
+<meta name="twitter:description" content="PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -91,13 +91,31 @@
 <p>ps -ef</p>
 <p>ps aux</p>
 <p>按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>#假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem,-pcpu | tail -n 10</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@bogon ~<span class="o">]</span>$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort<span class="o">=</span>-pcpu <span class="p">|</span> head -n 11<span class="p">|</span> tail -n <span class="m">10</span>
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">13704</span> <span class="m">3176</span> 9.2 3.1 netease-cloud-m
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">8040</span> <span class="m">3189</span> 3.9 6.8 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">31576</span> <span class="m">8055</span> 3.4 4.5 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">13741</span> <span class="m">13715</span> 3.2 4.1 netease-cloud-m
+</span></span><span class="line"><span class="cl">root <span class="m">1292</span> <span class="m">1275</span> 3.1 1.0 Xorg
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">8110</span> <span class="m">8040</span> 2.5 4.2 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">15087</span> <span class="m">8055</span> 1.5 3.7 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">16130</span> <span class="m">8055</span> 1.3 4.5 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">27911</span> <span class="m">8055</span> 0.8 5.6 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">2511</span> <span class="m">8055</span> 0.7 6.2 chrome
+</span></span></code></pre></div><p>#假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem,-pcpu | tail -n 10</p>
 <p>#则按照sort后第一个排序为准</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>#ps -efH 可以看到树形层级结构</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">buhuipao@bogon ~<span class="o">]</span>$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort<span class="o">=</span>+pmem,-pcpu <span class="p">|</span> tail -n <span class="m">10</span>
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">13741</span> <span class="m">13715</span> 3.1 4.1 netease-cloud-m
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">16130</span> <span class="m">8055</span> 0.6 4.4 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">31576</span> <span class="m">8055</span> 3.4 4.5 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">8110</span> <span class="m">8040</span> 2.5 4.8 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">8137</span> <span class="m">8055</span> 0.2 5.1 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">27911</span> <span class="m">8055</span> 0.9 5.5 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">8124</span> <span class="m">8055</span> 0.2 5.9 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">2511</span> <span class="m">8055</span> 0.7 6.3 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">15692</span> <span class="m">8055</span> 0.6 6.5 chrome
+</span></span><span class="line"><span class="cl">buhuipao <span class="m">8040</span> <span class="m">3189</span> 3.9 6.8 chrome
+</span></span></code></pre></div><p>#ps -efH 可以看到树形层级结构</p>
 <p><strong>head/tail</strong></p>
 <p>head -n 10 #取前十项</p>
 <p>tail -n 10 #后十项</p>
@@ -105,13 +123,62 @@
 <p>#head,tail命令里默认输出的开始为正，结尾为负</p>
 <p>head -n +10 #输出第1行到10行</p>
 <p>head -n -10 #输出第1行到倒数11行，后面留10行</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>#tail -n +10 #输出最后1行到第10行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@bogon ~<span class="o">]</span>$ cat -n 1.py <span class="p">|</span> head -n -10
+</span></span><span class="line"><span class="cl">     <span class="m">1</span>  <span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl">     <span class="m">2</span>  
+</span></span><span class="line"><span class="cl">     <span class="m">3</span>  import sys 
+</span></span><span class="line"><span class="cl">     <span class="m">4</span>  import math
+</span></span><span class="line"><span class="cl">     <span class="m">5</span>  
+</span></span><span class="line"><span class="cl">     <span class="m">6</span>  <span class="k">for</span> line in sys.stdin:
+</span></span><span class="line"><span class="cl">     <span class="m">7</span>      <span class="nv">a</span> <span class="o">=</span> line.split<span class="o">()</span>
+</span></span><span class="line"><span class="cl">     <span class="m">8</span>      <span class="nv">R</span> <span class="o">=</span> int<span class="o">(</span>a<span class="o">[</span>0<span class="o">])</span>
+</span></span><span class="line"><span class="cl">     <span class="m">9</span>  
+</span></span><span class="line"><span class="cl">    <span class="m">10</span>  <span class="nv">r</span> <span class="o">=</span> math.sqrt<span class="o">(</span>R<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="m">11</span>  <span class="c1"># 考虑圆周不落在整点上</span>
+</span></span><span class="line"><span class="cl">    <span class="m">12</span>  <span class="k">if</span> int<span class="o">(</span>r<span class="o">)</span> !<span class="o">=</span> r:
+</span></span><span class="line"><span class="cl">    <span class="m">13</span>      <span class="nv">r</span> <span class="o">+=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="m">14</span>  
+</span></span><span class="line"><span class="cl"><span class="o">[</span>buhuipao@bogon ~<span class="o">]</span>$ cat -n 1.py <span class="p">|</span>tail -n <span class="m">10</span>
+</span></span><span class="line"><span class="cl">    <span class="m">15</span>  <span class="nv">count</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="m">16</span>  <span class="k">for</span> x in xrange<span class="o">(</span>int<span class="o">(</span>r<span class="o">))</span>:
+</span></span><span class="line"><span class="cl">    <span class="m">17</span>      <span class="c1"># 求横坐标</span>
+</span></span><span class="line"><span class="cl">    <span class="m">18</span>      <span class="nv">y</span> <span class="o">=</span> math.sqrt<span class="o">(</span>R - x*x<span class="o">)</span>    
+</span></span><span class="line"><span class="cl">    <span class="m">19</span>      <span class="k">if</span> int<span class="o">(</span>y<span class="o">)</span> <span class="o">==</span> y:
+</span></span><span class="line"><span class="cl">    <span class="m">20</span>          <span class="nv">count</span> <span class="o">+=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="m">21</span>  <span class="c1"># 四个象限</span>
+</span></span><span class="line"><span class="cl">    <span class="m">22</span>  <span class="nv">count</span> <span class="o">=</span> <span class="m">4</span> * count
+</span></span><span class="line"><span class="cl">    <span class="m">23</span>  
+</span></span><span class="line"><span class="cl">    <span class="m">24</span>  print <span class="s2">&#34;%d&#34;</span> % count
+</span></span></code></pre></div><p>#tail -n +10 #输出最后1行到第10行</p>
 <p>#tail -n -10 #输出最后10行</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>buhuipao@bogon ~<span class="o">]</span>$ cat -n 1.py <span class="p">|</span>tail -n +10
+</span></span><span class="line"><span class="cl">    <span class="m">10</span>  <span class="nv">r</span> <span class="o">=</span> math.sqrt<span class="o">(</span>R<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="m">11</span>  <span class="c1"># 考虑圆周不落在整点上</span>
+</span></span><span class="line"><span class="cl">    <span class="m">12</span>  <span class="k">if</span> int<span class="o">(</span>r<span class="o">)</span> !<span class="o">=</span> r:
+</span></span><span class="line"><span class="cl">    <span class="m">13</span>      <span class="nv">r</span> <span class="o">+=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="m">14</span>  
+</span></span><span class="line"><span class="cl">    <span class="m">15</span>  <span class="nv">count</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="m">16</span>  <span class="k">for</span> x in xrange<span class="o">(</span>int<span class="o">(</span>r<span class="o">))</span>:
+</span></span><span class="line"><span class="cl">    <span class="m">17</span>      <span class="c1"># 求横坐标</span>
+</span></span><span class="line"><span class="cl">    <span class="m">18</span>      <span class="nv">y</span> <span class="o">=</span> math.sqrt<span class="o">(</span>R - x*x<span class="o">)</span>    
+</span></span><span class="line"><span class="cl">    <span class="m">19</span>      <span class="k">if</span> int<span class="o">(</span>y<span class="o">)</span> <span class="o">==</span> y:
+</span></span><span class="line"><span class="cl">    <span class="m">20</span>          <span class="nv">count</span> <span class="o">+=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="m">21</span>  <span class="c1"># 四个象限</span>
+</span></span><span class="line"><span class="cl">    <span class="m">22</span>  <span class="nv">count</span> <span class="o">=</span> <span class="m">4</span> * count
+</span></span><span class="line"><span class="cl">    <span class="m">23</span>  
+</span></span><span class="line"><span class="cl">    <span class="m">24</span>  print <span class="s2">&#34;%d&#34;</span> % count
+</span></span><span class="line"><span class="cl"><span class="o">[</span>buhuipao@bogon ~<span class="o">]</span>$ cat -n 1.py <span class="p">|</span>tail -n -10
+</span></span><span class="line"><span class="cl">    <span class="m">15</span>  <span class="nv">count</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="m">16</span>  <span class="k">for</span> x in xrange<span class="o">(</span>int<span class="o">(</span>r<span class="o">))</span>:
+</span></span><span class="line"><span class="cl">    <span class="m">17</span>      <span class="c1"># 求横坐标</span>
+</span></span><span class="line"><span class="cl">    <span class="m">18</span>      <span class="nv">y</span> <span class="o">=</span> math.sqrt<span class="o">(</span>R - x*x<span class="o">)</span>    
+</span></span><span class="line"><span class="cl">    <span class="m">19</span>      <span class="k">if</span> int<span class="o">(</span>y<span class="o">)</span> <span class="o">==</span> y:
+</span></span><span class="line"><span class="cl">    <span class="m">20</span>          <span class="nv">count</span> <span class="o">+=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="m">21</span>  <span class="c1"># 四个象限</span>
+</span></span><span class="line"><span class="cl">    <span class="m">22</span>  <span class="nv">count</span> <span class="o">=</span> <span class="m">4</span> * count
+</span></span><span class="line"><span class="cl">    <span class="m">23</span>  
+</span></span><span class="line"><span class="cl">    <span class="m">24</span>  print <span class="s2">&#34;%d&#34;</span> % count
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

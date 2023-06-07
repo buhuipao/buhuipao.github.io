@@ -56,7 +56,8 @@ cache.get(3); // returns 3
   
 cache.get(4); // returns 4
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class LFUCache(object):
@@ -119,4 +120,4 @@ class LFUCache(object):
 # obj = LFUCache(capacity)
 # param_1 = obj.get(key)
 # obj.put(key,value)
-</pre>
+```

@@ -18,21 +18,26 @@ tags:
 ---
 在实用多线程编程时，在[栈溢出网站][1]有看到多种方法，比如直接用函数，有用class继承，代码如下：
 
-<pre class="lang:python decode:1 " >class Mon(object):
-def __init__(self):
-print "Mon created"
+```python
+class Mon(object):
+  def __init__(self):
+    print "Mon created"
 
 class Child(Base):
-def __init__(self):
-Mon.__init__(self)
-...</pre>
+  def __init__(self):
+    Mon.__init__(self)
+
+...
+```
 
 但也有发现另外一种继承的方法：
 
-<pre class="lang:python decode:1 " >class Child(Base):
-def __init__(self):
-super(Child, self).__init__()
-...</pre>
+```python
+class Child(Base):
+  def __init__(self):
+    super(Child, self).__init__()
+  ...
+```
 
 然后在python3里面，super(Child, self).**init**()被替换为super().**init**()
 

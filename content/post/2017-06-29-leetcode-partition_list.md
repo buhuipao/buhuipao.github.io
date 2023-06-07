@@ -29,7 +29,8 @@ Given 1->4->3->2->5->2 and x = 3,
   
 return 1->2->2->4->3->5.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 # Definition for singly-linked list.
@@ -92,11 +93,12 @@ class Solution(object):
             pre.next = temp
             node.next = None
         return pre_head.next
-</pre>
+```
 
 下面是那种拆分成两个链表然后拼接的方法，确实比上面在原链表的基础上修改的简洁不容易出错。
 
-<pre class="lang:python decode:1">def partition1(self, head, x):
+```python
+def partition1(self, head, x):
         """
         :type head: ListNode
         :type x: int
@@ -115,4 +117,4 @@ class Solution(object):
         l1.next = h2.next
         l2.next = None
         return h1.next
-</pre>
+```

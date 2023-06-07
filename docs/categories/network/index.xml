@@ -32,7 +32,7 @@
       <pubDate>Fri, 16 Sep 2016 11:16:48 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/09/16/fork-system-status-route/</guid>
-      <description>A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给</description>
+      <description>A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： main{ fork() || fork() } 共创建了（３）个进程 解释是： fork()给子进程返回一个</description>
     </item>
     
     <item>

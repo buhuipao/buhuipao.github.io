@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Partition_List">
 <meta itemprop="description" content="晚上送妹子回家后做了这个链表的题，怕自己忘了睡前总结下。 题目的意思就是：给定一个链表和一个数，把小于这个数的节点放前边，此外的都移到后边，而"><meta itemprop="datePublished" content="2017-06-28T17:08:33+00:00" />
 <meta itemprop="dateModified" content="2017-06-28T17:08:33+00:00" />
-<meta itemprop="wordCount" content="329">
+<meta itemprop="wordCount" content="572">
 <meta itemprop="keywords" content="leetcode,算法,链表," /><meta property="og:title" content="LeetCode-Partition_List" />
 <meta property="og:description" content="晚上送妹子回家后做了这个链表的题，怕自己忘了睡前总结下。 题目的意思就是：给定一个链表和一个数，把小于这个数的节点放前边，此外的都移到后边，而" />
 <meta property="og:type" content="article" />
@@ -95,12 +95,90 @@
 <p>For example,</p>
 <p>Given 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2 and x = 3,</p>
 <p>return 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>下面是那种拆分成两个链表然后拼接的方法，确实比上面在原链表的基础上修改的简洁不容易出错。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Definition for singly-linked list.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class ListNode(object):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.next = None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type x: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 确定老的尾巴</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">old_tail</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">old_tail</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 确定新的头</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre_head</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 全部大于x</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">old_tail</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 开始</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tail</span> <span class="o">=</span> <span class="n">old_tail</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span> <span class="o">!=</span> <span class="n">old_tail</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tail</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">temp</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 处理旧的尾巴</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tail</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span>
+</span></span></code></pre></div><p>下面是那种拆分成两个链表然后拼接的方法，确实比上面在原链表的基础上修改的简洁不容易出错。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">partition1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type x: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h1</span> <span class="o">=</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h2</span> <span class="o">=</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">head</span><span class="o">.</span><span class="n">val</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">x</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l1</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l1</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">h1</span><span class="o">.</span><span class="n">next</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

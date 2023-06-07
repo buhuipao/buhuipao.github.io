@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Copy_List_with_Random_Pointer">
 <meta itemprop="description" content="一个比较经典的链表操作题，深度复制一个链表，链表包含一个next指针和一个random的指针，目前比较多的方法是hash表和自我复制法（在自"><meta itemprop="datePublished" content="2017-06-28T08:31:03+00:00" />
 <meta itemprop="dateModified" content="2017-06-28T08:31:03+00:00" />
-<meta itemprop="wordCount" content="220">
+<meta itemprop="wordCount" content="422">
 <meta itemprop="keywords" content="leetcode,算法,链表," /><meta property="og:title" content="LeetCode-Copy_List_with_Random_Pointer" />
 <meta property="og:description" content="一个比较经典的链表操作题，深度复制一个链表，链表包含一个next指针和一个random的指针，目前比较多的方法是hash表和自我复制法（在自" />
 <meta property="og:type" content="article" />
@@ -91,12 +91,84 @@
 <p>A linked list is given such that each node contains an additional</p>
 <p>random pointer which could point to any node in the list or null.</p>
 <p>Return a deep copy of the list.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>hash表方法：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Definition for singly-linked list with a random pointer.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class RandomListNode(object):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.label = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.next = None</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.random = None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">copyRandomList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: RandomListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: RandomListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">RandomListNode</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">temp</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 新的头节点</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n_head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">random</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">random</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">random</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 判定是否为最后的节点</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n_head</span>
+</span></span></code></pre></div><p>hash表方法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">Clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pHead</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># write code here</span>
+</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">        <span class="n">head</span> <span class="o">=</span> <span class="n">pHead</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p_head</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="n">new_head</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">        <span class="n">random_dic</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">old_new_dic</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">RandomListNode</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">random</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">random</span>
+</span></span><span class="line"><span class="cl">            <span class="n">old_new_dic</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">head</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">random_dic</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">node</span><span class="p">)]</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">             
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">new_head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">new_head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                <span class="n">new_head</span> <span class="o">=</span> <span class="n">new_head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">new_head</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_head</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">                 
+</span></span><span class="line"><span class="cl">        <span class="n">new_head</span> <span class="o">=</span> <span class="n">p_head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">new_head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">new_head</span><span class="o">.</span><span class="n">random</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">new_head</span><span class="o">.</span><span class="n">random</span> <span class="o">=</span> <span class="n">random_dic</span><span class="p">[</span><span class="n">old_new_dic</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">new_head</span><span class="o">.</span><span class="n">random</span><span class="p">)]]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_head</span> <span class="o">=</span> <span class="n">new_head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">p_head</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

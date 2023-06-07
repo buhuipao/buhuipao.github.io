@@ -33,7 +33,8 @@ The length of given words won&#8217;t exceed 500.
   
 Characters in given words can only be lower-case letters.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -75,4 +76,4 @@ class Solution(object):
                 else:
                     dp2[j+1] = max(dp2[j], dp1[j+1])
         return m + n - 2 * dp2[j+1]
-</pre>
+```

@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode–brick_wall">
 <meta itemprop="description" content="比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall"><meta itemprop="datePublished" content="2017-06-03T04:59:20+00:00" />
 <meta itemprop="dateModified" content="2017-06-03T04:59:20+00:00" />
-<meta itemprop="wordCount" content="207">
+<meta itemprop="wordCount" content="266">
 <meta itemprop="keywords" content="hashtab,HTTPS,ps,python,算法," /><meta property="og:title" content="LeetCode–brick_wall" />
 <meta property="og:description" content="比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall" />
 <meta property="og:type" content="article" />
@@ -97,9 +97,28 @@
 <p>You need to find out how to draw the line to cross the least bricks and return the number of crossed bricks.</p>
 <p>You cannot draw a line just along one of the two vertical edges of the wall,</p>
 <p>in which case the line will obviously cross no bricks.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">leastBricks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wall</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type wall: List[List[int]]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">width_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">wall</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">width</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 增加宽度</span>
+</span></span><span class="line"><span class="cl">                <span class="n">width</span> <span class="o">+=</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">width</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">width_dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">width_dict</span><span class="p">[</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">width_dict</span><span class="p">[</span><span class="n">width</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">width_dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">wall</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">wall</span><span class="p">)</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="n">width_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

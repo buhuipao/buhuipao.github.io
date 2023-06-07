@@ -41,7 +41,8 @@ You cannot draw a line just along one of the two vertical edges of the wall,
   
 in which case the line will obviously cross no bricks.
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -62,4 +63,4 @@ class Solution(object):
         if not width_dict:
             return len(wall)
         return len(wall) - max(width_dict.values())
-</pre>
+```

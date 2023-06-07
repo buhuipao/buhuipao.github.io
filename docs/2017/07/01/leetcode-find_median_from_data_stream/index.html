@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Find_Median_from_Data_Stream">
 <meta itemprop="description" content="LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之"><meta itemprop="datePublished" content="2017-07-01T04:42:14+00:00" />
 <meta itemprop="dateModified" content="2017-07-01T04:42:14+00:00" />
-<meta itemprop="wordCount" content="284">
+<meta itemprop="wordCount" content="432">
 <meta itemprop="keywords" content="heap,leetcode,二分法," /><meta property="og:title" content="LeetCode-Find_Median_from_Data_Stream" />
 <meta property="og:description" content="LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之" />
 <meta property="og:type" content="article" />
@@ -103,9 +103,51 @@
 <p>findMedian() -&gt; 1.5</p>
 <p>addNum(3)</p>
 <p>findMedian() -&gt; 2</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_ </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MedianFinder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        initialize your data structure here.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">addNum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type num: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void
+</span></span></span><span class="line"><span class="cl"><span class="s2">        二分查找
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mid</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">l</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">h</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">num</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">h</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 我们知道list的插入操作时间复杂度为O(n)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">findMedian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Your MedianFinder object will be instantiated and called as such:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj = MedianFinder()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj.addNum(num)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># param_2 = obj.findMedian()</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

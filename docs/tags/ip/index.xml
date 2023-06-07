@@ -59,7 +59,7 @@
       <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</guid>
-      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem</description>
+      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 [buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11| tail -n 10 buhuipao 13704 3176 9.2</description>
     </item>
     
     <item>
@@ -113,7 +113,7 @@
       <pubDate>Thu, 25 Aug 2016 04:43:26 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/08/25/python-spider-duanzi/</guid>
-      <description>学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。</description>
+      <description>学习python爬虫，先从爬糗事百科开始。 #!/bin/env python #-*- coding:utf-8 -*- import urllib2 import urllib import re import thread class DZ(object): def __init__(self): self.pagenum = 1 self.user_agent = &amp;#39;Mazilla/4.0 (compatible; MSIE 5.5; Windows NT)&amp;#39; self.headers = {&amp;#39;User-Agent&amp;#39;: self.user_agent} self.stories = [] self.enable = False self.pageIndex = 1 #传入某一页的索</description>
     </item>
     
     <item>
@@ -131,7 +131,7 @@
       <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</guid>
-      <description>登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会</description>
+      <description>登陆数据库： mysql buhuipao_db -u buhuipao -p123456 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接</description>
     </item>
     
   </channel>

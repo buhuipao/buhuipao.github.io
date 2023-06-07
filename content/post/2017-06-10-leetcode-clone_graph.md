@@ -42,15 +42,17 @@ Third node is labeled as 2. Connect node 2 to node 2 (itself), thus forming a se
   
 Visually, the graph looks like the following:
 
-<pre class="lang:bash decode:1 " >1
+```bash
+       1
       / \
      /   \
     0 --- 2
          / \
          \_/
-</pre>
+```
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 # class UndirectedGraphNode:
@@ -95,4 +97,4 @@ class Solution:
         
         self.record = {}
         return dfs(node)
-</pre>
+```

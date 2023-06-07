@@ -31,7 +31,8 @@ Note: Time complexity should be O(height of tree).
   
 也就是必须在树上爬着解决问题，不允许先遍历剔除再重新建树，下面是我写的第一个版本，用的迭代方法；
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class TreeNode(object):
@@ -105,11 +106,12 @@ class Solution(object):
             else:
                 pre.right = node.left
             return root
-</pre>
+```
 
 下面的是看了LeetCode提交记录后，找到的递归方法, 万恶的递归:);
 
-<pre class="lang:python decode:1 " >class Solution(object):
+```python
+class Solution(object):
     def deleteNode(self, root, key):
         """
         :type root: TreeNode
@@ -142,4 +144,4 @@ class Solution(object):
                 root.val = node.val
                 root.left = self.deleteNode(root.left, root.val)
         return root               
-</pre>
+```

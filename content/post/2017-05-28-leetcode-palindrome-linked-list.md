@@ -25,7 +25,8 @@ Follow up:
   
 Could you do it in O(n) time and O(1) space?
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class ListNode(object):
@@ -73,4 +74,4 @@ class Solution(object):
             l1, l2 = l1.next, l2.next
         return True
             
-</pre>
+```

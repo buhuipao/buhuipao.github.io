@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Top_K_Frequent_Elements">
 <meta itemprop="description" content="Given a non-empty array of integers, return the k most frequent elements. For example, Given [1,1,1,2,2,3] and k = 2, return [1,2]. Note: You may assume k is always valid, 1 ≤ k ≤ number of unique elements. Your algorithm’s time complexity must be better than O(n log n), where n is the array’s"><meta itemprop="datePublished" content="2017-06-04T17:29:09+00:00" />
 <meta itemprop="dateModified" content="2017-06-04T17:29:09+00:00" />
-<meta itemprop="wordCount" content="71">
+<meta itemprop="wordCount" content="215">
 <meta itemprop="keywords" content="Algorithm,python,堆,排序," /><meta property="og:title" content="LeetCode-Top_K_Frequent_Elements" />
 <meta property="og:description" content="Given a non-empty array of integers, return the k most frequent elements. For example, Given [1,1,1,2,2,3] and k = 2, return [1,2]. Note: You may assume k is always valid, 1 ≤ k ≤ number of unique elements. Your algorithm’s time complexity must be better than O(n log n), where n is the array’s" />
 <meta property="og:type" content="article" />
@@ -93,9 +93,46 @@
 <p>Note:</p>
 <p>You may assume k is always valid, 1 ≤ k ≤ number of unique elements.</p>
 <p>Your algorithm’s time complexity must be better than O(n log n), where n is the array’s size.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">topKFrequent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type k: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">nums</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="n">left</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">right</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">num_dict</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_nums</span> <span class="o">=</span> <span class="n">num_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">heap</span><span class="p">(</span><span class="n">_nums</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">_nums</span><span class="p">[</span><span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">_nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">_min</span> <span class="o">=</span> <span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">_min</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">_nums</span><span class="p">[</span><span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">_nums</span><span class="p">[</span><span class="n">_min</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">_min</span> <span class="o">=</span> <span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">_min</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span>
+</span></span><span class="line"><span class="cl">                <span class="n">_nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">_nums</span><span class="p">[</span><span class="n">_min</span><span class="p">]</span> <span class="o">=</span> <span class="n">_nums</span><span class="p">[</span><span class="n">_min</span><span class="p">],</span> <span class="n">_nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">i</span> <span class="o">=</span> <span class="n">_min</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 建立调整小根堆</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">heap</span><span class="p">(</span><span class="n">_nums</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">_nums</span><span class="p">[</span><span class="n">k</span><span class="p">:]:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">_nums</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">_nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span>
+</span></span><span class="line"><span class="cl">                <span class="n">heap</span><span class="p">(</span><span class="n">_nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="ow">in</span> <span class="n">_nums</span><span class="p">[:</span><span class="n">k</span><span class="p">]]</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

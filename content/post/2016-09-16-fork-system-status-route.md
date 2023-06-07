@@ -21,10 +21,11 @@ tags:
 
 题目是：
 
-<pre class="lang:python decode:1 " >main{
+```python
+main{
  fork() || fork()
 }
-</pre>
+```
 
 共创建了（３）个进程
   

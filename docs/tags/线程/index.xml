@@ -14,7 +14,7 @@
       <pubDate>Wed, 21 Jun 2017 04:39:30 +0000</pubDate>
       
       <guid>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</guid>
-      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自</description>
+      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： # include &amp;#34;pthread_h&amp;#34; int pthread_create(pthread_t * restrict tidp, const pthread_attr_t *resrict attr, void *(*start_rtm) (void), void *restrict arg); 线程同步： 互斥量（锁），但需要避免</description>
     </item>
     
   </channel>

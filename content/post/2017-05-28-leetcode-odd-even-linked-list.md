@@ -40,7 +40,8 @@ The relative order inside both the even and odd groups should remain as it was i
   
 The first node is considered odd, the second node even and so on &#8230;
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 class ListNode(object):
     def __init__(self, x):
@@ -74,4 +75,4 @@ class Solution(object):
         # 防止奇数个数节点时最后一个点出现闭环，将出现TLE错误
         l2.next = None
         return head
-</pre>
+```

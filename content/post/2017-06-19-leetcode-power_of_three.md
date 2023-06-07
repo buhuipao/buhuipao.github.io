@@ -24,7 +24,8 @@ Follow up:
   
 Could you do it without using any loop / recursion?
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 class Solution(object):
     def isPowerOfThree(self, n):
@@ -53,4 +54,4 @@ class Solution(object):
         """
 
         return n &gt; 0 and 1162261467 % n == 0
-</pre>
+```

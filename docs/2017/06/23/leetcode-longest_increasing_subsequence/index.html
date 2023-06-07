@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Longest_Increasing_Subsequence">
 <meta itemprop="description" content="经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode"><meta itemprop="datePublished" content="2017-06-23T10:03:46+00:00" />
 <meta itemprop="dateModified" content="2017-06-23T10:03:46+00:00" />
-<meta itemprop="wordCount" content="192">
+<meta itemprop="wordCount" content="431">
 <meta itemprop="keywords" content="LIS,动态规划,算法," /><meta property="og:title" content="LeetCode-Longest_Increasing_Subsequence" />
 <meta property="og:description" content="经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode" />
 <meta property="og:type" content="article" />
@@ -95,9 +95,54 @@
 <p>Note that there may be more than one LIS combination, it is only necessary for you to return the length.</p>
 <p>Your algorithm should run in O(n2) complexity.</p>
 <p>Follow up: Could you improve it to O(n log n) time complexity?</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">lengthOfLIS1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        时间复杂度O(N^2)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        dp状态方程：
+</span></span></span><span class="line"><span class="cl"><span class="s2">            dp[0] = 1
+</span></span></span><span class="line"><span class="cl"><span class="s2">            dp[i] = max(dp[i], dp[j]+biger(nums[i], nums[j]))
+</span></span></span><span class="line"><span class="cl"><span class="s2">        其中0 &amp;lt;= j &amp;lt; i, biger函数返回1／0
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">size</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">y</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">dp</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="k">if</span> <span class="n">dp</span> <span class="k">else</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        时间复杂度O(NlogN)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        dp遇到数原则上大于最后的dp[-1]的将会被append，
+</span></span></span><span class="line"><span class="cl"><span class="s2">        小于的会去替换相应位置的数，而dp长度(l)不会缩短一只保持最长
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">low</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">high</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">low</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dp</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">l</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

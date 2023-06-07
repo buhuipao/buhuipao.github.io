@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode-Remove_Nth_Node_From_End_of_List">
 <meta itemprop="description" content="比较简单的一个题，意思就是删除链表中倒数第几个节点，需要最后考虑下删除的是否恰巧为头节点，原题链接：https://leetcode.com"><meta itemprop="datePublished" content="2017-06-28T08:18:03+00:00" />
 <meta itemprop="dateModified" content="2017-06-28T08:18:03+00:00" />
-<meta itemprop="wordCount" content="167">
+<meta itemprop="wordCount" content="272">
 <meta itemprop="keywords" content="leetcode,链表," /><meta property="og:title" content="LeetCode-Remove_Nth_Node_From_End_of_List" />
 <meta property="og:description" content="比较简单的一个题，意思就是删除链表中倒数第几个节点，需要最后考虑下删除的是否恰巧为头节点，原题链接：https://leetcode.com" />
 <meta property="og:type" content="article" />
@@ -95,9 +95,41 @@
 <p>Note:</p>
 <p>Given n will always be valid.</p>
 <p>Try to do this in one pass.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Definition for singly-linked list.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class ListNode(object):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.next = None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">removeNthFromEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type n: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">count</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 检查剔除的节点是否为头节点</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">pre</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">head</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

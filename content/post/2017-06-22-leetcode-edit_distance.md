@@ -27,7 +27,8 @@ b) Delete a character
   
 c) Replace a character
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -78,6 +79,6 @@ class Solution(object):
                     diff = 0
                 dp2[j+1] = min(dp1[j]+diff, dp1[j+1]+1, dp2[j]+1)
         return dp2[m]
-</pre>
+```
 
 **虽然这两种用法我都已经解出，但是回忆起又一次在线笔试题，计算编辑的成本我就细思极恐，比如插入一个字符消耗1个能量，删除一个字符消耗2个能量，替换一个字符消耗3个能量，给定两个字符串求最少的编辑能耗&#8230;待我想出来了再给出解题代码，知道解法的大神也请联系我，已跪！**

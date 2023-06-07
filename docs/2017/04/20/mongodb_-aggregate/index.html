@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="MongoDB的数据聚合使用实例">
 <meta itemprop="description" content="由于妹子的毕业设计项目就是用的mongodb，所以对mongodb有初步接触，熟悉了基本用法和特性，但是毕竟毕业设计的项目是个玩具，所以一直"><meta itemprop="datePublished" content="2017-04-20T06:11:23+00:00" />
 <meta itemprop="dateModified" content="2017-04-20T06:11:23+00:00" />
-<meta itemprop="wordCount" content="548">
+<meta itemprop="wordCount" content="634">
 <meta itemprop="keywords" content="mongodb,聚合," /><meta property="og:title" content="MongoDB的数据聚合使用实例" />
 <meta property="og:description" content="由于妹子的毕业设计项目就是用的mongodb，所以对mongodb有初步接触，熟悉了基本用法和特性，但是毕竟毕业设计的项目是个玩具，所以一直" />
 <meta property="og:type" content="article" />
@@ -100,9 +100,33 @@ $sort：将输入文档排序后输出。
 $geoNear：输出接近某一地理位置的有序文档。
 </code></pre>
 <p>下面是我的部分代码：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre tabindex="0"><code class="language-#" data-lang="#">
 
+from pymongo import ReturnDocument
+from pymongo import MongoClient
+from bson import json_util
+
+import time
+import sys
+import os
+# 最终写到csv文件里
+import csv
+
+# from pdb import set_trace
+
+client = MongoClient(&#39;xxx.xxx.xxx.xxx&#39;, 27714)
+DB = client.quality
+
+
+def find_data(role, line, day):
+    result = DB.line.aggregate(
+    [{&#39;$match&#39;: {&#39;line&#39;: line, &#39;role&#39;: role}},
+    {&#39;$sort&#39;: {&#39;time&#39;: -1}},
+    {&#39;$limit&#39;: day},
+    {&#39;$group&#39;: {&#39;_id&#39;: {&#39;role&#39;: &#39;$role&#39;, &#39;line&#39;: &#39;$line&#39;}, &#39;time&#39;: {&#39;$avg&#39;: &#39;$TotalTime&#39;}, &#39;success&#39;: {&#39;$sum&#39;: &#39;$Success&#39;}, &#39;total&#39;: {&#39;$sum&#39;: &#39;$Total&#39;}}},
+    {&#39;$project&#39;: {&#39;_id&#39;: 0, &#39;time&#39;: 1, &#39;result&#39;: {&#39;$divide&#39;: [&#39;$success&#39;, &#39;$total&#39;]}}}])
+    return result
+</code></pre>
 			</div>
 
 			<div class="tags">

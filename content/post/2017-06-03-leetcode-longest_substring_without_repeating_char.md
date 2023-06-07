@@ -34,7 +34,8 @@ Given &#8220;pwwkew&#8221;, the answer is &#8220;wke&#8221;, with the length of 
   
 &#8220;pwke&#8221; is a subsequence and not a substring.
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -64,4 +65,4 @@ class Solution(object):
                 index[s[i]] = i
             result = max(result, temp, i-pw_index)
         return result
-</pre>
+```

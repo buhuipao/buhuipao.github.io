@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Shell之IS_Root&amp;&amp; - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="Shell之IS_Root&amp;&amp;">
-<meta itemprop="description" content="验证是否为Root： 发行版本："><meta itemprop="datePublished" content="2016-04-20T13:23:48+00:00" />
+<meta itemprop="description" content="验证是否为Root： if [ $UID != &#34;0&#34; ]; then echo &#34;Error: You must be root to run this script, please use root to install lnmp&#34; exit 1 fi 发行版本： if grep -Eqi &#34;CentOS&#34; /etc/issue || grep -Eq &#34;CentOS&#34; /etc/*-release; then DISTRO=&#39;CentOS&#39; PM=&#39;yum&#39; elif grep -Eqi &#34;Red Hat Enterprise Linux Server&#34; /etc/issue || grep -Eq &#34;Red Hat Enterprise Linux"><meta itemprop="datePublished" content="2016-04-20T13:23:48+00:00" />
 <meta itemprop="dateModified" content="2016-04-20T13:23:48+00:00" />
-<meta itemprop="wordCount" content="15">
+<meta itemprop="wordCount" content="143">
 <meta itemprop="keywords" content="Linux,shell," /><meta property="og:title" content="Shell之IS_Root&amp;&amp;" />
-<meta property="og:description" content="验证是否为Root： 发行版本：" />
+<meta property="og:description" content="验证是否为Root： if [ $UID != &#34;0&#34; ]; then echo &#34;Error: You must be root to run this script, please use root to install lnmp&#34; exit 1 fi 发行版本： if grep -Eqi &#34;CentOS&#34; /etc/issue || grep -Eq &#34;CentOS&#34; /etc/*-release; then DISTRO=&#39;CentOS&#39; PM=&#39;yum&#39; elif grep -Eqi &#34;Red Hat Enterprise Linux Server&#34; /etc/issue || grep -Eq &#34;Red Hat Enterprise Linux" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2016/04/20/shell%E4%B9%8Bis_root/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-04-20T13:23:48+00:00" />
 <meta property="article:modified_time" content="2016-04-20T13:23:48+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Shell之IS_Root&amp;&amp;"/>
-<meta name="twitter:description" content="验证是否为Root： 发行版本："/>
+<meta name="twitter:description" content="验证是否为Root： if [ $UID != &#34;0&#34; ]; then echo &#34;Error: You must be root to run this script, please use root to install lnmp&#34; exit 1 fi 发行版本： if grep -Eqi &#34;CentOS&#34; /etc/issue || grep -Eq &#34;CentOS&#34; /etc/*-release; then DISTRO=&#39;CentOS&#39; PM=&#39;yum&#39; elif grep -Eqi &#34;Red Hat Enterprise Linux Server&#34; /etc/issue || grep -Eq &#34;Red Hat Enterprise Linux"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -88,12 +88,36 @@
 					
 			<div class="markdown">
 				<p>验证是否为Root：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>发行版本：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$UID</span> !<span class="o">=</span> <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Error: You must be root to run this script, please use root to install lnmp&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></div><p>发行版本：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">if</span> grep -Eqi <span class="s2">&#34;CentOS&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;CentOS&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;CentOS&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Red Hat Enterprise Linux Server&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Red Hat Enterprise Linux Server&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;RHEL&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Aliyun&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Aliyun&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Aliyun&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Fedora&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Fedora&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Fedora&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Debian&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Debian&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Debian&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;apt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Ubuntu&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Ubuntu&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Ubuntu&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;apt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Raspbian&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Raspbian&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Raspbian&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;apt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;unknow&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

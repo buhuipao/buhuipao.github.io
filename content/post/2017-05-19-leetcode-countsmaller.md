@@ -47,7 +47,8 @@ Return the array [2, 1, 1, 0].
   
 查找后面有多少各点小于当前值
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 class Solution(object):
     def countSmaller(self, nums):
@@ -124,4 +125,4 @@ class Solution(object):
                     # 如果相等证明找到此点，也需要收集self.count(被踩过的次数)
                     return count + curr.count
             return 0
-</pre>
+```

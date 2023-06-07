@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Python爬虫–爬取糗事百科段子 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="Python爬虫–爬取糗事百科段子">
-<meta itemprop="description" content="学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。"><meta itemprop="datePublished" content="2016-08-25T04:43:26+00:00" />
+<meta itemprop="description" content="学习python爬虫，先从爬糗事百科开始。 #!/bin/env python #-*- coding:utf-8 -*- import urllib2 import urllib import re import thread class DZ(object): def __init__(self): self.pagenum = 1 self.user_agent = &#39;Mazilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39; self.headers = {&#39;User-Agent&#39;: self.user_agent} self.stories = [] self.enable = False self.pageIndex = 1 #传入某一页的索"><meta itemprop="datePublished" content="2016-08-25T04:43:26+00:00" />
 <meta itemprop="dateModified" content="2016-08-25T04:43:26+00:00" />
-<meta itemprop="wordCount" content="45">
+<meta itemprop="wordCount" content="445">
 <meta itemprop="keywords" content="IP,python,爬虫," /><meta property="og:title" content="Python爬虫–爬取糗事百科段子" />
-<meta property="og:description" content="学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。" />
+<meta property="og:description" content="学习python爬虫，先从爬糗事百科开始。 #!/bin/env python #-*- coding:utf-8 -*- import urllib2 import urllib import re import thread class DZ(object): def __init__(self): self.pagenum = 1 self.user_agent = &#39;Mazilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39; self.headers = {&#39;User-Agent&#39;: self.user_agent} self.stories = [] self.enable = False self.pageIndex = 1 #传入某一页的索" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2016/08/25/python-spider-duanzi/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-08-25T04:43:26+00:00" />
 <meta property="article:modified_time" content="2016-08-25T04:43:26+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python爬虫–爬取糗事百科段子"/>
-<meta name="twitter:description" content="学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。"/>
+<meta name="twitter:description" content="学习python爬虫，先从爬糗事百科开始。 #!/bin/env python #-*- coding:utf-8 -*- import urllib2 import urllib import re import thread class DZ(object): def __init__(self): self.pagenum = 1 self.user_agent = &#39;Mazilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39; self.headers = {&#39;User-Agent&#39;: self.user_agent} self.stories = [] self.enable = False self.pageIndex = 1 #传入某一页的索"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -88,9 +88,93 @@
 					
 			<div class="markdown">
 				<p>学习python爬虫，先从爬糗事百科开始。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>是照着别人的，慢慢自己敲的，部分修改，实测可用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/bin/env python</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#-*- coding:utf-8 -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">urllib2</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">urllib</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">thread</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DZ</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pagenum</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s1">&#39;Mazilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_agent</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stories</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pageIndex</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#传入某一页的索引获取页面代码</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">getPage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageIndex</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.qiushibaike.com/hot/page/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pageIndex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">response</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pageCode</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">pageCode</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">URLError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s2">&#34;reason&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span> <span class="sa">u</span><span class="s2">&#34;连接错误，原因：&#34;</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">#解析页面的段子</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">getPageItems</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageIndex</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pageCode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">pageIndex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">pageCode</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span> <span class="sa">u</span><span class="s2">&#34;页面加载失败...&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&amp;lt;div.*?author clearfix&#34;&amp;gt;.*?</span>
+</span></span><span class="line"><span class="cl"><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">h2</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="o">.*</span><span class="err">?</span><span class="p">)</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">h2</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">.*</span><span class="err">?</span><span class="n">class</span><span class="o">=</span><span class="s2">&#34;content&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="o">.*</span><span class="err">?</span><span class="p">)</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">div</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">.*</span><span class="err">?</span><span class="n">class</span><span class="o">=</span><span class="s2">&#34;number&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="o">.*</span><span class="err">?</span><span class="p">)</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">i</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">.*</span><span class="err">?</span><span class="n">class</span><span class="o">=</span><span class="s2">&#34;number&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="o">.*</span><span class="err">?</span><span class="p">)</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">i</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="s1">&#39;,re.S)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">items</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">pageCode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pageStories</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">haveImg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&#34;thumb&#34;</span><span class="p">,</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">haveImg</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">replaceBR</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;)</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">#替换段子内容中的</span>
+</span></span><span class="line"><span class="cl"><span class="n">为换行</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">replaceBR</span><span class="p">,</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">pageStories</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">item</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()])</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">pageStories</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">loadPage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">enable</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stories</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">#获取新的一页 </span>
+</span></span><span class="line"><span class="cl">                <span class="n">pageStories</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPageItems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pageIndex</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">                <span class="c1">#将新获取的放到总list中 </span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">pageStories</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">stories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pageStories</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">pageIndex</span> <span class="o">+=</span> <span class="mi">1</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">#调用此方法，每敲击一次回车输出一个段子 </span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">getOnestory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageStories</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">         <span class="k">for</span> <span class="n">story</span> <span class="ow">in</span> <span class="n">pageStories</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">              <span class="nb">input</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span> <span class="bp">self</span><span class="o">.</span><span class="n">loadPage</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">              <span class="k">if</span> <span class="nb">input</span> <span class="o">==</span> <span class="s2">&#34;Q&#34;</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">                  <span class="bp">self</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="kc">False</span> 
+</span></span><span class="line"><span class="cl">                  <span class="k">return</span> 
+</span></span><span class="line"><span class="cl">              <span class="nb">print</span> <span class="sa">u</span><span class="s2">&#34;第</span><span class="si">%d</span><span class="s2">页</span><span class="se">\t</span><span class="s2">发布人:</span><span class="si">%s</span><span class="se">\t</span><span class="s2">有</span><span class="si">%s</span><span class="s2">笑过</span><span class="se">\t</span><span class="s2">被评论</span><span class="si">%s</span><span class="s2">次</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">story</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">story</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">story</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">story</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+</span></span><span class="line"><span class="cl">     <span class="c1">#开始 </span>
+</span></span><span class="line"><span class="cl">     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">         <span class="nb">print</span> <span class="sa">u</span><span class="s2">&#34;载入内涵段子请稍等,按回车查看下一条段子,Q退出&#34;</span> 
+</span></span><span class="line"><span class="cl">         <span class="bp">self</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="kc">True</span> <span class="bp">self</span><span class="o">.</span><span class="n">loadPage</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">         <span class="n">nowPage</span> <span class="o">=</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">enable</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stories</span><span class="p">)</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pageStories</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stories</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nowPage</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">stories</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">getOnestory</span><span class="p">(</span><span class="n">pageStories</span><span class="p">,</span><span class="n">nowPage</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">spider</span> <span class="o">=</span> <span class="n">DZ</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">spider</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span></code></pre></div><p>是照着别人的，慢慢自己敲的，部分修改，实测可用。</p>
 
 			</div>
 

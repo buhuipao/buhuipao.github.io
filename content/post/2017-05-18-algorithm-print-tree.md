@@ -19,7 +19,8 @@ tags:
   - 算法
 
 ---
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 # 按层打印二叉树
 
@@ -59,4 +60,4 @@ class PrintTree(object):
                 temp = []
                 cur_last = next_last
         return result
-</pre>
+```

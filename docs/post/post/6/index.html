@@ -102,28 +102,6 @@
 					<div class="post-header">
 	<div class="meta">
 		<div class="date">
-			<span class="day">06</span>
-			<span class="rest">Mar 2017</span>
-		</div>
-	</div>
-	<div class="matter">
-		<h4 class="title small">
-			<a href="/2017/03/06/test/">Test</a>
-		</h4>
-		<span class="description">
-			
-				lalala….
-
-			
-		</span>
-	</div>
-</div>
-
-				</li>
-				<li class="post">
-					<div class="post-header">
-	<div class="meta">
-		<div class="date">
 			<span class="day">16</span>
 			<span class="rest">Oct 2016</span>
 		</div>
@@ -223,9 +201,9 @@ Problem The Constitution of a certain country states that the le...
 		<span class="description">
 			
 				 A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是：
-共创建了（３）个进程
+main{ fork() || fork() } 共创建了（３）个进程
 解释是：
-fork()给子进程返回一个零值，而给父进程返回一个子进车id；在main这个主进程中，首先执行 fork() || for...
+fork()给子进程返回一个零值，而给父进程返回一个子进车id；在main...
 			
 		</span>
 	</div>
@@ -250,7 +228,7 @@ fork()给子进程返回一个零值，而给父进程返回一个子进车id；
 ps -ef
 ps aux
 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11
-#假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem,-p...
+[buhuipao@bogon ~]$ ps -eo user,pid,ppid,pcpu,pmem,com...
 			
 		</span>
 	</div>
@@ -293,7 +271,29 @@ ps aux
 		<span class="description">
 			
 				第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数:
-第二道是给你一个N正整数，求1,2,3…N 的各项最大奇约数的和，考试的时候脑子笨没转过弯来运行超时了，刚才又改了一下，然后又去牛客讨论了一下，得出第二...
+1 # coding:utf-8 2 3 import sys 4 import math 5 6 for line in sys.stdin: 7 a...
+			
+		</span>
+	</div>
+</div>
+
+				</li>
+				<li class="post">
+					<div class="post-header">
+	<div class="meta">
+		<div class="date">
+			<span class="day">10</span>
+			<span class="rest">Sep 2016</span>
+		</div>
+	</div>
+	<div class="matter">
+		<h4 class="title small">
+			<a href="/2016/09/10/tcp-ip-connect/">[转载]TCP/IP的三次握手的详细过程</a>
+		</h4>
+		<span class="description">
+			
+				TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接:
+位码即tcp标志位,有6种标示:SYN(synchronous建立联机) ACK(acknowledgement 确认) PSH(push传送) FIN...
 			
 		</span>
 	</div>

@@ -18,7 +18,8 @@ tags:
 ---
 第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数:
 
-<pre class="lang:python decode:1 " >1 # coding:utf-8
+```python
+  1 # coding:utf-8
   2 
   3 import sys
   4 import math
@@ -42,11 +43,12 @@ tags:
  22 count = 4 * count
  23 
  24 print "%d" % count
-</pre>
+```
 
 第二道是给你一个N正整数，求1,2,3&#8230;N 的各项最大奇约数的和，考试的时候脑子笨没转过弯来运行超时了，刚才又改了一下，然后又去[牛客][1]讨论了一下，得出第二段代码，应该不超时了:
 
-<pre class="lang:python decode:1 " >#第一段代码：
+```python
+#第一段代码：
   1 # coding:utf-8
   2 
   3 import sys
@@ -68,9 +70,10 @@ tags:
  19             n = n / 2
  20         i = i - 1
  21 print "%d" % sum(S)
-</pre>
+```
 
-<pre class="lang:python decode:1 " ># 第二段代码:
+```python
+# 第二段代码:
   1 # conding:utf-8
   2 
   3 import sys
@@ -93,6 +96,6 @@ tags:
  20         N = (N-1) / 2
  21 
  22 print "%d" % sum(S)
-</pre>
+```
 
  [1]: http://www.nowcoder.com/discuss/9620?toCommentId=227350

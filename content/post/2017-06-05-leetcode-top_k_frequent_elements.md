@@ -32,7 +32,8 @@ You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
   
 Your algorithm&#8217;s time complexity must be better than O(n log n), where n is the array&#8217;s size.
 
-<pre class="lang:python decode:1 " ># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 class Solution(object):
     def topKFrequent(self, nums, k):
@@ -71,4 +72,4 @@ class Solution(object):
                 _nums[0] = num
                 heap(_nums, 0, k)
         return [i for [i, j] in _nums[:k]]
-</pre>
+```

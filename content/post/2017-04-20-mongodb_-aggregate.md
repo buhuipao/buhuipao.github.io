@@ -29,7 +29,7 @@ tags:
 
 下面是我的部分代码：
 
-<pre class="lang:python decode:1 "># _*_ coding: utf-8 _*_
+```# _*_ coding: utf-8 _*_
 
 
 from pymongo import ReturnDocument
@@ -56,4 +56,4 @@ def find_data(role, line, day):
     {'$group': {'_id': {'role': '$role', 'line': '$line'}, 'time': {'$avg': '$TotalTime'}, 'success': {'$sum': '$Success'}, 'total': {'$sum': '$Total'}}},
     {'$project': {'_id': 0, 'time': 1, 'result': {'$divide': ['$success', '$total']}}}])
     return result
-</pre>
+```

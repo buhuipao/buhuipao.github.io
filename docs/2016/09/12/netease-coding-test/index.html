@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>记网易笔试两道编程题 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="记网易笔试两道编程题">
-<meta itemprop="description" content="第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 第二道是给你一个N正整数，求1,2,3…N 的各项最大奇"><meta itemprop="datePublished" content="2016-09-12T14:28:47+00:00" />
+<meta itemprop="description" content="第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 1 # coding:utf-8 2 3 import sys 4 import math 5 6 for line in sys.stdin: 7 a = line.split() 8 R = int(a[0]) 9 10 r"><meta itemprop="datePublished" content="2016-09-12T14:28:47+00:00" />
 <meta itemprop="dateModified" content="2016-09-12T14:28:47+00:00" />
-<meta itemprop="wordCount" content="129">
+<meta itemprop="wordCount" content="451">
 <meta itemprop="keywords" content="python," /><meta property="og:title" content="记网易笔试两道编程题" />
-<meta property="og:description" content="第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 第二道是给你一个N正整数，求1,2,3…N 的各项最大奇" />
+<meta property="og:description" content="第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 1 # coding:utf-8 2 3 import sys 4 import math 5 6 for line in sys.stdin: 7 a = line.split() 8 R = int(a[0]) 9 10 r" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2016/09/12/netease-coding-test/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-09-12T14:28:47+00:00" />
 <meta property="article:modified_time" content="2016-09-12T14:28:47+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="记网易笔试两道编程题"/>
-<meta name="twitter:description" content="第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 第二道是给你一个N正整数，求1,2,3…N 的各项最大奇"/>
+<meta name="twitter:description" content="第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 1 # coding:utf-8 2 3 import sys 4 import math 5 6 for line in sys.stdin: 7 a = line.split() 8 R = int(a[0]) 9 10 r"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -88,14 +88,77 @@
 					
 			<div class="markdown">
 				<p>第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>第二道是给你一个N正整数，求1,2,3…N 的各项最大奇约数的和，考试的时候脑子笨没转过弯来运行超时了，刚才又改了一下，然后又去<a href="http://www.nowcoder.com/discuss/9620?toCommentId=227350">牛客</a>讨论了一下，得出第二段代码，应该不超时了:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="mi">1</span> <span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span>     <span class="n">R</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span> <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span> <span class="c1"># 考虑圆周不落在整点上</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">!=</span> <span class="n">r</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span>     <span class="n">r</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>     <span class="c1"># 求横坐标</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">R</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span> <span class="c1"># 四个象限</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">22</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">count</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">23</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">24</span> <span class="nb">print</span> <span class="s2">&#34;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">count</span>
+</span></span></code></pre></div><p>第二道是给你一个N正整数，求1,2,3…N 的各项最大奇约数的和，考试的时候脑子笨没转过弯来运行超时了，刚才又改了一下，然后又去<a href="http://www.nowcoder.com/discuss/9620?toCommentId=227350">牛客</a>讨论了一下，得出第二段代码，应该不超时了:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#第一段代码：</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">1</span> <span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span>     <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span> <span class="n">S</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span>     <span class="n">i</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span>     <span class="k">while</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span>         <span class="c1">#奇数直接加</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span>         <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span>             <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>             <span class="k">break</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>         <span class="k">else</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>             <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>         <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span> <span class="nb">print</span> <span class="s2">&#34;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 第二段代码:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">1</span> <span class="c1"># conding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span>     <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span> <span class="n">S</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span> <span class="c1"># 直到N为1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span> <span class="k">while</span>  <span class="n">N</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span>     <span class="c1">#N为偶数时,抽取列中奇数项求和,自除二</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span>     <span class="k">if</span> <span class="n">N</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span>         <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span>         <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span>         <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span>     <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>         <span class="c1">#N为奇数时,抽取列中奇求和,列中最大偶数除二</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>         <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>         <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>         <span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">22</span> <span class="nb">print</span> <span class="s2">&#34;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">

@@ -28,7 +28,8 @@ Given n will always be valid.
   
 Try to do this in one pass.
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 # Definition for singly-linked list.
@@ -62,4 +63,4 @@ class Solution(object):
         if node == head:
             return pre.next
         return head
-</pre>
+```

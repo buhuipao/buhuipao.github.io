@@ -29,7 +29,8 @@ Your algorithm should run in O(n2) complexity.
 
 Follow up: Could you improve it to O(n log n) time complexity?
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -76,4 +77,4 @@ class Solution(object):
             else:
                 dp[low] = nums[x]
         return l
-</pre>
+```

@@ -26,7 +26,8 @@ Note: next() and hasNext() should run in average O(1) time and uses O(h) memory,
   
 where h is the height of the tree.
 
-<pre class="python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 # Definition for a  binary tree node
@@ -67,11 +68,12 @@ class BSTIterator1(object):
 # Your BSTIterator will be called like this:
 # i, v = BSTIterator(root), []
 # while i.hasNext(): v.append(i.next())
-</pre>
+```
 
 下面是hash表加中序遍历BST的做法，因为考虑到时间复杂为O(1)的做法最常用就是hash表，也确实让next()操作的时间复杂度变成了O(1), 但是由于hash表的存在，内存复杂度一直是O(n);
 
-<pre class="python decode:1">class BSTIterator(object):
+```python
+class BSTIterator(object):
     def __init__(self, root):
         """
         :type root: TreeNode
@@ -110,4 +112,4 @@ class BSTIterator1(object):
         result = self.dict[self.val]
         self.val = result
         return result
-</pre>
+```

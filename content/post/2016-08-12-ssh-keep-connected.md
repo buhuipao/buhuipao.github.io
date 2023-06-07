@@ -34,9 +34,13 @@ ClientAliveCountMax 5[/code]
       
 也在客户端进行设置，新建/etc/ssh/ssh_config文件，添加两行参数就行了
 
-<pre class="lang:shell decode:1 " >TCPKeepAlive yes
-ServerAliveInterval 300</pre>
+```bash
+TCPKeepAlive yes
+ServerAliveInterval 300
+```
 
 第一行是保持连接，后一行表示每过5分钟“心跳一次”告诉服务器，前提是你在客户端（跳板）有这个权限，如果没有那么直接在连接SSH时加上两个参数，
 
-<pre class="lang:shell decode:1 " >ssh -o TCPKeepAlive=yes -o ServerAliveInterval=180 buhuipao@YourIP -p YouPort</pre>
+```bash
+ssh -o TCPKeepAlive=yes -o ServerAliveInterval=180 buhuipao@YourIP -p YouPort
+```

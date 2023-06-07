@@ -4,18 +4,18 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>AUPE-11-线程同步及线程的Fork - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="AUPE-11-线程同步及线程的Fork">
-<meta itemprop="description" content="线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自"><meta itemprop="datePublished" content="2017-06-21T04:39:30+00:00" />
+<meta itemprop="description" content="线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： # include &#34;pthread_h&#34; int pthread_create(pthread_t * restrict tidp, const pthread_attr_t *resrict attr, void *(*start_rtm) (void), void *restrict arg); 线程同步： 互斥量（锁），但需要避免"><meta itemprop="datePublished" content="2017-06-21T04:39:30+00:00" />
 <meta itemprop="dateModified" content="2017-06-21T04:39:30+00:00" />
-<meta itemprop="wordCount" content="867">
+<meta itemprop="wordCount" content="1006">
 <meta itemprop="keywords" content="AUPE,Fork,线程," /><meta property="og:title" content="AUPE-11-线程同步及线程的Fork" />
-<meta property="og:description" content="线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自" />
+<meta property="og:description" content="线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： # include &#34;pthread_h&#34; int pthread_create(pthread_t * restrict tidp, const pthread_attr_t *resrict attr, void *(*start_rtm) (void), void *restrict arg); 线程同步： 互斥量（锁），但需要避免" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-06-21T04:39:30+00:00" />
 <meta property="article:modified_time" content="2017-06-21T04:39:30+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AUPE-11-线程同步及线程的Fork"/>
-<meta name="twitter:description" content="线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自"/>
+<meta name="twitter:description" content="线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： # include &#34;pthread_h&#34; int pthread_create(pthread_t * restrict tidp, const pthread_attr_t *resrict attr, void *(*start_rtm) (void), void *restrict arg); 线程同步： 互斥量（锁），但需要避免"/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -89,9 +89,11 @@
 			<div class="markdown">
 				<p>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿；</p>
 <p><strong>线程创建</strong>：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><strong>线程同步</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp"># include &#34;pthread_h&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="kt">pthread_t</span> <span class="o">*</span> <span class="kr">restrict</span> <span class="n">tidp</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">pthread_attr_t</span> <span class="o">*</span><span class="n">resrict</span> <span class="n">attr</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_rtm</span><span class="p">)</span> <span class="p">(</span><span class="kt">void</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">arg</span><span class="p">);</span>
+</span></span></code></pre></div><p><strong>线程同步</strong>：</p>
 <ul>
 <li>互斥量（锁），但需要避免死锁；</li>
 <li>读写锁（共享锁）；</li>
@@ -106,18 +108,27 @@
 <li>当处于读加锁时，而这个时候如果有一个线程尝试加写的锁时，之后的其他线程的读加锁都会被阻塞，避免读模式的锁长期锁住（有种优先写模式锁的感觉），参见第二点</li>
 </ol>
 <p><strong>线程加锁</strong>：初始化、销毁锁、加锁、试锁、解锁、定时锁</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><strong>避免死锁</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp"># include &#34;pthread_h&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">pthread_mutex_init</span><span class="p">(</span><span class="kt">pthread_mutex_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">mudex</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">pthread_attr_t</span> <span class="o">*</span><span class="n">resrict</span> <span class="n">attr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_mutex_destroy</span><span class="p">(</span><span class="kt">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_mutex_lock</span><span class="p">(</span><span class="kt">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_mutex_trylock</span><span class="p">(</span><span class="kt">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>  <span class="cm">/*失败将会返回EBUSY*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_mutex_unlock</span><span class="p">(</span><span class="kt">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">pthread_mutex_timedlock</span><span class="p">(</span><span class="kt">pthread_mutex_t</span> <span class="o">*</span><span class="n">mutex</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="k">struct</span> <span class="n">timespace</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">tsptr</span><span class="p">);</span>       <span class="cm">/*tsptr为绝对时间*/</span>
+</span></span></code></pre></div><p><strong>避免死锁</strong>：</p>
 <ol>
 <li>如果线程对一个互斥量加锁两次将会导致死锁， 应避免；</li>
 <li>如果互相持有一个锁A，B的两个线程，分别对B、A加锁，将会导致死锁，应该顺序加锁A、B，或者在加锁前先释放自己的锁。</li>
 </ol>
 <p><strong>线程的Fork：</strong></p>
 <p>线程fork只会fork当前线程到新的进程中去，如果直接调用exec干其他的活，旧的地址空间被丢弃，不需要关心所得状态，如果不是的话需要在调用exec之前进行相应的清锁工作；主要函数是：</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>参考APUE：因为子进程继承的是父进程的锁的拷贝，所有上述并不是解锁了两次，而是各自独自解锁。可以多次调用pthread_atfork函数从而设置多套fork处理程序，但是使用多个处理程序的时候。处理程序的调用顺序并不相同。parent和child是以它们注册时的顺序调用的，而prepare的调用顺序与注册顺序相反。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp"># include &#34;pthread_h&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">pthread_atfork</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">prepare</span><span class="p">)</span> <span class="p">(</span><span class="kt">void</span><span class="p">),</span>   <span class="cm">/*在父进程中获取锁*/</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">parent</span><span class="p">)</span> <span class="p">(</span><span class="kt">void</span><span class="p">),</span>            <span class="cm">/*在fork返回前父进程中解锁*/</span>    
+</span></span><span class="line"><span class="cl">           <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">child</span><span class="p">)</span> <span class="p">(</span><span class="kt">void</span><span class="p">));</span>            <span class="cm">/*在fork返回前子进程中解锁*/</span>
+</span></span></code></pre></div><p>参考APUE：因为子进程继承的是父进程的锁的拷贝，所有上述并不是解锁了两次，而是各自独自解锁。可以多次调用pthread_atfork函数从而设置多套fork处理程序，但是使用多个处理程序的时候。处理程序的调用顺序并不相同。parent和child是以它们注册时的顺序调用的，而prepare的调用顺序与注册顺序相反。</p>
 <p>一般情况下，不需要清理条件变量，但如果在一些操作系统中，锁被作为条件变量实现的一部分，也需要清理；但如果锁是嵌入到条件变量的数据结构中，那么在调用fork之后就不能使用条件变量，没可移植的法清理这种锁。</p>
 <p><strong>线程I/O</strong>：两个线程如果同一个时间对一个文件描述符进行读写操作，最后会两个会从后一个线程lseek定位的地方开始读，会读取到相同的内容；所以一般采取pread设置偏移量进行读取。</p>
 

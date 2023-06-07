@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="LeetCode–longest_substring_without_repeating_char">
 <meta itemprop="description" content="这是一个面试的经典题，明显是个送分题：） Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the"><meta itemprop="datePublished" content="2017-06-03T03:46:40+00:00" />
 <meta itemprop="dateModified" content="2017-06-03T03:46:40+00:00" />
-<meta itemprop="wordCount" content="126">
+<meta itemprop="wordCount" content="258">
 <meta itemprop="keywords" content="BST,hashtab,python,算法," /><meta property="og:title" content="LeetCode–longest_substring_without_repeating_char" />
 <meta property="og:description" content="这是一个面试的经典题，明显是个送分题：） Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the" />
 <meta property="og:type" content="article" />
@@ -94,9 +94,37 @@
 <p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
 <p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring,</p>
 <p>“pwke” is a subsequence and not a substring.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type s: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">index</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pw_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">index</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 防止全是不重复的字符，必须用temp记录经过的次数</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span> <span class="o">+=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 更新前一个不重复子字串的索引位置</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">index</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">pw_index</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">pw_index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 重置temp</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 记录字符前一次出现位置</span>
+</span></span><span class="line"><span class="cl">                <span class="n">index</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="n">pw_index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span></code></pre></div>
 			</div>
 
 			<div class="tags">
