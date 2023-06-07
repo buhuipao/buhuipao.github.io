@@ -39,9 +39,18 @@ disqusShortname = "buhuipao"
   url = "/about"
   weight = 3
 [[menu.main]]
+  name = "目录"
+  url = "/categories"
+  weight = 4
+[[menu.main]]
   name = "标签"
   url = "/tags"
-  weight = 4
+  weight = 5
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/buhuipao"
 
 [[params.social]]
 name = "Github"
@@ -55,3 +64,4 @@ url = "/index.xml"
 
 [taxonomies]
   tag = "tags"
+  categories = "categories"

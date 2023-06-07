@@ -21,14 +21,16 @@ For example,
   
 Given n = 3, there are a total of 5 unique BST&#8217;s.
 
-<pre class="lang:shell decode:1">1         3     3      2      1
+```python
+   1         3     3      2      1
     \       /     /      / \      \
      3     2     1      1   3      2
     /     /       \                 \
    2     1         2                 3
-</pre>
+```
 
-<pre class="lang:python decode:1"># _*_ coding: utf-8 _*_
+```python
+# _*_ coding: utf-8 _*_
 
 
 class Solution(object):
@@ -51,4 +53,4 @@ class Solution(object):
                 dp[i] += dp[j-1] * dp[i-j]
             i += 1
         return dp[n]
-</pre>
+```
