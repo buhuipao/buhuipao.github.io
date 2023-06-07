@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>【转载WIKI】关于MBR–主引导记录 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="【转载WIKI】关于MBR–主引导记录">
+<meta itemprop="description" content="主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后"><meta itemprop="datePublished" content="2016-08-20T09:32:31+00:00" />
+<meta itemprop="dateModified" content="2016-08-20T09:32:31+00:00" />
+<meta itemprop="wordCount" content="2185">
+<meta itemprop="keywords" content="HTTPS,IP,Linux,MBR," /><meta property="og:title" content="【转载WIKI】关于MBR–主引导记录" />
+<meta property="og:description" content="主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2016/08/20/mbr-wiki/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2016-08-20T09:32:31+00:00" />
+<meta property="article:modified_time" content="2016-08-20T09:32:31+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转载WIKI】关于MBR–主引导记录"/>
+<meta name="twitter:description" content="主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="css/dark.css" />
+
+	<script src="js/feather.min.js"></script>
+	
+		<script src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="">
+				<img src="https://avatars.githubusercontent.com/u/14309948?v=4" alt="不会跑" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="">不会跑</a></h1>
+	<div class="site-description"><p>work for life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">首页</a>
+			</li>
+			
+			<li>
+				<a href="/post">文章</a>
+			</li>
+			
+			<li>
+				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/tags">标签</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">20</span>
+							<span class="rest">Aug 2016</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">【转载WIKI】关于MBR–主引导记录</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p><strong>主引导记录</strong>（<!-- raw HTML omitted -->Master Boot Record<!-- raw HTML omitted -->，缩写：MBR），又叫做<strong>主引导扇区</strong>，是<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA" title="计算机">计算机</a>{.mw-redirect.mw-disambig}开机后访问<a href="https://zh.wikipedia.org/wiki/%E7%A1%AC%E7%9B%98" title="硬盘">硬盘</a>时所必须要读取的首个扇区，它在硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。在深入讨论主引导扇区内部结构的时候，有时也将其开头的446字节内容特指为“主引导记录”（MBR），其后是4个16字节的“磁盘分区表”（DPT），以及2字节的结束标志（55AA）。因此，在使用“主引导记录”（MBR）这个术语的时候，需要根据具体情况判断其到底是指整个主引导扇区，还是主引导扇区的前446字节</p>
+<p>主引导扇区记录着硬盘本身的相关信息以及硬盘各个分区的大小及位置信息，是数据信息的重要入口。如果它受到破坏，硬盘上的基本数据结构信息将会丢失，需要用繁琐的方式试探性的重建数据结构信息后才可能重新访问原先的数据。主引导扇区内的信息可以通过任何一种基于某种操作系统的分区工具软件写入，但和某种操作系统没有特定的关系，即只要创建了有效的主引导记录就可以引导任意一种操作系统（操作系统是创建在<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96" title="高级格式化">高级格式化</a>{.mw-redirect}的硬盘分区之上，是和一定的文件系统相联系的）。<!-- raw HTML omitted --></p>
+<p>对于硬盘而言，一个扇区可能的字节数为128×2<!-- raw HTML omitted -->n<!-- raw HTML omitted -->（n=0,1,2,3）。大多情况下，取n=2，即一个扇区（sector）的大小为512字节。</p>
+<!-- raw HTML omitted -->
+<h2 id="span-ide4b8bbe5bc95e5afbce68987e58cbae79a84e8afbbe58f96e6b581e7a88b-classmw-headline主引导扇区的读取流程span"><!-- raw HTML omitted -->主引导扇区的读取流程<!-- raw HTML omitted --></h2>
+<ul>
+<li>系统开机或者重启。</li>
+</ul>
+<ol>
+<li>BIOS加电（台湾用语：开机）自检（Power On Self Test — POST）。BIOS执行内存地址为FFFF:0000H处的跳转指令，跳转到固化在ROM中的自检程序处，对系统硬件（包括内存）进行检查。</li>
+<li>读取主引导记录（MBR）。当BIOS检查到硬件正常并与CMOS中的设置相符后，按照CMOS中对启动设备的设置顺序检测可用的启动设备。BIOS将相应启动设备的第一个扇区（也就是MBR扇区）读入内存地址为0000:7C00H处。</li>
+<li>检查0000:7CFEH-0000:7CFFH（MBR的结束标志位）是否等于55AAH，若不等于则转去尝试其他启动设备，如果没有启动设备满足要求则显示”NO ROM BASIC”然后死机。</li>
+<li>当检测到有启动设备满足要求后，BIOS将控制权交给相应启动设备。启动设备的MBR将自己复制到0000:0600H处，然后继续执行。</li>
+<li>根据MBR中的引导代码启动<a href="https://zh.wikipedia.org/wiki/%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F" title="引导程序">引导程序</a>{.mw-redirect}。</li>
+</ol>
+<ul>
+<li>事实上，BIOS不仅检查0000:7CFEH-0000:7CFFH（MBR的结束标志位）是否等于55AAH，往往还对磁盘是否有写保护、主引导扇区中是否存在活动分区等进行检查。如果发现磁盘有写保护，则显示磁盘写保护出错信息；如果发现磁盘中不存在活动分区，则显示类似如下的信息“Remove disk or other media Press any key to restart”。<!-- raw HTML omitted --></li>
+</ul>
+<h2 id="span-ide4b8bbe5bc95e5afbce8aeb0e5bd95e4b88ee7a1ace79b98e58886e58cba-classmw-headline主引导记录与硬盘分区span"><!-- raw HTML omitted -->主引导记录与硬盘分区<!-- raw HTML omitted --></h2>
+<p>从<strong>主引导记录</strong>的结构可以知道，它仅仅包含一个64个字节的<strong>硬盘分区表</strong>。由于每个分区信息需要16个字节，所以对于采用MBR型分区结构的硬盘，最多只能识别4个主要分区（Primary partition）。所以对于一个采用此种分区结构的硬盘来说，想要得到4个以上的主要分区是不可能的。这里就需要引出<a href="https://zh.wikipedia.org/w/index.php?title=%E6%89%A9%E5%B1%95%E5%88%86%E5%8C%BA&amp;action=edit&amp;redlink=1" title="扩展分区（页面不存在）">扩展分区</a>{.new}了。扩展分区也是主要分区的一种，但它与主分区的不同在于理论上可以划分为无数个逻辑分区。<!-- raw HTML omitted --><!-- raw HTML omitted --><a href="https://zh.wikipedia.org/wiki/%E7%A1%AC%E7%9B%98" title="硬盘">2</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>扩展分区中逻辑驱动器的引导记录是链式的。每一个逻辑分区都有一个和MBR结构类似的<strong>扩展引导记录</strong>（EBR），其分区表的第一项指向该逻辑分区本身的引导扇区，第二项指向下一个逻辑驱动器的EBR，分区表第三、第四项没有用到。</p>
+<p><a href="https://zh.wikipedia.org/wiki/Windows" title="Windows">Windows</a>{.mw-redirect}系统默认情况下，一般都是只划分一个主分区给系统，剩余的部分全部划入扩展分区。这里有下面几点需要注意：</p>
+<ul>
+<li>在MBR分区表中最多4个主分区或者3个主分区＋1个扩展分区，也就是说扩展分区只能有一个，然后可以再细分为多个逻辑分区。</li>
+<li>在<a href="https://zh.wikipedia.org/wiki/Linux" title="Linux">Linux</a>系统中，硬盘分区命名为sda1－sda4或者hda1－hda4（其中a表示硬盘编号可能是a、b、c等等）。在MBR硬盘中，分区号1－4是主分区（或者扩展分区），逻辑分区号只能从5开始。</li>
+<li>在MBR分区表中，一个分区最大的容量为2T，且每个分区的起始柱面必须在这个disk的前2T内。你有一个3T的硬盘，根据要求你至少要把它划分为2个分区，且最后一个分区的起始扇区要位于硬盘的前2T空间内。<!-- raw HTML omitted --><!-- raw HTML omitted --><a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96" title="高级格式化">3</a><!-- raw HTML omitted --><!-- raw HTML omitted -->如果硬盘太大则必须改用<a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80%E6%A8%99%E8%AD%98%E5%88%86%E5%8D%80%E8%A1%A8" title="全局唯一标识分区表">GPT</a>{.mw-redirect}。</li>
+</ul>
+<h2 id="span-idmbre58886e58cbae8a1a8e4b88egpte58886e58cbae8a1a8e79a84e585b3e7b3bb-classmw-headlinembr分区表与a-classmw-disambig-titlegpt-hrefhttpszhwikipediaorgwikigptgpta分区表的关系span"><!-- raw HTML omitted -->MBR分区表与<!-- raw HTML omitted -->GPT<!-- raw HTML omitted -->分区表的关系<!-- raw HTML omitted --></h2>
+<p>与支持最大卷为2 TB（<a href="https://zh.wikipedia.org/wiki/Terabyte" title="Terabyte">Terabyte</a>{.mw-redirect}s）并且每个磁盘最多有4个主分区（或3个主分区，1个扩展分区和无限制的逻辑驱动器）的<!-- raw HTML omitted -->MBR<!-- raw HTML omitted -->磁盘分区的样式相比，<a href="https://zh.wikipedia.org/wiki/GPT" title="GPT">GPT</a>{.mw-disambig}磁盘分区样式支持最大卷为128 EB（<a href="https://zh.wikipedia.org/wiki/Exabyte" title="Exabyte">Exabyte</a>{.mw-redirect}s）并且每磁盘的分区数没有上限，只受到操作系统限制（由于分区表本身需要占用一定空间，最初规划硬盘分区时，留给分区表的空间决定了最多可以有多少个分区，<a href="https://zh.wikipedia.org/wiki/IA-64" title="IA-64">IA-64</a>版Windows限制最多有128个分区，这也是<a href="https://zh.wikipedia.org/wiki/EFI" title="EFI">EFI</a>{.mw-disambig}标准规定的分区表的<strong>最小</strong>尺寸）。与MBR分区的磁盘不同，至关重要的平台操作数据位于分区，而不是位于非分区或隐藏扇区。另外，GPT分区磁盘有备份分区表来提高分区数据结构的完整性。</p>
+<h2 id="span-ide6b3a8e9878a-classmw-headline注释span"><!-- raw HTML omitted -->注释<!-- raw HTML omitted --></h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/https">HTTPS</a></li>
+							
+							<li><a href="/tags/ip">IP</a></li>
+							
+							<li><a href="/tags/linux">Linux</a></li>
+							
+							<li><a href="/tags/mbr">MBR</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'buhuipao';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LIS on 不会跑</title>
+    <link>/tags/lis/</link>
+    <description>Recent content in LIS on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Fri, 23 Jun 2017 10:03:46 +0000</lastBuildDate><atom:link href="/tags/lis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode-Longest_Increasing_Subsequence</title>
+      <link>/2017/06/23/leetcode-longest_increasing_subsequence/</link>
+      <pubDate>Fri, 23 Jun 2017 10:03:46 +0000</pubDate>
+      
+      <guid>/2017/06/23/leetcode-longest_increasing_subsequence/</guid>
+      <description>经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode</description>
+    </item>
+    
+  </channel>
+</rss>

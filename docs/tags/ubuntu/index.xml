@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on 不会跑</title>
+    <link>/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Wed, 07 Sep 2016 16:55:16 +0000</lastBuildDate><atom:link href="/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>不再缘木求鱼，时间如此宝贵，Docker下ubuntu安装QQ失败</title>
+      <link>/2016/09/08/docker-ubuntu-qq-failed/</link>
+      <pubDate>Wed, 07 Sep 2016 16:55:16 +0000</pubDate>
+      
+      <guid>/2016/09/08/docker-ubuntu-qq-failed/</guid>
+      <description>今下午本来是准备照着国外的一个教程，好好跟着过写一遍如何用python写一个异步web服务端，但是无意中看到一个QQ的新闻，于是想起来很久之</description>
+    </item>
+    
+    <item>
+      <title>搬运墙外Chromebook的Chrubuntu方法安装ubuntu</title>
+      <link>/2015/10/27/chromebook_chrubuntu_ubuntu/</link>
+      <pubDate>Mon, 26 Oct 2015 16:03:39 +0000</pubDate>
+      
+      <guid>/2015/10/27/chromebook_chrubuntu_ubuntu/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;lt;span id=&amp;quot;OUTFOX_JTR_TRANS_NODE-44&amp;quot; class=&amp;quot;OUTFOX_JTR_TRANS_NODE&amp;quot;&amp;gt;这将安装32位版本的Xubuntu和最新LTS版</description>
+    </item>
+    
+  </channel>
+</rss>

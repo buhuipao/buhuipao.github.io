@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Python二分查找的一个库–bisect - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Python二分查找的一个库–bisect">
+<meta itemprop="description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的"><meta itemprop="datePublished" content="2017-06-23T04:52:44+00:00" />
+<meta itemprop="dateModified" content="2017-06-23T04:52:44+00:00" />
+<meta itemprop="wordCount" content="286">
+<meta itemprop="keywords" content="二分查找," /><meta property="og:title" content="Python二分查找的一个库–bisect" />
+<meta property="og:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2017/06/23/python_bisect/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-06-23T04:52:44+00:00" />
+<meta property="article:modified_time" content="2017-06-23T04:52:44+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python二分查找的一个库–bisect"/>
+<meta name="twitter:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="css/dark.css" />
+
+	<script src="js/feather.min.js"></script>
+	
+		<script src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="">
+				<img src="https://avatars.githubusercontent.com/u/14309948?v=4" alt="不会跑" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="">不会跑</a></h1>
+	<div class="site-description"><p>work for life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">首页</a>
+			</li>
+			
+			<li>
+				<a href="/post">文章</a>
+			</li>
+			
+			<li>
+				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/tags">标签</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">23</span>
+							<span class="rest">Jun 2017</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Python二分查找的一个库–bisect</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：&lt;pre class=&ldquo;lang:python decode:1&gt; In [248]: import bisect In [249]: dir(bisect) Out[249]: [&rsquo;__builtins__&rsquo;, &lsquo;__doc__&rsquo;, &lsquo;__file__&rsquo;, &lsquo;__name__&rsquo;, &lsquo;__package__&rsquo;, &lsquo;bisect&rsquo;, &lsquo;bisect_left&rsquo;, &lsquo;bisect_right&rsquo;, &lsquo;insort&rsquo;, &lsquo;insort_left&rsquo;, &lsquo;insort_right&rsquo;] In [250]: a = [2, 4, 6, 9] In [251]: bisect.insort(a, 5) In [252]: a Out[252]: [2, 4, 5, 6, 9] In [253]: bisect.bisect(a, 3) # 只试探并不插入，返回下标 Out[253]: 1 In [254]: a Out[254]: [2, 4, 5, 6, 9] In [255]: bisect.bisect_left(a, 8) # 遇到重复项将尝试插入左边，同理bisect_right为右边，只返回下标 Out[255]: 4 In [256]: a Out[256]: [2, 4, 5, 6, 9] In [257]: bisect.bisect_left(a, 6) Out[257]: 3 In [258]: bisect.bisect_right(a, 6) Out[258]: 4 In [259]: bisect.insort_left(a, 8) # 遇到重复项将插入左边，同理bisect_right为右边 In [260]: a Out[260]: [2, 4, 5, 6, 8, 9] In [261]: bisect.insort_left(a, 8) In [262]: a Out[262]: [2, 4, 5, 6, 8, 8, 9] # 左边的8才是最后插入的 <!-- raw HTML omitted --></p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">二分查找</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'buhuipao';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

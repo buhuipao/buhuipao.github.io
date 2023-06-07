@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>思考 on 不会跑</title>
+    <link>/tags/%E6%80%9D%E8%80%83/</link>
+    <description>Recent content in 思考 on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Mon, 06 Nov 2017 01:16:52 +0000</lastBuildDate><atom:link href="/tags/%E6%80%9D%E8%80%83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>九月到十月的总结记录</title>
+      <link>/2017/11/06/read-note/</link>
+      <pubDate>Mon, 06 Nov 2017 01:16:52 +0000</pubDate>
+      
+      <guid>/2017/11/06/read-note/</guid>
+      <description>总结起自己最近的两个月，大概就是有了以下的一些收获: 为了现在领导给我的第一个任务，八月是把后端写了(包括从零开始学golang), 九月一直在</description>
+    </item>
+    
+  </channel>
+</rss>

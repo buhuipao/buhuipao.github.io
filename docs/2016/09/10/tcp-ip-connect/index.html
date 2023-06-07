@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>[转载]TCP/IP的三次握手的详细过程 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="[转载]TCP/IP的三次握手的详细过程">
+<meta itemprop="description" content="TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接: 位码即tcp标志位,有6种标示:SYN(synchro"><meta itemprop="datePublished" content="2016-09-10T09:11:09+00:00" />
+<meta itemprop="dateModified" content="2016-09-10T09:11:09+00:00" />
+<meta itemprop="wordCount" content="1153">
+<meta itemprop="keywords" content="IP,ps,TCP/IP," /><meta property="og:title" content="[转载]TCP/IP的三次握手的详细过程" />
+<meta property="og:description" content="TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接: 位码即tcp标志位,有6种标示:SYN(synchro" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2016/09/10/tcp-ip-connect/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2016-09-10T09:11:09+00:00" />
+<meta property="article:modified_time" content="2016-09-10T09:11:09+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[转载]TCP/IP的三次握手的详细过程"/>
+<meta name="twitter:description" content="TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接: 位码即tcp标志位,有6种标示:SYN(synchro"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="css/dark.css" />
+
+	<script src="js/feather.min.js"></script>
+	
+		<script src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="">
+				<img src="https://avatars.githubusercontent.com/u/14309948?v=4" alt="不会跑" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="">不会跑</a></h1>
+	<div class="site-description"><p>work for life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">首页</a>
+			</li>
+			
+			<li>
+				<a href="/post">文章</a>
+			</li>
+			
+			<li>
+				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/tags">标签</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">10</span>
+							<span class="rest">Sep 2016</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">[转载]TCP/IP的三次握手的详细过程</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接:</p>
+<p>位码即tcp标志位,有6种标示:SYN(synchronous建立联机) ACK(acknowledgement 确认) PSH(push传送) FIN(finish结束) RST(reset重置) URG(urgent紧急)</p>
+<p>Sequence number(顺序号码) Acknowledge number(确认号码)</p>
+<p>第一次握手：主机A发送位码为syn＝1,随机产生seq number=1234567的数据包到服务器，主机B由SYN=1知道，A要求建立联机；</p>
+<p>第二次握手：主机B收到请求后要确认联机信息，向A发送ack number=(主机A的seq+1),syn=1,ack=1,随机产生seq=7654321的包</p>
+<p>第三次握手：主机A收到后检查ack number是否正确，即第一次发送的seq number+1,以及位码ack是否为1，若正确，主机A会再发送ack number=(主机B的seq+1),ack=1，主机B收到后确认seq值与ack=1则连接建立成功。</p>
+<p>完成三次握手，主机A与主机B开始传送数据。</p>
+<p>在TCP/IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。</p>
+<p>第一次握手：建立连接时，客户端发送syn包(syn=j)到服务器，并进入SYN_SEND状态，等待服务器确认；</p>
+<p>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态； 第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=k+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。 完成三次握手，客户端与服务器开始传送数据.</p>
+<p>实例:</p>
+<p>IP 192.168.1.116.3337 &gt; 192.168.1.123.7788: S 3626544836:3626544836</p>
+<p>IP 192.168.1.123.7788 &gt; 192.168.1.116.3337: S 1739326486:1739326486 ack 3626544837</p>
+<p>IP 192.168.1.116.3337 &gt; 192.168.1.123.7788: ack 1739326487,ack 1</p>
+<p>第一次握手：192.168.1.116发送位码syn＝1,随机产生seq number=3626544836的数据包到192.168.1.123,192.168.1.123由SYN=1知道192.168.1.116要求建立联机;</p>
+<p>第二次握手：192.168.1.123收到请求后要确认联机信息，向192.168.1.116发送ack number=3626544837,syn=1,ack=1,随机产生seq=1739326486的包;</p>
+<p>第三次握手：192.168.1.116收到后检查ack number是否正确，即第一次发送的seq number+1,以及位码ack是否为1，若正确，192.168.1.116会再发送ack number=1739326487,ack=1，192.168.1.123收到后确认seq=seq+1,ack=1则连接建立成功。</p>
+<p>转自博客园：<a href="http://www.cnblogs.com/rootq/articles/1377355.html">四月天的博客</a></p>
+<p>感谢原博主的实验分析！</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/ip">IP</a></li>
+							
+							<li><a href="/tags/ps">ps</a></li>
+							
+							<li><a href="/tags/tcp/ip">TCP/IP</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'buhuipao';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hashtab on 不会跑</title>
+    <link>/tags/hashtab/</link>
+    <description>Recent content in hashtab on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Sat, 03 Jun 2017 04:59:20 +0000</lastBuildDate><atom:link href="/tags/hashtab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode–brick_wall</title>
+      <link>/2017/06/03/leetcode-brick_wall/</link>
+      <pubDate>Sat, 03 Jun 2017 04:59:20 +0000</pubDate>
+      
+      <guid>/2017/06/03/leetcode-brick_wall/</guid>
+      <description>比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–longest_substring_without_repeating_char</title>
+      <link>/2017/06/03/leetcode-longest_substring_without_repeating_char/</link>
+      <pubDate>Sat, 03 Jun 2017 03:46:40 +0000</pubDate>
+      
+      <guid>/2017/06/03/leetcode-longest_substring_without_repeating_char/</guid>
+      <description>这是一个面试的经典题，明显是个送分题：） Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the</description>
+    </item>
+    
+  </channel>
+</rss>

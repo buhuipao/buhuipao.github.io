@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chromebook on 不会跑</title>
+    <link>/tags/chromebook/</link>
+    <description>Recent content in chromebook on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Mon, 29 Aug 2016 15:56:52 +0000</lastBuildDate><atom:link href="/tags/chromebook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本站的改造升级，全站https失败</title>
+      <link>/2016/08/29/web-update-https/</link>
+      <pubDate>Mon, 29 Aug 2016 15:56:52 +0000</pubDate>
+      
+      <guid>/2016/08/29/web-update-https/</guid>
+      <description>最近的找工作压力很大，我这”洁癖男“在压力下想换个思路转一下注意力，以便下一步高效复习准备接下来的运维开发的笔试面试。于是想起自己的网站如今</description>
+    </item>
+    
+    <item>
+      <title>搬运墙外Chromebook的Chrubuntu方法安装ubuntu</title>
+      <link>/2015/10/27/chromebook_chrubuntu_ubuntu/</link>
+      <pubDate>Mon, 26 Oct 2015 16:03:39 +0000</pubDate>
+      
+      <guid>/2015/10/27/chromebook_chrubuntu_ubuntu/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;lt;span id=&amp;quot;OUTFOX_JTR_TRANS_NODE-44&amp;quot; class=&amp;quot;OUTFOX_JTR_TRANS_NODE&amp;quot;&amp;gt;这将安装32位版本的Xubuntu和最新LTS版</description>
+    </item>
+    
+  </channel>
+</rss>

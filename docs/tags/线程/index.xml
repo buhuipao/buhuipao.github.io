@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>线程 on 不会跑</title>
+    <link>/tags/%E7%BA%BF%E7%A8%8B/</link>
+    <description>Recent content in 线程 on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Wed, 21 Jun 2017 04:39:30 +0000</lastBuildDate><atom:link href="/tags/%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AUPE-11-线程同步及线程的Fork</title>
+      <link>/2017/06/21/aupe-11-thread_fork/</link>
+      <pubDate>Wed, 21 Jun 2017 04:39:30 +0000</pubDate>
+      
+      <guid>/2017/06/21/aupe-11-thread_fork/</guid>
+      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自</description>
+    </item>
+    
+  </channel>
+</rss>

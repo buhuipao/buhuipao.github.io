@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dp on 不会跑</title>
+    <link>/tags/dp/</link>
+    <description>Recent content in dp on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Thu, 22 Jun 2017 14:52:57 +0000</lastBuildDate><atom:link href="/tags/dp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode-Edit_Distance</title>
+      <link>/2017/06/22/leetcode-edit_distance/</link>
+      <pubDate>Thu, 22 Jun 2017 14:52:57 +0000</pubDate>
+      
+      <guid>/2017/06/22/leetcode-edit_distance/</guid>
+      <description>比较特殊的动态规划过程，原题链接：https://leetcode.com/problems/edit-distance/ Given two words word1 and word2, find the minimum</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Best_Time_to_Buy_and_Sell_Stock</title>
+      <link>/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</link>
+      <pubDate>Thu, 22 Jun 2017 04:21:50 +0000</pubDate>
+      
+      <guid>/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</guid>
+      <description>动态规划的小题目，买卖股票， 原题链接：https://leetcode.com/problems/best-time-to-buy-and-</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-minimum_path_sum</title>
+      <link>/2017/06/22/leetcode-minimum_path_sum/</link>
+      <pubDate>Thu, 22 Jun 2017 03:27:52 +0000</pubDate>
+      
+      <guid>/2017/06/22/leetcode-minimum_path_sum/</guid>
+      <description>经典的动态规划题，三种解法都是动态规划，但是最后一种空间复杂度最小，原题链接： https://leetcode.com/problems/minimum-path-sum/ Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note:</description>
+    </item>
+    
+  </channel>
+</rss>

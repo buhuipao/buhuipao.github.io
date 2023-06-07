@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>关于fork和操作系统一些知识 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="关于fork和操作系统一些知识">
+<meta itemprop="description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给"><meta itemprop="datePublished" content="2016-09-16T11:16:48+00:00" />
+<meta itemprop="dateModified" content="2016-09-16T11:16:48+00:00" />
+<meta itemprop="wordCount" content="842">
+<meta itemprop="keywords" content="python," /><meta property="og:title" content="关于fork和操作系统一些知识" />
+<meta property="og:description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2016/09/16/fork-system-status-route/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2016-09-16T11:16:48+00:00" />
+<meta property="article:modified_time" content="2016-09-16T11:16:48+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于fork和操作系统一些知识"/>
+<meta name="twitter:description" content="A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="css/dark.css" />
+
+	<script src="js/feather.min.js"></script>
+	
+		<script src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="">
+				<img src="https://avatars.githubusercontent.com/u/14309948?v=4" alt="不会跑" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="">不会跑</a></h1>
+	<div class="site-description"><p>work for life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">首页</a>
+			</li>
+			
+			<li>
+				<a href="/post">文章</a>
+			</li>
+			
+			<li>
+				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/tags">标签</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">16</span>
+							<span class="rest">Sep 2016</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">关于fork和操作系统一些知识</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<ul>
+<li>A: <a href="http://www.nowcoder.com/test/question/done?tid=5114409&amp;qid=26082#summary">牛客网</a>刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。</li>
+</ul>
+<p>题目是：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>共创建了（３）个进程</p>
+<p>解释是：</p>
+<p>fork()给子进程返回一个零值，而给父进程返回一个子进车id；在main这个主进程中，首先执行 <!-- raw HTML omitted -->fork()<!-- raw HTML omitted --> || fork(), 左边的fork()返回一个非零值，根据**||的短路原则**，前面的表达式为真时，后面的表达式不执行，故包含main的这个主进程创建了一个子进程，由于子进程会复制父进程，而且子进程会根据其返回值继续执行，就是说，在子进程中， <!-- raw HTML omitted -->fork()<!-- raw HTML omitted --> ||fork()这条语句左边表达式的返回值是0, 所以||右边的表达式要执行，这时在子进程中又创建了一个进程，即main进程-&gt;子进程-&gt;子进程，一共创建了3个进程。</p>
+<p>一个进程，包括代码、数据和分配给进程的资源。fork（）函数通过系统调用创建一个与原来进程几乎完全相同的进程，</p>
+<p>也就是两个进程可以做完全相同的事，但如果初始参数或者传入的变量不同，两个进程也可以做不同的事。一个进程调用fork（）函数后，系统先给新的进程分配资源，例如存储数据和代码的空间。然后把原来的进程的所有值都</p>
+<p>复制到新的新进程中，只有少数值与原来的进程的值不同。相当于克隆了一个自己。</p>
+<ul>
+<li>B: 使用fork函数得到的子进程从父进程的继承了整个进程的地址空间，包括**：进程上下文、进程堆栈、内存信息、打开的文件描述符、信号控制设置、进程优先级、进程组号、当前工作目录、根目录、资源限制、控制终端**等。</li>
+</ul>
+<p>子进程与父进程的区别在于：</p>
+<p>1、父进程设置的锁，子进程不继承（因为如果是排它锁，被继承的话，矛盾了）</p>
+<p>2、各自的进程ID和父进程ID不同</p>
+<p>3、子进程的未决告警被清除；</p>
+<p>4、子进程的未决信号集设置为空集。</p>
+<ul>
+<li>
+<p>C: 用户态切换到内核态的 3 种方式</p>
+<p>a.  系统调用</p>
+<p>b.  异常</p>
+<p>c.  外围设备的中断</p>
+</li>
+</ul>
+<p> </p>
+<ul>
+<li>D: 附加：局域网的网络地址192.168.1.0/24，局域网络连接其它网络的网关地址是192.168.1.1。主机192.168.1.20访问172.16.1.0/24网络时，其路由设置正确的是？</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>参考学习链接来自–博客园: <a href="http://www.cnblogs.com/bastard/archive/2012/08/31/2664896.html">http://www.cnblogs.com/bastard/archive/2012/08/31/2664896.html</a></p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/python">python</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'buhuipao';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

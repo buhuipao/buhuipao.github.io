@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>爬虫 on 不会跑</title>
+    <link>/tags/%E7%88%AC%E8%99%AB/</link>
+    <description>Recent content in 爬虫 on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Thu, 25 Aug 2016 04:43:26 +0000</lastBuildDate><atom:link href="/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python爬虫–爬取糗事百科段子</title>
+      <link>/2016/08/25/python-spider-duanzi/</link>
+      <pubDate>Thu, 25 Aug 2016 04:43:26 +0000</pubDate>
+      
+      <guid>/2016/08/25/python-spider-duanzi/</guid>
+      <description>学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。</description>
+    </item>
+    
+  </channel>
+</rss>

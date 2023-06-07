@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IP on 不会跑</title>
+    <link>/tags/ip/</link>
+    <description>Recent content in IP on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Tue, 06 Jun 2017 08:09:10 +0000</lastBuildDate><atom:link href="/tags/ip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode-Serialize and Deserialize BST</title>
+      <link>/2017/06/06/leetcode-serialize-and-deserialize-bst/</link>
+      <pubDate>Tue, 06 Jun 2017 08:09:10 +0000</pubDate>
+      
+      <guid>/2017/06/06/leetcode-serialize-and-deserialize-bst/</guid>
+      <description>序列化和反序列化一个二叉搜索树，题目的意思是想让我利用搜索树的性质来做，但是我还是坚持了使用按层和先序遍历的方法，仅供参考，原题如下： Serialization is the</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–reverse-nodes-in-k-group</title>
+      <link>/2017/05/28/leetcode-reverse-nodes-in-k-group/</link>
+      <pubDate>Sun, 28 May 2017 06:03:17 +0000</pubDate>
+      
+      <guid>/2017/05/28/leetcode-reverse-nodes-in-k-group/</guid>
+      <description>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only</description>
+    </item>
+    
+    <item>
+      <title>记一道Google Test</title>
+      <link>/2016/10/12/google-test/</link>
+      <pubDate>Wed, 12 Oct 2016 10:34:50 +0000</pubDate>
+      
+      <guid>/2016/10/12/google-test/</guid>
+      <description>自己算法太烂太渣，只有慢慢练，一个运维还是得会写代码，看得懂代码。所以最近一边面试一边自己找题目练习。原题是： Problem The Constitution of a certain country states that the leader is the person with</description>
+    </item>
+    
+    <item>
+      <title>[转载] Http的1.0/1.1/2.0的理解</title>
+      <link>/2016/10/11/http-https/</link>
+      <pubDate>Tue, 11 Oct 2016 04:42:16 +0000</pubDate>
+      
+      <guid>/2016/10/11/http-https/</guid>
+      <description>先说Http1.0和Http1.1，都是支持Gzip(之前我有误解)的,http 1.0中默认是关闭的，需要在http头加入”Connecti</description>
+    </item>
+    
+    <item>
+      <title>TCP的滑动窗口和拥塞控制</title>
+      <link>/2016/10/09/tcp-window_control/</link>
+      <pubDate>Sun, 09 Oct 2016 10:32:23 +0000</pubDate>
+      
+      <guid>/2016/10/09/tcp-window_control/</guid>
+      <description>TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口</description>
+    </item>
+    
+    <item>
+      <title>Linux 常用命令–ps，head/tail， less/more</title>
+      <link>/2016/09/13/linux-ps-head-tail-less-more/</link>
+      <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
+      
+      <guid>/2016/09/13/linux-ps-head-tail-less-more/</guid>
+      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem</description>
+    </item>
+    
+    <item>
+      <title>[转载]TCP/IP的三次握手的详细过程</title>
+      <link>/2016/09/10/tcp-ip-connect/</link>
+      <pubDate>Sat, 10 Sep 2016 09:11:09 +0000</pubDate>
+      
+      <guid>/2016/09/10/tcp-ip-connect/</guid>
+      <description>TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接: 位码即tcp标志位,有6种标示:SYN(synchro</description>
+    </item>
+    
+    <item>
+      <title>记一个京东技术运营的编程题</title>
+      <link>/2016/09/06/jingdong-codingtest/</link>
+      <pubDate>Tue, 06 Sep 2016 09:50:39 +0000</pubDate>
+      
+      <guid>/2016/09/06/jingdong-codingtest/</guid>
+      <description>昨晚参加了京东2016秋招的技术类笔试，无奈自己编程基础不扎实，昨晚一个编程题弄了45来分钟也没完整解决，今天实习比较闲，所以依据记忆终于解</description>
+    </item>
+    
+    <item>
+      <title>本站的改造升级，全站https失败</title>
+      <link>/2016/08/29/web-update-https/</link>
+      <pubDate>Mon, 29 Aug 2016 15:56:52 +0000</pubDate>
+      
+      <guid>/2016/08/29/web-update-https/</guid>
+      <description>最近的找工作压力很大，我这”洁癖男“在压力下想换个思路转一下注意力，以便下一步高效复习准备接下来的运维开发的笔试面试。于是想起自己的网站如今</description>
+    </item>
+    
+    <item>
+      <title>计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手</title>
+      <link>/2016/08/28/network-tcp-ip/</link>
+      <pubDate>Sun, 28 Aug 2016 13:21:37 +0000</pubDate>
+      
+      <guid>/2016/08/28/network-tcp-ip/</guid>
+      <description>ARP/RARP协议 路由选择协议 TCP/IP协议 UDP协议 DNS协议 NAT协议 DHCP协议 HTTP协议 一个举例 ARP/RARP协议 地址解析协</description>
+    </item>
+    
+    <item>
+      <title>计算机网络基础知识总结（1）–网络层，IP，主机，子网</title>
+      <link>/2016/08/28/network-ip-mask-host/</link>
+      <pubDate>Sun, 28 Aug 2016 13:09:25 +0000</pubDate>
+      
+      <guid>/2016/08/28/network-ip-mask-host/</guid>
+      <description>网络层次划分 OSI七层网络模型 IP地址 子网掩码及网络划分 计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进行数据交换而建</description>
+    </item>
+    
+    <item>
+      <title>Python爬虫–爬取糗事百科段子</title>
+      <link>/2016/08/25/python-spider-duanzi/</link>
+      <pubDate>Thu, 25 Aug 2016 04:43:26 +0000</pubDate>
+      
+      <guid>/2016/08/25/python-spider-duanzi/</guid>
+      <description>学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。</description>
+    </item>
+    
+    <item>
+      <title>【转载WIKI】关于MBR–主引导记录</title>
+      <link>/2016/08/20/mbr-wiki/</link>
+      <pubDate>Sat, 20 Aug 2016 09:32:31 +0000</pubDate>
+      
+      <guid>/2016/08/20/mbr-wiki/</guid>
+      <description>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后</description>
+    </item>
+    
+    <item>
+      <title>Mysql的基本操作（1）</title>
+      <link>/2016/04/25/mysql_basic_operation/</link>
+      <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
+      
+      <guid>/2016/04/25/mysql_basic_operation/</guid>
+      <description>登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会</description>
+    </item>
+    
+  </channel>
+</rss>

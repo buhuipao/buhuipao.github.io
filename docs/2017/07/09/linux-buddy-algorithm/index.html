@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>[转]伙伴算法 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="[转]伙伴算法">
+<meta itemprop="description" content="1.什么是伙伴 两个块大小相同 两个块地址连续 同属于一个大块(第0块和第1块是伙伴，第2块和第3块是伙伴，但是第1块和第2块不是伙伴） 2.伙伴位"><meta itemprop="datePublished" content="2017-07-09T09:05:30+00:00" />
+<meta itemprop="dateModified" content="2017-07-09T09:05:30+00:00" />
+<meta itemprop="wordCount" content="1352">
+<meta itemprop="keywords" content="伙伴算法,内存," /><meta property="og:title" content="[转]伙伴算法" />
+<meta property="og:description" content="1.什么是伙伴 两个块大小相同 两个块地址连续 同属于一个大块(第0块和第1块是伙伴，第2块和第3块是伙伴，但是第1块和第2块不是伙伴） 2.伙伴位" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2017/07/09/linux-buddy-algorithm/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-07-09T09:05:30+00:00" />
+<meta property="article:modified_time" content="2017-07-09T09:05:30+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[转]伙伴算法"/>
+<meta name="twitter:description" content="1.什么是伙伴 两个块大小相同 两个块地址连续 同属于一个大块(第0块和第1块是伙伴，第2块和第3块是伙伴，但是第1块和第2块不是伙伴） 2.伙伴位"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="css/dark.css" />
+
+	<script src="js/feather.min.js"></script>
+	
+		<script src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="">
+				<img src="https://avatars.githubusercontent.com/u/14309948?v=4" alt="不会跑" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="">不会跑</a></h1>
+	<div class="site-description"><p>work for life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">首页</a>
+			</li>
+			
+			<li>
+				<a href="/post">文章</a>
+			</li>
+			
+			<li>
+				<a href="/about">关于</a>
+			</li>
+			
+			<li>
+				<a href="/tags">标签</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">09</span>
+							<span class="rest">Jul 2017</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">[转]伙伴算法</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p><strong>1.什么是伙伴</strong></p>
+<ul>
+<li>两个块大小相同</li>
+<li>两个块地址连续</li>
+<li>同属于一个大块(第0块和第1块是伙伴，第2块和第3块是伙伴，但是第1块和第2块不是伙伴）</li>
+</ul>
+<p><strong>2.伙伴位图</strong></p>
+<p>伙伴算法通过位图进行操作，用一位描述相邻的两块（第0块和第1块是伙伴，第2块和第3块是伙伴，但是第1块和第2块不是伙伴）的状态。这个位码叫伙伴位码。</p>
+<ul>
+<li>为0的时候：说明这两块都为空闲</li>
+<li>为1的时候：说明这两块有一块是忙（两块都忙是属于1状态吗？）</li>
+</ul>
+<p><strong>3.基于伙伴算法的内存分配</strong></p>
+<p>伙伴算法每次只能分配2的幂次页的空间。linux以4k页作为页管理的基本单位，一个page结构对应一个页。因为伙伴算法是根据每个zone来的，因此在struct zone的结构体中有一个struct free_area free_area[MAX_ORDER]成员;MAX_ORDER默认是11,也就是每个zone中有11个free_area结构体，分别是2^0,2^1,……2^10，这就是我们的内存块链表。也就是我们最大分配的内存卡是从free_area[10]中能够获得，大小是2^10页，即4M。（启动之后能获得的最大连续物理空间是4M，要超过4M的连续空间，要么是该order的值，要么是在启动之前就获得，就是在mem_init之前)</p>
+<p>struct free_area {</p>
+<p>struct list_head free_list;</p>
+<p>unsigned long nr_free;</p>
+<p>};可以看出free_area结构体仅仅包含了一个双向链表，指向了空闲块的前后页，还有一个里面的free的页数。</p>
+<p>举个例子：在分配4（2^2）页的时候，系统会先从free_area[2]中查看其成员nr_free是否空，如果空则从中分配，如果free_area[2]中没有空的，就从它的上一级free_area[3]中分配，并将多余的内存块加入到free_area[2]中。如果free_area[3]的nr_free也没有空闲，则从更上一级，以此类推直至free_area[max_order]，如果顶级都没有空间，就报告分配失败。</p>
+<p><strong>4 .基于伙伴算法的内存释放</strong></p>
+<p>内存的释放是分配的逆过程，也可以看做是伙伴的合并。当释放一个块时，先在其对应的free_area链表中查找是否有伙伴存在，如果没有伙伴块，直接将要释放的块插入链表头；如果有，则将其从链表下摘下，合并成一个大块，然后继续查找在合并后的块在更大一级链表中是否有伙伴存在，直至不能合并或者已经合并至最大的块2^10为止。</p>
+<p><strong>5.伙伴算法的不足：</strong></p>
+<ol>
+<li>合并的要求太过严格：只能是满足伙伴关系的块。比如第1,2块就不能合并。</li>
+<li>碎片问题：如何内存管理的算法都存在这个问题，一个连续的内存中仅仅一个页面被占用，导致这整个内存区都不具备合并的条件。</li>
+<li>算法中的浪费现象：伙伴算法是按2的幂次方分配内存区的，当需要257（2^8+1）个页面时，不得不申请2^9的页面。于是就有255个页面被浪费掉了。</li>
+<li>算法的效率问题：伙伴算法涉及了比较多的计算还有链表和位图的操作，开销还是比较大的，如果每次2^n大小的伙伴块就会合并到2^(n+1)的链表队列中，那么2^n大小链表中的块就会因为合并操作而减少，但系统随后立即有可能又有对该大小块的需求，为此必须再从2^(n+1)大小的链表中拆分，这样的合并又立即拆分的过程是无效率的。</li>
+</ol>
+<p>原文地址：<!-- raw HTML omitted --><a href="http://blog.chinaunix.net/uid-9863638-id-1996388.html">http://blog.chinaunix.net/uid-9863638-id-1996388.html</a><!-- raw HTML omitted --></p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/%E4%BC%99%E4%BC%B4%E7%AE%97%E6%B3%95">伙伴算法</a></li>
+							
+							<li><a href="/tags/%E5%86%85%E5%AD%98">内存</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'buhuipao';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

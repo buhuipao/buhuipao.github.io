@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>不会跑</title>
+    <link>/</link>
+    <description>Recent content on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Mon, 06 Nov 2017 01:16:52 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>友链</title>
+      <link>/link/</link>
+      <pubDate>Mon, 06 Nov 2017 10:16:52 +0000</pubDate>
+      
+      <guid>/link/</guid>
+      <description>刘北京的个人博客</description>
+    </item>
+    
+    <item>
+      <title>九月到十月的总结记录</title>
+      <link>/2017/11/06/read-note/</link>
+      <pubDate>Mon, 06 Nov 2017 01:16:52 +0000</pubDate>
+      
+      <guid>/2017/11/06/read-note/</guid>
+      <description>总结起自己最近的两个月，大概就是有了以下的一些收获: 为了现在领导给我的第一个任务，八月是把后端写了(包括从零开始学golang), 九月一直在</description>
+    </item>
+    
+    <item>
+      <title>转换BST为一个双向链表</title>
+      <link>/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sun, 17 Sep 2017 10:01:47 +0000</pubDate>
+      
+      <guid>/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</guid>
+      <description>经典二叉树题：转换一个二叉树为一个双向链表；</description>
+    </item>
+    
+    <item>
+      <title>稳定婚姻匹配问题</title>
+      <link>/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 26 Aug 2017 16:06:53 +0000</pubDate>
+      
+      <guid>/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>倒水问题-经典面试题</title>
+      <link>/2017/08/26/%E5%80%92%E6%B0%B4%E9%97%AE%E9%A2%98-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Sat, 26 Aug 2017 15:56:21 +0000</pubDate>
+      
+      <guid>/2017/08/26/%E5%80%92%E6%B0%B4%E9%97%AE%E9%A2%98-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <description>有两个容器，容积分别为A升和B升，有无限多的水，现在需要C升水, 如何倒？ 举个例子，3，5升的桶，需要倒出4升水，可以这么做： 3 % 5 = 3 //把</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Unique_Binary_Search_Trees</title>
+      <link>/2017/07/15/leetcode-unique_binary_search_trees/</link>
+      <pubDate>Sat, 15 Jul 2017 01:13:02 +0000</pubDate>
+      
+      <guid>/2017/07/15/leetcode-unique_binary_search_trees/</guid>
+      <description>题目的意思就是给你1到n个数，你能组成多少种BST，解题思路就是：以每一个数做一次BST的root节点，然后求和所有次数即可，然后每次以i为</description>
+    </item>
+    
+    <item>
+      <title>[转]伙伴算法</title>
+      <link>/2017/07/09/linux-buddy-algorithm/</link>
+      <pubDate>Sun, 09 Jul 2017 09:05:30 +0000</pubDate>
+      
+      <guid>/2017/07/09/linux-buddy-algorithm/</guid>
+      <description>1.什么是伙伴 两个块大小相同 两个块地址连续 同属于一个大块(第0块和第1块是伙伴，第2块和第3块是伙伴，但是第1块和第2块不是伙伴） 2.伙伴位</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-LFU_Cache</title>
+      <link>/2017/07/02/leetcode-lfu_cache/</link>
+      <pubDate>Sun, 02 Jul 2017 14:30:22 +0000</pubDate>
+      
+      <guid>/2017/07/02/leetcode-lfu_cache/</guid>
+      <description>LeetCode的设计题，比起之前的LRU稍微难点，但是根据《现代操作系统》的解释，需要使用一个counter进行频率的计数，下面给出的并不</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Find_Median_from_Data_Stream</title>
+      <link>/2017/07/01/leetcode-find_median_from_data_stream/</link>
+      <pubDate>Sat, 01 Jul 2017 04:42:14 +0000</pubDate>
+      
+      <guid>/2017/07/01/leetcode-find_median_from_data_stream/</guid>
+      <description>LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Binary_Search_Tree_Iterator</title>
+      <link>/2017/07/01/leetcode-binary_search_tree_iterator/</link>
+      <pubDate>Fri, 30 Jun 2017 17:05:57 +0000</pubDate>
+      
+      <guid>/2017/07/01/leetcode-binary_search_tree_iterator/</guid>
+      <description>一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Design_Twitter</title>
+      <link>/2017/06/29/leetcode-design_twitter/</link>
+      <pubDate>Thu, 29 Jun 2017 07:36:15 +0000</pubDate>
+      
+      <guid>/2017/06/29/leetcode-design_twitter/</guid>
+      <description>经典的设计题，以前校招笔试遇到过，题意就是：让你设计一个小的推特系统，能够发推、收到推送、关注和取消关注某人，我的做法是直接采用一个数据表（</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Min_Stack</title>
+      <link>/2017/06/29/leetcode-min_stack/</link>
+      <pubDate>Thu, 29 Jun 2017 03:08:00 +0000</pubDate>
+      
+      <guid>/2017/06/29/leetcode-min_stack/</guid>
+      <description>经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Reorder_List</title>
+      <link>/2017/06/29/leetcode-reorder_list/</link>
+      <pubDate>Thu, 29 Jun 2017 02:40:50 +0000</pubDate>
+      
+      <guid>/2017/06/29/leetcode-reorder_list/</guid>
+      <description>经典的链表题，考查了反转链表和一些细节，题意也很明白，把L0→L1→…→Ln-1→Ln变为L0→Ln→L1→Ln-1→L2→Ln-2→…即可</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Partition_List</title>
+      <link>/2017/06/29/leetcode-partition_list/</link>
+      <pubDate>Wed, 28 Jun 2017 17:08:33 +0000</pubDate>
+      
+      <guid>/2017/06/29/leetcode-partition_list/</guid>
+      <description>晚上送妹子回家后做了这个链表的题，怕自己忘了睡前总结下。 题目的意思就是：给定一个链表和一个数，把小于这个数的节点放前边，此外的都移到后边，而</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Linked_List_Cycle_II</title>
+      <link>/2017/06/28/leetcode-linked_list_cycle_ii/</link>
+      <pubDate>Wed, 28 Jun 2017 09:55:00 +0000</pubDate>
+      
+      <guid>/2017/06/28/leetcode-linked_list_cycle_ii/</guid>
+      <description>判断链表是否存在循环的变形题，需要你找出链表循环的开始节点，解题思路：先用快慢指针便利链表知道快慢指针指向同一个节点，然后让快指针从head</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Linked_List_Cycle</title>
+      <link>/2017/06/28/leetcode-linked_list_cycle/</link>
+      <pubDate>Wed, 28 Jun 2017 09:30:13 +0000</pubDate>
+      
+      <guid>/2017/06/28/leetcode-linked_list_cycle/</guid>
+      <description>经典的链表题，判断一个链表是否存在循环，而且不许使用额外的空间，解题思路：只要分别设定一个快慢指针，当快慢指针重合时就证明有循环，原题链接：</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Copy_List_with_Random_Pointer</title>
+      <link>/2017/06/28/leetcode-copy_list_with_random_pointer/</link>
+      <pubDate>Wed, 28 Jun 2017 08:31:03 +0000</pubDate>
+      
+      <guid>/2017/06/28/leetcode-copy_list_with_random_pointer/</guid>
+      <description>一个比较经典的链表操作题，深度复制一个链表，链表包含一个next指针和一个random的指针，目前比较多的方法是hash表和自我复制法（在自</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Remove_Nth_Node_From_End_of_List</title>
+      <link>/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</link>
+      <pubDate>Wed, 28 Jun 2017 08:18:03 +0000</pubDate>
+      
+      <guid>/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</guid>
+      <description>比较简单的一个题，意思就是删除链表中倒数第几个节点，需要最后考虑下删除的是否恰巧为头节点，原题链接：https://leetcode.com</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Longest_Increasing_Subsequence</title>
+      <link>/2017/06/23/leetcode-longest_increasing_subsequence/</link>
+      <pubDate>Fri, 23 Jun 2017 10:03:46 +0000</pubDate>
+      
+      <guid>/2017/06/23/leetcode-longest_increasing_subsequence/</guid>
+      <description>经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode</description>
+    </item>
+    
+    <item>
+      <title>Python三目运算符两种写法及exec的用法</title>
+      <link>/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Fri, 23 Jun 2017 05:29:44 +0000</pubDate>
+      
+      <guid>/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>三目运算符第一种写法： 三目运算符的第二种写法： 需要指出的是：exec可以执行一段python代码(在Flask的源码中看见用的比较多)，但是</description>
+    </item>
+    
+    <item>
+      <title>Python二分查找的一个库–bisect</title>
+      <link>/2017/06/23/python_bisect/</link>
+      <pubDate>Fri, 23 Jun 2017 04:52:44 +0000</pubDate>
+      
+      <guid>/2017/06/23/python_bisect/</guid>
+      <description>今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Edit_Distance</title>
+      <link>/2017/06/22/leetcode-edit_distance/</link>
+      <pubDate>Thu, 22 Jun 2017 14:52:57 +0000</pubDate>
+      
+      <guid>/2017/06/22/leetcode-edit_distance/</guid>
+      <description>比较特殊的动态规划过程，原题链接：https://leetcode.com/problems/edit-distance/ Given two words word1 and word2, find the minimum</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Delect_Operation_for_Two_Strings</title>
+      <link>/2017/06/22/leetcode-delect_operation_for_two_strings/</link>
+      <pubDate>Thu, 22 Jun 2017 12:26:12 +0000</pubDate>
+      
+      <guid>/2017/06/22/leetcode-delect_operation_for_two_strings/</guid>
+      <description>LCS的变形题目, 只要求出两个字符串的最长公共子序列，那么最终需要进行删除操作的就是m＋n－2*result。 Given two words word1 and word2, find the minimum number of steps required to make</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Best_Time_to_Buy_and_Sell_Stock</title>
+      <link>/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</link>
+      <pubDate>Thu, 22 Jun 2017 04:21:50 +0000</pubDate>
+      
+      <guid>/2017/06/22/leetcode-best_time_to_buy_and_sell_stock/</guid>
+      <description>动态规划的小题目，买卖股票， 原题链接：https://leetcode.com/problems/best-time-to-buy-and-</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-minimum_path_sum</title>
+      <link>/2017/06/22/leetcode-minimum_path_sum/</link>
+      <pubDate>Thu, 22 Jun 2017 03:27:52 +0000</pubDate>
+      
+      <guid>/2017/06/22/leetcode-minimum_path_sum/</guid>
+      <description>经典的动态规划题，三种解法都是动态规划，但是最后一种空间复杂度最小，原题链接： https://leetcode.com/problems/minimum-path-sum/ Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note:</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Longest_Consecutive_Sequence</title>
+      <link>/2017/06/21/leetcode-longest_consecutive_sequence/</link>
+      <pubDate>Wed, 21 Jun 2017 09:46:10 +0000</pubDate>
+      
+      <guid>/2017/06/21/leetcode-longest_consecutive_sequence/</guid>
+      <description>题目的意思就是求出列表里最长的连续序列, 原题如下： Given an unsorted array of integers, find the length of the longest consecutive elements sequence. For example, Given [100, 4, 200, 1, 3, 2], The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4. Your algorithm should run in O(n) complexity.</description>
+    </item>
+    
+    <item>
+      <title>AUPE-11-线程同步及线程的Fork</title>
+      <link>/2017/06/21/aupe-11-thread_fork/</link>
+      <pubDate>Wed, 21 Jun 2017 04:39:30 +0000</pubDate>
+      
+      <guid>/2017/06/21/aupe-11-thread_fork/</guid>
+      <description>线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿； 线程创建： 线程同步： 互斥量（锁），但需要避免死锁； 读写锁（共享锁）； 条件变量； 自</description>
+    </item>
+    
+    <item>
+      <title>APUE-8-进程控制之Fork</title>
+      <link>/2017/06/21/apue-8-process_fork/</link>
+      <pubDate>Wed, 21 Jun 2017 03:15:52 +0000</pubDate>
+      
+      <guid>/2017/06/21/apue-8-process_fork/</guid>
+      <description>最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用get</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Remove_Duplicates_from_Sorted_Array</title>
+      <link>/2017/06/20/leetcode-remove_duplicates_from_sorted_array/</link>
+      <pubDate>Tue, 20 Jun 2017 05:13:19 +0000</pubDate>
+      
+      <guid>/2017/06/20/leetcode-remove_duplicates_from_sorted_array/</guid>
+      <description>题目比较简单，就是需要你找出数组里面不同数字的个数，但是也要求把这些项搬运到nums数组的前面去 Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length. Do</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-power_of_three</title>
+      <link>/2017/06/19/leetcode-power_of_three/</link>
+      <pubDate>Mon, 19 Jun 2017 07:50:03 +0000</pubDate>
+      
+      <guid>/2017/06/19/leetcode-power_of_three/</guid>
+      <description>Given an integer, write a function to determine if it is a power of three. Follow up: Could you do it without using any loop / recursion?</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-clone_graph</title>
+      <link>/2017/06/10/leetcode-clone_graph/</link>
+      <pubDate>Sat, 10 Jun 2017 14:03:15 +0000</pubDate>
+      
+      <guid>/2017/06/10/leetcode-clone_graph/</guid>
+      <description>克隆一个图， 用了两个遍历方法如下： Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ’s undirected graph serialization: Nodes are labeled uniquely. We use # as a separator for each node, and , as a separator for node label and each neighbor of the node. As</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-binary-tree-level-order-traversal</title>
+      <link>/2017/06/07/leetcode-binary-tree-level-order-traversal/</link>
+      <pubDate>Wed, 07 Jun 2017 07:30:11 +0000</pubDate>
+      
+      <guid>/2017/06/07/leetcode-binary-tree-level-order-traversal/</guid>
+      <description>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level). For example: Given binary tree [3,9,20,null,null,15,7], return its level order traversal as:</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Lowest_Common_Ancestor_of_a_Binary_Search_Tree</title>
+      <link>/2017/06/06/leetcode-lowest_common_ancestor_of_a_binary_search_tree/</link>
+      <pubDate>Tue, 06 Jun 2017 09:15:08 +0000</pubDate>
+      
+      <guid>/2017/06/06/leetcode-lowest_common_ancestor_of_a_binary_search_tree/</guid>
+      <description>Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST. According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itse</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Serialize and Deserialize BST</title>
+      <link>/2017/06/06/leetcode-serialize-and-deserialize-bst/</link>
+      <pubDate>Tue, 06 Jun 2017 08:09:10 +0000</pubDate>
+      
+      <guid>/2017/06/06/leetcode-serialize-and-deserialize-bst/</guid>
+      <description>序列化和反序列化一个二叉搜索树，题目的意思是想让我利用搜索树的性质来做，但是我还是坚持了使用按层和先序遍历的方法，仅供参考，原题如下： Serialization is the</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-delete_a_node_in_BST</title>
+      <link>/2017/06/06/leetcode-delete_a_node_in_bst/</link>
+      <pubDate>Tue, 06 Jun 2017 03:48:12 +0000</pubDate>
+      
+      <guid>/2017/06/06/leetcode-delete_a_node_in_bst/</guid>
+      <description>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST. Basically, the deletion can be divided into two stages: Search for a node to remove. If the node is found, delete the node. Note: Time complexity should be O(height of tree). 也就是必须在树上</description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Top_K_Frequent_Elements</title>
+      <link>/2017/06/05/leetcode-top_k_frequent_elements/</link>
+      <pubDate>Sun, 04 Jun 2017 17:29:09 +0000</pubDate>
+      
+      <guid>/2017/06/05/leetcode-top_k_frequent_elements/</guid>
+      <description>Given a non-empty array of integers, return the k most frequent elements. For example, Given [1,1,1,2,2,3] and k = 2, return [1,2]. Note: You may assume k is always valid, 1 ≤ k ≤ number of unique elements. Your algorithm’s time complexity must be better than O(n log n), where n is the array’s</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–brick_wall</title>
+      <link>/2017/06/03/leetcode-brick_wall/</link>
+      <pubDate>Sat, 03 Jun 2017 04:59:20 +0000</pubDate>
+      
+      <guid>/2017/06/03/leetcode-brick_wall/</guid>
+      <description>比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–longest_substring_without_repeating_char</title>
+      <link>/2017/06/03/leetcode-longest_substring_without_repeating_char/</link>
+      <pubDate>Sat, 03 Jun 2017 03:46:40 +0000</pubDate>
+      
+      <guid>/2017/06/03/leetcode-longest_substring_without_repeating_char/</guid>
+      <description>这是一个面试的经典题，明显是个送分题：） Given a string, find the length of the longest substring without repeating characters. Examples: Given “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Convert_Sorted_List_to_Binary_Search_Tree</title>
+      <link>/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</link>
+      <pubDate>Fri, 02 Jun 2017 04:13:46 +0000</pubDate>
+      
+      <guid>/2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/</guid>
+      <description>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Remove_Duplicates_from_Sorted_List_II</title>
+      <link>/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</link>
+      <pubDate>Thu, 01 Jun 2017 15:37:25 +0000</pubDate>
+      
+      <guid>/2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/</guid>
+      <description>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return 1-&amp;gt;2-&amp;gt;5. Given 1-&amp;gt;1-&amp;gt;1-&amp;gt;2-&amp;gt;3, return 2-&amp;gt;3. 自己的提交虽然全部通过测试用例，但是leetcode评分为1.46％，感觉太差劲</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–reverse_linked_list_II</title>
+      <link>/2017/06/01/leetcode-reverse_linked_list_ii/</link>
+      <pubDate>Thu, 01 Jun 2017 12:50:11 +0000</pubDate>
+      
+      <guid>/2017/06/01/leetcode-reverse_linked_list_ii/</guid>
+      <description>Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL. Note: Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Remove-Linked-List-Elements</title>
+      <link>/2017/05/29/leetcode-remove-linked-list-elements/</link>
+      <pubDate>Sun, 28 May 2017 17:26:57 +0000</pubDate>
+      
+      <guid>/2017/05/29/leetcode-remove-linked-list-elements/</guid>
+      <description>Remove all elements from a linked list of integers that have value val. Example Given: 1 –&amp;gt; 2 –&amp;gt; 6 –&amp;gt; 3 –&amp;gt; 4 –&amp;gt; 5 –&amp;gt; 6, val = 6 Return: 1 –&amp;gt; 2 –&amp;gt; 3 –</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–Palindrome-Linked-List</title>
+      <link>/2017/05/28/leetcode-palindrome-linked-list/</link>
+      <pubDate>Sun, 28 May 2017 15:41:00 +0000</pubDate>
+      
+      <guid>/2017/05/28/leetcode-palindrome-linked-list/</guid>
+      <description>Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space?</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–odd-even-linked-list</title>
+      <link>/2017/05/28/leetcode-odd-even-linked-list/</link>
+      <pubDate>Sun, 28 May 2017 11:43:15 +0000</pubDate>
+      
+      <guid>/2017/05/28/leetcode-odd-even-linked-list/</guid>
+      <description>最近主要练习链表的变换，这个题很经典，特别是容易忽略末尾出现的闭环 Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–reverse-nodes-in-k-group</title>
+      <link>/2017/05/28/leetcode-reverse-nodes-in-k-group/</link>
+      <pubDate>Sun, 28 May 2017 06:03:17 +0000</pubDate>
+      
+      <guid>/2017/05/28/leetcode-reverse-nodes-in-k-group/</guid>
+      <description>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only</description>
+    </item>
+    
+    <item>
+      <title>LeetCode–MergeKList</title>
+      <link>/2017/05/22/leetcode-mergeklist/</link>
+      <pubDate>Mon, 22 May 2017 13:57:33 +0000</pubDate>
+      
+      <guid>/2017/05/22/leetcode-mergeklist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LeetCode–链表排序O(nlogn)</title>
+      <link>/2017/05/21/leetcode-sortlink/</link>
+      <pubDate>Sun, 21 May 2017 05:36:41 +0000</pubDate>
+      
+      <guid>/2017/05/21/leetcode-sortlink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LeetCode–统计更小值数量</title>
+      <link>/2017/05/19/leetcode-countsmaller/</link>
+      <pubDate>Fri, 19 May 2017 08:45:55 +0000</pubDate>
+      
+      <guid>/2017/05/19/leetcode-countsmaller/</guid>
+      <description>Time: O(nlogn) Space: O(n) You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]. Example: Given nums = [5, 2, 6, 1] To the right of 5 there are 2 smaller elements (2 and 1). To the right of 2 there is only 1 smaller</description>
+    </item>
+    
+    <item>
+      <title>LeetCode－－实现字典树</title>
+      <link>/2017/05/18/leetcode-imp-trietree/</link>
+      <pubDate>Thu, 18 May 2017 13:34:59 +0000</pubDate>
+      
+      <guid>/2017/05/18/leetcode-imp-trietree/</guid>
+      <description>但是LeetCode的评分是73％ 400ms， 回头看看应该是节点类的抽象开销导致，于是改的简单点直接用字典实现：</description>
+    </item>
+    
+    <item>
+      <title>算法－－按层打印二叉树</title>
+      <link>/2017/05/18/algorithm-print-tree/</link>
+      <pubDate>Thu, 18 May 2017 11:54:27 +0000</pubDate>
+      
+      <guid>/2017/05/18/algorithm-print-tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LeetCode－－字典树的添加和搜索单词</title>
+      <link>/2017/05/18/leetcode_trietree/</link>
+      <pubDate>Thu, 18 May 2017 08:44:26 +0000</pubDate>
+      
+      <guid>/2017/05/18/leetcode_trietree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MongoDB的数据聚合使用实例</title>
+      <link>/2017/04/20/mongodb_-aggregate/</link>
+      <pubDate>Thu, 20 Apr 2017 06:11:23 +0000</pubDate>
+      
+      <guid>/2017/04/20/mongodb_-aggregate/</guid>
+      <description>由于妹子的毕业设计项目就是用的mongodb，所以对mongodb有初步接触，熟悉了基本用法和特性，但是毕竟毕业设计的项目是个玩具，所以一直</description>
+    </item>
+    
+    <item>
+      <title>果然我也遇到了gevent.hub.LoopExit的报错了</title>
+      <link>/2017/04/03/%E6%9E%9C%E7%84%B6%E6%88%91%E4%B9%9F%E9%81%87%E5%88%B0%E4%BA%86gevent-hub-loopexit%E7%9A%84%E6%8A%A5%E9%94%99%E4%BA%86/</link>
+      <pubDate>Mon, 03 Apr 2017 09:18:45 +0000</pubDate>
+      
+      <guid>/2017/04/03/%E6%9E%9C%E7%84%B6%E6%88%91%E4%B9%9F%E9%81%87%E5%88%B0%E4%BA%86gevent-hub-loopexit%E7%9A%84%E6%8A%A5%E9%94%99%E4%BA%86/</guid>
+      <description>gevent.hub.LoopExit: (‘This operation would block forever’, &amp;lt;Hub at 0x1076b7e10 select default pending=0 ref=0 resolver=&amp;lt;gevent.resolver_thread.Resolver at 0x1077eec90 pool=&amp;lt;ThreadPool at 0x1077eecd0 0/10/10&amp;raquo; threadpool=&amp;lt;ThreadPool at 0x1077eecd0 0/10/10&amp;raquo;) http://xiaorui.cc/2016/08/07/%E5%85%B3%E4%BA%8Egevent-queue%E9%81%AD%E9%81%87hub-loopexit%E9%97%AE%E9%A2%98/</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>/2017/03/06/test/</link>
+      <pubDate>Mon, 06 Mar 2017 15:03:22 +0000</pubDate>
+      
+      <guid>/2017/03/06/test/</guid>
+      <description>lalala….</description>
+    </item>
+    
+    <item>
+      <title>记一道去哪儿的笔试题</title>
+      <link>/2016/10/16/qunar-coding-test/</link>
+      <pubDate>Sun, 16 Oct 2016 03:14:58 +0000</pubDate>
+      
+      <guid>/2016/10/16/qunar-coding-test/</guid>
+      <description>昨天参加了去哪儿的笔试题，给我分的软件开发卷，两道编程和一个系统设计，两道都不没有完全通过，有一道后来知道自己考虑不周，于是打算重新写一边，</description>
+    </item>
+    
+    <item>
+      <title>记一道Google Test</title>
+      <link>/2016/10/12/google-test/</link>
+      <pubDate>Wed, 12 Oct 2016 10:34:50 +0000</pubDate>
+      
+      <guid>/2016/10/12/google-test/</guid>
+      <description>自己算法太烂太渣，只有慢慢练，一个运维还是得会写代码，看得懂代码。所以最近一边面试一边自己找题目练习。原题是： Problem The Constitution of a certain country states that the leader is the person with</description>
+    </item>
+    
+    <item>
+      <title>[转载] Http的1.0/1.1/2.0的理解</title>
+      <link>/2016/10/11/http-https/</link>
+      <pubDate>Tue, 11 Oct 2016 04:42:16 +0000</pubDate>
+      
+      <guid>/2016/10/11/http-https/</guid>
+      <description>先说Http1.0和Http1.1，都是支持Gzip(之前我有误解)的,http 1.0中默认是关闭的，需要在http头加入”Connecti</description>
+    </item>
+    
+    <item>
+      <title>TCP的滑动窗口和拥塞控制</title>
+      <link>/2016/10/09/tcp-window_control/</link>
+      <pubDate>Sun, 09 Oct 2016 10:32:23 +0000</pubDate>
+      
+      <guid>/2016/10/09/tcp-window_control/</guid>
+      <description>TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量控制由滑动窗口协议保证，而拥塞控制则由控制窗口结合一系列的控制算法实现。 一.滑动窗口</description>
+    </item>
+    
+    <item>
+      <title>关于fork和操作系统一些知识</title>
+      <link>/2016/09/16/fork-system-status-route/</link>
+      <pubDate>Fri, 16 Sep 2016 11:16:48 +0000</pubDate>
+      
+      <guid>/2016/09/16/fork-system-status-route/</guid>
+      <description>A: 牛客网刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。 题目是： 共创建了（３）个进程 解释是： fork()给子进程返回一个零值，而给</description>
+    </item>
+    
+    <item>
+      <title>Linux 常用命令–ps，head/tail， less/more</title>
+      <link>/2016/09/13/linux-ps-head-tail-less-more/</link>
+      <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
+      
+      <guid>/2016/09/13/linux-ps-head-tail-less-more/</guid>
+      <description>PS ps -ef ps aux 按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11 #假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem</description>
+    </item>
+    
+    <item>
+      <title>Linux 进程杂乱总结</title>
+      <link>/2016/09/13/linux-process/</link>
+      <pubDate>Tue, 13 Sep 2016 03:46:16 +0000</pubDate>
+      
+      <guid>/2016/09/13/linux-process/</guid>
+      <description>我们知道在unix/linux中，正常情况下，子进程是通过父进程创建的，子进程在创建新的进程。子进程的结束和父进程的运行是一个异步过程,即父</description>
+    </item>
+    
+    <item>
+      <title>记网易笔试两道编程题</title>
+      <link>/2016/09/12/netease-coding-test/</link>
+      <pubDate>Mon, 12 Sep 2016 14:28:47 +0000</pubDate>
+      
+      <guid>/2016/09/12/netease-coding-test/</guid>
+      <description>第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数: 第二道是给你一个N正整数，求1,2,3…N 的各项最大奇</description>
+    </item>
+    
+    <item>
+      <title>[转载]TCP/IP的三次握手的详细过程</title>
+      <link>/2016/09/10/tcp-ip-connect/</link>
+      <pubDate>Sat, 10 Sep 2016 09:11:09 +0000</pubDate>
+      
+      <guid>/2016/09/10/tcp-ip-connect/</guid>
+      <description>TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接: 位码即tcp标志位,有6种标示:SYN(synchro</description>
+    </item>
+    
+    <item>
+      <title>不再缘木求鱼，时间如此宝贵，Docker下ubuntu安装QQ失败</title>
+      <link>/2016/09/08/docker-ubuntu-qq-failed/</link>
+      <pubDate>Wed, 07 Sep 2016 16:55:16 +0000</pubDate>
+      
+      <guid>/2016/09/08/docker-ubuntu-qq-failed/</guid>
+      <description>今下午本来是准备照着国外的一个教程，好好跟着过写一遍如何用python写一个异步web服务端，但是无意中看到一个QQ的新闻，于是想起来很久之</description>
+    </item>
+    
+    <item>
+      <title>理解Python中super()和__init__()方法</title>
+      <link>/2016/09/07/python_super__init__/</link>
+      <pubDate>Wed, 07 Sep 2016 07:20:07 +0000</pubDate>
+      
+      <guid>/2016/09/07/python_super__init__/</guid>
+      <description>在实用多线程编程时，在栈溢出网站有看到多种方法，比如直接用函数，有用class继承，代码如下： 但也有发现另外一种继承的方法： 然后在pytho</description>
+    </item>
+    
+    <item>
+      <title>记一个京东技术运营的编程题</title>
+      <link>/2016/09/06/jingdong-codingtest/</link>
+      <pubDate>Tue, 06 Sep 2016 09:50:39 +0000</pubDate>
+      
+      <guid>/2016/09/06/jingdong-codingtest/</guid>
+      <description>昨晚参加了京东2016秋招的技术类笔试，无奈自己编程基础不扎实，昨晚一个编程题弄了45来分钟也没完整解决，今天实习比较闲，所以依据记忆终于解</description>
+    </item>
+    
+    <item>
+      <title>本站的改造升级，全站https失败</title>
+      <link>/2016/08/29/web-update-https/</link>
+      <pubDate>Mon, 29 Aug 2016 15:56:52 +0000</pubDate>
+      
+      <guid>/2016/08/29/web-update-https/</guid>
+      <description>最近的找工作压力很大，我这”洁癖男“在压力下想换个思路转一下注意力，以便下一步高效复习准备接下来的运维开发的笔试面试。于是想起自己的网站如今</description>
+    </item>
+    
+    <item>
+      <title>计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手</title>
+      <link>/2016/08/28/network-tcp-ip/</link>
+      <pubDate>Sun, 28 Aug 2016 13:21:37 +0000</pubDate>
+      
+      <guid>/2016/08/28/network-tcp-ip/</guid>
+      <description>ARP/RARP协议 路由选择协议 TCP/IP协议 UDP协议 DNS协议 NAT协议 DHCP协议 HTTP协议 一个举例 ARP/RARP协议 地址解析协</description>
+    </item>
+    
+    <item>
+      <title>计算机网络基础知识总结（1）–网络层，IP，主机，子网</title>
+      <link>/2016/08/28/network-ip-mask-host/</link>
+      <pubDate>Sun, 28 Aug 2016 13:09:25 +0000</pubDate>
+      
+      <guid>/2016/08/28/network-ip-mask-host/</guid>
+      <description>网络层次划分 OSI七层网络模型 IP地址 子网掩码及网络划分 计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进行数据交换而建</description>
+    </item>
+    
+    <item>
+      <title>Python爬虫–爬取糗事百科段子</title>
+      <link>/2016/08/25/python-spider-duanzi/</link>
+      <pubDate>Thu, 25 Aug 2016 04:43:26 +0000</pubDate>
+      
+      <guid>/2016/08/25/python-spider-duanzi/</guid>
+      <description>学习python爬虫，先从爬糗事百科开始。 是照着别人的，慢慢自己敲的，部分修改，实测可用。</description>
+    </item>
+    
+    <item>
+      <title>【转载WIKI】关于MBR–主引导记录</title>
+      <link>/2016/08/20/mbr-wiki/</link>
+      <pubDate>Sat, 20 Aug 2016 09:32:31 +0000</pubDate>
+      
+      <guid>/2016/08/20/mbr-wiki/</guid>
+      <description>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后</description>
+    </item>
+    
+    <item>
+      <title>Linux下/etc的hosts,hosts.conf,hostname, resolv.conf,hosts.deny/allow文件解释</title>
+      <link>/2016/08/16/linux-etc-host/</link>
+      <pubDate>Tue, 16 Aug 2016 03:31:21 +0000</pubDate>
+      
+      <guid>/2016/08/16/linux-etc-host/</guid>
+      <description>hosts文件： hosts文件的作用相当如DNS，提供IP地址到hostname的对应。 说明： 早期的互联网计算机少，单机hosts文件里足够</description>
+    </item>
+    
+    <item>
+      <title>/etc/hosts.allow和/etc/hosts.deny配置解释</title>
+      <link>/2016/08/16/etchosts-allow-etchosts-deny/</link>
+      <pubDate>Tue, 16 Aug 2016 03:27:27 +0000</pubDate>
+      
+      <guid>/2016/08/16/etchosts-allow-etchosts-deny/</guid>
+      <description>/etc/hosts.allow和/etc/hosts.deny两个文件是控制远程访问设置的， 修改/etc/hosts.allow文件 sshd:210.13.118.* sshd:222.127.15.* 两</description>
+    </item>
+    
+    <item>
+      <title>Docker的centos7内部启动systemctl出现BUG的解决办法</title>
+      <link>/2016/08/13/docker-centos7-systemctl-bug/</link>
+      <pubDate>Sat, 13 Aug 2016 04:04:01 +0000</pubDate>
+      
+      <guid>/2016/08/13/docker-centos7-systemctl-bug/</guid>
+      <description>Failed to get D-Bus connection: Operation not permitted ————————————————————— 距离这个问题一天之后，最后我经过Google，在红帽的一个开发者博客找到了答案，经</description>
+    </item>
+    
+    <item>
+      <title>保持SSH连接不断线（服务端，客户端）</title>
+      <link>/2016/08/12/ssh-keep-connected/</link>
+      <pubDate>Fri, 12 Aug 2016 04:26:12 +0000</pubDate>
+      
+      <guid>/2016/08/12/ssh-keep-connected/</guid>
+      <description>最近一直游荡于各个校招群，清早群里有人问到如何保持ssh连接，群内有人提出用screen，和nohup等解决办法，不久前我配置Ganglia</description>
+    </item>
+    
+    <item>
+      <title>Python—-str,list,dict,set,tuple的互相转换和操作</title>
+      <link>/2016/07/29/python-str-list-dict-set-tuple/</link>
+      <pubDate>Fri, 29 Jul 2016 08:08:45 +0000</pubDate>
+      
+      <guid>/2016/07/29/python-str-list-dict-set-tuple/</guid>
+      <description>Python的字符操作很常用，应此需要熟记于心； 将str转换为list以及list转化为str：</description>
+    </item>
+    
+    <item>
+      <title>Mysql的基本操作（1）</title>
+      <link>/2016/04/25/mysql_basic_operation/</link>
+      <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
+      
+      <guid>/2016/04/25/mysql_basic_operation/</guid>
+      <description>登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会</description>
+    </item>
+    
+    <item>
+      <title>意外的笔试以及遇到的意外Java问题</title>
+      <link>/2016/04/22/jvm_terminated-exit_code13/</link>
+      <pubDate>Fri, 22 Apr 2016 14:35:50 +0000</pubDate>
+      
+      <guid>/2016/04/22/jvm_terminated-exit_code13/</guid>
+      <description>邻近毕业，前几天投递一个份优酷土豆的实习生的简历，投递的是运维开发工程实习生，但是意外的是，今天收到了大数据开发的的笔试通知，通知邮件提示我</description>
+    </item>
+    
+    <item>
+      <title>Shell之IS_Root&amp;&amp;</title>
+      <link>/2016/04/20/shell%E4%B9%8Bis_root/</link>
+      <pubDate>Wed, 20 Apr 2016 13:23:48 +0000</pubDate>
+      
+      <guid>/2016/04/20/shell%E4%B9%8Bis_root/</guid>
+      <description>验证是否为Root： 发行版本：</description>
+    </item>
+    
+    <item>
+      <title>Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）</title>
+      <link>/2016/02/23/linux-com/</link>
+      <pubDate>Tue, 23 Feb 2016 07:39:52 +0000</pubDate>
+      
+      <guid>/2016/02/23/linux-com/</guid>
+      <description>$N:表示第N个参数，例如$1,$2,$3 $*：表示把所有参数作为一个字符串 $@:表示把每个参数单独作为一个字符串； $!:表示刚执行的命令的</description>
+    </item>
+    
+    <item>
+      <title>Linux重要命令之—grep&amp;&amp;cut</title>
+      <link>/2016/02/18/linux-script-grep_cut/</link>
+      <pubDate>Thu, 18 Feb 2016 13:21:17 +0000</pubDate>
+      
+      <guid>/2016/02/18/linux-script-grep_cut/</guid>
+      <description>grep 的基本用法，找出字符串所在行： 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记： 使用正则表达式： 还可以用e</description>
+    </item>
+    
+    <item>
+      <title>关于不会跑</title>
+      <link>/about/</link>
+      <pubDate>Tue, 27 Oct 2015 13:13:37 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>通信工程专业，大学折腾了三年，毕业走上了运维研发的道路，深感自己基础不够扎实, 受前公司诸多前同事的影响，恶补计算机基础和底层知识中，欢迎一起</description>
+    </item>
+    
+    <item>
+      <title>搬运墙外Chromebook的Chrubuntu方法安装ubuntu</title>
+      <link>/2015/10/27/chromebook_chrubuntu_ubuntu/</link>
+      <pubDate>Mon, 26 Oct 2015 16:03:39 +0000</pubDate>
+      
+      <guid>/2015/10/27/chromebook_chrubuntu_ubuntu/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;lt;span id=&amp;quot;OUTFOX_JTR_TRANS_NODE-44&amp;quot; class=&amp;quot;OUTFOX_JTR_TRANS_NODE&amp;quot;&amp;gt;这将安装32位版本的Xubuntu和最新LTS版</description>
+    </item>
+    
+    <item>
+      <title>诺基亚全机型固件下载和强刷系统</title>
+      <link>/2015/06/01/nokia_recovery/</link>
+      <pubDate>Mon, 01 Jun 2015 08:31:44 +0000</pubDate>
+      
+      <guid>/2015/06/01/nokia_recovery/</guid>
+      <description>近日发现很多朋友犹豫尝试了win10手机预览版，犹豫预览版还存在诸多BUG和问题，导致机友们后悔不已，连忙准备系统回滚至wp8/8.1,但需</description>
+    </item>
+    
+    <item>
+      <title>windows10手机版回滚wp8.1突变QHSUSB_DLOAD模式，非JTAG黑砖修复</title>
+      <link>/2015/05/10/windowsphone_comeback/</link>
+      <pubDate>Sun, 10 May 2015 02:16:52 +0000</pubDate>
+      
+      <guid>/2015/05/10/windowsphone_comeback/</guid>
+      <description>许多尝试windows10手机版的朋友们，由于觉得新的系统存在太多的BUG,于是乎准备回滚到wp8.1，但是悲剧发生了，大量的用户的LUMI</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stack on 不会跑</title>
+    <link>/tags/stack/</link>
+    <description>Recent content in stack on 不会跑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
+    <lastBuildDate>Thu, 29 Jun 2017 03:08:00 +0000</lastBuildDate><atom:link href="/tags/stack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode-Min_Stack</title>
+      <link>/2017/06/29/leetcode-min_stack/</link>
+      <pubDate>Thu, 29 Jun 2017 03:08:00 +0000</pubDate>
+      
+      <guid>/2017/06/29/leetcode-min_stack/</guid>
+      <description>经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈</description>
+    </item>
+    
+  </channel>
+</rss>
