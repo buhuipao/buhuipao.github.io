@@ -1,9 +1,0 @@
-[submodule "themes/hugo-index"]
-	path = themes/hugo-index
-	url = git@github.com:adityatelange/hugo-index.git
-[submodule "themes/ink-free"]
-	path = themes/ink-free
-	url = git@github.com:chollinger93/ink-free.git
-[submodule "themes/hugo-ink"]
-	path = themes/hugo-ink
-	url = git@github.com:knadh/hugo-ink.git
