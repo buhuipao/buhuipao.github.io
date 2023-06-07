@@ -1,5 +1,5 @@
 title = "不会跑"
-##baseURL = "https://buhuipao.github.io/"
+baseURL = "https://buhuipao.github.io/"
 #baseURL = "https://buhuipao.com/"
 languageCode = "zh-CN"
 hasCJKLanguage = true

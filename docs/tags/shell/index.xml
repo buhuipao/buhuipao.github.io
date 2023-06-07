@@ -2,54 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on 不会跑</title>
-    <link>/tags/shell/</link>
+    <link>https://buhuipao.github.io/tags/shell/</link>
     <description>Recent content in shell on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Tue, 13 Sep 2016 03:46:16 +0000</lastBuildDate><atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Sep 2016 03:46:16 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 进程杂乱总结</title>
-      <link>/2016/09/13/linux-process/</link>
+      <link>https://buhuipao.github.io/2016/09/13/linux-process/</link>
       <pubDate>Tue, 13 Sep 2016 03:46:16 +0000</pubDate>
       
-      <guid>/2016/09/13/linux-process/</guid>
+      <guid>https://buhuipao.github.io/2016/09/13/linux-process/</guid>
       <description>我们知道在unix/linux中，正常情况下，子进程是通过父进程创建的，子进程在创建新的进程。子进程的结束和父进程的运行是一个异步过程,即父</description>
     </item>
     
     <item>
       <title>Mysql的基本操作（1）</title>
-      <link>/2016/04/25/mysql_basic_operation/</link>
+      <link>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</link>
       <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
       
-      <guid>/2016/04/25/mysql_basic_operation/</guid>
+      <guid>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</guid>
       <description>登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会</description>
     </item>
     
     <item>
       <title>Shell之IS_Root&amp;&amp;</title>
-      <link>/2016/04/20/shell%E4%B9%8Bis_root/</link>
+      <link>https://buhuipao.github.io/2016/04/20/shell%E4%B9%8Bis_root/</link>
       <pubDate>Wed, 20 Apr 2016 13:23:48 +0000</pubDate>
       
-      <guid>/2016/04/20/shell%E4%B9%8Bis_root/</guid>
+      <guid>https://buhuipao.github.io/2016/04/20/shell%E4%B9%8Bis_root/</guid>
       <description>验证是否为Root： 发行版本：</description>
     </item>
     
     <item>
       <title>Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）</title>
-      <link>/2016/02/23/linux-com/</link>
+      <link>https://buhuipao.github.io/2016/02/23/linux-com/</link>
       <pubDate>Tue, 23 Feb 2016 07:39:52 +0000</pubDate>
       
-      <guid>/2016/02/23/linux-com/</guid>
+      <guid>https://buhuipao.github.io/2016/02/23/linux-com/</guid>
       <description>$N:表示第N个参数，例如$1,$2,$3 $*：表示把所有参数作为一个字符串 $@:表示把每个参数单独作为一个字符串； $!:表示刚执行的命令的</description>
     </item>
     
     <item>
       <title>Linux重要命令之—grep&amp;&amp;cut</title>
-      <link>/2016/02/18/linux-script-grep_cut/</link>
+      <link>https://buhuipao.github.io/2016/02/18/linux-script-grep_cut/</link>
       <pubDate>Thu, 18 Feb 2016 13:21:17 +0000</pubDate>
       
-      <guid>/2016/02/18/linux-script-grep_cut/</guid>
+      <guid>https://buhuipao.github.io/2016/02/18/linux-script-grep_cut/</guid>
       <description>grep 的基本用法，找出字符串所在行： 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记： 使用正则表达式： 还可以用e</description>
     </item>
     

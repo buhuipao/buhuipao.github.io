@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MBR on 不会跑</title>
-    <link>/tags/mbr/</link>
+    <link>https://buhuipao.github.io/tags/mbr/</link>
     <description>Recent content in MBR on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Sat, 20 Aug 2016 09:32:31 +0000</lastBuildDate><atom:link href="/tags/mbr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Aug 2016 09:32:31 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/mbr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载WIKI】关于MBR–主引导记录</title>
-      <link>/2016/08/20/mbr-wiki/</link>
+      <link>https://buhuipao.github.io/2016/08/20/mbr-wiki/</link>
       <pubDate>Sat, 20 Aug 2016 09:32:31 +0000</pubDate>
       
-      <guid>/2016/08/20/mbr-wiki/</guid>
+      <guid>https://buhuipao.github.io/2016/08/20/mbr-wiki/</guid>
       <description>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后</description>
     </item>
     

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tree on 不会跑</title>
-    <link>/tags/tree/</link>
+    <link>https://buhuipao.github.io/tags/tree/</link>
     <description>Recent content in tree on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Sat, 15 Jul 2017 01:13:02 +0000</lastBuildDate><atom:link href="/tags/tree/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Jul 2017 01:13:02 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/tree/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode-Unique_Binary_Search_Trees</title>
-      <link>/2017/07/15/leetcode-unique_binary_search_trees/</link>
+      <link>https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/</link>
       <pubDate>Sat, 15 Jul 2017 01:13:02 +0000</pubDate>
       
-      <guid>/2017/07/15/leetcode-unique_binary_search_trees/</guid>
+      <guid>https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/</guid>
       <description>题目的意思就是给你1到n个数，你能组成多少种BST，解题思路就是：以每一个数做一次BST的root节点，然后求和所有次数即可，然后每次以i为</description>
     </item>
     

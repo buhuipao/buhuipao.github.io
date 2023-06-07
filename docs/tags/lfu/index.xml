@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LFU on 不会跑</title>
-    <link>/tags/lfu/</link>
+    <link>https://buhuipao.github.io/tags/lfu/</link>
     <description>Recent content in LFU on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Sun, 02 Jul 2017 14:30:22 +0000</lastBuildDate><atom:link href="/tags/lfu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jul 2017 14:30:22 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/lfu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode-LFU_Cache</title>
-      <link>/2017/07/02/leetcode-lfu_cache/</link>
+      <link>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</link>
       <pubDate>Sun, 02 Jul 2017 14:30:22 +0000</pubDate>
       
-      <guid>/2017/07/02/leetcode-lfu_cache/</guid>
+      <guid>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</guid>
       <description>LeetCode的设计题，比起之前的LRU稍微难点，但是根据《现代操作系统》的解释，需要使用一个counter进行频率的计数，下面给出的并不</description>
     </item>
     

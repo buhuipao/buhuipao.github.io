@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>设计 on 不会跑</title>
-    <link>/tags/%E8%AE%BE%E8%AE%A1/</link>
+    <link>https://buhuipao.github.io/tags/%E8%AE%BE%E8%AE%A1/</link>
     <description>Recent content in 设计 on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Fri, 30 Jun 2017 17:05:57 +0000</lastBuildDate><atom:link href="/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jun 2017 17:05:57 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode-Binary_Search_Tree_Iterator</title>
-      <link>/2017/07/01/leetcode-binary_search_tree_iterator/</link>
+      <link>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</link>
       <pubDate>Fri, 30 Jun 2017 17:05:57 +0000</pubDate>
       
-      <guid>/2017/07/01/leetcode-binary_search_tree_iterator/</guid>
+      <guid>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</guid>
       <description>一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两</description>
     </item>
     

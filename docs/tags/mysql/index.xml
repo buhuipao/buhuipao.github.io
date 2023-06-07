@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mysql on 不会跑</title>
-    <link>/tags/mysql/</link>
+    <link>https://buhuipao.github.io/tags/mysql/</link>
     <description>Recent content in mysql on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Mon, 29 Aug 2016 15:56:52 +0000</lastBuildDate><atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Aug 2016 15:56:52 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>本站的改造升级，全站https失败</title>
-      <link>/2016/08/29/web-update-https/</link>
+      <link>https://buhuipao.github.io/2016/08/29/web-update-https/</link>
       <pubDate>Mon, 29 Aug 2016 15:56:52 +0000</pubDate>
       
-      <guid>/2016/08/29/web-update-https/</guid>
+      <guid>https://buhuipao.github.io/2016/08/29/web-update-https/</guid>
       <description>最近的找工作压力很大，我这”洁癖男“在压力下想换个思路转一下注意力，以便下一步高效复习准备接下来的运维开发的笔试面试。于是想起自己的网站如今</description>
     </item>
     
     <item>
       <title>Mysql的基本操作（1）</title>
-      <link>/2016/04/25/mysql_basic_operation/</link>
+      <link>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</link>
       <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
       
-      <guid>/2016/04/25/mysql_basic_operation/</guid>
+      <guid>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</guid>
       <description>登陆数据库： 注：buhuipao_db为登陆后的所用数据库，也可以登陆后在使用：use buhuipao_db； -p后面接密码，直接登陆，不会</description>
     </item>
     

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>java on 不会跑</title>
-    <link>/tags/java/</link>
+    <link>https://buhuipao.github.io/tags/java/</link>
     <description>Recent content in java on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Fri, 22 Apr 2016 14:35:50 +0000</lastBuildDate><atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Apr 2016 14:35:50 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>意外的笔试以及遇到的意外Java问题</title>
-      <link>/2016/04/22/jvm_terminated-exit_code13/</link>
+      <link>https://buhuipao.github.io/2016/04/22/jvm_terminated-exit_code13/</link>
       <pubDate>Fri, 22 Apr 2016 14:35:50 +0000</pubDate>
       
-      <guid>/2016/04/22/jvm_terminated-exit_code13/</guid>
+      <guid>https://buhuipao.github.io/2016/04/22/jvm_terminated-exit_code13/</guid>
       <description>邻近毕业，前几天投递一个份优酷土豆的实习生的简历，投递的是运维开发工程实习生，但是意外的是，今天收到了大数据开发的的笔试通知，通知邮件提示我</description>
     </item>
     

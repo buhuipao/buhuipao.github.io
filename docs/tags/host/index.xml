@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>host on 不会跑</title>
-    <link>/tags/host/</link>
+    <link>https://buhuipao.github.io/tags/host/</link>
     <description>Recent content in host on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Tue, 11 Oct 2016 04:42:16 +0000</lastBuildDate><atom:link href="/tags/host/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2016 04:42:16 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/host/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[转载] Http的1.0/1.1/2.0的理解</title>
-      <link>/2016/10/11/http-https/</link>
+      <link>https://buhuipao.github.io/2016/10/11/http-https/</link>
       <pubDate>Tue, 11 Oct 2016 04:42:16 +0000</pubDate>
       
-      <guid>/2016/10/11/http-https/</guid>
+      <guid>https://buhuipao.github.io/2016/10/11/http-https/</guid>
       <description>先说Http1.0和Http1.1，都是支持Gzip(之前我有误解)的,http 1.0中默认是关闭的，需要在http头加入”Connecti</description>
     </item>
     
     <item>
       <title>计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手</title>
-      <link>/2016/08/28/network-tcp-ip/</link>
+      <link>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</link>
       <pubDate>Sun, 28 Aug 2016 13:21:37 +0000</pubDate>
       
-      <guid>/2016/08/28/network-tcp-ip/</guid>
+      <guid>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</guid>
       <description>ARP/RARP协议 路由选择协议 TCP/IP协议 UDP协议 DNS协议 NAT协议 DHCP协议 HTTP协议 一个举例 ARP/RARP协议 地址解析协</description>
     </item>
     
     <item>
       <title>Linux下/etc的hosts,hosts.conf,hostname, resolv.conf,hosts.deny/allow文件解释</title>
-      <link>/2016/08/16/linux-etc-host/</link>
+      <link>https://buhuipao.github.io/2016/08/16/linux-etc-host/</link>
       <pubDate>Tue, 16 Aug 2016 03:31:21 +0000</pubDate>
       
-      <guid>/2016/08/16/linux-etc-host/</guid>
+      <guid>https://buhuipao.github.io/2016/08/16/linux-etc-host/</guid>
       <description>hosts文件： hosts文件的作用相当如DNS，提供IP地址到hostname的对应。 说明： 早期的互联网计算机少，单机hosts文件里足够</description>
     </item>
     

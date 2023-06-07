@@ -2,54 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTTPS on 不会跑</title>
-    <link>/tags/https/</link>
+    <link>https://buhuipao.github.io/tags/https/</link>
     <description>Recent content in HTTPS on 不会跑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Sat, 03 Jun 2017 04:59:20 +0000</lastBuildDate><atom:link href="/tags/https/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jun 2017 04:59:20 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/https/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode–brick_wall</title>
-      <link>/2017/06/03/leetcode-brick_wall/</link>
+      <link>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</link>
       <pubDate>Sat, 03 Jun 2017 04:59:20 +0000</pubDate>
       
-      <guid>/2017/06/03/leetcode-brick_wall/</guid>
+      <guid>https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/</guid>
       <description>比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/ There is a brick wall</description>
     </item>
     
     <item>
       <title>[转载] Http的1.0/1.1/2.0的理解</title>
-      <link>/2016/10/11/http-https/</link>
+      <link>https://buhuipao.github.io/2016/10/11/http-https/</link>
       <pubDate>Tue, 11 Oct 2016 04:42:16 +0000</pubDate>
       
-      <guid>/2016/10/11/http-https/</guid>
+      <guid>https://buhuipao.github.io/2016/10/11/http-https/</guid>
       <description>先说Http1.0和Http1.1，都是支持Gzip(之前我有误解)的,http 1.0中默认是关闭的，需要在http头加入”Connecti</description>
     </item>
     
     <item>
       <title>记一个京东技术运营的编程题</title>
-      <link>/2016/09/06/jingdong-codingtest/</link>
+      <link>https://buhuipao.github.io/2016/09/06/jingdong-codingtest/</link>
       <pubDate>Tue, 06 Sep 2016 09:50:39 +0000</pubDate>
       
-      <guid>/2016/09/06/jingdong-codingtest/</guid>
+      <guid>https://buhuipao.github.io/2016/09/06/jingdong-codingtest/</guid>
       <description>昨晚参加了京东2016秋招的技术类笔试，无奈自己编程基础不扎实，昨晚一个编程题弄了45来分钟也没完整解决，今天实习比较闲，所以依据记忆终于解</description>
     </item>
     
     <item>
       <title>本站的改造升级，全站https失败</title>
-      <link>/2016/08/29/web-update-https/</link>
+      <link>https://buhuipao.github.io/2016/08/29/web-update-https/</link>
       <pubDate>Mon, 29 Aug 2016 15:56:52 +0000</pubDate>
       
-      <guid>/2016/08/29/web-update-https/</guid>
+      <guid>https://buhuipao.github.io/2016/08/29/web-update-https/</guid>
       <description>最近的找工作压力很大，我这”洁癖男“在压力下想换个思路转一下注意力，以便下一步高效复习准备接下来的运维开发的笔试面试。于是想起自己的网站如今</description>
     </item>
     
     <item>
       <title>【转载WIKI】关于MBR–主引导记录</title>
-      <link>/2016/08/20/mbr-wiki/</link>
+      <link>https://buhuipao.github.io/2016/08/20/mbr-wiki/</link>
       <pubDate>Sat, 20 Aug 2016 09:32:31 +0000</pubDate>
       
-      <guid>/2016/08/20/mbr-wiki/</guid>
+      <guid>https://buhuipao.github.io/2016/08/20/mbr-wiki/</guid>
       <description>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机{.mw-redirect.mw-disambig}开机后</description>
     </item>
     
