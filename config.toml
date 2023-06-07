@@ -9,7 +9,7 @@ pygmentsUseClasses = true
 paginate = 10
 paginatePath = "post"
 
-copyright = "© Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a>"
+copyright = "© Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script>"
 
 googleAnalyticsID = "UA-109197138-1"
 disqusShortname = "buhuipao"
@@ -38,7 +38,7 @@ disqusShortname = "buhuipao"
   url = "/about"
   weight = 3
 [[menu.main]]
-  name = "Tags"
+  name = "标签"
   url = "/tags"
   weight = 4
 
