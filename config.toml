@@ -1,5 +1,6 @@
 title = "不会跑"
-baseURL = "https://buhuipao.com/"
+##baseURL = "https://buhuipao.github.io/"
+#baseURL = "https://buhuipao.com/"
 languageCode = "zh-CN"
 hasCJKLanguage = true
 theme = "hugo-ink"
