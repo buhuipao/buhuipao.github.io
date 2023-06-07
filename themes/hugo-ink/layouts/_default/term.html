@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+
+<body>
+	<div class="container wrapper tags">
+		{{ partial "head.html" . }}
+
+		<h1 class="page-title p-name">{{ .Title }}</h1>
+		
+		<ul>
+			{{ range .Pages }}
+				<li><a href="{{ .Permalink }}" class="u-url">{{ .Title }}</a></li>
+			{{ end }}
+		</ul>
+	</div>
+
+	{{ partial "footer.html" . }}
+</body>
+
+</html>
