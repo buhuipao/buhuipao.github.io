@@ -2,7 +2,7 @@
 title: Stable diffusion UI colab
 author: 咩
 type: post
-date: 2020-06-20T20:31:47+00:00
+date: 2023-06-20T20:31:47+00:00
 url: /2023/06/20/stable-diffusion-ui-colab/
 categories:
   - AIGC 
