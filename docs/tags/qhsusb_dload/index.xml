@@ -4,18 +4,16 @@
     <title>QHSUSB_DLOAD on 不会跑</title>
     <link>https://buhuipao.github.io/tags/qhsusb_dload/</link>
     <description>Recent content in QHSUSB_DLOAD on 不会跑</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Sun, 10 May 2015 02:16:52 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/qhsusb_dload/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 May 2015 02:16:52 +0000</lastBuildDate>
+    <atom:link href="https://buhuipao.github.io/tags/qhsusb_dload/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>windows10手机版回滚wp8.1突变QHSUSB_DLOAD模式，非JTAG黑砖修复</title>
       <link>https://buhuipao.github.io/2015/05/10/windowsphone_comeback/</link>
       <pubDate>Sun, 10 May 2015 02:16:52 +0000</pubDate>
-      
       <guid>https://buhuipao.github.io/2015/05/10/windowsphone_comeback/</guid>
-      <description>许多尝试windows10手机版的朋友们，由于觉得新的系统存在太多的BUG,于是乎准备回滚到wp8.1，但是悲剧发生了，大量的用户的LUMI</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.buhuipao.com/wp-content/uploads/2015/05/1392197831776.jpg&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;许多尝试&lt;!-- raw HTML omitted --&gt;windows10手机版&lt;!-- raw HTML omitted --&gt;的朋友们，由于觉得新的系统存在太多的BUG,于是乎准备回滚到wp8.1，但是悲剧发生了，大量的用户的LUMIA手机变成黑砖，出现了&lt;strong&gt;QHSUSB_DLOAD&lt;/strong&gt;模式。本人也是众多小白鼠中的一只，在到处寻求救助之后，终于在一个QQ群里找到了方法，有人分享了几个&lt;!-- raw HTML omitted --&gt;重要链接&lt;!-- raw HTML omitted --&gt;，晚上便报以最后一点希望进行了尝试，没想到竟然成功，于是不敢私藏，赶紧分享！&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

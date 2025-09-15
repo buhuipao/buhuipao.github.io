@@ -4,18 +4,16 @@
     <title>DFS on 不会跑</title>
     <link>https://buhuipao.github.io/tags/dfs/</link>
     <description>Recent content in DFS on 不会跑</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Sat, 10 Jun 2017 14:03:15 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/dfs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Jun 2017 14:03:15 +0000</lastBuildDate>
+    <atom:link href="https://buhuipao.github.io/tags/dfs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode-clone_graph</title>
       <link>https://buhuipao.github.io/2017/06/10/leetcode-clone_graph/</link>
       <pubDate>Sat, 10 Jun 2017 14:03:15 +0000</pubDate>
-      
       <guid>https://buhuipao.github.io/2017/06/10/leetcode-clone_graph/</guid>
-      <description>克隆一个图， 用了两个遍历方法如下： Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. OJ’s undirected graph serialization: Nodes are labeled uniquely. We use # as a separator for each node, and , as a separator for node label and each neighbor of the node. As</description>
+      <description>&lt;p&gt;克隆一个图， 用了两个遍历方法如下：&lt;/p&gt;&#xA;&lt;p&gt;Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.&lt;/p&gt;&#xA;&lt;p&gt;OJ’s undirected graph serialization:&lt;/p&gt;&#xA;&lt;p&gt;Nodes are labeled uniquely.&lt;/p&gt;&#xA;&lt;p&gt;We use # as a separator for each node, and , as a separator for node label and each neighbor of the node.&lt;/p&gt;&#xA;&lt;p&gt;As an example, consider the serialized graph {0,1,2#1,2#2,2}.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

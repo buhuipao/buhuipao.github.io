@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sd-ui on 不会跑</title>
+    <title>Sd-Ui on 不会跑</title>
     <link>https://buhuipao.github.io/tags/sd-ui/</link>
-    <description>Recent content in sd-ui on 不会跑</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Sd-Ui on 不会跑</description>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Tue, 20 Jun 2023 20:31:47 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/sd-ui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jun 2023 20:31:47 +0000</lastBuildDate>
+    <atom:link href="https://buhuipao.github.io/tags/sd-ui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stable diffusion UI colab</title>
       <link>https://buhuipao.github.io/2023/06/20/stable-diffusion-ui-colab/</link>
       <pubDate>Tue, 20 Jun 2023 20:31:47 +0000</pubDate>
-      
       <guid>https://buhuipao.github.io/2023/06/20/stable-diffusion-ui-colab/</guid>
-      <description>利用空闲时间，整理了一个基于colab快速启动一套sd-ui的ipython notebook，具体链接：https://github.com</description>
+      <description>&lt;p&gt;利用空闲时间，整理了一个基于colab快速启动一套sd-ui的ipython notebook，具体链接：&lt;a href=&#34;https://github.com/buhuipao/sd-webui-colab&#34;&gt;https://github.com/buhuipao/sd-webui-colab&lt;/a&gt;。整个notebook包含以下几个单元：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install Stable Diffusion&lt;/li&gt;&#xA;&lt;li&gt;Load And Run Existing Stable Diffusion&lt;/li&gt;&#xA;&lt;li&gt;Just Start Stable Diffusion&lt;/li&gt;&#xA;&lt;li&gt;Open terminal TTY for debug&#xA;&lt;img src=&#34;https://buhuipao.github.io/img/sd-ui-ipynb.jpg&#34; alt=&#34;image.png&#34;&gt;&#xA;在运行之后，你便可以在里colab的标准输出里找到sd-ui的登录地址，默认用户名和密码是：admin/123456。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;需要特殊说明的是，这个notebook里有一个选项：「挂载Google Driver」，建议勾选。勾选之后你就可以将你的sd模型放到相应的目录，避免每次都进行下载了。&#xA;&lt;img src=&#34;https://buhuipao.github.io/img/google-driver-sd.jpg&#34; alt=&#34;google-driver-sd-dir&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

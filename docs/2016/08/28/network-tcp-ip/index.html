@@ -3,19 +3,59 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta itemprop="name" content="计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手">
-<meta itemprop="description" content="ARP/RARP协议 路由选择协议 TCP/IP协议 UDP协议 DNS协议 NAT协议 DHCP协议 HTTP协议 一个举例 ARP/RARP协议 地址解析协"><meta itemprop="datePublished" content="2016-08-28T13:21:37+00:00" />
-<meta itemprop="dateModified" content="2016-08-28T13:21:37+00:00" />
-<meta itemprop="wordCount" content="5457">
-<meta itemprop="keywords" content="host,IP,TCP/IP,网络协议," /><meta property="og:title" content="计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手" />
-<meta property="og:description" content="ARP/RARP协议 路由选择协议 TCP/IP协议 UDP协议 DNS协议 NAT协议 DHCP协议 HTTP协议 一个举例 ARP/RARP协议 地址解析协" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://buhuipao.github.io/2016/08/28/network-tcp-ip/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-08-28T13:21:37+00:00" />
-<meta property="article:modified_time" content="2016-08-28T13:21:37+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手"/>
-<meta name="twitter:description" content="ARP/RARP协议 路由选择协议 TCP/IP协议 UDP协议 DNS协议 NAT协议 DHCP协议 HTTP协议 一个举例 ARP/RARP协议 地址解析协"/>
+	
+  <meta itemprop="name" content="计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手">
+  <meta itemprop="description" content="ARP/RARP协议
+路由选择协议
+TCP/IP协议
+UDP协议
+DNS协议
+NAT协议
+DHCP协议
+HTTP协议
+一个举例
+ARP/RARP协议
+地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。地址解析协议是建立在网络中各个主机互相信任的基础上的，网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存；由此攻击者就可以向某一主机发送伪ARP应答报文，使其发送的信息无法到达预期的主机或到达错误的主机，这就构成了一个ARP欺骗。ARP命令可用于查询本机ARP缓存中IP地址和MAC地址的对应关系、添加或删除静态对应关系等。">
+  <meta itemprop="datePublished" content="2016-08-28T13:21:37+00:00">
+  <meta itemprop="dateModified" content="2016-08-28T13:21:37+00:00">
+  <meta itemprop="wordCount" content="5457">
+  <meta itemprop="keywords" content="Host,IP,TCP/IP,网络协议"><meta property="og:url" content="https://buhuipao.github.io/2016/08/28/network-tcp-ip/">
+  <meta property="og:site_name" content="不会跑">
+  <meta property="og:title" content="计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手">
+  <meta property="og:description" content="ARP/RARP协议
+路由选择协议
+TCP/IP协议
+UDP协议
+DNS协议
+NAT协议
+DHCP协议
+HTTP协议
+一个举例
+ARP/RARP协议
+地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。地址解析协议是建立在网络中各个主机互相信任的基础上的，网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存；由此攻击者就可以向某一主机发送伪ARP应答报文，使其发送的信息无法到达预期的主机或到达错误的主机，这就构成了一个ARP欺骗。ARP命令可用于查询本机ARP缓存中IP地址和MAC地址的对应关系、添加或删除静态对应关系等。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2016-08-28T13:21:37+00:00">
+    <meta property="article:modified_time" content="2016-08-28T13:21:37+00:00">
+    <meta property="article:tag" content="Host">
+    <meta property="article:tag" content="IP">
+    <meta property="article:tag" content="TCP/IP">
+    <meta property="article:tag" content="网络协议">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手">
+  <meta name="twitter:description" content="ARP/RARP协议
+路由选择协议
+TCP/IP协议
+UDP协议
+DNS协议
+NAT协议
+DHCP协议
+HTTP协议
+一个举例
+ARP/RARP协议
+地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。地址解析协议是建立在网络中各个主机互相信任的基础上的，网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存；由此攻击者就可以向某一主机发送伪ARP应答报文，使其发送的信息无法到达预期的主机或到达错误的主机，这就构成了一个ARP欺骗。ARP命令可用于查询本机ARP缓存中IP地址和MAC地址的对应关系、添加或删除静态对应关系等。">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -249,10 +289,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-
-<script>feather.replace()</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109197138-1');
+</script><script>feather.replace()</script>
 </body>
 </html>

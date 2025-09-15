@@ -3,19 +3,36 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ） - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta itemprop="name" content="Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）">
-<meta itemprop="description" content="$N:表示第N个参数，例如$1,$2,$3 $*：表示把所有参数作为一个字符串 $@:表示把每个参数单独作为一个字符串； $!:表示刚执行的命令的"><meta itemprop="datePublished" content="2016-02-23T07:39:52+00:00" />
-<meta itemprop="dateModified" content="2016-02-23T07:39:52+00:00" />
-<meta itemprop="wordCount" content="165">
-<meta itemprop="keywords" content="Linux,shell," /><meta property="og:title" content="Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）" />
-<meta property="og:description" content="$N:表示第N个参数，例如$1,$2,$3 $*：表示把所有参数作为一个字符串 $@:表示把每个参数单独作为一个字符串； $!:表示刚执行的命令的" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://buhuipao.github.io/2016/02/23/linux-com/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-02-23T07:39:52+00:00" />
-<meta property="article:modified_time" content="2016-02-23T07:39:52+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）"/>
-<meta name="twitter:description" content="$N:表示第N个参数，例如$1,$2,$3 $*：表示把所有参数作为一个字符串 $@:表示把每个参数单独作为一个字符串； $!:表示刚执行的命令的"/>
+	
+  <meta itemprop="name" content="Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）">
+  <meta itemprop="description" content="$N:表示第N个参数，例如$1,$2,$3
+$*：表示把所有参数作为一个字符串
+$@:表示把每个参数单独作为一个字符串；
+$!:表示刚执行的命令的pid；">
+  <meta itemprop="datePublished" content="2016-02-23T07:39:52+00:00">
+  <meta itemprop="dateModified" content="2016-02-23T07:39:52+00:00">
+  <meta itemprop="wordCount" content="165">
+  <meta itemprop="keywords" content="Linux,Shell"><meta property="og:url" content="https://buhuipao.github.io/2016/02/23/linux-com/">
+  <meta property="og:site_name" content="不会跑">
+  <meta property="og:title" content="Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）">
+  <meta property="og:description" content="$N:表示第N个参数，例如$1,$2,$3
+$*：表示把所有参数作为一个字符串
+$@:表示把每个参数单独作为一个字符串；
+$!:表示刚执行的命令的pid；">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2016-02-23T07:39:52+00:00">
+    <meta property="article:modified_time" content="2016-02-23T07:39:52+00:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Shell">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Linux 下特殊变量：（$N  $* $@  $!  $?  $0  $$  !$ ）">
+  <meta name="twitter:description" content="$N:表示第N个参数，例如$1,$2,$3
+$*：表示把所有参数作为一个字符串
+$@:表示把每个参数单独作为一个字符串；
+$!:表示刚执行的命令的pid；">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -131,10 +148,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-
-<script>feather.replace()</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109197138-1');
+</script><script>feather.replace()</script>
 </body>
 </html>

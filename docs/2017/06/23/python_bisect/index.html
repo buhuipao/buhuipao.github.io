@@ -3,19 +3,26 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Python二分查找的一个库–bisect - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta itemprop="name" content="Python二分查找的一个库–bisect">
-<meta itemprop="description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的"><meta itemprop="datePublished" content="2017-06-23T04:52:44+00:00" />
-<meta itemprop="dateModified" content="2017-06-23T04:52:44+00:00" />
-<meta itemprop="wordCount" content="279">
-<meta itemprop="keywords" content="二分查找," /><meta property="og:title" content="Python二分查找的一个库–bisect" />
-<meta property="og:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://buhuipao.github.io/2017/06/23/python_bisect/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-06-23T04:52:44+00:00" />
-<meta property="article:modified_time" content="2017-06-23T04:52:44+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Python二分查找的一个库–bisect"/>
-<meta name="twitter:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的"/>
+	
+  <meta itemprop="name" content="Python二分查找的一个库–bisect">
+  <meta itemprop="description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：">
+  <meta itemprop="datePublished" content="2017-06-23T04:52:44+00:00">
+  <meta itemprop="dateModified" content="2017-06-23T04:52:44+00:00">
+  <meta itemprop="wordCount" content="279">
+  <meta itemprop="keywords" content="二分查找"><meta property="og:url" content="https://buhuipao.github.io/2017/06/23/python_bisect/">
+  <meta property="og:site_name" content="不会跑">
+  <meta property="og:title" content="Python二分查找的一个库–bisect">
+  <meta property="og:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-06-23T04:52:44+00:00">
+    <meta property="article:modified_time" content="2017-06-23T04:52:44+00:00">
+    <meta property="article:tag" content="二分查找">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python二分查找的一个库–bisect">
+  <meta name="twitter:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -88,7 +95,7 @@
 					
 			<div class="markdown">
 				<p>今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">248</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">bisect</span> <span class="n">In</span> <span class="p">[</span><span class="mi">249</span><span class="p">]:</span> <span class="nb">dir</span><span class="p">(</span><span class="n">bisect</span><span class="p">)</span> <span class="n">Out</span><span class="p">[</span><span class="mi">249</span><span class="p">]:</span> <span class="p">[</span><span class="s1">&#39;\_\_builtins\_\_&#39;</span><span class="p">,</span> <span class="s1">&#39;\_\_doc\_\_&#39;</span><span class="p">,</span> <span class="s1">&#39;\_\_file\_\_&#39;</span><span class="p">,</span> <span class="s1">&#39;\_\_name\_\_&#39;</span><span class="p">,</span> <span class="s1">&#39;\_\_package\_\_&#39;</span><span class="p">,</span> <span class="s1">&#39;bisect&#39;</span><span class="p">,</span> <span class="s1">&#39;bisect\_left&#39;</span><span class="p">,</span> <span class="s1">&#39;bisect\_right&#39;</span><span class="p">,</span> <span class="s1">&#39;insort&#39;</span><span class="p">,</span> <span class="s1">&#39;insort\_left&#39;</span><span class="p">,</span> <span class="s1">&#39;insort\_right&#39;</span><span class="p">]</span> <span class="n">In</span> <span class="p">[</span><span class="mi">250</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span> <span class="n">In</span> <span class="p">[</span><span class="mi">251</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">insort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="n">In</span> <span class="p">[</span><span class="mi">252</span><span class="p">]:</span> <span class="n">a</span> <span class="n">Out</span><span class="p">[</span><span class="mi">252</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span> <span class="n">In</span> <span class="p">[</span><span class="mi">253</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 只试探并不插入，返回下标 Out[253]: 1 In [254]: a Out[254]: [2, 4, 5, 6, 9] In [255]: bisect.bisect\_left(a, 8) # 遇到重复项将尝试插入左边，同理bisect\_right为右边，只返回下标 Out[255]: 4 In [256]: a Out[256]: [2, 4, 5, 6, 9] In [257]: bisect.bisect\_left(a, 6) Out[257]: 3 In [258]: bisect.bisect\_right(a, 6) Out[258]: 4 In [259]: bisect.insort\_left(a, 8) # 遇到重复项将插入左边，同理bisect\_right为右边 In [260]: a Out[260]: [2, 4, 5, 6, 8, 9] In [261]: bisect.insort_left(a, 8) In [262]: a Out[262]: [2, 4, 5, 6, 8, 8, 9] # 左边的8才是最后插入的 </span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>In [<span style="color:#ae81ff">248</span>]: <span style="color:#f92672">import</span> bisect In [<span style="color:#ae81ff">249</span>]: dir(bisect) Out[<span style="color:#ae81ff">249</span>]: [<span style="color:#e6db74">&#39;\_\_builtins\_\_&#39;</span>, <span style="color:#e6db74">&#39;\_\_doc\_\_&#39;</span>, <span style="color:#e6db74">&#39;\_\_file\_\_&#39;</span>, <span style="color:#e6db74">&#39;\_\_name\_\_&#39;</span>, <span style="color:#e6db74">&#39;\_\_package\_\_&#39;</span>, <span style="color:#e6db74">&#39;bisect&#39;</span>, <span style="color:#e6db74">&#39;bisect\_left&#39;</span>, <span style="color:#e6db74">&#39;bisect\_right&#39;</span>, <span style="color:#e6db74">&#39;insort&#39;</span>, <span style="color:#e6db74">&#39;insort\_left&#39;</span>, <span style="color:#e6db74">&#39;insort\_right&#39;</span>] In [<span style="color:#ae81ff">250</span>]: a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>] In [<span style="color:#ae81ff">251</span>]: bisect<span style="color:#f92672">.</span>insort(a, <span style="color:#ae81ff">5</span>) In [<span style="color:#ae81ff">252</span>]: a Out[<span style="color:#ae81ff">252</span>]: [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>] In [<span style="color:#ae81ff">253</span>]: bisect<span style="color:#f92672">.</span>bisect(a, <span style="color:#ae81ff">3</span>) <span style="color:#75715e"># 只试探并不插入，返回下标 Out[253]: 1 In [254]: a Out[254]: [2, 4, 5, 6, 9] In [255]: bisect.bisect\_left(a, 8) # 遇到重复项将尝试插入左边，同理bisect\_right为右边，只返回下标 Out[255]: 4 In [256]: a Out[256]: [2, 4, 5, 6, 9] In [257]: bisect.bisect\_left(a, 6) Out[257]: 3 In [258]: bisect.bisect\_right(a, 6) Out[258]: 4 In [259]: bisect.insort\_left(a, 8) # 遇到重复项将插入左边，同理bisect\_right为右边 In [260]: a Out[260]: [2, 4, 5, 6, 8, 9] In [261]: bisect.insort_left(a, 8) In [262]: a Out[262]: [2, 4, 5, 6, 8, 8, 9] # 左边的8才是最后插入的 </span>
 </span></span></code></pre></div>
 			</div>
 
@@ -122,10 +129,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2023  © Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2023051785号-1</a> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-
-<script>feather.replace()</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109197138-1');
+</script><script>feather.replace()</script>
 </body>
 </html>

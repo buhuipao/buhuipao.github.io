@@ -41,10 +41,10 @@
     <loc>https://buhuipao.github.io/tags/%E6%80%9D%E8%80%83/</loc>
     <lastmod>2017-11-06T01:16:52+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/tags/%E6%88%90%E9%95%BF/</loc>
+    <loc>https://buhuipao.github.io/categories/%E6%88%90%E9%95%BF/</loc>
     <lastmod>2017-11-06T01:16:52+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/categories/%E6%88%90%E9%95%BF/</loc>
+    <loc>https://buhuipao.github.io/tags/%E6%88%90%E9%95%BF/</loc>
     <lastmod>2017-11-06T01:16:52+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/categories/algorithm/</loc>
@@ -392,13 +392,16 @@
     <loc>https://buhuipao.github.io/2016/09/10/tcp-ip-connect/</loc>
     <lastmod>2016-09-10T09:11:09+00:00</lastmod>
   </url><url>
+    <loc>https://buhuipao.github.io/tags/tcp/ip/</loc>
+    <lastmod>2016-09-10T09:11:09+00:00</lastmod>
+  </url><url>
     <loc>https://buhuipao.github.io/tags/centos7/</loc>
     <lastmod>2016-09-07T16:55:16+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/tags/docker/</loc>
+    <loc>https://buhuipao.github.io/categories/docker/</loc>
     <lastmod>2016-09-07T16:55:16+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/categories/docker/</loc>
+    <loc>https://buhuipao.github.io/tags/docker/</loc>
     <lastmod>2016-09-07T16:55:16+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/ssh/</loc>
@@ -511,7 +514,5 @@
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E9%BB%91%E7%A0%96/</loc>
     <lastmod>2015-05-10T02:16:52+00:00</lastmod>
-  </url><url>
-    <loc>https://buhuipao.github.io/tags/tcp/ip/</loc>
   </url>
 </urlset>

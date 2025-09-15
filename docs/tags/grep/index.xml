@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>grep on 不会跑</title>
+    <title>Grep on 不会跑</title>
     <link>https://buhuipao.github.io/tags/grep/</link>
-    <description>Recent content in grep on 不会跑</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Grep on 不会跑</description>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
-    <copyright>© Copyright buhuipao | &lt;a href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;粤ICP备2023051785号-1&lt;/a&gt; &lt;script&gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&#39;script&#39;); hm.src = &#39;https://hm.baidu.com/hm.js?f06b1a2b4a0b17b377b0bfac3f0d1a33&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(hm, s); })(); &lt;/script&gt;</copyright>
-    <lastBuildDate>Thu, 18 Feb 2016 13:21:17 +0000</lastBuildDate><atom:link href="https://buhuipao.github.io/tags/grep/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Feb 2016 13:21:17 +0000</lastBuildDate>
+    <atom:link href="https://buhuipao.github.io/tags/grep/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux重要命令之—grep&amp;&amp;cut</title>
       <link>https://buhuipao.github.io/2016/02/18/linux-script-grep_cut/</link>
       <pubDate>Thu, 18 Feb 2016 13:21:17 +0000</pubDate>
-      
       <guid>https://buhuipao.github.io/2016/02/18/linux-script-grep_cut/</guid>
-      <description>grep 的基本用法，找出字符串所在行： [buhuipao@localhost ~]$ echo -e &amp;#34;this is a word \n next line.&amp;#34; | grep word this is a word 找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto</description>
+      <description>&lt;p&gt;grep 的基本用法，找出字符串所在行：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;buhuipao@localhost ~&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;$ echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;this is a word \n next line.&amp;#34;&lt;/span&gt; | grep word&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;this is a word&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记：&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
