@@ -4,16 +4,10 @@ author: 咩
 type: post
 date: 2016-09-07T07:20:07+00:00
 url: /2016/09/07/python_super__init__/
-post_views_count:
-  - "55"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Python
 tags:
-  - python
+  - Python
 
 ---
 在实用多线程编程时，在[栈溢出网站][1]有看到多种方法，比如直接用函数，有用class继承，代码如下：

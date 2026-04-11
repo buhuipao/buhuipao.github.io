@@ -5,19 +5,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>稳定婚姻匹配问题 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <meta itemprop="name" content="稳定婚姻匹配问题">
+  <meta itemprop="description" content="什么是稳定婚姻匹配问题 稳定婚姻问题（Stable Marriage Problem）是一个经典的算法问题，最早由 David Gale 和 Lloyd Shapley 在 1962 年提出。问题描述如下：
+给定 N 个男性和 N 个女性，每个人都对所有异性有一个偏好排序列表。需要找到一种稳定的匹配方案，使得不存在这样的情况：男性 A 和女性 B 没有配对，但他们都更喜欢对方而不是各自当前的伴侣。如果存在这样的一对，就称之为&#34;不稳定对&#34;（blocking pair），整个匹配就是不稳定的。">
   <meta itemprop="datePublished" content="2017-08-26T16:06:53+00:00">
   <meta itemprop="dateModified" content="2017-08-26T16:06:53+00:00">
-  <meta itemprop="keywords" content="Algorithm,Python"><meta property="og:url" content="https://buhuipao.github.io/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/">
+  <meta itemprop="wordCount" content="942">
+  <meta itemprop="keywords" content="算法,面试"><meta property="og:url" content="https://buhuipao.github.io/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="稳定婚姻匹配问题">
+  <meta property="og:description" content="什么是稳定婚姻匹配问题 稳定婚姻问题（Stable Marriage Problem）是一个经典的算法问题，最早由 David Gale 和 Lloyd Shapley 在 1962 年提出。问题描述如下：
+给定 N 个男性和 N 个女性，每个人都对所有异性有一个偏好排序列表。需要找到一种稳定的匹配方案，使得不存在这样的情况：男性 A 和女性 B 没有配对，但他们都更喜欢对方而不是各自当前的伴侣。如果存在这样的一对，就称之为&#34;不稳定对&#34;（blocking pair），整个匹配就是不稳定的。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-08-26T16:06:53+00:00">
     <meta property="article:modified_time" content="2017-08-26T16:06:53+00:00">
+    <meta property="article:tag" content="算法">
+    <meta property="article:tag" content="面试">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="稳定婚姻匹配问题">
+  <meta name="twitter:description" content="什么是稳定婚姻匹配问题 稳定婚姻问题（Stable Marriage Problem）是一个经典的算法问题，最早由 David Gale 和 Lloyd Shapley 在 1962 年提出。问题描述如下：
+给定 N 个男性和 N 个女性，每个人都对所有异性有一个偏好排序列表。需要找到一种稳定的匹配方案，使得不存在这样的情况：男性 A 和女性 B 没有配对，但他们都更喜欢对方而不是各自当前的伴侣。如果存在这样的一对，就称之为&#34;不稳定对&#34;（blocking pair），整个匹配就是不稳定的。">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -89,11 +98,108 @@
 			</div>
 					
 			<div class="markdown">
-				
+				<h3 id="什么是稳定婚姻匹配问题">什么是稳定婚姻匹配问题</h3>
+<p>稳定婚姻问题（Stable Marriage Problem）是一个经典的算法问题，最早由 David Gale 和 Lloyd Shapley 在 1962 年提出。问题描述如下：</p>
+<p>给定 N 个男性和 N 个女性，每个人都对所有异性有一个偏好排序列表。需要找到一种稳定的匹配方案，使得不存在这样的情况：男性 A 和女性 B 没有配对，但他们都更喜欢对方而不是各自当前的伴侣。如果存在这样的一对，就称之为&quot;不稳定对&quot;（blocking pair），整个匹配就是不稳定的。</p>
+<h3 id="gale-shapley-算法">Gale-Shapley 算法</h3>
+<p>Gale-Shapley 算法（又称延迟接受算法）的核心思想非常简单：</p>
+<ol>
+<li>每一轮中，所有未匹配的男性向他们最喜欢的且还没被拒绝过的女性求婚；</li>
+<li>每位女性在所有求婚者（包括当前伴侣）中选择她最喜欢的一个，暂时接受，拒绝其余的；</li>
+<li>被拒绝的男性在下一轮继续向下一个偏好对象求婚；</li>
+<li>重复以上过程，直到所有人都配对成功。</li>
+</ol>
+<p>这个算法保证一定能找到一个稳定匹配，而且男方主动求婚的版本对男方是最优的。</p>
+<h3 id="python-实现">Python 实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">stable_marriage</span><span class="p">(</span><span class="n">men_prefs</span><span class="p">,</span> <span class="n">women_prefs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Gale-Shapley 稳定婚姻匹配算法
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :param men_prefs: 男性偏好字典, 如 {&#39;m1&#39;: [&#39;w1&#39;, &#39;w2&#39;, &#39;w3&#39;], ...}
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :param women_prefs: 女性偏好字典, 如 {&#39;w1&#39;: [&#39;m1&#39;, &#39;m2&#39;, &#39;m3&#39;], ...}
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :return: 匹配结果字典, 如 {&#39;m1&#39;: &#39;w1&#39;, &#39;m2&#39;: &#39;w2&#39;, ...}
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 记录每个男性下一个要求婚的女性索引</span>
+</span></span><span class="line"><span class="cl">    <span class="n">men_next</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">men_prefs</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 当前未匹配的男性集合</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free_men</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">men_prefs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 当前匹配结果：女性 -&gt; 男性</span>
+</span></span><span class="line"><span class="cl">    <span class="n">engaged</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 预处理：将女性的偏好列表转换为排名字典，方便O(1)比较</span>
+</span></span><span class="line"><span class="cl">    <span class="n">women_rank</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">prefs</span> <span class="ow">in</span> <span class="n">women_prefs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">women_rank</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="n">rank</span> <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">prefs</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 主循环：只要还有未匹配的男性就继续</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">free_men</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 取出一个未匹配的男性</span>
+</span></span><span class="line"><span class="cl">        <span class="n">man</span> <span class="o">=</span> <span class="n">free_men</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取他当前最想求婚的女性</span>
+</span></span><span class="line"><span class="cl">        <span class="n">woman</span> <span class="o">=</span> <span class="n">men_prefs</span><span class="p">[</span><span class="n">man</span><span class="p">][</span><span class="n">men_next</span><span class="p">[</span><span class="n">man</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 更新求婚索引</span>
+</span></span><span class="line"><span class="cl">        <span class="n">men_next</span><span class="p">[</span><span class="n">man</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">woman</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">engaged</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 女性当前未配对，直接接受</span>
+</span></span><span class="line"><span class="cl">            <span class="n">engaged</span><span class="p">[</span><span class="n">woman</span><span class="p">]</span> <span class="o">=</span> <span class="n">man</span>
+</span></span><span class="line"><span class="cl">            <span class="n">free_men</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 女性已经有伴侣，比较排名</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current_man</span> <span class="o">=</span> <span class="n">engaged</span><span class="p">[</span><span class="n">woman</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">women_rank</span><span class="p">[</span><span class="n">woman</span><span class="p">][</span><span class="n">man</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">women_rank</span><span class="p">[</span><span class="n">woman</span><span class="p">][</span><span class="n">current_man</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 新求婚者排名更高（数值更小），替换当前伴侣</span>
+</span></span><span class="line"><span class="cl">                <span class="n">engaged</span><span class="p">[</span><span class="n">woman</span><span class="p">]</span> <span class="o">=</span> <span class="n">man</span>
+</span></span><span class="line"><span class="cl">                <span class="n">free_men</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">free_men</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_man</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 否则拒绝新求婚者，他继续留在未匹配列表中</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回男性视角的匹配结果</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">engaged</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用示例</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 3个男性和3个女性的偏好列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">men_prefs</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;m1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;w2&#39;</span><span class="p">,</span> <span class="s1">&#39;w3&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;m2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;w2&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;w3&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;m3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;w3&#39;</span><span class="p">,</span> <span class="s1">&#39;w2&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">women_prefs</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;w1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;m2&#39;</span><span class="p">,</span> <span class="s1">&#39;m1&#39;</span><span class="p">,</span> <span class="s1">&#39;m3&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;w2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span> <span class="s1">&#39;m3&#39;</span><span class="p">,</span> <span class="s1">&#39;m2&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;w3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;m3&#39;</span><span class="p">,</span> <span class="s1">&#39;m2&#39;</span><span class="p">,</span> <span class="s1">&#39;m1&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">stable_marriage</span><span class="p">(</span><span class="n">men_prefs</span><span class="p">,</span> <span class="n">women_prefs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">man</span><span class="p">,</span> <span class="n">woman</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> &lt;-&gt; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">man</span><span class="p">,</span> <span class="n">woman</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># m1 &lt;-&gt; w1</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># m2 &lt;-&gt; w2</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># m3 &lt;-&gt; w3</span>
+</span></span></code></pre></div><h3 id="时间复杂度分析">时间复杂度分析</h3>
+<ul>
+<li>最坏情况下，每个男性可能需要向所有 N 个女性求婚，共有 N 个男性，所以总的求婚次数最多为 N x N = N^2 次；</li>
+<li>每次求婚操作中，女性比较排名是 O(1)（因为预处理了排名字典）；</li>
+<li>因此整体时间复杂度为 <strong>O(N^2)</strong>，空间复杂度也是 O(N^2)（存储偏好列表和排名字典）。</li>
+</ul>
+
 			</div>
 
 			<div class="tags">
 				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/%E7%AE%97%E6%B3%95">算法</a></li>
+							
+							<li><a href="/tags/%E9%9D%A2%E8%AF%95">面试</a></li>
+							
+						</ul>
 					
 				
 			</div><div id="disqus_thread"></div>
@@ -116,15 +222,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

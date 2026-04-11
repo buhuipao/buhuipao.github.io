@@ -5,10 +5,10 @@ type: post
 date: 2017-06-28T17:08:33+00:00
 url: /2017/06/29/leetcode-partition_list/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - 算法
   - 链表
 
@@ -118,3 +118,7 @@ def partition1(self, head, x):
         l2.next = None
         return h1.next
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历一次链表
+- 空间复杂度：O(1)，只使用了常数额外空间

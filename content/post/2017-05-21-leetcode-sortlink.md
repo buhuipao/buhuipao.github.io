@@ -4,18 +4,11 @@ author: 咩
 type: post
 date: 2017-05-21T05:36:41+00:00
 url: /2017/05/21/leetcode-sortlink/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "9"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - python
+  - Python
   - 排序
   - 算法
   - 链表
@@ -99,3 +92,7 @@ class Solution(object):
         # 合并以head和slow(中间节点)作为头节点的链表
         return self.merge(self.sortList(head), self.sortList(slow))
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(nlogn)，归并排序
+- 空间复杂度：O(1)，自底向上归并可达到常数空间

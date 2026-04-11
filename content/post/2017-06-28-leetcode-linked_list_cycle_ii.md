@@ -5,17 +5,17 @@ type: post
 date: 2017-06-28T09:55:00+00:00
 url: /2017/06/28/leetcode-linked_list_cycle_ii/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - 算法
   - 链表
 
 ---
 判断链表是否存在循环的变形题，需要你找出链表循环的开始节点，解题思路：先用快慢指针便利链表知道快慢指针指向同一个节点，然后让快指针从head重新开始走，这次每个指针一次只走一步，再一次指向相同节电的第一个就是要找的节点；
 
-可以用简单的数学推导验证：设x为链表非循环段的长度，y为循环段长度，a为第一步相遇时的距离循环开始节点的顺时针偏移量，由第一步可以得出数学表达式：2 \* (x + a) = x + n \* Y + a, 其中n为自然数（0，1，3，..) , 然后解开可以得到等式：x = n * y &#8211; a, 也就是第二步的意思，x长度为n圈循环少a，然后又是第二步刚好是a位置开始，那么再一次相遇时肯定是循环的第一个节点。原题链接：<a href="https://leetcode.com/problems/linked-list-cycle-ii/" target="_blank">https://leetcode.com/problems/linked-list-cycle-ii/</a>
+可以用简单的数学推导验证：设x为链表非循环段的长度，y为循环段长度，a为第一步相遇时的距离循环开始节点的顺时针偏移量，由第一步可以得出数学表达式：2 \* (x + a) = x + n \* Y + a, 其中n为自然数（0，1，3，..) , 然后解开可以得到等式：x = n * y – a, 也就是第二步的意思，x长度为n圈循环少a，然后又是第二步刚好是a位置开始，那么再一次相遇时肯定是循环的第一个节点。原题链接：<a href="https://leetcode.com/problems/linked-list-cycle-ii/" target="_blank">https://leetcode.com/problems/linked-list-cycle-ii/</a>
   
 Given a linked list, return the node where the cycle begins.
   
@@ -56,3 +56,7 @@ class Solution(object):
                 return slow
         return
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，快慢指针遍历链表
+- 空间复杂度：O(1)，只使用了两个指针

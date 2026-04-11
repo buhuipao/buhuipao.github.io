@@ -4,18 +4,11 @@ author: 咩
 type: post
 date: 2016-02-18T13:21:17+00:00
 url: /2016/02/18/linux-script-grep_cut/
-post_views_count:
-  - "41"
-flag:
-  - .
-flashPic:
-  - .
 categories:
-  - Shell
-tags:
-  - grep
   - Linux
-  - shell
+tags:
+  - Linux
+  - Shell
 
 ---
 grep 的基本用法，找出字符串所在行：
@@ -27,7 +20,7 @@ this is a word
 
 <span id="transmark"></span>
   
-找到字符串所在行，-i 忽略大小写，-n 打印为行号，&#8211;color=auto 颜色标记：
+找到字符串所在行，-i 忽略大小写，-n 打印为行号，–color=auto 颜色标记：
 
 ```bash
 [buhuipao@localhost ~]$ grep -i -n drupal drupal7/install.php  --color=auto

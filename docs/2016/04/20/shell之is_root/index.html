@@ -102,35 +102,35 @@ if grep -Eqi &#34;CentOS&#34; /etc/issue || grep -Eq &#34;CentOS&#34; /etc/*-rel
 					
 			<div class="markdown">
 				<p>验证是否为Root：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $UID !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Error: You must be root to run this script, please use root to install lnmp&#34;</span>
-</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$UID</span> !<span class="o">=</span> <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Error: You must be root to run this script, please use root to install lnmp&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
 </span></span></code></pre></div><p>发行版本：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> grep -Eqi <span style="color:#e6db74">&#34;CentOS&#34;</span> /etc/issue <span style="color:#f92672">||</span> grep -Eq <span style="color:#e6db74">&#34;CentOS&#34;</span> /etc/*-release; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;CentOS&#39;</span>
-</span></span><span style="display:flex;"><span>        PM<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;yum&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> grep -Eqi <span style="color:#e6db74">&#34;Red Hat Enterprise Linux Server&#34;</span> /etc/issue <span style="color:#f92672">||</span> grep -Eq <span style="color:#e6db74">&#34;Red Hat Enterprise Linux Server&#34;</span> /etc/*-release; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;RHEL&#39;</span>
-</span></span><span style="display:flex;"><span>        PM<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;yum&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> grep -Eqi <span style="color:#e6db74">&#34;Aliyun&#34;</span> /etc/issue <span style="color:#f92672">||</span> grep -Eq <span style="color:#e6db74">&#34;Aliyun&#34;</span> /etc/*-release; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Aliyun&#39;</span>
-</span></span><span style="display:flex;"><span>        PM<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;yum&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> grep -Eqi <span style="color:#e6db74">&#34;Fedora&#34;</span> /etc/issue <span style="color:#f92672">||</span> grep -Eq <span style="color:#e6db74">&#34;Fedora&#34;</span> /etc/*-release; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Fedora&#39;</span>
-</span></span><span style="display:flex;"><span>        PM<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;yum&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> grep -Eqi <span style="color:#e6db74">&#34;Debian&#34;</span> /etc/issue <span style="color:#f92672">||</span> grep -Eq <span style="color:#e6db74">&#34;Debian&#34;</span> /etc/*-release; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Debian&#39;</span>
-</span></span><span style="display:flex;"><span>        PM<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;apt&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> grep -Eqi <span style="color:#e6db74">&#34;Ubuntu&#34;</span> /etc/issue <span style="color:#f92672">||</span> grep -Eq <span style="color:#e6db74">&#34;Ubuntu&#34;</span> /etc/*-release; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Ubuntu&#39;</span>
-</span></span><span style="display:flex;"><span>        PM<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;apt&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> grep -Eqi <span style="color:#e6db74">&#34;Raspbian&#34;</span> /etc/issue <span style="color:#f92672">||</span> grep -Eq <span style="color:#e6db74">&#34;Raspbian&#34;</span> /etc/*-release; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Raspbian&#39;</span>
-</span></span><span style="display:flex;"><span>        PM<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;apt&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
-</span></span><span style="display:flex;"><span>        DISTRO<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;unknow&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">if</span> grep -Eqi <span class="s2">&#34;CentOS&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;CentOS&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;CentOS&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Red Hat Enterprise Linux Server&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Red Hat Enterprise Linux Server&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;RHEL&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Aliyun&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Aliyun&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Aliyun&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Fedora&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Fedora&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Fedora&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;yum&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Debian&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Debian&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Debian&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;apt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Ubuntu&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Ubuntu&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Ubuntu&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;apt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> grep -Eqi <span class="s2">&#34;Raspbian&#34;</span> /etc/issue <span class="o">||</span> grep -Eq <span class="s2">&#34;Raspbian&#34;</span> /etc/*-release<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;Raspbian&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">PM</span><span class="o">=</span><span class="s1">&#39;apt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">DISTRO</span><span class="o">=</span><span class="s1">&#39;unknow&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
 </span></span></code></pre></div>
 			</div>
 
@@ -141,7 +141,7 @@ if grep -Eqi &#34;CentOS&#34; /etc/issue || grep -Eq &#34;CentOS&#34; /etc/*-rel
 							
 							<li><a href="/tags/linux">Linux</a></li>
 							
-							<li><a href="/tags/shell">shell</a></li>
+							<li><a href="/tags/shell">Shell</a></li>
 							
 						</ul>
 					
@@ -166,15 +166,15 @@ if grep -Eqi &#34;CentOS&#34; /etc/issue || grep -Eq &#34;CentOS&#34; /etc/*-rel
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面试 on 不会跑</title>
+    <link>https://buhuipao.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
+    <description>Recent content in 面试 on 不会跑</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 26 Aug 2017 16:06:53 +0000</lastBuildDate>
+    <atom:link href="https://buhuipao.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>稳定婚姻匹配问题</title>
+      <link>https://buhuipao.github.io/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 26 Aug 2017 16:06:53 +0000</pubDate>
+      <guid>https://buhuipao.github.io/2017/08/27/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h3 id=&#34;什么是稳定婚姻匹配问题&#34;&gt;什么是稳定婚姻匹配问题&lt;/h3&gt;&#xA;&lt;p&gt;稳定婚姻问题（Stable Marriage Problem）是一个经典的算法问题，最早由 David Gale 和 Lloyd Shapley 在 1962 年提出。问题描述如下：&lt;/p&gt;&#xA;&lt;p&gt;给定 N 个男性和 N 个女性，每个人都对所有异性有一个偏好排序列表。需要找到一种稳定的匹配方案，使得不存在这样的情况：男性 A 和女性 B 没有配对，但他们都更喜欢对方而不是各自当前的伴侣。如果存在这样的一对，就称之为&amp;quot;不稳定对&amp;quot;（blocking pair），整个匹配就是不稳定的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>倒水问题-经典面试题</title>
+      <link>https://buhuipao.github.io/2017/08/26/%E5%80%92%E6%B0%B4%E9%97%AE%E9%A2%98-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Sat, 26 Aug 2017 15:56:21 +0000</pubDate>
+      <guid>https://buhuipao.github.io/2017/08/26/%E5%80%92%E6%B0%B4%E9%97%AE%E9%A2%98-%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <description>&lt;p&gt;有两个容器，容积分别为A升和B升，有无限多的水，现在需要C升水, 如何倒？&lt;/p&gt;&#xA;&lt;p&gt;举个例子，3，5升的桶，需要倒出4升水，可以这么做：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;3 % 5 = 3  //把3升水倒入5升桶&#xA;6 % 5 = 1 //把第二个3升的水倒入5升桶，最后剩下1升的也放入5升桶&#xA;9 % 5 = 4 //把第三个3升水倒入5升桶，得到4升&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;扩展的欧几里德算法，算法描述：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

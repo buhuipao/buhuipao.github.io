@@ -16,7 +16,7 @@ c) Replace a character
   <meta itemprop="datePublished" content="2017-06-22T14:52:57+00:00">
   <meta itemprop="dateModified" content="2017-06-22T14:52:57+00:00">
   <meta itemprop="wordCount" content="432">
-  <meta itemprop="keywords" content="Dp,动态规划,算法"><meta property="og:url" content="https://buhuipao.github.io/2017/06/22/leetcode-edit_distance/">
+  <meta itemprop="keywords" content="动态规划,算法"><meta property="og:url" content="https://buhuipao.github.io/2017/06/22/leetcode-edit_distance/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="LeetCode-Edit_Distance">
   <meta property="og:description" content="比较特殊的动态规划过程，原题链接：https://leetcode.com/problems/edit-distance/
@@ -32,7 +32,6 @@ c) Replace a character
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-06-22T14:52:57+00:00">
     <meta property="article:modified_time" content="2017-06-22T14:52:57+00:00">
-    <meta property="article:tag" content="Dp">
     <meta property="article:tag" content="动态规划">
     <meta property="article:tag" content="算法">
 
@@ -124,57 +123,57 @@ c) Replace a character
 <p>a) Insert a character</p>
 <p>b) Delete a character</p>
 <p>c) Replace a character</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># _*_ coding: utf-8 _*_</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minDistance1</span>(self, word1, word2):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word1: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word2: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: int
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;A B G C _ F&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;_ B _ D E _&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">=</span> len(word1)
-</span></span><span style="display:flex;"><span>        m <span style="color:#f92672">=</span> len(word2)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> m <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> n:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> m <span style="color:#f92672">or</span> n
-</span></span><span style="display:flex;"><span>        dp <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>            dp[i][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> i
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> xrange(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>            dp[<span style="color:#ae81ff">0</span>][j] <span style="color:#f92672">=</span> j
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(m):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> xrange(n):
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> word1[j] <span style="color:#f92672">!=</span> word2[i]:
-</span></span><span style="display:flex;"><span>                    temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                    temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>                dp[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> min(dp[i][j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, dp[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, dp[i][j]<span style="color:#f92672">+</span>temp)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> dp[m][n]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minDistance</span>(self, word1, word2):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word1: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word2: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: int
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        减少了空间复杂度，时间复杂度依然为O(m*n)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">=</span> len(word1)
-</span></span><span style="display:flex;"><span>        m <span style="color:#f92672">=</span> len(word2)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> m <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> n:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> m <span style="color:#f92672">or</span> n
-</span></span><span style="display:flex;"><span>        dp1, dp2 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>), [i <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(n):
-</span></span><span style="display:flex;"><span>            dp1, dp2 <span style="color:#f92672">=</span> dp2, [i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> (m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> xrange(m):
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> word1[i] <span style="color:#f92672">!=</span> word2[j]:
-</span></span><span style="display:flex;"><span>                    diff <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                    diff <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>                dp2[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> min(dp1[j]<span style="color:#f92672">+</span>diff, dp1[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, dp2[j]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> dp2[m]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">minDistance1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">,</span> <span class="n">word2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word1: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word2: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;A B G C _ F&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;_ B _ D E _&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">m</span> <span class="ow">or</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">word1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">temp</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">minDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">,</span> <span class="n">word2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word1: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word2: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        减少了空间复杂度，时间复杂度依然为O(m*n)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">m</span> <span class="ow">or</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp1</span><span class="p">,</span> <span class="n">dp2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp1</span><span class="p">,</span> <span class="n">dp2</span> <span class="o">=</span> <span class="n">dp2</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">word1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">diff</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp2</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">diff</span><span class="p">,</span> <span class="n">dp1</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dp2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp2</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
 </span></span></code></pre></div><p><strong>虽然这两种用法我都已经解出，但是回忆起又一次在线笔试题，计算编辑的成本我就细思极恐，比如插入一个字符消耗1个能量，删除一个字符消耗2个能量，替换一个字符消耗3个能量，给定两个字符串求最少的编辑能耗…待我想出来了再给出解题代码，知道解法的大神也请联系我，已跪！</strong></p>
 
 			</div>
@@ -183,8 +182,6 @@ c) Replace a character
 				
 					
 						<ul class="flat">
-							
-							<li><a href="/tags/dp">dp</a></li>
 							
 							<li><a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></li>
 							
@@ -213,15 +210,15 @@ c) Replace a character
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

@@ -5,10 +5,10 @@ type: post
 date: 2017-06-29T02:40:50+00:00
 url: /2017/06/29/leetcode-reorder_list/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - 算法
   - 链表
 
@@ -19,7 +19,7 @@ Given a singly linked list L: L0→L1→…→Ln-1→Ln,
   
 reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
   
-You must do this in-place without altering the nodes&#8217; values.
+You must do this in-place without altering the nodes’ values.
 
 For example,
   
@@ -69,3 +69,7 @@ class Solution(object):
                 l2.next = temp1
                 l1, l2 = temp1, temp2
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，找中点、反转、合并各遍历一次
+- 空间复杂度：O(1)，原地操作链表

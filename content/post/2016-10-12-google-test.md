@@ -4,17 +4,10 @@ author: 咩
 type: post
 date: 2016-10-12T10:34:50+00:00
 url: /2016/10/12/google-test/
-post_views_count:
-  - "69"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Python
 tags:
-  - IP
-  - python
+  - Python
 
 ---
 自己算法太烂太渣，只有慢慢练，一个运维还是得会写代码，看得懂代码。所以最近一边面试一边自己找题目练习。原题是：
@@ -41,7 +34,7 @@ For each test case, output one line containing Case #x: y, where x is the test c
   
 1 ≤ **N** ≤ 100.
 
-<img class="aligncenter size-full wp-image-935" src="http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader.png" alt="google_test_leader" width="560" height="281" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader.png 560w, http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader-150x75.png 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/Google_test_Leader-300x151.png 300w" sizes="(max-width: 560px) 100vw, 560px" />
+**Sample Input/Output:**
 
 ```python
 1 #!/bin/env python

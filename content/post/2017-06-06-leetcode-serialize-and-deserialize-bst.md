@@ -4,23 +4,14 @@ author: 咩
 type: post
 date: 2017-06-06T08:09:10+00:00
 url: /2017/06/06/leetcode-serialize-and-deserialize-bst/
-post_views_count:
-  - "12"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - Algorithm
-  - BST
-  - IP
-  - python
-  - 二叉树
-  - 序列化
   - 算法
+  - 二叉树
+  - Python
+  - 序列化
 
 ---
 序列化和反序列化一个二叉搜索树，题目的意思是想让我利用搜索树的性质来做，但是我还是坚持了使用按层和先序遍历的方法，仅供参考，原题如下：
@@ -84,7 +75,7 @@ class Codec:
         return root
 ```
 
-接下来的是先序遍历的序列化和反序列化， 之前一直报｀空栈错误｀ ，最后单步调试发现是最后的一个叶子节点的问题，会多出两个&#8217;#&#8217;， 所以反序列化只迭代了倒数第三个字符`xrange(1, len(data)-2, 1)`；其实也可以在序列化时｀return &#8216;$&#8217;.join(result).rstrip(&#8216;#&#8217;)\`, 应该是我没真正掌握先序遍历的‘精髓’:P
+接下来的是先序遍历的序列化和反序列化， 之前一直报｀空栈错误｀ ，最后单步调试发现是最后的一个叶子节点的问题，会多出两个’#’， 所以反序列化只迭代了倒数第三个字符`xrange(1, len(data)-2, 1)`；其实也可以在序列化时｀return ‘$’.join(result).rstrip(‘#’)\`, 应该是我没真正掌握先序遍历的‘精髓’:P
 
 ```python
 def serialize(self, root):
@@ -142,3 +133,8 @@ def serialize(self, root):
 # codec = Codec()
 # codec.deserialize(codec.serialize(root))
 ```
+
+**复杂度分析：**
+- 序列化：时间复杂度 O(n)，遍历所有节点
+- 反序列化：时间复杂度 O(n)，遍历序列化字符串
+- 空间复杂度：O(n)，存储序列化结果和辅助栈/队列

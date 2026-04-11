@@ -4,17 +4,11 @@ author: 咩
 type: post
 date: 2017-06-06T09:15:08+00:00
 url: /2017/06/06/leetcode-lowest_common_ancestor_of_a_binary_search_tree/
-post_views_count:
-  - "11"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - BST
+  - 二叉树
   - 算法
 
 ---
@@ -61,3 +55,7 @@ class Solution(object):
             root = root.left if root.val &gt; _s else root.right
         return root
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(h)，h为树的高度，沿BST路径查找
+- 空间复杂度：O(1)，迭代方式无额外空间

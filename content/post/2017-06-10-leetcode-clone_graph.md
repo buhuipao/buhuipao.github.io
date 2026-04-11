@@ -4,19 +4,13 @@ author: 咩
 type: post
 date: 2017-06-10T14:03:15+00:00
 url: /2017/06/10/leetcode-clone_graph/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "8"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
   - BFS
   - DFS
-  - python
+  - Python
   - 算法
 
 ---
@@ -24,7 +18,7 @@ tags:
   
 Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
 
-OJ&#8217;s undirected graph serialization:
+OJ’s undirected graph serialization:
   
 Nodes are labeled uniquely.
 
@@ -98,3 +92,7 @@ class Solution:
         self.record = {}
         return dfs(node)
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(V + E)，V为节点数，E为边数
+- 空间复杂度：O(V)，哈希表记录已访问节点

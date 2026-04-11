@@ -4,16 +4,9 @@ author: 咩
 type: post
 date: 2016-08-16T03:31:21+00:00
 url: /2016/08/16/linux-etc-host/
-post_views_count:
-  - "58"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Linux
 tags:
-  - host
   - Linux
 
 ---

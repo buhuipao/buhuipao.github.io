@@ -4,16 +4,10 @@ author: 咩
 type: post
 date: 2016-10-16T03:14:58+00:00
 url: /2016/10/16/qunar-coding-test/
-post_views_count:
-  - "152"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Python
 tags:
-  - python
+  - Python
 
 ---
 昨天参加了去哪儿的笔试题，给我分的软件开发卷，两道编程和一个系统设计，两道都不没有完全通过，有一道后来知道自己考虑不周，于是打算重新写一边，可能还有漏洞，希望看到的朋友指出。

@@ -4,16 +4,9 @@ author: 咩
 type: post
 date: 2016-10-09T10:32:23+00:00
 url: /2016/10/09/tcp-window_control/
-post_views_count:
-  - "125"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Network
+  - 网络
 tags:
-  - IP
   - 拥塞控制
   - 滑动窗口
 
@@ -62,7 +55,7 @@ TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量�
 
 ２）拥塞避免算法。它让cwnd不再增长那么快，缓慢加１，于是cwnd就呈线性。
 
-<img class="aligncenter size-large wp-image-919" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-1024x522.jpg" alt="慢开始" width="640" height="326" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-1024x522.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-150x77.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-300x153.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572-768x392.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1176887572.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" />
+*(慢开始与拥塞避免算法示意图)*
   
 无论在哪个阶段，只要出现拥塞，就**把ssthresh设置为拥塞时发送窗口cwnd的一半，并接着重新设置cwnd为１**。
 
@@ -70,11 +63,11 @@ TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量�
   
 ４）快恢复。快重传算法要求接收方收到一个失序的报文段时立即出现重复确认，目的是为了让发送方及早知道有报文未达到对方。假设接收方接收到M1,M2,M４,M５，M6，没有收到M３,根据快重传算法，接受方在接收到M4,M5,M6时都会回复确认M2,算法规定党收到三个重复确认时就重传M3,不必等为M3设置的重传计数器到期。接下来和之前一样，**把cwnd减半并设置新ssthresh＝cwnd，接着开始执行拥塞避免算法，cwnd缓慢加１。
   
-<img class="aligncenter size-large wp-image-922" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-1024x519.jpg" alt="拥塞" width="640" height="324" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-1024x519.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-150x76.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-300x152.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014-768x389.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1142449014.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" />
+*(拥塞控制算法示意图)*
   
 ** 。
   
-<img class="aligncenter size-large wp-image-920" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-1024x420.jpg" alt="kuaihuifu" width="640" height="263" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-1024x420.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-150x62.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-300x123.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269-768x315.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1868362269.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" />
+*(快恢复算法示意图)*
 
 请注意，**有的快速重传是把cwnd继续加三个，理由是你既然有三个后续的报文端到达，可能M3不是拥塞丢失，cwnd还是可以继续增大，那么就增大３个。**
 
@@ -82,4 +75,6 @@ TCP协议作为一个可靠的面向流的传输协议，其可靠性和流量�
 
 最后附加三次握手，四次挥手的图片。
 
- <img class="aligncenter size-large wp-image-925" src="http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-1024x520.jpg" alt="TCP_3_connect" width="640" height="325" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-1024x520.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-150x76.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-300x152.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799-768x390.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/799254799.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" /><img class="aligncenter size-large wp-image-926" src="http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-1024x706.jpg" alt="TCP_4_close" width="640" height="441" srcset="http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-1024x706.jpg 1024w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-150x103.jpg 150w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-300x207.jpg 300w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139-768x530.jpg 768w, http://www.buhuipao.com/wp-content/uploads/2016/10/1012281139.jpg 1280w" sizes="(max-width: 640px) 100vw, 640px" />
+*(TCP三次握手示意图)*
+
+*(TCP四次挥手示意图)*

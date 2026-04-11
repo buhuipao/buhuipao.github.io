@@ -13,7 +13,7 @@
       <link>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</link>
       <pubDate>Fri, 23 Jun 2017 10:03:46 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</guid>
-      <description>&lt;p&gt;经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://leetcode.com/problems/longest-increasing-subsequence/&#34;&gt;https://leetcode.com/problems/longest-increasing-subsequence/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;Given an unsorted array of integers, find the length of longest increasing subsequence.&lt;/p&gt;</description>
+      <description>&lt;p&gt;经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：&lt;a href=&#34;https://leetcode.com/problems/longest-increasing-subsequence/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/longest-increasing-subsequence/&#34;&gt;https://leetcode.com/problems/longest-increasing-subsequence/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Given an unsorted array of integers, find the length of longest increasing subsequence.&lt;/p&gt;&#xA;&lt;p&gt;For example,&lt;/p&gt;&#xA;&lt;p&gt;Given [10, 9, 2, 5, 3, 7, 101, 18],&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

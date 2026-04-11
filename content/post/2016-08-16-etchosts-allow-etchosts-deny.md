@@ -4,12 +4,6 @@ author: 咩
 type: post
 date: 2016-08-16T03:27:27+00:00
 url: /2016/08/16/etchosts-allow-etchosts-deny/
-post_views_count:
-  - "97"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Linux
 tags:

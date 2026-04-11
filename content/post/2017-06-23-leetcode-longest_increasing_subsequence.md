@@ -5,7 +5,7 @@ type: post
 date: 2017-06-23T10:03:46+00:00
 url: /2017/06/23/leetcode-longest_increasing_subsequence/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
   - LIS

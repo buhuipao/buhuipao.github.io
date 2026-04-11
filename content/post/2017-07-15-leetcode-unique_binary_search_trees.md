@@ -5,21 +5,20 @@ type: post
 date: 2017-07-15T01:13:02+00:00
 url: /2017/07/15/leetcode-unique_binary_search_trees/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - BST
-  - leetcode
-  - tree
+  - 二叉树
+  - LeetCode
 
 ---
 题目的意思就是给你1到n个数，你能组成多少种BST，解题思路就是：以每一个数做一次BST的root节点，然后求和所有次数即可，然后每次以i为root时， 左子树有i-1个点，右子树有n-i各点，得到递推式：dp[i] += dp[j-1] * dp[i-j]，最后求和即可，原题链接：<a href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank">https://leetcode.com/problems/unique-binary-search-trees/</a>
   
-Given n, how many structurally unique BST&#8217;s (binary search trees) that store values 1&#8230;n?
+Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?
 
 For example,
   
-Given n = 3, there are a total of 5 unique BST&#8217;s.
+Given n = 3, there are a total of 5 unique BST’s.
 
 ```python
    1         3     3      2      1
@@ -54,3 +53,7 @@ class Solution(object):
             i += 1
         return dp[n]
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n^2)，双重循环构建dp表
+- 空间复杂度：O(n)，一维dp数组

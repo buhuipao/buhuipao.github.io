@@ -11,8 +11,8 @@ The bricks have the same height but different width.
 You want to draw a vertical line from the top to the bottom and cross the least bricks.">
   <meta itemprop="datePublished" content="2017-06-03T04:59:20+00:00">
   <meta itemprop="dateModified" content="2017-06-03T04:59:20+00:00">
-  <meta itemprop="wordCount" content="266">
-  <meta itemprop="keywords" content="Hashtab,HTTPS,Ps,Python,算法"><meta property="og:url" content="https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/">
+  <meta itemprop="wordCount" content="319">
+  <meta itemprop="keywords" content="哈希表,HTTPS,Python,算法"><meta property="og:url" content="https://buhuipao.github.io/2017/06/03/leetcode-brick_wall/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="LeetCode–brick_wall">
   <meta property="og:description" content="比较有意思的题， 求最少穿过的砖的块数，原题连接：https://leetcode.com/problems/brick-wall/
@@ -24,9 +24,8 @@ You want to draw a vertical line from the top to the bottom and cross the least 
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-06-03T04:59:20+00:00">
     <meta property="article:modified_time" content="2017-06-03T04:59:20+00:00">
-    <meta property="article:tag" content="Hashtab">
+    <meta property="article:tag" content="哈希表">
     <meta property="article:tag" content="HTTPS">
-    <meta property="article:tag" content="Ps">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="算法">
 
@@ -117,28 +116,33 @@ You want to draw a vertical line from the top to the bottom and cross the least 
 <p>You need to find out how to draw the line to cross the least bricks and return the number of crossed bricks.</p>
 <p>You cannot draw a line just along one of the two vertical edges of the wall,</p>
 <p>in which case the line will obviously cross no bricks.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># _*_ coding: utf-8 _*_</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">leastBricks</span>(self, wall):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type wall: List[List[int]]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: int
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        width_dict <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> wall:
-</span></span><span style="display:flex;"><span>            width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(len(row)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 增加宽度</span>
-</span></span><span style="display:flex;"><span>                width <span style="color:#f92672">+=</span> row[i]
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> width <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> width_dict:
-</span></span><span style="display:flex;"><span>                    width_dict[width] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>                width_dict[width] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> width_dict:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> len(wall)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> len(wall) <span style="color:#f92672">-</span> max(width_dict<span style="color:#f92672">.</span>values())
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">leastBricks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wall</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type wall: List[List[int]]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">width_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">wall</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">width</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 增加宽度</span>
+</span></span><span class="line"><span class="cl">                <span class="n">width</span> <span class="o">+=</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">width</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">width_dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">width_dict</span><span class="p">[</span><span class="n">width</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">width_dict</span><span class="p">[</span><span class="n">width</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">width_dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">wall</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">wall</span><span class="p">)</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="n">width_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span></span></code></pre></div><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：O(n)，n为所有砖块总数</li>
+<li>空间复杂度：O(w)，w为墙的宽度（哈希表存储边缘位置）</li>
+</ul>
+
 			</div>
 
 			<div class="tags">
@@ -146,13 +150,11 @@ You want to draw a vertical line from the top to the bottom and cross the least 
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/hashtab">hashtab</a></li>
+							<li><a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8">哈希表</a></li>
 							
 							<li><a href="/tags/https">HTTPS</a></li>
 							
-							<li><a href="/tags/ps">ps</a></li>
-							
-							<li><a href="/tags/python">python</a></li>
+							<li><a href="/tags/python">Python</a></li>
 							
 							<li><a href="/tags/%E7%AE%97%E6%B3%95">算法</a></li>
 							
@@ -179,15 +181,15 @@ You want to draw a vertical line from the top to the bottom and cross the least 
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

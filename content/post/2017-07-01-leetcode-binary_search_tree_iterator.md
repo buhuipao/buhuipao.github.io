@@ -5,11 +5,11 @@ type: post
 date: 2017-06-30T17:05:57+00:00
 url: /2017/07/01/leetcode-binary_search_tree_iterator/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - BST
-  - leetcode
+  - 二叉树
+  - LeetCode
   - 设计
 
 ---

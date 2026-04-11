@@ -4,19 +4,11 @@ author: 咩
 type: post
 date: 2017-05-28T11:43:15+00:00
 url: /2017/05/28/leetcode-odd-even-linked-list/
-post_views_count:
-  - "8"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - ps
-  - python
+  - Python
   - 链表
 
 ---
@@ -38,7 +30,7 @@ Note:
   
 The relative order inside both the even and odd groups should remain as it was in the input.
   
-The first node is considered odd, the second node even and so on &#8230;
+The first node is considered odd, the second node even and so on …
 
 ```python
 # _*_ coding: utf-8 _*_
@@ -76,3 +68,7 @@ class Solution(object):
         l2.next = None
         return head
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历一次链表
+- 空间复杂度：O(1)，原地操作

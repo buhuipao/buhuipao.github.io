@@ -5,7 +5,7 @@ type: post
 date: 2017-06-21T09:46:10+00:00
 url: /2017/06/21/leetcode-longest_consecutive_sequence/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
   - 算法

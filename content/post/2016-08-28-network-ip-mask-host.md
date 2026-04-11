@@ -4,16 +4,9 @@ author: 咩
 type: post
 date: 2016-08-28T13:09:25+00:00
 url: /2016/08/28/network-ip-mask-host/
-post_views_count:
-  - "69"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Linux
 tags:
-  - IP
   - TCP/IP
   - 网络协议
 
@@ -230,7 +223,7 @@ C类私有地址：192.168.0.0/16，范围是：192.168.0.0~192.168.255.255
 
 如果一个子网有14台主机，不少人常犯的错误是：依然分配具有16个地址空间的子网，而忘记了给网关分配地址。这样就错误了，因为14＋1＋1＋1＝17，17大于16，所以我们只能分配具有32个地址（32等于2的5次方）空间的子网。这时子网掩码为：255.255.255.224。
 
-转自[博客园][1]&#8212;[Poll笔记][2]：<http://www.cnblogs.com/maybe2030/p/4781555.html>
+转自[博客园][1]—[Poll笔记][2]：<http://www.cnblogs.com/maybe2030/p/4781555.html>
 
  [1]: http://www.cnblogs.com/
  [2]: http://www.cnblogs.com/maybe2030/p/4781555.html

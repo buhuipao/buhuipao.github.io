@@ -5,10 +5,10 @@ type: post
 date: 2017-07-02T14:30:22+00:00
 url: /2017/07/02/leetcode-lfu_cache/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - LFU
 
 ---
@@ -18,9 +18,9 @@ Design and implement a data structure for Least Frequently Used (LFU) cache.
   
 It should support the following operations: get and put.
 
-get(key) &#8211; Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
+get(key) – Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
   
-put(key, value) &#8211; Set or insert the value if the key is not already present.
+put(key, value) – Set or insert the value if the key is not already present.
   
 When the cache reaches its capacity, it should invalidate the least frequently used item before inserting a new item.
   
@@ -121,3 +121,7 @@ class LFUCache(object):
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+**复杂度分析：**
+- 时间复杂度：get/put 均为 O(1)（使用双哈希表+双向链表）
+- 空间复杂度：O(capacity)

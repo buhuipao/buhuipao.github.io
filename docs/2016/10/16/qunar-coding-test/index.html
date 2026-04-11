@@ -105,98 +105,98 @@
 <p>1001</p>
 <p>1331</p>
 <p>我笔试的代码:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/env python</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># coding:utf-8</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Input <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
-</span></span><span style="display:flex;"><span>    line <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>stdin<span style="color:#f92672">.</span>readline()
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> line:
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span>    Input<span style="color:#f92672">.</span>extend(line<span style="color:#f92672">.</span>split())
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>In <span style="color:#f92672">=</span> list(str(int(Input[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(In) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span>    print In[<span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>    In <span style="color:#f92672">=</span> map(int, In)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(In) <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        Mi <span style="color:#f92672">=</span> len(In) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">1</span>, Mi<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">&amp;</span>gt; In[Mi<span style="color:#f92672">-</span>i] <span style="color:#f92672">and</span> count <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                In[Mi<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> i <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span>                    In[Mi<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> In[Mi<span style="color:#f92672">-</span>i]
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> In[Mi<span style="color:#f92672">-</span>i]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        Mi <span style="color:#f92672">=</span> len(In) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">1</span>, len(In)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">&amp;</span>gt; In[Mi<span style="color:#f92672">-</span>i] <span style="color:#f92672">and</span> count <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> i <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span>                    In[Mi<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                    In[Mi<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                    In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> In[Mi<span style="color:#f92672">-</span>i]
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                    In[Mi<span style="color:#f92672">-</span>i] <span style="color:#f92672">=</span> In[Mi<span style="color:#f92672">+</span>i]
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">=</span> In[Mi<span style="color:#f92672">-</span>i]
-</span></span><span style="display:flex;"><span>    Out <span style="color:#f92672">=</span> map(str, In)
-</span></span><span style="display:flex;"><span>    print <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(Out)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/bin/env python</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Input</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">line</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Input</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Input</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="n">In</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">In</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">In</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Mi</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Mi</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Mi</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Out</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">In</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Out</span><span class="p">)</span>
 </span></span></code></pre></div><p>改进后的代码:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span> <span style="color:#75715e">#!/bin/env python</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span> <span style="color:#75715e"># coding:utf-8</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">4</span> <span style="color:#f92672">import</span> sys
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">5</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">6</span> Input <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span> <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">8</span>     line <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>stdin<span style="color:#f92672">.</span>readline()
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">9</span>     <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> line:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">10</span>       <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">11</span>     Input<span style="color:#f92672">.</span>extend(line<span style="color:#f92672">.</span>split())
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">12</span> 
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">13</span> In <span style="color:#f92672">=</span> list(str(int(Input[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">14</span> <span style="color:#66d9ef">if</span> len(In) <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">15</span>     Mi <span style="color:#f92672">=</span> len(In) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">16</span>     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">1</span>, Mi<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">17</span>         <span style="color:#66d9ef">if</span> int(In[Mi<span style="color:#f92672">+</span>i]) <span style="color:#f92672">&amp;</span>gt; int(In[Mi<span style="color:#f92672">-</span>i]):
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">18</span>             <span style="color:#75715e">#前半部分的加一(考虑中位是9),逆序拼接</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">19</span>             Mi_int <span style="color:#f92672">=</span> int(<span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(In[:Mi<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>])) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">20</span>             In <span style="color:#f92672">=</span> list(str(Mi_int))
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">21</span>             In<span style="color:#f92672">.</span>extend(In[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">22</span>             <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">23</span>         <span style="color:#66d9ef">elif</span> In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">&amp;</span>lt; In[Mi<span style="color:#f92672">-</span>i]:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">24</span>             <span style="color:#75715e">#直接对半拼接</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">25</span>             In <span style="color:#f92672">=</span> In[:Mi<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">26</span>             In<span style="color:#f92672">.</span>extend(In[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">27</span>             <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">28</span> <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">29</span>     <span style="color:#75715e">#组成奇数位，方便比较</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">30</span>     In<span style="color:#f92672">.</span>insert(len(In)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;#&#39;</span>)
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">31</span>     Mi <span style="color:#f92672">=</span> len(In) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">32</span>     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">1</span>,Mi<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">33</span>         <span style="color:#66d9ef">if</span> In[Mi<span style="color:#f92672">+</span>i] <span style="color:#f92672">&amp;</span>gt; In[Mi<span style="color:#f92672">-</span>i]:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">34</span>             Mi_int <span style="color:#f92672">=</span> int(<span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(In[:Mi])) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">35</span>             In <span style="color:#f92672">=</span> list(str(Mi_int))
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">36</span>             In<span style="color:#f92672">.</span>extend(In[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">37</span>             <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">38</span>         <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">39</span>             In <span style="color:#f92672">=</span> In[:Mi]
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">40</span>             In<span style="color:#f92672">.</span>extend(In[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">41</span>             <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">42</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">43</span> print <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(In)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="mi">1</span> <span class="c1">#!/bin/env python</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> <span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span> <span class="n">Input</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span>     <span class="n">line</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span>       <span class="k">break</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span>     <span class="n">Input</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span> <span class="n">In</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Input</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span>     <span class="n">Mi</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Mi</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="nb">int</span><span class="p">(</span><span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>             <span class="c1">#前半部分的加一(考虑中位是9),逆序拼接</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>             <span class="n">Mi_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">In</span><span class="p">[:</span><span class="n">Mi</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>             <span class="n">In</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Mi_int</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span>             <span class="n">In</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">22</span>             <span class="k">break</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">23</span>         <span class="k">elif</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">24</span>             <span class="c1">#直接对半拼接</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">25</span>             <span class="n">In</span> <span class="o">=</span> <span class="n">In</span><span class="p">[:</span><span class="n">Mi</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">26</span>             <span class="n">In</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">27</span>             <span class="k">break</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">28</span> <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">29</span>     <span class="c1">#组成奇数位，方便比较</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">30</span>     <span class="n">In</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">31</span>     <span class="n">Mi</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">In</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">32</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Mi</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">33</span>         <span class="k">if</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">In</span><span class="p">[</span><span class="n">Mi</span><span class="o">-</span><span class="n">i</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">34</span>             <span class="n">Mi_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">In</span><span class="p">[:</span><span class="n">Mi</span><span class="p">]))</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">35</span>             <span class="n">In</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Mi_int</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">36</span>             <span class="n">In</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">37</span>             <span class="k">break</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">38</span>         <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">39</span>             <span class="n">In</span> <span class="o">=</span> <span class="n">In</span><span class="p">[:</span><span class="n">Mi</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">40</span>             <span class="n">In</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">41</span>             <span class="k">break</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">42</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">43</span> <span class="nb">print</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">In</span><span class="p">)</span>
 </span></span></code></pre></div>
 			</div>
 
@@ -205,7 +205,7 @@
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/python">python</a></li>
+							<li><a href="/tags/python">Python</a></li>
 							
 						</ul>
 					
@@ -230,15 +230,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

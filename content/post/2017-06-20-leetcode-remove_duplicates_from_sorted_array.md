@@ -5,7 +5,7 @@ type: post
 date: 2017-06-20T05:13:19+00:00
 url: /2017/06/20/leetcode-remove_duplicates_from_sorted_array/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
   - 算法
@@ -23,7 +23,7 @@ Given input array nums = [1,1,2],
 
 Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
   
-It doesn&#8217;t matter what you leave beyond the new length.
+It doesn’t matter what you leave beyond the new length.
 
 ```python
 # _*_ coding: utf-8 _*_
@@ -46,3 +46,7 @@ class Solution(object):
                 nums[count] = nums[i]
         return count+1
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历一次数组
+- 空间复杂度：O(1)，只使用了常数额外空间

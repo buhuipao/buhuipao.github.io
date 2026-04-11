@@ -6,8 +6,15 @@
     <description>Recent content in APUE on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 21 Jun 2017 03:15:52 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Jun 2017 04:39:30 +0000</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/tags/apue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AUPE-11-线程同步及线程的Fork</title>
+      <link>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</link>
+      <pubDate>Wed, 21 Jun 2017 04:39:30 +0000</pubDate>
+      <guid>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</guid>
+      <description>&lt;p&gt;线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿；&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;线程创建&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;# include &amp;#34;pthread_h&amp;#34;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;pthread_create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;pthread_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;restrict&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tidp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;pthread_attr_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resrict&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start_rtm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;restrict&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;线程同步&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;互斥量（锁），但需要避免死锁；&lt;/li&gt;&#xA;&lt;li&gt;读写锁（共享锁）；&lt;/li&gt;&#xA;&lt;li&gt;条件变量；&lt;/li&gt;&#xA;&lt;li&gt;自旋锁（适应于：a)锁被持有的时间短 ； b)线程不希望被重新调度）&lt;/li&gt;&#xA;&lt;li&gt;屏障（参考《现代操作系统》，只有多个合作线程都到达同一点时才放行）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;读写锁&lt;/strong&gt;又名共享锁，基本特征是：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>APUE-8-进程控制之Fork</title>
       <link>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</link>

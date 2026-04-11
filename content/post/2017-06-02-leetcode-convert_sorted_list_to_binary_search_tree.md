@@ -4,19 +4,12 @@ author: 咩
 type: post
 date: 2017-06-02T04:13:46+00:00
 url: /2017/06/02/leetcode-convert_sorted_list_to_binary_search_tree/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "5"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - BST
-  - head
-  - python
+  - 二叉树
+  - Python
   - 链表
 
 ---
@@ -62,3 +55,7 @@ class Solution(object):
         
         return root
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n * logn)，每层递归需 O(n) 找中点，共 logn 层
+- 空间复杂度：O(logn)，递归调用栈深度

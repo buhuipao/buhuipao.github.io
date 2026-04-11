@@ -13,7 +13,7 @@
       <link>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</link>
       <pubDate>Sun, 02 Jul 2017 14:30:22 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/07/02/leetcode-lfu_cache/</guid>
-      <description>&lt;p&gt;LeetCode的设计题，比起之前的LRU稍微难点，但是根据《现代操作系统》的解释，需要使用一个counter进行频率的计数，下面给出的并不是O(1)，但是基本思路是对的；原题链接：&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://leetcode.com/problems/lfu-cache/&#34;&gt;https://leetcode.com/problems/lfu-cache/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;LeetCode的设计题，比起之前的LRU稍微难点，但是根据《现代操作系统》的解释，需要使用一个counter进行频率的计数，下面给出的并不是O(1)，但是基本思路是对的；原题链接：&lt;a href=&#34;https://leetcode.com/problems/lfu-cache/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/lfu-cache/&#34;&gt;https://leetcode.com/problems/lfu-cache/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

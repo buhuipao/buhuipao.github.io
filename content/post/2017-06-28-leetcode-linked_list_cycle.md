@@ -5,10 +5,10 @@ type: post
 date: 2017-06-28T09:30:13+00:00
 url: /2017/06/28/leetcode-linked_list_cycle/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - 算法
   - 链表
 
@@ -47,3 +47,7 @@ class Solution(object):
                 return True
         return False
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，快慢指针最多遍历链表两次
+- 空间复杂度：O(1)，只使用了两个指针

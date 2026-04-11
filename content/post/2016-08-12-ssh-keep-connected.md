@@ -4,15 +4,8 @@ author: 咩
 type: post
 date: 2016-08-12T04:26:12+00:00
 url: /2016/08/12/ssh-keep-connected/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "85"
 categories:
   - Linux
-  - Shell
 tags:
   - Linux
   - SSH

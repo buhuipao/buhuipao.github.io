@@ -4,17 +4,11 @@ author: 咩
 type: post
 date: 2017-06-19T07:50:03+00:00
 url: /2017/06/19/leetcode-power_of_three/
-post_views_count:
-  - "4"
-flag:
-  - .
-flashPic:
-  - .
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - python
+  - Python
   - 算法
 
 ---
@@ -55,3 +49,7 @@ class Solution(object):
 
         return n &gt; 0 and 1162261467 % n == 0
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(1)，直接取余判断
+- 空间复杂度：O(1)，只使用了常数空间

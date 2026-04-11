@@ -4,18 +4,11 @@ author: 咩
 type: post
 date: 2017-06-01T12:50:11+00:00
 url: /2017/06/01/leetcode-reverse_linked_list_ii/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "6"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - python
+  - Python
   - 链表
 
 ---
@@ -69,3 +62,7 @@ class Solution(object):
         
         return dummy.next
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，一次遍历链表
+- 空间复杂度：O(1)，原地反转

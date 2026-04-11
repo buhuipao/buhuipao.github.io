@@ -4,18 +4,12 @@ author: 咩
 type: post
 date: 2017-06-06T03:48:12+00:00
 url: /2017/06/06/leetcode-delete_a_node_in_bst/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "7"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - BST
-  - python
+  - 二叉树
+  - Python
   - 算法
 
 ---
@@ -145,3 +139,7 @@ class Solution(object):
                 root.left = self.deleteNode(root.left, root.val)
         return root               
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(h)，h为树的高度
+- 空间复杂度：迭代法 O(1)，递归法 O(h)

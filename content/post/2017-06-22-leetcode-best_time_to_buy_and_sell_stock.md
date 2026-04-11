@@ -5,10 +5,9 @@ type: post
 date: 2017-06-22T04:21:50+00:00
 url: /2017/06/22/leetcode-best_time_to_buy_and_sell_stock/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - dp
   - 动态规划
   - 算法
 
@@ -57,3 +56,7 @@ class Solution(object):
             dp[1] = min(prices[i], dp[1])
         return dp[0]
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历一次价格数组
+- 空间复杂度：O(1)，只使用了固定大小的dp数组

@@ -8,7 +8,7 @@ categories:
   - Linux
 tags:
   - APUE
-  - Fork
+  - 进程
 
 ---
 最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用getppid()获取的是父进程的pid；返回值为进程id(子进程的）的是父进程，getppid返回的是自己的pid。
@@ -46,6 +46,4 @@ fork用在两种用法：
 
 Linux 之后弄出一个clone， 就是可以在fork时可以自己设定需要共享不共享的数据，然后fork应该是在clone的一个实现（猜）。
 
-附：
-
-<img class="aligncenter wp-image-1154" src="http://www.buhuipao.com/wp-content/uploads/2017/06/A45BF8EE-69A3-4A82-9277-2FBEBCA2FF66.jpg" alt="" width="350" height="564" srcset="http://www.buhuipao.com/wp-content/uploads/2017/06/A45BF8EE-69A3-4A82-9277-2FBEBCA2FF66.jpg 392w, http://www.buhuipao.com/wp-content/uploads/2017/06/A45BF8EE-69A3-4A82-9277-2FBEBCA2FF66-93x150.jpg 93w, http://www.buhuipao.com/wp-content/uploads/2017/06/A45BF8EE-69A3-4A82-9277-2FBEBCA2FF66-186x300.jpg 186w" sizes="(max-width: 350px) 100vw, 350px" />
+*(参考 APUE 第 8 章 进程控制)*

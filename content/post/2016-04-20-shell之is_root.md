@@ -4,15 +4,11 @@ author: 咩
 type: post
 date: 2016-04-20T13:23:48+00:00
 url: /2016/04/20/shell之is_root/
-post_views_count:
-  - "44"
-flag:
-  - .
 categories:
-  - Shell
+  - Linux
 tags:
   - Linux
-  - shell
+  - Shell
 
 ---
 验证是否为Root：

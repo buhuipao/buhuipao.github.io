@@ -5,10 +5,9 @@ type: post
 date: 2017-06-22T03:27:52+00:00
 url: /2017/06/22/leetcode-minimum_path_sum/
 categories:
-  - Algorithm
-  - Network
+  - 算法
+  - 网络
 tags:
-  - dp
   - 动态规划
   - 算法
 

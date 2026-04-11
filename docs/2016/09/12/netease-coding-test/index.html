@@ -98,76 +98,76 @@
 					
 			<div class="markdown">
 				<p>第一道是给你一个圆半径的平方，然后问你x,y坐标均为整数(可正负)的点落在圆上的个数:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span> <span style="color:#75715e"># coding:utf-8</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span> <span style="color:#f92672">import</span> sys
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">4</span> <span style="color:#f92672">import</span> math
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">5</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">6</span> <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>stdin:
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span>     a <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span>split()
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">8</span>     R <span style="color:#f92672">=</span> int(a[<span style="color:#ae81ff">0</span>])
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">9</span> 
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">10</span> r <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(R)
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">11</span> <span style="color:#75715e"># 考虑圆周不落在整点上</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">12</span> <span style="color:#66d9ef">if</span> int(r) <span style="color:#f92672">!=</span> r:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">13</span>     r <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">14</span> 
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">15</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">16</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> xrange(int(r)):
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">17</span>     <span style="color:#75715e"># 求横坐标</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">18</span>     y <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(R <span style="color:#f92672">-</span> x<span style="color:#f92672">*</span>x)
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">19</span>     <span style="color:#66d9ef">if</span> int(y) <span style="color:#f92672">==</span> y:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">20</span>         count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">21</span> <span style="color:#75715e"># 四个象限</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">22</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> count
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">23</span> 
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">24</span> print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> count
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="mi">1</span> <span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span>     <span class="n">R</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span> <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span> <span class="c1"># 考虑圆周不落在整点上</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">!=</span> <span class="n">r</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span>     <span class="n">r</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>     <span class="c1"># 求横坐标</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">R</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span> <span class="c1"># 四个象限</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">22</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">count</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">23</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">24</span> <span class="nb">print</span> <span class="s2">&#34;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">count</span>
 </span></span></code></pre></div><p>第二道是给你一个N正整数，求1,2,3…N 的各项最大奇约数的和，考试的时候脑子笨没转过弯来运行超时了，刚才又改了一下，然后又去<a href="http://www.nowcoder.com/discuss/9620?toCommentId=227350">牛客</a>讨论了一下，得出第二段代码，应该不超时了:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#第一段代码：</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span> <span style="color:#75715e"># coding:utf-8</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span> <span style="color:#f92672">import</span> sys
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">4</span> <span style="color:#f92672">import</span> math
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">5</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">6</span> <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>stdin:
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span>     a <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span>split()
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">8</span>     N <span style="color:#f92672">=</span> int(a[<span style="color:#ae81ff">0</span>])
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">9</span> S <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">10</span> 
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">11</span> <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">1</span>,N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">12</span>     i <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>log(n,<span style="color:#ae81ff">2</span>)
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">13</span>     <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&amp;</span>gt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">14</span>         <span style="color:#75715e">#奇数直接加</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">15</span>         <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">16</span>             S<span style="color:#f92672">.</span>append(n)
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">17</span>             <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">18</span>         <span style="color:#66d9ef">else</span>: 
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">19</span>             n <span style="color:#f92672">=</span> n <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">20</span>         i <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">21</span> print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> sum(S)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 第二段代码:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span> <span style="color:#75715e"># conding:utf-8</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span> <span style="color:#f92672">import</span> sys
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">4</span> <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>stdin:
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">5</span>     a <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span>split()
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">6</span>     N <span style="color:#f92672">=</span> int(a[<span style="color:#ae81ff">0</span>])
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span> S <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">8</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">9</span> <span style="color:#75715e"># 直到N为1</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">while</span>  N <span style="color:#f92672">&amp;</span>gt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">11</span>     <span style="color:#75715e">#N为偶数时,抽取列中奇数项求和,自除二</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">12</span>     <span style="color:#66d9ef">if</span> N <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">13</span>         s <span style="color:#f92672">=</span> (N <span style="color:#f92672">*</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">14</span>         S<span style="color:#f92672">.</span>append(s)
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">15</span>         N <span style="color:#f92672">=</span> N <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">16</span>     <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">17</span>         <span style="color:#75715e">#N为奇数时,抽取列中奇求和,列中最大偶数除二</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">18</span>         s <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>N) <span style="color:#f92672">*</span> (N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">19</span>         S<span style="color:#f92672">.</span>append(s)
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">20</span>         N <span style="color:#f92672">=</span> (N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">21</span> 
-</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">22</span> print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> sum(S)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#第一段代码：</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">1</span> <span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span>     <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span> <span class="n">S</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span>     <span class="n">i</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span>     <span class="k">while</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span>         <span class="c1">#奇数直接加</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span>         <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span>             <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>             <span class="k">break</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>         <span class="k">else</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>             <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>         <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span> <span class="nb">print</span> <span class="s2">&#34;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 第二段代码:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">1</span> <span class="c1"># conding:utf-8</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">5</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">6</span>     <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">7</span> <span class="n">S</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">8</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">9</span> <span class="c1"># 直到N为1</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">10</span> <span class="k">while</span>  <span class="n">N</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span>     <span class="c1">#N为偶数时,抽取列中奇数项求和,自除二</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">12</span>     <span class="k">if</span> <span class="n">N</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">13</span>         <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">14</span>         <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">15</span>         <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">16</span>     <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">17</span>         <span class="c1">#N为奇数时,抽取列中奇求和,列中最大偶数除二</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">18</span>         <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">19</span>         <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">20</span>         <span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">21</span> 
+</span></span><span class="line"><span class="cl"> <span class="mi">22</span> <span class="nb">print</span> <span class="s2">&#34;</span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
 </span></span></code></pre></div>
 			</div>
 
@@ -176,7 +176,7 @@
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/python">python</a></li>
+							<li><a href="/tags/python">Python</a></li>
 							
 						</ul>
 					
@@ -201,15 +201,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

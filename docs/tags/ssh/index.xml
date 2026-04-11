@@ -6,15 +6,8 @@
     <description>Recent content in SSH on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 07 Sep 2016 16:55:16 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Aug 2016 03:27:27 +0000</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>不再缘木求鱼，时间如此宝贵，Docker下ubuntu安装QQ失败</title>
-      <link>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</link>
-      <pubDate>Wed, 07 Sep 2016 16:55:16 +0000</pubDate>
-      <guid>https://buhuipao.github.io/2016/09/08/docker-ubuntu-qq-failed/</guid>
-      <description>&lt;p&gt;今下午本来是准备照着国外的一个教程，好好跟着过写一遍如何用python写一个异步web服务端，但是无意中看到一个QQ的新闻，于是想起来很久之前想在linux装好QQ的，接着一下午加一晚上的时间过去了。&lt;/p&gt;</description>
-    </item>
     <item>
       <title>/etc/hosts.allow和/etc/hosts.deny配置解释</title>
       <link>https://buhuipao.github.io/2016/08/16/etchosts-allow-etchosts-deny/</link>

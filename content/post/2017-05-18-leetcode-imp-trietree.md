@@ -4,17 +4,11 @@ author: 咩
 type: post
 date: 2017-05-18T13:34:59+00:00
 url: /2017/05/18/leetcode-imp-trietree/
-post_views_count:
-  - "11"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - python
+  - Python
   - 字典树
   - 算法
 
@@ -161,3 +155,8 @@ class Trie(object):
             _cur = _cur[c]
         return True
 ```
+
+**复杂度分析：**
+- insert: 时间复杂度 O(m)，m为单词长度
+- search/startsWith: 时间复杂度 O(m)，m为查询词长度
+- 空间复杂度：O(T)，T为所有插入单词的字符总数

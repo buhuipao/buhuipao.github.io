@@ -13,7 +13,7 @@
       <link>https://buhuipao.github.io/2017/06/29/leetcode-design_twitter/</link>
       <pubDate>Thu, 29 Jun 2017 07:36:15 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/06/29/leetcode-design_twitter/</guid>
-      <description>&lt;p&gt;经典的设计题，以前校招笔试遇到过，题意就是：让你设计一个小的推特系统，能够发推、收到推送、关注和取消关注某人，我的做法是直接采用一个数据表（字典）， 然后写的比较复杂，但是逻辑还算清晰，大量的检查异常情况，多次提交后AC；原题链接：&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://leetcode.com/problems/design-twitter/&#34;&gt;https://leetcode.com/problems/design-twitter/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;经典的设计题，以前校招笔试遇到过，题意就是：让你设计一个小的推特系统，能够发推、收到推送、关注和取消关注某人，我的做法是直接采用一个数据表（字典）， 然后写的比较复杂，但是逻辑还算清晰，大量的检查异常情况，多次提交后AC；原题链接：&lt;a href=&#34;https://leetcode.com/problems/design-twitter/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/design-twitter/&#34;&gt;https://leetcode.com/problems/design-twitter/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

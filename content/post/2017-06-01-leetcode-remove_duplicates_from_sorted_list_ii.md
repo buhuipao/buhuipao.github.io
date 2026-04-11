@@ -4,18 +4,11 @@ author: 咩
 type: post
 date: 2017-06-01T15:37:25+00:00
 url: /2017/06/01/leetcode-remove_duplicates_from_sorted_list_ii/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "5"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - python
+  - Python
   - 算法
   - 链表
 
@@ -91,3 +84,7 @@ class Solution1(object):
         tail.next = None
         return dummy.next
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历一次链表
+- 空间复杂度：O(1)，只使用了常数额外空间

@@ -4,18 +4,11 @@ author: 咩
 type: post
 date: 2017-05-28T15:41:00+00:00
 url: /2017/05/28/leetcode-palindrome-linked-list/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "7"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - python
+  - Python
   - 链表
 
 ---
@@ -75,3 +68,7 @@ class Solution(object):
         return True
             
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历链表
+- 空间复杂度：O(1)，反转后半部分链表

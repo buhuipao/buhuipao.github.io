@@ -5,7 +5,7 @@ type: post
 date: 2017-06-22T12:26:12+00:00
 url: /2017/06/22/leetcode-delect_operation_for_two_strings/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
   - LCS
@@ -21,15 +21,15 @@ to make word1 and word2 the same, where in each step you can delete one characte
 
 Example 1:
   
-Input: &#8220;sea&#8221;, &#8220;eat&#8221;
+Input: “sea”, “eat”
   
 Output: 2
   
-Explanation: You need one step to make &#8220;sea&#8221; to &#8220;ea&#8221; and another step to make &#8220;eat&#8221; to &#8220;ea&#8221;.
+Explanation: You need one step to make “sea” to “ea” and another step to make “eat” to “ea”.
   
 Note:
   
-The length of given words won&#8217;t exceed 500.
+The length of given words won’t exceed 500.
   
 Characters in given words can only be lower-case letters.
 

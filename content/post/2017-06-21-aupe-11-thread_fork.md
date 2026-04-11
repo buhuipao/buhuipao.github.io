@@ -7,8 +7,8 @@ url: /2017/06/21/aupe-11-thread_fork/
 categories:
   - Linux
 tags:
-  - AUPE
-  - Fork
+  - APUE
+  - 进程
   - 线程
 
 ---

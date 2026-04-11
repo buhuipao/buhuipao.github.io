@@ -5,14 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>LeetCode－－字典树的添加和搜索单词 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <meta itemprop="name" content="LeetCode－－字典树的添加和搜索单词">
-  <meta itemprop="description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&#34;bad&#34;) addWord(&#34;dad&#34;) addWord(&#34;mad&#34;) search(&#34;pad&#34;) -&amp;gt; false search(&#34;bad&#34;) -&amp;gt; true search(&#34;.ad&#34;) -&amp;gt; true search(&#34;b..&#34;) -&amp;gt; true Note: You may assume that all words are consist of lowercase letters a-z. &#39;&#39;&#39; class TrieNode(object): &#39;&#39;&#39; 初始化前缀树（字典树） &#39;&#39;&#39; def __init__(self): self.leaves = {} # 标记是否为单词的属性, 如果此节点存入了单词，此属性为True # 如果是路径，为False self.is_word = False class WordDictionary(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. like this: &#34;&#34;&#34; self.root = TrieNode() def addWord(self, word): &#34;&#34;&#34; Adds a word into the data structure. :type word: str :rtype: void &#34;&#34;&#34; cur = self.root for c in word: if c not in cur.leaves: cur.leaves[c] = TrieNode() cur = cur.leaves[c] # 修改此节点的是否为单词的属性为True cur.is_word = True def search(self, word): &#34;&#34;&#34; Returns if the word is in the data structure. A word could contain the dot character &#39;.&#39; to represent any one letter. :type word: str :rtype: bool &#34;&#34;&#34; return self._search(word, 0, self.root) def _search(self, word, index, cur): # 如果对比到单词的末尾(索引为单词长度), # 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False if index == len(word): return cur.is_word # 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找 if word[index] in cur.leaves: return self._search(word, index&#43;1, cur.leaves[word[index]]) # 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子 # 只要有一条路径返回True，就最终返回True elif word[index] == &#39;.&#39;: for c in cur.leaves: if self._search(word, index&#43;1, cur.leaves[c]): return True return False">
+  <meta itemprop="description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&#34;bad&#34;) addWord(&#34;dad&#34;) addWord(&#34;mad&#34;) search(&#34;pad&#34;) -&amp;gt; false search(&#34;bad&#34;) -&amp;gt; true search(&#34;.ad&#34;) -&amp;gt; true search(&#34;b..&#34;) -&amp;gt; true Note: You may assume that all words are consist of lowercase letters a-z. &#39;&#39;&#39; class TrieNode(object): &#39;&#39;&#39; 初始化前缀树（字典树） &#39;&#39;&#39; def __init__(self): self.leaves = {} # 标记是否为单词的属性, 如果此节点存入了单词，此属性为True # 如果是路径，为False self.is_word = False class WordDictionary(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. like this: &#34;&#34;&#34; self.root = TrieNode() def addWord(self, word): &#34;&#34;&#34; Adds a word into the data structure. :type word: str :rtype: void &#34;&#34;&#34; cur = self.root for c in word: if c not in cur.leaves: cur.leaves[c] = TrieNode() cur = cur.leaves[c] # 修改此节点的是否为单词的属性为True cur.is_word = True def search(self, word): &#34;&#34;&#34; Returns if the word is in the data structure. A word could contain the dot character &#39;.&#39; to represent any one letter. :type word: str :rtype: bool &#34;&#34;&#34; return self._search(word, 0, self.root) def _search(self, word, index, cur): # 如果对比到单词的末尾(索引为单词长度), # 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False if index == len(word): return cur.is_word # 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找 if word[index] in cur.leaves: return self._search(word, index&#43;1, cur.leaves[word[index]]) # 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子 # 只要有一条路径返回True，就最终返回True elif word[index] == &#39;.&#39;: for c in cur.leaves: if self._search(word, index&#43;1, cur.leaves[c]): return True return False 复杂度分析：">
   <meta itemprop="datePublished" content="2017-05-18T08:44:26+00:00">
   <meta itemprop="dateModified" content="2017-05-18T08:44:26+00:00">
-  <meta itemprop="wordCount" content="454">
+  <meta itemprop="wordCount" content="545">
   <meta itemprop="keywords" content="Python,字典树"><meta property="og:url" content="https://buhuipao.github.io/2017/05/18/leetcode_trietree/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="LeetCode－－字典树的添加和搜索单词">
-  <meta property="og:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&#34;bad&#34;) addWord(&#34;dad&#34;) addWord(&#34;mad&#34;) search(&#34;pad&#34;) -&amp;gt; false search(&#34;bad&#34;) -&amp;gt; true search(&#34;.ad&#34;) -&amp;gt; true search(&#34;b..&#34;) -&amp;gt; true Note: You may assume that all words are consist of lowercase letters a-z. &#39;&#39;&#39; class TrieNode(object): &#39;&#39;&#39; 初始化前缀树（字典树） &#39;&#39;&#39; def __init__(self): self.leaves = {} # 标记是否为单词的属性, 如果此节点存入了单词，此属性为True # 如果是路径，为False self.is_word = False class WordDictionary(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. like this: &#34;&#34;&#34; self.root = TrieNode() def addWord(self, word): &#34;&#34;&#34; Adds a word into the data structure. :type word: str :rtype: void &#34;&#34;&#34; cur = self.root for c in word: if c not in cur.leaves: cur.leaves[c] = TrieNode() cur = cur.leaves[c] # 修改此节点的是否为单词的属性为True cur.is_word = True def search(self, word): &#34;&#34;&#34; Returns if the word is in the data structure. A word could contain the dot character &#39;.&#39; to represent any one letter. :type word: str :rtype: bool &#34;&#34;&#34; return self._search(word, 0, self.root) def _search(self, word, index, cur): # 如果对比到单词的末尾(索引为单词长度), # 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False if index == len(word): return cur.is_word # 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找 if word[index] in cur.leaves: return self._search(word, index&#43;1, cur.leaves[word[index]]) # 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子 # 只要有一条路径返回True，就最终返回True elif word[index] == &#39;.&#39;: for c in cur.leaves: if self._search(word, index&#43;1, cur.leaves[c]): return True return False">
+  <meta property="og:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&#34;bad&#34;) addWord(&#34;dad&#34;) addWord(&#34;mad&#34;) search(&#34;pad&#34;) -&amp;gt; false search(&#34;bad&#34;) -&amp;gt; true search(&#34;.ad&#34;) -&amp;gt; true search(&#34;b..&#34;) -&amp;gt; true Note: You may assume that all words are consist of lowercase letters a-z. &#39;&#39;&#39; class TrieNode(object): &#39;&#39;&#39; 初始化前缀树（字典树） &#39;&#39;&#39; def __init__(self): self.leaves = {} # 标记是否为单词的属性, 如果此节点存入了单词，此属性为True # 如果是路径，为False self.is_word = False class WordDictionary(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. like this: &#34;&#34;&#34; self.root = TrieNode() def addWord(self, word): &#34;&#34;&#34; Adds a word into the data structure. :type word: str :rtype: void &#34;&#34;&#34; cur = self.root for c in word: if c not in cur.leaves: cur.leaves[c] = TrieNode() cur = cur.leaves[c] # 修改此节点的是否为单词的属性为True cur.is_word = True def search(self, word): &#34;&#34;&#34; Returns if the word is in the data structure. A word could contain the dot character &#39;.&#39; to represent any one letter. :type word: str :rtype: bool &#34;&#34;&#34; return self._search(word, 0, self.root) def _search(self, word, index, cur): # 如果对比到单词的末尾(索引为单词长度), # 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False if index == len(word): return cur.is_word # 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找 if word[index] in cur.leaves: return self._search(word, index&#43;1, cur.leaves[word[index]]) # 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子 # 只要有一条路径返回True，就最终返回True elif word[index] == &#39;.&#39;: for c in cur.leaves: if self._search(word, index&#43;1, cur.leaves[c]): return True return False 复杂度分析：">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -23,7 +23,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="LeetCode－－字典树的添加和搜索单词">
-  <meta name="twitter:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&#34;bad&#34;) addWord(&#34;dad&#34;) addWord(&#34;mad&#34;) search(&#34;pad&#34;) -&amp;gt; false search(&#34;bad&#34;) -&amp;gt; true search(&#34;.ad&#34;) -&amp;gt; true search(&#34;b..&#34;) -&amp;gt; true Note: You may assume that all words are consist of lowercase letters a-z. &#39;&#39;&#39; class TrieNode(object): &#39;&#39;&#39; 初始化前缀树（字典树） &#39;&#39;&#39; def __init__(self): self.leaves = {} # 标记是否为单词的属性, 如果此节点存入了单词，此属性为True # 如果是路径，为False self.is_word = False class WordDictionary(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. like this: &#34;&#34;&#34; self.root = TrieNode() def addWord(self, word): &#34;&#34;&#34; Adds a word into the data structure. :type word: str :rtype: void &#34;&#34;&#34; cur = self.root for c in word: if c not in cur.leaves: cur.leaves[c] = TrieNode() cur = cur.leaves[c] # 修改此节点的是否为单词的属性为True cur.is_word = True def search(self, word): &#34;&#34;&#34; Returns if the word is in the data structure. A word could contain the dot character &#39;.&#39; to represent any one letter. :type word: str :rtype: bool &#34;&#34;&#34; return self._search(word, 0, self.root) def _search(self, word, index, cur): # 如果对比到单词的末尾(索引为单词长度), # 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False if index == len(word): return cur.is_word # 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找 if word[index] in cur.leaves: return self._search(word, index&#43;1, cur.leaves[word[index]]) # 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子 # 只要有一条路径返回True，就最终返回True elif word[index] == &#39;.&#39;: for c in cur.leaves: if self._search(word, index&#43;1, cur.leaves[c]): return True return False">
+  <meta name="twitter:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; 设计一种添加和搜索单词的数据结构 Design a data structure that supports the following two operations: void addWord(word) bool search(word) search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter. For example: addWord(&#34;bad&#34;) addWord(&#34;dad&#34;) addWord(&#34;mad&#34;) search(&#34;pad&#34;) -&amp;gt; false search(&#34;bad&#34;) -&amp;gt; true search(&#34;.ad&#34;) -&amp;gt; true search(&#34;b..&#34;) -&amp;gt; true Note: You may assume that all words are consist of lowercase letters a-z. &#39;&#39;&#39; class TrieNode(object): &#39;&#39;&#39; 初始化前缀树（字典树） &#39;&#39;&#39; def __init__(self): self.leaves = {} # 标记是否为单词的属性, 如果此节点存入了单词，此属性为True # 如果是路径，为False self.is_word = False class WordDictionary(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. like this: &#34;&#34;&#34; self.root = TrieNode() def addWord(self, word): &#34;&#34;&#34; Adds a word into the data structure. :type word: str :rtype: void &#34;&#34;&#34; cur = self.root for c in word: if c not in cur.leaves: cur.leaves[c] = TrieNode() cur = cur.leaves[c] # 修改此节点的是否为单词的属性为True cur.is_word = True def search(self, word): &#34;&#34;&#34; Returns if the word is in the data structure. A word could contain the dot character &#39;.&#39; to represent any one letter. :type word: str :rtype: bool &#34;&#34;&#34; return self._search(word, 0, self.root) def _search(self, word, index, cur): # 如果对比到单词的末尾(索引为单词长度), # 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False if index == len(word): return cur.is_word # 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找 if word[index] in cur.leaves: return self._search(word, index&#43;1, cur.leaves[word[index]]) # 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子 # 只要有一条路径返回True，就最终返回True elif word[index] == &#39;.&#39;: for c in cur.leaves: if self._search(word, index&#43;1, cur.leaves[c]): return True return False 复杂度分析：">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -95,90 +95,96 @@
 			</div>
 					
 			<div class="markdown">
-				<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># _*_ coding: utf-8 _*_</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">设计一种添加和搜索单词的数据结构
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Design a data structure that supports the following two operations:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    void addWord(word)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    bool search(word)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    For example:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        addWord(&#34;bad&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        addWord(&#34;dad&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        addWord(&#34;mad&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        search(&#34;pad&#34;) -&amp;gt; false
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        search(&#34;bad&#34;) -&amp;gt; true
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        search(&#34;.ad&#34;) -&amp;gt; true
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        search(&#34;b..&#34;) -&amp;gt; true
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Note:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            You may assume that all words are consist of lowercase letters a-z.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TrieNode</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    初始化前缀树（字典树）
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>leaves <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 标记是否为单词的属性, 如果此节点存入了单词，此属性为True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果是路径，为False</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>is_word <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WordDictionary</span>(object):
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Initialize your data structure here.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        like this:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>root <span style="color:#f92672">=</span> TrieNode()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addWord</span>(self, word):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Adds a word into the data structure.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: void
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> word:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> cur<span style="color:#f92672">.</span>leaves:
-</span></span><span style="display:flex;"><span>                cur<span style="color:#f92672">.</span>leaves[c] <span style="color:#f92672">=</span> TrieNode()
-</span></span><span style="display:flex;"><span>            cur <span style="color:#f92672">=</span> cur<span style="color:#f92672">.</span>leaves[c]
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 修改此节点的是否为单词的属性为True</span>
-</span></span><span style="display:flex;"><span>        cur<span style="color:#f92672">.</span>is_word <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">search</span>(self, word):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns if the word is in the data structure.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        A word could contain the dot character &#39;.&#39; to represent any one letter.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_search(word, <span style="color:#ae81ff">0</span>, self<span style="color:#f92672">.</span>root)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_search</span>(self, word, index, cur):
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果对比到单词的末尾(索引为单词长度),</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> index <span style="color:#f92672">==</span> len(word):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> cur<span style="color:#f92672">.</span>is_word
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> word[index] <span style="color:#f92672">in</span> cur<span style="color:#f92672">.</span>leaves:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_search(word, index<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, cur<span style="color:#f92672">.</span>leaves[word[index]])
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 只要有一条路径返回True，就最终返回True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> word[index] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;.&#39;</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> cur<span style="color:#f92672">.</span>leaves:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>_search(word, index<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, cur<span style="color:#f92672">.</span>leaves[c]):
-</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span></code></pre></div>
+				<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">设计一种添加和搜索单词的数据结构
+</span></span></span><span class="line"><span class="cl"><span class="s1">Design a data structure that supports the following two operations:
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">    void addWord(word)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    bool search(word)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter.
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">    For example:
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">        addWord(&#34;bad&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        addWord(&#34;dad&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        addWord(&#34;mad&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        search(&#34;pad&#34;) -&amp;gt; false
+</span></span></span><span class="line"><span class="cl"><span class="s1">        search(&#34;bad&#34;) -&amp;gt; true
+</span></span></span><span class="line"><span class="cl"><span class="s1">        search(&#34;.ad&#34;) -&amp;gt; true
+</span></span></span><span class="line"><span class="cl"><span class="s1">        search(&#34;b..&#34;) -&amp;gt; true
+</span></span></span><span class="line"><span class="cl"><span class="s1">        Note:
+</span></span></span><span class="line"><span class="cl"><span class="s1">            You may assume that all words are consist of lowercase letters a-z.
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TrieNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    初始化前缀树（字典树）
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">leaves</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 标记是否为单词的属性, 如果此节点存入了单词，此属性为True</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果是路径，为False</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">is_word</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">WordDictionary</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Initialize your data structure here.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        like this:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">addWord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Adds a word into the data structure.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 修改此节点的是否为单词的属性为True</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cur</span><span class="o">.</span><span class="n">is_word</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns if the word is in the data structure.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        A word could contain the dot character &#39;.&#39; to represent any one letter.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_search</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">cur</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果对比到单词的末尾(索引为单词长度),</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果此节点不仅为路径还是单词就返回之前存入的True, 否则返回初始化的False</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">cur</span><span class="o">.</span><span class="n">is_word</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果此字母在当前节点叶子里, 继续往下一个叶子节点查找</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_search</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果字母是&#39;.&#39;，则跳过当前节点，直接往下搜索所有叶子</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 只要有一条路径返回True，就最终返回True</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;.&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_search</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">c</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span>
+</span></span></code></pre></div><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>addWord: 时间复杂度 O(m)，m为单词长度</li>
+<li>search: 时间复杂度最坏 O(26^m)（含通配符&rsquo;.&lsquo;时），无通配符时 O(m)</li>
+<li>空间复杂度：O(T)，T为所有插入单词的字符总数</li>
+</ul>
+
 			</div>
 
 			<div class="tags">
@@ -186,7 +192,7 @@
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/python">python</a></li>
+							<li><a href="/tags/python">Python</a></li>
 							
 							<li><a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91">字典树</a></li>
 							
@@ -213,15 +219,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

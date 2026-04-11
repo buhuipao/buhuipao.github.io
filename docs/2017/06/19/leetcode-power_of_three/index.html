@@ -8,17 +8,17 @@
   <meta itemprop="description" content="Given an integer, write a function to determine if it is a power of three.
 Follow up:
 Could you do it without using any loop / recursion?
-# _*_ coding: utf-8 _*_ class Solution(object): def isPowerOfThree(self, n): &#34;&#34;&#34; :type n: int :rtype: bool &#34;&#34;&#34; import math if n &amp;lt; 1: return False # 四舍五入, 因为最后的取对数会有少许误差 return 3 ** round(math.log(n, 3)) == n def isPowerOfThree1(self, n): &#34;&#34;&#34; :type n: int :rtype: bool 思路是在看了别人的解析后得出: 直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可 In [178]: math.log(1162261467, 2) Out[178]: 30.11428751370197 In [180]: math.log(1162261467 * 3, 2) Out[180]: 31.699250014423125 32位最大3的幂数是1162261467 &#34;&#34;&#34; return n &amp;gt; 0 and 1162261467 % n == 0">
+# _*_ coding: utf-8 _*_ class Solution(object): def isPowerOfThree(self, n): &#34;&#34;&#34; :type n: int :rtype: bool &#34;&#34;&#34; import math if n &amp;lt; 1: return False # 四舍五入, 因为最后的取对数会有少许误差 return 3 ** round(math.log(n, 3)) == n def isPowerOfThree1(self, n): &#34;&#34;&#34; :type n: int :rtype: bool 思路是在看了别人的解析后得出: 直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可 In [178]: math.log(1162261467, 2) Out[178]: 30.11428751370197 In [180]: math.log(1162261467 * 3, 2) Out[180]: 31.699250014423125 32位最大3的幂数是1162261467 &#34;&#34;&#34; return n &amp;gt; 0 and 1162261467 % n == 0 复杂度分析：">
   <meta itemprop="datePublished" content="2017-06-19T07:50:03+00:00">
   <meta itemprop="dateModified" content="2017-06-19T07:50:03+00:00">
-  <meta itemprop="wordCount" content="185">
+  <meta itemprop="wordCount" content="227">
   <meta itemprop="keywords" content="Python,算法"><meta property="og:url" content="https://buhuipao.github.io/2017/06/19/leetcode-power_of_three/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="LeetCode-power_of_three">
   <meta property="og:description" content="Given an integer, write a function to determine if it is a power of three.
 Follow up:
 Could you do it without using any loop / recursion?
-# _*_ coding: utf-8 _*_ class Solution(object): def isPowerOfThree(self, n): &#34;&#34;&#34; :type n: int :rtype: bool &#34;&#34;&#34; import math if n &amp;lt; 1: return False # 四舍五入, 因为最后的取对数会有少许误差 return 3 ** round(math.log(n, 3)) == n def isPowerOfThree1(self, n): &#34;&#34;&#34; :type n: int :rtype: bool 思路是在看了别人的解析后得出: 直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可 In [178]: math.log(1162261467, 2) Out[178]: 30.11428751370197 In [180]: math.log(1162261467 * 3, 2) Out[180]: 31.699250014423125 32位最大3的幂数是1162261467 &#34;&#34;&#34; return n &amp;gt; 0 and 1162261467 % n == 0">
+# _*_ coding: utf-8 _*_ class Solution(object): def isPowerOfThree(self, n): &#34;&#34;&#34; :type n: int :rtype: bool &#34;&#34;&#34; import math if n &amp;lt; 1: return False # 四舍五入, 因为最后的取对数会有少许误差 return 3 ** round(math.log(n, 3)) == n def isPowerOfThree1(self, n): &#34;&#34;&#34; :type n: int :rtype: bool 思路是在看了别人的解析后得出: 直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可 In [178]: math.log(1162261467, 2) Out[178]: 30.11428751370197 In [180]: math.log(1162261467 * 3, 2) Out[180]: 31.699250014423125 32位最大3的幂数是1162261467 &#34;&#34;&#34; return n &amp;gt; 0 and 1162261467 % n == 0 复杂度分析：">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -32,7 +32,7 @@ Could you do it without using any loop / recursion?
   <meta name="twitter:description" content="Given an integer, write a function to determine if it is a power of three.
 Follow up:
 Could you do it without using any loop / recursion?
-# _*_ coding: utf-8 _*_ class Solution(object): def isPowerOfThree(self, n): &#34;&#34;&#34; :type n: int :rtype: bool &#34;&#34;&#34; import math if n &amp;lt; 1: return False # 四舍五入, 因为最后的取对数会有少许误差 return 3 ** round(math.log(n, 3)) == n def isPowerOfThree1(self, n): &#34;&#34;&#34; :type n: int :rtype: bool 思路是在看了别人的解析后得出: 直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可 In [178]: math.log(1162261467, 2) Out[178]: 30.11428751370197 In [180]: math.log(1162261467 * 3, 2) Out[180]: 31.699250014423125 32位最大3的幂数是1162261467 &#34;&#34;&#34; return n &amp;gt; 0 and 1162261467 % n == 0">
+# _*_ coding: utf-8 _*_ class Solution(object): def isPowerOfThree(self, n): &#34;&#34;&#34; :type n: int :rtype: bool &#34;&#34;&#34; import math if n &amp;lt; 1: return False # 四舍五入, 因为最后的取对数会有少许误差 return 3 ** round(math.log(n, 3)) == n def isPowerOfThree1(self, n): &#34;&#34;&#34; :type n: int :rtype: bool 思路是在看了别人的解析后得出: 直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可 In [178]: math.log(1162261467, 2) Out[178]: 30.11428751370197 In [180]: math.log(1162261467 * 3, 2) Out[180]: 31.699250014423125 32位最大3的幂数是1162261467 &#34;&#34;&#34; return n &amp;gt; 0 and 1162261467 % n == 0 复杂度分析：">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -107,36 +107,41 @@ Could you do it without using any loop / recursion?
 				<p>Given an integer, write a function to determine if it is a power of three.</p>
 <p>Follow up:</p>
 <p>Could you do it without using any loop / recursion?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># _*_ coding: utf-8 _*_</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isPowerOfThree</span>(self, n):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type n: int
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">import</span> math
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&amp;</span>lt; <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 四舍五入, 因为最后的取对数会有少许误差</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> round(math<span style="color:#f92672">.</span>log(n, <span style="color:#ae81ff">3</span>)) <span style="color:#f92672">==</span> n
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isPowerOfThree1</span>(self, n):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type n: int
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        思路是在看了别人的解析后得出:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            In [178]: math.log(1162261467, 2)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Out[178]: 30.11428751370197
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            In [180]: math.log(1162261467 * 3, 2)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Out[180]: 31.699250014423125
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            32位最大3的幂数是1162261467
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> n <span style="color:#f92672">&amp;</span>gt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> <span style="color:#ae81ff">1162261467</span> <span style="color:#f92672">%</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">isPowerOfThree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type n: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 四舍五入, 因为最后的取对数会有少许误差</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">3</span> <span class="o">**</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">isPowerOfThree1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type n: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        思路是在看了别人的解析后得出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            直接在32位的有符号整型号里，找到最大的3的幂数，然后用n对它进行取余即可
+</span></span></span><span class="line"><span class="cl"><span class="s2">            In [178]: math.log(1162261467, 2)
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Out[178]: 30.11428751370197
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">            In [180]: math.log(1162261467 * 3, 2)
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Out[180]: 31.699250014423125
+</span></span></span><span class="line"><span class="cl"><span class="s2">            32位最大3的幂数是1162261467
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1162261467</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span></code></pre></div><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：O(1)，直接取余判断</li>
+<li>空间复杂度：O(1)，只使用了常数空间</li>
+</ul>
+
 			</div>
 
 			<div class="tags">
@@ -144,7 +149,7 @@ Could you do it without using any loop / recursion?
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/python">python</a></li>
+							<li><a href="/tags/python">Python</a></li>
 							
 							<li><a href="/tags/%E7%AE%97%E6%B3%95">算法</a></li>
 							
@@ -171,15 +176,15 @@ Could you do it without using any loop / recursion?
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

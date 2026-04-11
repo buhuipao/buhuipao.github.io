@@ -4,19 +4,13 @@ author: 咩
 type: post
 date: 2017-05-19T08:45:55+00:00
 url: /2017/05/19/leetcode-countsmaller/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "8"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - Algorithm
-  - BST
-  - python
+  - 算法
+  - 二叉树
+  - Python
 
 ---
 Time: O(nlogn)
@@ -126,3 +120,7 @@ class Solution(object):
                     return count + curr.count
             return 0
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(nlogn)，归并排序
+- 空间复杂度：O(n)

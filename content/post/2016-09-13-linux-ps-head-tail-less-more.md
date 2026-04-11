@@ -4,18 +4,9 @@ author: 咩
 type: post
 date: 2016-09-13T05:09:02+00:00
 url: /2016/09/13/linux-ps-head-tail-less-more/
-post_views_count:
-  - "80"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Shell
+  - Linux
 tags:
-  - head
-  - IP
-  - ps
 
 ---
 **PS**
@@ -40,7 +31,7 @@ buhuipao 27911 8055 0.8 5.6 chrome
 buhuipao 2511 8055 0.7 6.2 chrome
 ```
 
-#假如 ps -eo user,pid,ppid,pcpu,pmem,comm &#8211;sort=+pmem,-pcpu | tail -n 10
+#假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem,-pcpu | tail -n 10
   
 #则按照sort后第一个排序为准
 

@@ -10,7 +10,7 @@ Given a sorted array, remove the duplicates in place such that each element appe
 Do not allocate extra space for another array, you must do this in place with constant memory.">
   <meta itemprop="datePublished" content="2017-06-20T05:13:19+00:00">
   <meta itemprop="dateModified" content="2017-06-20T05:13:19+00:00">
-  <meta itemprop="wordCount" content="268">
+  <meta itemprop="wordCount" content="312">
   <meta itemprop="keywords" content="算法"><meta property="og:url" content="https://buhuipao.github.io/2017/06/20/leetcode-remove_duplicates_from_sorted_array/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="LeetCode-Remove_Duplicates_from_Sorted_Array">
@@ -107,26 +107,31 @@ Do not allocate extra space for another array, you must do this in place with co
 <p>Given input array nums = [1,1,2],</p>
 <p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</p>
 <p>It doesn’t matter what you leave beyond the new length.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># _*_ coding: utf-8 _*_</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">removeDuplicates</span>(self, nums):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type nums: List[int]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: int
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        题目要求你返回最后不同元素的个数，但是也会检查你的元素nums[:count+1]是否排列正确
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        比如INPUT：［1，1，2］，返回2，但是nums[:2]必须为[1, 2], 最终nums为：[1, 2, 2]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nums:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">1</span>, len(nums)):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> nums[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">!=</span> nums[i]:
-</span></span><span style="display:flex;"><span>                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>                nums[count] <span style="color:#f92672">=</span> nums[i]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        题目要求你返回最后不同元素的个数，但是也会检查你的元素nums[:count+1]是否排列正确
+</span></span></span><span class="line"><span class="cl"><span class="s2">        比如INPUT：［1，1，2］，返回2，但是nums[:2]必须为[1, 2], 最终nums为：[1, 2, 2]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span>
+</span></span></code></pre></div><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：O(n)，遍历一次数组</li>
+<li>空间复杂度：O(1)，只使用了常数额外空间</li>
+</ul>
+
 			</div>
 
 			<div class="tags">
@@ -159,15 +164,15 @@ Do not allocate extra space for another array, you must do this in place with co
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

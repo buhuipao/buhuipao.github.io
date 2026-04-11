@@ -4,18 +4,12 @@ author: 咩
 type: post
 date: 2017-06-04T17:29:09+00:00
 url: /2017/06/05/leetcode-top_k_frequent_elements/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "6"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - Algorithm
-  - python
+  - 算法
+  - Python
   - 堆
   - 排序
 
@@ -30,7 +24,7 @@ Note:
   
 You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
   
-Your algorithm&#8217;s time complexity must be better than O(n log n), where n is the array&#8217;s size.
+Your algorithm’s time complexity must be better than O(n log n), where n is the array’s size.
 
 ```python
 # _*_ coding: utf-8 _*_
@@ -73,3 +67,7 @@ class Solution(object):
                 heap(_nums, 0, k)
         return [i for [i, j] in _nums[:k]]
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n + m * logk)，n为数组长度，m为不同元素个数，维护大小为k的小根堆
+- 空间复杂度：O(m)，哈希表统计频率

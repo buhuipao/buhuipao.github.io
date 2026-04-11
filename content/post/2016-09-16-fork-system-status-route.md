@@ -4,17 +4,11 @@ author: 咩
 type: post
 date: 2016-09-16T11:16:48+00:00
 url: /2016/09/16/fork-system-status-route/
-post_views_count:
-  - "48"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Linux
-  - Network
+  - 网络
 tags:
-  - python
+  - Python
 
 ---
   * A: [牛客网][1]刷计算操作系统的题，遇到一个一直很模糊的题，所以记录下来。
@@ -59,7 +53,7 @@ fork()给子进程返回一个零值，而给父进程返回一个子进车id；
   
     c.  外围设备的中断
 
-&nbsp;
+ 
 
   * D: 附加：局域网的网络地址192.168.1.0/24，局域网络连接其它网络的网关地址是192.168.1.1。主机192.168.1.20访问172.16.1.0/24网络时，其路由设置正确的是？
 
@@ -68,6 +62,6 @@ fork()给子进程返回一个零值，而给父进程返回一个子进车id；
 解析：　路由信息是由{目的主机所在的网络地址，下一跳地址，子网掩码}组成</pre>
 </div>
 
-参考学习链接来自&#8211;博客园: <http://www.cnblogs.com/bastard/archive/2012/08/31/2664896.html>
+参考学习链接来自–博客园: <http://www.cnblogs.com/bastard/archive/2012/08/31/2664896.html>
 
  [1]: http://www.nowcoder.com/test/question/done?tid=5114409&qid=26082#summary

@@ -10,7 +10,7 @@
   <meta itemprop="datePublished" content="2017-09-17T10:01:47+00:00">
   <meta itemprop="dateModified" content="2017-09-17T10:01:47+00:00">
   <meta itemprop="wordCount" content="105">
-  <meta itemprop="keywords" content="BST"><meta property="og:url" content="https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">
+  <meta itemprop="keywords" content="二叉树"><meta property="og:url" content="https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="转换BST为一个双向链表">
   <meta property="og:description" content="经典二叉树题：转换一个二叉树为一个双向链表；
@@ -20,7 +20,7 @@
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-09-17T10:01:47+00:00">
     <meta property="article:modified_time" content="2017-09-17T10:01:47+00:00">
-    <meta property="article:tag" content="BST">
+    <meta property="article:tag" content="二叉树">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="转换BST为一个双向链表">
@@ -98,30 +98,30 @@
 					
 			<div class="markdown">
 				<p>经典二叉树题：转换一个二叉树为一个双向链表；</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># -*- coding:utf-8 -*-</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># class TreeNode:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     def __init__(self, x):</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#         self.val = x</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#         self.left = None</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#         self.right = None</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Convert</span>(self, pRootOfTree):
-</span></span><span style="display:flex;"><span>        root <span style="color:#f92672">=</span> pRootOfTree
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> root
-</span></span><span style="display:flex;"><span>        stack, node, head <span style="color:#f92672">=</span> [root], root<span style="color:#f92672">.</span>left, <span style="color:#66d9ef">None</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> stack <span style="color:#f92672">or</span> node:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> node:
-</span></span><span style="display:flex;"><span>                stack<span style="color:#f92672">.</span>append(node)
-</span></span><span style="display:flex;"><span>                node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>left
-</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> head
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 判断是否为第一个节点</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> head:
-</span></span><span style="display:flex;"><span>                head<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> node
-</span></span><span style="display:flex;"><span>            head <span style="color:#f92672">=</span> node
-</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>right
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> head
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding:utf-8 -*-</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class TreeNode:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, x):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = x</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.left = None</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.right = None</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">Convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pRootOfTree</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span> <span class="o">=</span> <span class="n">pRootOfTree</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">head</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">],</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">stack</span> <span class="ow">or</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 判断是否为第一个节点</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">head</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">head</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">            <span class="n">head</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">head</span>
 </span></span></code></pre></div>
 			</div>
 
@@ -130,7 +130,7 @@
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/bst">BST</a></li>
+							<li><a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a></li>
 							
 						</ul>
 					
@@ -155,15 +155,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

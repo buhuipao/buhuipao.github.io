@@ -5,12 +5,12 @@ type: post
 date: 2017-07-01T04:42:14+00:00
 url: /2017/07/01/leetcode-find_median_from_data_stream/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - heap
-  - leetcode
-  - 二分法
+  - 堆
+  - LeetCode
+  - 二分查找
 
 ---
 LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之后会给出添加时间复杂度为O(logn)查找O(1)的解法，其实就是维护两个堆（一个大根堆一个小根堆）；原题链接：<a href="https://leetcode.com/problems/find-median-from-data-stream/" target="_blank">https://leetcode.com/problems/find-median-from-data-stream/</a>
@@ -29,9 +29,9 @@ Examples:
 
 Design a data structure that supports the following two operations:
 
-void addNum(int num) &#8211; Add a integer number from the data stream to the data structure.
+void addNum(int num) – Add a integer number from the data stream to the data structure.
   
-double findMedian() &#8211; Return the median of all elements so far.
+double findMedian() – Return the median of all elements so far.
   
 For example:
 

@@ -5,7 +5,7 @@ type: post
 date: 2017-04-20T06:11:23+00:00
 url: /2017/04/20/mongodb_-aggregate/
 categories:
-  - Database
+  - 数据库
 tags:
   - mongodb
   - 聚合

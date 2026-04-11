@@ -24,7 +24,7 @@ copyright = "© Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target
   featherIconsCDN = false
   mode = "auto"
   favicon = "https://avatars.githubusercontent.com/u/14309948?v=4"
-  googleAnalyticsID = "UA-109197138-1"
+  googleAnalyticsID = "G-5QSMC5LSP3"
   disqusShortname = "buhuipao"
 
 [[menu.main]]
@@ -66,3 +66,8 @@ url = "/index.xml"
 [taxonomies]
   tag = "tags"
   categories = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

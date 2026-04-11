@@ -5,10 +5,10 @@ type: post
 date: 2017-06-29T07:36:15+00:00
 url: /2017/06/29/leetcode-design_twitter/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - 系统设计
 
 ---
@@ -16,11 +16,11 @@ tags:
 
 Design a simplified version of Twitter where users can post tweets, follow/unfollow another user
   
-and is able to see the 10 most recent tweets in the user&#8217;s news feed. Your design should support the following methods:
+and is able to see the 10 most recent tweets in the user’s news feed. Your design should support the following methods:
 
 postTweet(userId, tweetId): Compose a new tweet.
   
-getNewsFeed(userId): Retrieve the 10 most recent tweet ids in the user&#8217;s news feed.
+getNewsFeed(userId): Retrieve the 10 most recent tweet ids in the user’s news feed.
   
 Each item in the news feed must be posted by users who the user followed or by the user herself.
   
@@ -38,7 +38,7 @@ Twitter twitter = new Twitter();
   
 twitter.postTweet(1, 5);
 
-// User 1&#8217;s news feed should return a list with 1 tweet id -> [5].
+// User 1’s news feed should return a list with 1 tweet id -> [5].
   
 twitter.getNewsFeed(1);
 
@@ -50,7 +50,7 @@ twitter.follow(1, 2);
   
 twitter.postTweet(2, 6);
 
-// User 1&#8217;s news feed should return a list with 2 tweet ids -> [6, 5].
+// User 1’s news feed should return a list with 2 tweet ids -> [6, 5].
   
 // Tweet id 6 should precede tweet id 5 because it is posted after tweet id 5.
   
@@ -60,7 +60,7 @@ twitter.getNewsFeed(1);
   
 twitter.unfollow(1, 2);
 
-// User 1&#8217;s news feed should return a list with 1 tweet id -> [5],
+// User 1’s news feed should return a list with 1 tweet id -> [5],
   
 // since user 1 is no longer following user 2.
   
@@ -180,3 +180,8 @@ class Twitter1(object):
     def unfollow(self, followerId, followeeId):
         self.followees[followerId].discard(followeeId)
 ```
+
+**复杂度分析（最优解法）：**
+- postTweet: O(1)
+- getNewsFeed: O(k * logk)，k为关注人数，使用堆合并
+- follow/unfollow: O(1)

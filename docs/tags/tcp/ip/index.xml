@@ -6,15 +6,8 @@
     <description>Recent content in TCP/IP on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Sep 2016 09:11:09 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Aug 2016 13:21:37 +0000</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/tags/tcp/ip/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[转载]TCP/IP的三次握手的详细过程</title>
-      <link>https://buhuipao.github.io/2016/09/10/tcp-ip-connect/</link>
-      <pubDate>Sat, 10 Sep 2016 09:11:09 +0000</pubDate>
-      <guid>https://buhuipao.github.io/2016/09/10/tcp-ip-connect/</guid>
-      <description>&lt;p&gt;TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接:&lt;/p&gt;&#xA;&lt;p&gt;位码即tcp标志位,有6种标示:SYN(synchronous建立联机) ACK(acknowledgement 确认) PSH(push传送) FIN(finish结束) RST(reset重置) URG(urgent紧急)&lt;/p&gt;</description>
-    </item>
     <item>
       <title>计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手</title>
       <link>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</link>

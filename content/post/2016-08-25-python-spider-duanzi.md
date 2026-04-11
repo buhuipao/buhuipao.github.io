@@ -4,17 +4,10 @@ author: 咩
 type: post
 date: 2016-08-25T04:43:26+00:00
 url: /2016/08/25/python-spider-duanzi/
-post_views_count:
-  - "50"
-flashPic:
-  - .
-flag:
-  - .
 categories:
   - Python
 tags:
-  - IP
-  - python
+  - Python
   - 爬虫
 
 ---

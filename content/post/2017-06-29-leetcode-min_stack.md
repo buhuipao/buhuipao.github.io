@@ -5,11 +5,11 @@ type: post
 date: 2017-06-29T03:08:00+00:00
 url: /2017/06/29/leetcode-min_stack/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
-  - stack
+  - LeetCode
+  - 栈
   - 数据结构
 
 ---
@@ -19,13 +19,13 @@ Design a stack that supports push, pop, top,
   
 and retrieving the minimum element in constant time.
 
-push(x) &#8212; Push element x onto stack.
+push(x) — Push element x onto stack.
   
-pop() &#8212; Removes the element on top of the stack.
+pop() — Removes the element on top of the stack.
   
-top() &#8212; Get the top element.
+top() — Get the top element.
   
-getMin() &#8212; Retrieve the minimum element in the stack.
+getMin() — Retrieve the minimum element in the stack.
 
 ```
 # _*_ coding: utf-8 _*_
@@ -76,3 +76,7 @@ class MinStack(object):
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(1)，push/pop/top/getMin 均为常数时间
+- 空间复杂度：O(n)，辅助栈存储最小值

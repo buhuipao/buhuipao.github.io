@@ -4,19 +4,12 @@ author: 咩
 type: post
 date: 2016-04-25T11:57:38+00:00
 url: /2016/04/25/mysql_basic_operation/
-post_views_count:
-  - "48"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Database
+  - 数据库
 tags:
-  - IP
   - Linux
   - mysql
-  - shell
+  - Shell
 
 ---
 登陆数据库：

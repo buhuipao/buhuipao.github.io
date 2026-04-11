@@ -4,20 +4,13 @@ author: 咩
 type: post
 date: 2017-06-03T04:59:20+00:00
 url: /2017/06/03/leetcode-brick_wall/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "7"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - hashtab
+  - 哈希表
   - HTTPS
-  - ps
-  - python
+  - Python
   - 算法
 
 ---
@@ -64,3 +57,7 @@ class Solution(object):
             return len(wall)
         return len(wall) - max(width_dict.values())
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，n为所有砖块总数
+- 空间复杂度：O(w)，w为墙的宽度（哈希表存储边缘位置）

@@ -4,19 +4,13 @@ author: 咩
 type: post
 date: 2017-06-03T03:46:40+00:00
 url: /2017/06/03/leetcode-longest_substring_without_repeating_char/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "6"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - BST
-  - hashtab
-  - python
+  - 二叉树
+  - 哈希表
+  - Python
   - 算法
 
 ---
@@ -26,13 +20,13 @@ Given a string, find the length of the longest substring without repeating chara
 
 Examples:
 
-Given &#8220;abcabcbb&#8221;, the answer is &#8220;abc&#8221;, which the length is 3.
+Given “abcabcbb”, the answer is “abc”, which the length is 3.
 
-Given &#8220;bbbbb&#8221;, the answer is &#8220;b&#8221;, with the length of 1.
+Given “bbbbb”, the answer is “b”, with the length of 1.
 
-Given &#8220;pwwkew&#8221;, the answer is &#8220;wke&#8221;, with the length of 3. Note that the answer must be a substring,
+Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring,
   
-&#8220;pwke&#8221; is a subsequence and not a substring.
+“pwke” is a subsequence and not a substring.
 
 ```python
 # _*_ coding: utf-8 _*_
@@ -66,3 +60,7 @@ class Solution(object):
             result = max(result, temp, i-pw_index)
         return result
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，滑动窗口遍历一次字符串
+- 空间复杂度：O(min(n, m))，m为字符集大小，哈希表存储字符位置

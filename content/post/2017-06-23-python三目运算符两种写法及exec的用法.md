@@ -7,7 +7,6 @@ url: /2017/06/23/python三目运算符两种写法及exec的用法/
 categories:
   - Python
 tags:
-  - exec
   - 三目运算符
 
 ---
@@ -107,7 +106,7 @@ compile(...)
 In [338]: exec_code = compile(str,'', 'exec')
 
 In [339]: exec_code
-Out[339]: &lt;code object &lt;module> at 0x110dc69b0, file "", line 1>
+Out[339]: <code object <module> at 0x110dc69b0, file "", line 1>
 
 In [340]: exec exec_code
 Hello Python!

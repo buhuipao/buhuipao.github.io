@@ -4,19 +4,12 @@ author: 咩
 type: post
 date: 2017-05-22T13:57:33+00:00
 url: /2017/05/22/leetcode-mergeklist/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "7"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - python
-  - 并归
+  - Python
+  - 归并排序
   - 链表
 
 ---
@@ -78,3 +71,7 @@ class Solution(object):
         node.next = l1 or l2
         return pre_head.next
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n * logk)，n为所有节点总数，k为链表个数，归并分治
+- 空间复杂度：O(logk)，递归调用栈深度

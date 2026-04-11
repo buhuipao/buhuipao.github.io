@@ -4,17 +4,11 @@ author: 咩
 type: post
 date: 2017-05-18T11:54:27+00:00
 url: /2017/05/18/algorithm-print-tree/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "5"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - python
+  - Python
   - 二叉树
   - 算法
 

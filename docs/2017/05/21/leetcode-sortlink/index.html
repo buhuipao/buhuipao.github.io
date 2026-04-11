@@ -5,20 +5,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>LeetCode–链表排序O(nlogn) - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <meta itemprop="name" content="LeetCode–链表排序O(nlogn)">
-  <meta itemprop="description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 = h2, h2, h2.next tail.next = h1 or h2 return dummy.next &#39;&#39;&#39; # 先申请出头节点的前节点，以及尾节点 pre_head = tail = ListNode(None) # 选举头节点, pre_head.next就是head的意思 if h1 and h2: if h1.val &amp;lt; h2.val: pre_head.next = h1 else: pre_head.next = h2 # 假设一个节点其实为空，那么pre_head.next就是不为空的节点 else: pre_head.next = h1 or h2 while h1 and h2: # 首先把尾节点的next指到比较下更小的节点， # 然后往前移动尾节点更新tail，然后往前移动更新h1/h2 if h1.val &amp;lt; h2.val: tail.next = h1 tail = h1 h1 = h1.next else: tail.next = h2 tail = h2 h2 = h2.next # 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接 tail.next = h1 or h2 # 返回头节点 return pre_head.next def sortList(self, head): # 空链表或者单节点链表 if not head or not head.next: return head pre, slow, fast = None, head, head while fast and fast.next: # fast的步长为2，pre／slow的步长为1，pre紧挨着slow， # 最终状态为：fast为末尾节点或者为空, slow为中间节点 # slow把链表拆为近似均等两半，并归排序 pre, slow, fast = slow, slow.next, fast.next.next # pre为slow前一个节点，指向空节点就是拆分链表, # pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n&#43;1)或者为尾节点后一个(链表长度为2*n) pre.next = None # 合并以head和slow(中间节点)作为头节点的链表 return self.merge(self.sortList(head), self.sortList(slow))">
+  <meta itemprop="description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 = h2, h2, h2.next tail.next = h1 or h2 return dummy.next &#39;&#39;&#39; # 先申请出头节点的前节点，以及尾节点 pre_head = tail = ListNode(None) # 选举头节点, pre_head.next就是head的意思 if h1 and h2: if h1.val &amp;lt; h2.val: pre_head.next = h1 else: pre_head.next = h2 # 假设一个节点其实为空，那么pre_head.next就是不为空的节点 else: pre_head.next = h1 or h2 while h1 and h2: # 首先把尾节点的next指到比较下更小的节点， # 然后往前移动尾节点更新tail，然后往前移动更新h1/h2 if h1.val &amp;lt; h2.val: tail.next = h1 tail = h1 h1 = h1.next else: tail.next = h2 tail = h2 h2 = h2.next # 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接 tail.next = h1 or h2 # 返回头节点 return pre_head.next def sortList(self, head): # 空链表或者单节点链表 if not head or not head.next: return head pre, slow, fast = None, head, head while fast and fast.next: # fast的步长为2，pre／slow的步长为1，pre紧挨着slow， # 最终状态为：fast为末尾节点或者为空, slow为中间节点 # slow把链表拆为近似均等两半，并归排序 pre, slow, fast = slow, slow.next, fast.next.next # pre为slow前一个节点，指向空节点就是拆分链表, # pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n&#43;1)或者为尾节点后一个(链表长度为2*n) pre.next = None # 合并以head和slow(中间节点)作为头节点的链表 return self.merge(self.sortList(head), self.sortList(slow)) 复杂度分析：">
   <meta itemprop="datePublished" content="2017-05-21T05:36:41+00:00">
   <meta itemprop="dateModified" content="2017-05-21T05:36:41+00:00">
-  <meta itemprop="wordCount" content="551">
-  <meta itemprop="keywords" content="Head,Python,排序,算法,链表"><meta property="og:url" content="https://buhuipao.github.io/2017/05/21/leetcode-sortlink/">
+  <meta itemprop="wordCount" content="600">
+  <meta itemprop="keywords" content="Python,排序,算法,链表"><meta property="og:url" content="https://buhuipao.github.io/2017/05/21/leetcode-sortlink/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="LeetCode–链表排序O(nlogn)">
-  <meta property="og:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 = h2, h2, h2.next tail.next = h1 or h2 return dummy.next &#39;&#39;&#39; # 先申请出头节点的前节点，以及尾节点 pre_head = tail = ListNode(None) # 选举头节点, pre_head.next就是head的意思 if h1 and h2: if h1.val &amp;lt; h2.val: pre_head.next = h1 else: pre_head.next = h2 # 假设一个节点其实为空，那么pre_head.next就是不为空的节点 else: pre_head.next = h1 or h2 while h1 and h2: # 首先把尾节点的next指到比较下更小的节点， # 然后往前移动尾节点更新tail，然后往前移动更新h1/h2 if h1.val &amp;lt; h2.val: tail.next = h1 tail = h1 h1 = h1.next else: tail.next = h2 tail = h2 h2 = h2.next # 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接 tail.next = h1 or h2 # 返回头节点 return pre_head.next def sortList(self, head): # 空链表或者单节点链表 if not head or not head.next: return head pre, slow, fast = None, head, head while fast and fast.next: # fast的步长为2，pre／slow的步长为1，pre紧挨着slow， # 最终状态为：fast为末尾节点或者为空, slow为中间节点 # slow把链表拆为近似均等两半，并归排序 pre, slow, fast = slow, slow.next, fast.next.next # pre为slow前一个节点，指向空节点就是拆分链表, # pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n&#43;1)或者为尾节点后一个(链表长度为2*n) pre.next = None # 合并以head和slow(中间节点)作为头节点的链表 return self.merge(self.sortList(head), self.sortList(slow))">
+  <meta property="og:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 = h2, h2, h2.next tail.next = h1 or h2 return dummy.next &#39;&#39;&#39; # 先申请出头节点的前节点，以及尾节点 pre_head = tail = ListNode(None) # 选举头节点, pre_head.next就是head的意思 if h1 and h2: if h1.val &amp;lt; h2.val: pre_head.next = h1 else: pre_head.next = h2 # 假设一个节点其实为空，那么pre_head.next就是不为空的节点 else: pre_head.next = h1 or h2 while h1 and h2: # 首先把尾节点的next指到比较下更小的节点， # 然后往前移动尾节点更新tail，然后往前移动更新h1/h2 if h1.val &amp;lt; h2.val: tail.next = h1 tail = h1 h1 = h1.next else: tail.next = h2 tail = h2 h2 = h2.next # 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接 tail.next = h1 or h2 # 返回头节点 return pre_head.next def sortList(self, head): # 空链表或者单节点链表 if not head or not head.next: return head pre, slow, fast = None, head, head while fast and fast.next: # fast的步长为2，pre／slow的步长为1，pre紧挨着slow， # 最终状态为：fast为末尾节点或者为空, slow为中间节点 # slow把链表拆为近似均等两半，并归排序 pre, slow, fast = slow, slow.next, fast.next.next # pre为slow前一个节点，指向空节点就是拆分链表, # pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n&#43;1)或者为尾节点后一个(链表长度为2*n) pre.next = None # 合并以head和slow(中间节点)作为头节点的链表 return self.merge(self.sortList(head), self.sortList(slow)) 复杂度分析：">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-05-21T05:36:41+00:00">
     <meta property="article:modified_time" content="2017-05-21T05:36:41+00:00">
-    <meta property="article:tag" content="Head">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="排序">
     <meta property="article:tag" content="算法">
@@ -26,7 +25,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="LeetCode–链表排序O(nlogn)">
-  <meta name="twitter:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 = h2, h2, h2.next tail.next = h1 or h2 return dummy.next &#39;&#39;&#39; # 先申请出头节点的前节点，以及尾节点 pre_head = tail = ListNode(None) # 选举头节点, pre_head.next就是head的意思 if h1 and h2: if h1.val &amp;lt; h2.val: pre_head.next = h1 else: pre_head.next = h2 # 假设一个节点其实为空，那么pre_head.next就是不为空的节点 else: pre_head.next = h1 or h2 while h1 and h2: # 首先把尾节点的next指到比较下更小的节点， # 然后往前移动尾节点更新tail，然后往前移动更新h1/h2 if h1.val &amp;lt; h2.val: tail.next = h1 tail = h1 h1 = h1.next else: tail.next = h2 tail = h2 h2 = h2.next # 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接 tail.next = h1 or h2 # 返回头节点 return pre_head.next def sortList(self, head): # 空链表或者单节点链表 if not head or not head.next: return head pre, slow, fast = None, head, head while fast and fast.next: # fast的步长为2，pre／slow的步长为1，pre紧挨着slow， # 最终状态为：fast为末尾节点或者为空, slow为中间节点 # slow把链表拆为近似均等两半，并归排序 pre, slow, fast = slow, slow.next, fast.next.next # pre为slow前一个节点，指向空节点就是拆分链表, # pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n&#43;1)或者为尾节点后一个(链表长度为2*n) pre.next = None # 合并以head和slow(中间节点)作为头节点的链表 return self.merge(self.sortList(head), self.sortList(slow))">
+  <meta name="twitter:description" content="# _*_ coding: utf-8 _*_ &#39;&#39;&#39; Sort a linked list in O(n log n) time using constant space complexity. &#39;&#39;&#39; class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): &#34;&#34;&#34; :type head: ListNode :rtype: ListNode &#34;&#34;&#34; def merge(self, h1, h2): &#39;&#39;&#39; dummy = tail = ListNode(None) while h1 and h2: if h1.val &amp;lt; h2.val: tail.next, tail, h1 = h1, h1, h1.next else: tail.next, tail, h2 = h2, h2, h2.next tail.next = h1 or h2 return dummy.next &#39;&#39;&#39; # 先申请出头节点的前节点，以及尾节点 pre_head = tail = ListNode(None) # 选举头节点, pre_head.next就是head的意思 if h1 and h2: if h1.val &amp;lt; h2.val: pre_head.next = h1 else: pre_head.next = h2 # 假设一个节点其实为空，那么pre_head.next就是不为空的节点 else: pre_head.next = h1 or h2 while h1 and h2: # 首先把尾节点的next指到比较下更小的节点， # 然后往前移动尾节点更新tail，然后往前移动更新h1/h2 if h1.val &amp;lt; h2.val: tail.next = h1 tail = h1 h1 = h1.next else: tail.next = h2 tail = h2 h2 = h2.next # 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接 tail.next = h1 or h2 # 返回头节点 return pre_head.next def sortList(self, head): # 空链表或者单节点链表 if not head or not head.next: return head pre, slow, fast = None, head, head while fast and fast.next: # fast的步长为2，pre／slow的步长为1，pre紧挨着slow， # 最终状态为：fast为末尾节点或者为空, slow为中间节点 # slow把链表拆为近似均等两半，并归排序 pre, slow, fast = slow, slow.next, fast.next.next # pre为slow前一个节点，指向空节点就是拆分链表, # pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n&#43;1)或者为尾节点后一个(链表长度为2*n) pre.next = None # 合并以head和slow(中间节点)作为头节点的链表 return self.merge(self.sortList(head), self.sortList(slow)) 复杂度分析：">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -98,83 +97,88 @@
 			</div>
 					
 			<div class="markdown">
-				<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># _*_ coding: utf-8 _*_</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Sort a linked list in O(n log n) time using constant space complexity.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListNode</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, x):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> x
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :type head: ListNode
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :rtype: ListNode
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">merge</span>(self, h1, h2):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        dummy = tail = ListNode(None)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        while h1 and h2:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if h1.val &amp;lt; h2.val:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                tail.next, tail, h1 = h1, h1, h1.next
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            else:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                tail.next, tail, h2 = h2, h2, h2.next
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        tail.next = h1 or h2
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        return dummy.next
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 先申请出头节点的前节点，以及尾节点</span>
-</span></span><span style="display:flex;"><span>        pre_head <span style="color:#f92672">=</span> tail <span style="color:#f92672">=</span> ListNode(<span style="color:#66d9ef">None</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 选举头节点, pre_head.next就是head的意思</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> h1 <span style="color:#f92672">and</span> h2:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> h1<span style="color:#f92672">.</span>val <span style="color:#f92672">&amp;</span>lt; h2<span style="color:#f92672">.</span>val:
-</span></span><span style="display:flex;"><span>                pre_head<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> h1
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                pre_head<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> h2
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 假设一个节点其实为空，那么pre_head.next就是不为空的节点</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>            pre_head<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> h1 <span style="color:#f92672">or</span> h2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> h1 <span style="color:#f92672">and</span> h2:
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 首先把尾节点的next指到比较下更小的节点，</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 然后往前移动尾节点更新tail，然后往前移动更新h1/h2</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> h1<span style="color:#f92672">.</span>val <span style="color:#f92672">&amp;</span>lt; h2<span style="color:#f92672">.</span>val:
-</span></span><span style="display:flex;"><span>                tail<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> h1
-</span></span><span style="display:flex;"><span>                tail <span style="color:#f92672">=</span> h1
-</span></span><span style="display:flex;"><span>                h1 <span style="color:#f92672">=</span> h1<span style="color:#f92672">.</span>next
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                tail<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> h2
-</span></span><span style="display:flex;"><span>                tail <span style="color:#f92672">=</span> h2
-</span></span><span style="display:flex;"><span>                h2 <span style="color:#f92672">=</span> h2<span style="color:#f92672">.</span>next
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接</span>
-</span></span><span style="display:flex;"><span>        tail<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> h1 <span style="color:#f92672">or</span> h2
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 返回头节点</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> pre_head<span style="color:#f92672">.</span>next
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sortList</span>(self, head):
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 空链表或者单节点链表</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> head<span style="color:#f92672">.</span>next:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> head
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        pre, slow, fast <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>, head, head
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> fast <span style="color:#f92672">and</span> fast<span style="color:#f92672">.</span>next:
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># fast的步长为2，pre／slow的步长为1，pre紧挨着slow，</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 最终状态为：fast为末尾节点或者为空, slow为中间节点</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># slow把链表拆为近似均等两半，并归排序</span>
-</span></span><span style="display:flex;"><span>            pre, slow, fast <span style="color:#f92672">=</span> slow, slow<span style="color:#f92672">.</span>next, fast<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># pre为slow前一个节点，指向空节点就是拆分链表,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n+1)或者为尾节点后一个(链表长度为2*n)</span>
-</span></span><span style="display:flex;"><span>        pre<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 合并以head和slow(中间节点)作为头节点的链表</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>merge(self<span style="color:#f92672">.</span>sortList(head), self<span style="color:#f92672">.</span>sortList(slow))
-</span></span></code></pre></div>
+				<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Sort a linked list in O(n log n) time using constant space complexity.
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ListNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :type head: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :rtype: ListNode
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        dummy = tail = ListNode(None)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        while h1 and h2:
+</span></span></span><span class="line"><span class="cl"><span class="s1">            if h1.val &amp;lt; h2.val:
+</span></span></span><span class="line"><span class="cl"><span class="s1">                tail.next, tail, h1 = h1, h1, h1.next
+</span></span></span><span class="line"><span class="cl"><span class="s1">            else:
+</span></span></span><span class="line"><span class="cl"><span class="s1">                tail.next, tail, h2 = h2, h2, h2.next
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">        tail.next = h1 or h2
+</span></span></span><span class="line"><span class="cl"><span class="s1">        return dummy.next
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 先申请出头节点的前节点，以及尾节点</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre_head</span> <span class="o">=</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 选举头节点, pre_head.next就是head的意思</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">h1</span> <span class="ow">and</span> <span class="n">h2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">h1</span><span class="o">.</span><span class="n">val</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">h2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h2</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 假设一个节点其实为空，那么pre_head.next就是不为空的节点</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h1</span> <span class="ow">or</span> <span class="n">h2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">h1</span> <span class="ow">and</span> <span class="n">h2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 首先把尾节点的next指到比较下更小的节点，</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 然后往前移动尾节点更新tail，然后往前移动更新h1/h2</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">h1</span><span class="o">.</span><span class="n">val</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">h2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tail</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tail</span> <span class="o">=</span> <span class="n">h1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">h1</span> <span class="o">=</span> <span class="n">h1</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tail</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h2</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tail</span> <span class="o">=</span> <span class="n">h2</span>
+</span></span><span class="line"><span class="cl">                <span class="n">h2</span> <span class="o">=</span> <span class="n">h2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 选择尚不为空的链作为尾巴的下一个指向, 其实就是串接</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tail</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">h1</span> <span class="ow">or</span> <span class="n">h2</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 返回头节点</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">pre_head</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">sortList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 空链表或者单节点链表</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="p">,</span> <span class="n">slow</span><span class="p">,</span> <span class="n">fast</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">fast</span> <span class="ow">and</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># fast的步长为2，pre／slow的步长为1，pre紧挨着slow，</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 最终状态为：fast为末尾节点或者为空, slow为中间节点</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># slow把链表拆为近似均等两半，并归排序</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pre</span><span class="p">,</span> <span class="n">slow</span><span class="p">,</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">slow</span><span class="p">,</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># pre为slow前一个节点，指向空节点就是拆分链表,</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># pre为第一段的尾节点，fast为后一段的尾节点(链表长度为2*n+1)或者为尾节点后一个(链表长度为2*n)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 合并以head和slow(中间节点)作为头节点的链表</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sortList</span><span class="p">(</span><span class="n">head</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">sortList</span><span class="p">(</span><span class="n">slow</span><span class="p">))</span>
+</span></span></code></pre></div><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：O(nlogn)，归并排序</li>
+<li>空间复杂度：O(1)，自底向上归并可达到常数空间</li>
+</ul>
+
 			</div>
 
 			<div class="tags">
@@ -182,9 +186,7 @@
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/head">head</a></li>
-							
-							<li><a href="/tags/python">python</a></li>
+							<li><a href="/tags/python">Python</a></li>
 							
 							<li><a href="/tags/%E6%8E%92%E5%BA%8F">排序</a></li>
 							
@@ -215,15 +217,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

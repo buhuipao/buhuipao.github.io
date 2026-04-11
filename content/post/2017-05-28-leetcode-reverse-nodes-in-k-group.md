@@ -4,19 +4,11 @@ author: 咩
 type: post
 date: 2017-05-28T06:03:17+00:00
 url: /2017/05/28/leetcode-reverse-nodes-in-k-group/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "7"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - IP
-  - python
+  - Python
   - 链表
 
 ---
@@ -114,3 +106,7 @@ class Solution(object):
             _cur = temp.next
         return end, start
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，每个节点最多被访问常数次
+- 空间复杂度：O(1)，只使用了常数额外空间

@@ -8,7 +8,7 @@
   <meta itemprop="description" content="class TrieNode(object): def __init__(self): self.is_word = False # 某个节点是否为单词，一般默认为path（路径） # 当有单词录入时，变为True self.leaves = {} class Trie(object): def __init__(self): &#34;&#34;&#34; Initialize your data structure here. &#34;&#34;&#34; self.root = TrieNode() def insert(self, word): &#34;&#34;&#34; Inserts a word into the trie. :type word: str :rtype: void &#34;&#34;&#34; _cur = self.root for c in word: # 如果字母不存在于此节点的叶子里，就生成一个新节点 if c not in _cur.leaves: _cur.leaves[c] = TrieNode() _cur = _cur.leaves[c] _cur.is_word = True def search(self, word): &#34;&#34;&#34; Returns if the word is in the trie. :type word: str :rtype: bool &#34;&#34;&#34; _cur = self.root for c in word: if c not in _cur.leaves: return False _cur = _cur.leaves[c] return True if _cur.is_word else False &#39;&#39;&#39; def _search(word, index, _cur): if len(word) == index: return _cur.is_word if word[index] in _cur.leaves: return _search(word, index&#43;1, _cur.leaves[word[index]]) return False return _search(word, 0, self.root) &#39;&#39;&#39; def startsWith(self, prefix): &#34;&#34;&#34; Returns if there is any word in the trie that starts with the given prefix. :type prefix: str :rtype: bool &#34;&#34;&#34; &#39;&#39;&#39; def _search(word, index, _cur): if len(word) == index: return True if word[index] in _cur.leaves: return _search(word, index&#43;1, _cur.leaves[word[index]]) return False return _search(prefix, 0, self.root) &#39;&#39;&#39; _cur = self.root for c in prefix: if c not in _cur.leaves: return False _cur = _cur.leaves[c] return True # Your Trie object will be instantiated and called as such: # obj = Trie() # obj.insert(word) # param_2 = obj.search(word) # param_3 = obj.startsWith(prefix) 但是LeetCode的评分是73％ 400ms， 回头看看应该是节点类的抽象开销导致，于是改的简单点直接用字典实现：">
   <meta itemprop="datePublished" content="2017-05-18T13:34:59+00:00">
   <meta itemprop="dateModified" content="2017-05-18T13:34:59+00:00">
-  <meta itemprop="wordCount" content="508">
+  <meta itemprop="wordCount" content="573">
   <meta itemprop="keywords" content="Python,字典树,算法"><meta property="og:url" content="https://buhuipao.github.io/2017/05/18/leetcode-imp-trietree/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="LeetCode－－实现字典树">
@@ -96,143 +96,149 @@
 			</div>
 					
 			<div class="markdown">
-				<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TrieNode</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>is_word <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 某个节点是否为单词，一般默认为path（路径）</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 当有单词录入时，变为True</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>leaves <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Trie</span>(object):
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Initialize your data structure here.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>root <span style="color:#f92672">=</span> TrieNode()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert</span>(self, word):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Inserts a word into the trie.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: void
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        _cur <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> word:
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 如果字母不存在于此节点的叶子里，就生成一个新节点</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> _cur<span style="color:#f92672">.</span>leaves:
-</span></span><span style="display:flex;"><span>                _cur<span style="color:#f92672">.</span>leaves[c] <span style="color:#f92672">=</span> TrieNode()
-</span></span><span style="display:flex;"><span>            _cur <span style="color:#f92672">=</span> _cur<span style="color:#f92672">.</span>leaves[c]
-</span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>        _cur<span style="color:#f92672">.</span>is_word <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">search</span>(self, word):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns if the word is in the trie.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        _cur <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> word:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> _cur<span style="color:#f92672">.</span>leaves:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>            _cur <span style="color:#f92672">=</span> _cur<span style="color:#f92672">.</span>leaves[c]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span> <span style="color:#66d9ef">if</span> _cur<span style="color:#f92672">.</span>is_word <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        def _search(word, index, _cur):
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if len(word) == index:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                return _cur.is_word
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if word[index] in _cur.leaves:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                return _search(word, index+1, _cur.leaves[word[index]])
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            return False
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        return _search(word, 0, self.root)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">startsWith</span>(self, prefix):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns if there is any word in the trie that starts with the given prefix.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type prefix: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        def _search(word, index, _cur):
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if len(word) == index:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                return True
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if word[index] in _cur.leaves:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                return _search(word, index+1, _cur.leaves[word[index]])
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            return False
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        return _search(prefix, 0, self.root)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>        _cur <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> prefix:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> _cur<span style="color:#f92672">.</span>leaves:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>            _cur <span style="color:#f92672">=</span> _cur<span style="color:#f92672">.</span>leaves[c]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Your Trie object will be instantiated and called as such:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># obj = Trie()</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># obj.insert(word)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># param_2 = obj.search(word)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># param_3 = obj.startsWith(prefix)</span>
+				<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TrieNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">is_word</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 某个节点是否为单词，一般默认为path（路径）</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 当有单词录入时，变为True</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">leaves</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Trie</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Initialize your data structure here.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Inserts a word into the trie.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果字母不存在于此节点的叶子里，就生成一个新节点</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">_cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_cur</span> <span class="o">=</span> <span class="n">_cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span><span class="o">.</span><span class="n">is_word</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">            <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns if the word is in the trie.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_cur</span> <span class="o">=</span> <span class="n">_cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">_cur</span><span class="o">.</span><span class="n">is_word</span> <span class="k">else</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        def _search(word, index, _cur):
+</span></span></span><span class="line"><span class="cl"><span class="s1">            if len(word) == index:
+</span></span></span><span class="line"><span class="cl"><span class="s1">                return _cur.is_word
+</span></span></span><span class="line"><span class="cl"><span class="s1">            if word[index] in _cur.leaves:
+</span></span></span><span class="line"><span class="cl"><span class="s1">                return _search(word, index+1, _cur.leaves[word[index]])
+</span></span></span><span class="line"><span class="cl"><span class="s1">                
+</span></span></span><span class="line"><span class="cl"><span class="s1">            return False
+</span></span></span><span class="line"><span class="cl"><span class="s1">            
+</span></span></span><span class="line"><span class="cl"><span class="s1">        return _search(word, 0, self.root)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">startsWith</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns if there is any word in the trie that starts with the given prefix.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type prefix: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        def _search(word, index, _cur):
+</span></span></span><span class="line"><span class="cl"><span class="s1">            if len(word) == index:
+</span></span></span><span class="line"><span class="cl"><span class="s1">                return True
+</span></span></span><span class="line"><span class="cl"><span class="s1">            if word[index] in _cur.leaves:
+</span></span></span><span class="line"><span class="cl"><span class="s1">                return _search(word, index+1, _cur.leaves[word[index]])
+</span></span></span><span class="line"><span class="cl"><span class="s1">                
+</span></span></span><span class="line"><span class="cl"><span class="s1">            return False
+</span></span></span><span class="line"><span class="cl"><span class="s1">            
+</span></span></span><span class="line"><span class="cl"><span class="s1">        return _search(prefix, 0, self.root)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">prefix</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_cur</span> <span class="o">=</span> <span class="n">_cur</span><span class="o">.</span><span class="n">leaves</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Your Trie object will be instantiated and called as such:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj = Trie()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># obj.insert(word)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># param_2 = obj.search(word)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># param_3 = obj.startsWith(prefix)</span>
 </span></span></code></pre></div><p>但是LeetCode的评分是73％ 400ms， 回头看看应该是节点类的抽象开销导致，于是改的简单点直接用字典实现：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Trie</span>(object):
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Initialize your data structure here.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>root <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert</span>(self, word):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Inserts a word into the trie.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: void
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        _cur <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> word:
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 如果字母不存在于此节点的叶子里，就生成一个新节点｛｝</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> _cur:
-</span></span><span style="display:flex;"><span>                _cur[c] <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>            _cur <span style="color:#f92672">=</span> _cur[c]
-</span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>        _cur[<span style="color:#e6db74">&#39;is_word&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">search</span>(self, word):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns if the word is in the trie.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type word: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>     
-</span></span><span style="display:flex;"><span>        _cur <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> word:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> _cur:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>            _cur <span style="color:#f92672">=</span> _cur[c]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span> <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;is_word&#39;</span> <span style="color:#f92672">in</span> _cur <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">startsWith</span>(self, prefix):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns if there is any word in the trie that starts with the given prefix.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type prefix: str
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        _cur <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> prefix:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> _cur:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>            _cur <span style="color:#f92672">=</span> _cur[c]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Trie</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Initialize your data structure here.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Inserts a word into the trie.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: void
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 如果字母不存在于此节点的叶子里，就生成一个新节点｛｝</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_cur</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">_cur</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_cur</span> <span class="o">=</span> <span class="n">_cur</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span><span class="p">[</span><span class="s1">&#39;is_word&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns if the word is in the trie.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type word: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>     
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_cur</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_cur</span> <span class="o">=</span> <span class="n">_cur</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="s1">&#39;is_word&#39;</span> <span class="ow">in</span> <span class="n">_cur</span> <span class="k">else</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">startsWith</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns if there is any word in the trie that starts with the given prefix.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type prefix: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">prefix</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_cur</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_cur</span> <span class="o">=</span> <span class="n">_cur</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span>
+</span></span></code></pre></div><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>insert: 时间复杂度 O(m)，m为单词长度</li>
+<li>search/startsWith: 时间复杂度 O(m)，m为查询词长度</li>
+<li>空间复杂度：O(T)，T为所有插入单词的字符总数</li>
+</ul>
+
 			</div>
 
 			<div class="tags">
@@ -240,7 +246,7 @@
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/python">python</a></li>
+							<li><a href="/tags/python">Python</a></li>
 							
 							<li><a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91">字典树</a></li>
 							
@@ -269,15 +275,15 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109197138-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QSMC5LSP3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-109197138-1');
+  gtag('config', 'G-5QSMC5LSP3');
 </script><script>feather.replace()</script>
 </body>
 </html>

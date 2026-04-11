@@ -4,16 +4,10 @@ author: 咩
 type: post
 date: 2017-05-18T08:44:26+00:00
 url: /2017/05/18/leetcode_trietree/
-post_views_count:
-  - "9"
-flag:
-  - .
-flashPic:
-  - .
 categories:
   - Python
 tags:
-  - python
+  - Python
   - 字典树
 
 ---
@@ -103,3 +97,8 @@ class WordDictionary(object):
         return False
 
 ```
+
+**复杂度分析：**
+- addWord: 时间复杂度 O(m)，m为单词长度
+- search: 时间复杂度最坏 O(26^m)（含通配符'.'时），无通配符时 O(m)
+- 空间复杂度：O(T)，T为所有插入单词的字符总数

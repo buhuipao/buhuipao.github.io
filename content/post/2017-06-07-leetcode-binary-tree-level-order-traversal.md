@@ -4,22 +4,16 @@ author: 咩
 type: post
 date: 2017-06-07T07:30:11+00:00
 url: /2017/06/07/leetcode-binary-tree-level-order-traversal/
-post_views_count:
-  - "9"
-flashPic:
-  - .
-flag:
-  - .
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
   - BFS
-  - python
+  - Python
   - 算法
 
 ---
-Given a binary tree, return the level order traversal of its nodes&#8217; values. (ie, from left to right, level by level).
+Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).
 
 For example:
   
@@ -93,3 +87,7 @@ class Solution(object):
             level = [kid for n in level for kid in (n.left, n.right) if kid]
         return res
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，BFS遍历所有节点
+- 空间复杂度：O(n)，队列最多存储一层的节点数

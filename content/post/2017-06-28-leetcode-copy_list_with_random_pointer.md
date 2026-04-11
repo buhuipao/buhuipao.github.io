@@ -5,10 +5,10 @@ type: post
 date: 2017-06-28T08:31:03+00:00
 url: /2017/06/28/leetcode-copy_list_with_random_pointer/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - 算法
   - 链表
 
@@ -104,3 +104,7 @@ class Solution(object):
             new_head = new_head.next
         return p_head
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，两种方法都需要遍历链表常数次
+- 空间复杂度：自我复制法 O(1)（不计输出），hash表法 O(n)

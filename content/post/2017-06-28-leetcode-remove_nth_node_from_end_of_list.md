@@ -5,10 +5,10 @@ type: post
 date: 2017-06-28T08:18:03+00:00
 url: /2017/06/28/leetcode-remove_nth_node_from_end_of_list/
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - leetcode
+  - LeetCode
   - 链表
 
 ---
@@ -64,3 +64,7 @@ class Solution(object):
             return pre.next
         return head
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历链表两次
+- 空间复杂度：O(1)，只使用了常数额外空间

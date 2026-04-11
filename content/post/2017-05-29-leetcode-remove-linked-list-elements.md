@@ -4,18 +4,11 @@ author: 咩
 type: post
 date: 2017-05-28T17:26:57+00:00
 url: /2017/05/29/leetcode-remove-linked-list-elements/
-flag:
-  - .
-flashPic:
-  - .
-post_views_count:
-  - "8"
 categories:
-  - Algorithm
+  - 算法
   - Python
 tags:
-  - head
-  - python
+  - Python
   - 链表
 
 ---
@@ -23,9 +16,9 @@ Remove all elements from a linked list of integers that have value val.
 
 Example
   
-Given: 1 &#8211;> 2 &#8211;> 6 &#8211;> 3 &#8211;> 4 &#8211;> 5 &#8211;> 6, val = 6
+Given: 1 –> 2 –> 6 –> 3 –> 4 –> 5 –> 6, val = 6
   
-Return: 1 &#8211;> 2 &#8211;> 3 &#8211;> 4 &#8211;> 5
+Return: 1 –> 2 –> 3 –> 4 –> 5
 
 ```python
 # _*_ coding: utf-8 _*_
@@ -60,3 +53,7 @@ class Solution(object):
 
         return pre_head.next
 ```
+
+**复杂度分析：**
+- 时间复杂度：O(n)，遍历一次链表
+- 空间复杂度：O(1)，只使用了常数额外空间

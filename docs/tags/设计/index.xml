@@ -13,7 +13,7 @@
       <link>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</link>
       <pubDate>Fri, 30 Jun 2017 17:05:57 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/07/01/leetcode-binary_search_tree_iterator/</guid>
-      <description>&lt;p&gt;一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两者做法，前一种比较容易实现无需考虑太多，后一种由于加入了hash表所以考虑多一点；原题链接：&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://leetcode.com/problems/binary-search-tree-iterator/&#34;&gt;https://leetcode.com/problems/binary-search-tree-iterator/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;一个比较有意思的设计题，需要你设计一个BST的迭代器，不断返回最小值，其实就是中序遍历的过程，然后就是怎么把中序遍历过程用类实现，我给出了两者做法，前一种比较容易实现无需考虑太多，后一种由于加入了hash表所以考虑多一点；原题链接：&lt;a href=&#34;https://leetcode.com/problems/binary-search-tree-iterator/&#34; &#xA;target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/binary-search-tree-iterator/&#34;&gt;https://leetcode.com/problems/binary-search-tree-iterator/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
