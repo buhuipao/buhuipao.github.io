@@ -6,7 +6,7 @@
     <description>Recent content in 二分查找 on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Jul 2017 04:42:14 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LeetCode-Find_Median_from_Data_Stream</title>
@@ -16,11 +16,11 @@
       <description>&lt;p&gt;LeetCode的一道设计题，快速找到已添加的数据的中位数，下面给出的方法添加的时间复杂度为max(n/2, logn), 查找的时间复杂度为O(1), 之后会给出添加时间复杂度为O(logn)查找O(1)的解法，其实就是维护两个堆（一个大根堆一个小根堆）；原题链接：&lt;a href=&#34;https://leetcode.com/problems/find-median-from-data-stream/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/find-median-from-data-stream/&#34;&gt;https://leetcode.com/problems/find-median-from-data-stream/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Python二分查找的一个库–bisect</title>
+      <title>Python bisect：用时间窗口理解左右边界</title>
       <link>https://buhuipao.github.io/2017/06/23/python_bisect/</link>
       <pubDate>Fri, 23 Jun 2017 04:52:44 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/06/23/python_bisect/</guid>
-      <description>&lt;p&gt;今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：&lt;/p&gt;</description>
+      <description>&lt;p&gt;假设一段日志的事件时间已经按升序整理成 &lt;code&gt;[1000, 1010, 1010, 1020]&lt;/code&gt;，现在要统计从 1010 开始、到 1020 之前发生了几次事件。遍历一次当然能得到答案，但如果同一批日志要回答很多时间窗口查询，就可以利用已经有序这个条件。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -17,6 +17,9 @@
 				{{ end }}
 				<div class="matter">
 					<h1 class="title">{{ .Title }}</h1>
+					{{- if eq .Type "post" }}
+					<p>作者：{{ .Params.author | default "buhuipao" }}{{ if .Lastmod.After .Date }} · 更新于 {{ .Lastmod.Format "2006-01-02" }}{{ end }}</p>
+					{{- end }}
 				</div>
 			</div>
 					

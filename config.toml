@@ -1,8 +1,8 @@
 title = "不会跑"
-baseURL = "https://buhuipao.github.io/"
-#baseURL = "https://buhuipao.com/"
+baseURL = "https://buhuipao.com/"
 languageCode = "zh-CN"
 hasCJKLanguage = true
+enableRobotsTXT = true
 theme = "hugo-ink"
 pygmentsStyle = "default"
 pygmentsUseClasses = true
@@ -19,7 +19,9 @@ copyright = "© Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target
   name = "buhuipao"
 
 [params]
-  subtitle = "work for life"
+  subtitle = "Python、Linux 与算法实践笔记"
+  description = "不会跑的技术博客，记录 Python、Linux 与算法的学习过程、问题分析和可运行示例。"
+  canonicalBaseURL = "https://buhuipao.com/"
   avatar = "https://avatars.githubusercontent.com/u/14309948?v=4"
   featherIconsCDN = false
   mode = "auto"

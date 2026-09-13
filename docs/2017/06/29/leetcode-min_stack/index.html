@@ -3,30 +3,31 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="google-adsense-account" content="ca-pub-3487149104434430">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3487149104434430" crossorigin="anonymous"></script>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>LeetCode-Min_Stack - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="从重复最小值的反例推导双栈不变量，说明空栈行为与均摊复杂度，并给出可直接运行的操作序列检查。">
+	<link rel="canonical" href="https://buhuipao.com/2017/06/29/leetcode-min_stack/">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>最小栈：重复最小值为什么不能漏记 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
-  <meta itemprop="name" content="LeetCode-Min_Stack">
-  <meta itemprop="description" content="经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈弹得是最小元素，那么最小元素栈也弹栈。原题链接：https://leetcode.com/problems/min-stack/">
+  <meta itemprop="name" content="最小栈：重复最小值为什么不能漏记">
+  <meta itemprop="description" content="从重复最小值的反例推导双栈不变量，说明空栈行为与均摊复杂度，并给出可直接运行的操作序列检查。">
   <meta itemprop="datePublished" content="2017-06-29T03:08:00+00:00">
-  <meta itemprop="dateModified" content="2017-06-29T03:08:00+00:00">
-  <meta itemprop="wordCount" content="337">
+  <meta itemprop="dateModified" content="2026-09-13T00:00:00+08:00">
+  <meta itemprop="wordCount" content="1238">
   <meta itemprop="keywords" content="LeetCode,栈,数据结构"><meta property="og:url" content="https://buhuipao.github.io/2017/06/29/leetcode-min_stack/">
   <meta property="og:site_name" content="不会跑">
-  <meta property="og:title" content="LeetCode-Min_Stack">
-  <meta property="og:description" content="经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈弹得是最小元素，那么最小元素栈也弹栈。原题链接：https://leetcode.com/problems/min-stack/">
+  <meta property="og:title" content="最小栈：重复最小值为什么不能漏记">
+  <meta property="og:description" content="从重复最小值的反例推导双栈不变量，说明空栈行为与均摊复杂度，并给出可直接运行的操作序列检查。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-06-29T03:08:00+00:00">
-    <meta property="article:modified_time" content="2017-06-29T03:08:00+00:00">
+    <meta property="article:modified_time" content="2026-09-13T00:00:00+08:00">
     <meta property="article:tag" content="LeetCode">
     <meta property="article:tag" content="栈">
     <meta property="article:tag" content="数据结构">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LeetCode-Min_Stack">
-  <meta name="twitter:description" content="经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈弹得是最小元素，那么最小元素栈也弹栈。原题链接：https://leetcode.com/problems/min-stack/">
+  <meta name="twitter:title" content="最小栈：重复最小值为什么不能漏记">
+  <meta name="twitter:description" content="从重复最小值的反例推导双栈不变量，说明空栈行为与均摊复杂度，并给出可直接运行的操作序列检查。">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -49,7 +50,7 @@
 		</div>
 	
 	<h1 class="site-title"><a href="https://buhuipao.github.io/">不会跑</a></h1>
-	<div class="site-description"><p>work for life</p><nav class="nav social">
+	<div class="site-description"><p>Python、Linux 与算法实践笔记</p><nav class="nav social">
 			<ul class="flat"><li><a href="https://twitter.com/buhuipao" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
 		</nav>
 	</div>
@@ -93,70 +94,141 @@
 					</div>
 				
 				<div class="matter">
-					<h1 class="title">LeetCode-Min_Stack</h1>
+					<h1 class="title">最小栈：重复最小值为什么不能漏记</h1>
+					<p>作者：咩 · 更新于 2026-09-13</p>
 				</div>
 			</div>
 					
 			<div class="markdown">
-				<p>经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈弹得是最小元素，那么最小元素栈也弹栈。原题链接：<a href="https://leetcode.com/problems/min-stack/" target="_blank"><a href="https://leetcode.com/problems/min-stack/">https://leetcode.com/problems/min-stack/</a></a></p>
-<p>Design a stack that supports push, pop, top,</p>
-<p>and retrieving the minimum element in constant time.</p>
-<p>push(x) — Push element x onto stack.</p>
-<p>pop() — Removes the element on top of the stack.</p>
-<p>top() — Get the top element.</p>
-<p>getMin() — Retrieve the minimum element in the stack.</p>
-<pre tabindex="0"><code># _*_ coding: utf-8 _*_
-
-
-class MinStack(object):
-
-    def __init__(self):
-        &#34;&#34;&#34;
-        initialize your data structure here.
-        &#34;&#34;&#34;
-        self.stack = []
-        self.min = [float(&#39;inf&#39;)]
-
-    def push(self, x):
-        &#34;&#34;&#34;
-        :type x: int
-        :rtype: void
-        &#34;&#34;&#34;
-        self.stack.append(x)
-        if x &amp;lt;= self.min[-1]:
-            self.min.append(x)
-
-    def pop(self):
-        &#34;&#34;&#34;
-        :rtype: void
-        &#34;&#34;&#34;
-        if self.stack[-1] == self.min[-1]:
-            self.min.pop()
-        return self.stack.pop()
-
-    def top(self):
-        &#34;&#34;&#34;
-        :rtype: int
-        &#34;&#34;&#34;
-        return self.stack[-1]
-
-    def getMin(self):
-        &#34;&#34;&#34;
-        :rtype: int
-        &#34;&#34;&#34;
-        return self.min[-1]
-
-# Your MinStack object will be instantiated and called as such:
-# obj = MinStack()
-# obj.push(x)
-# obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.getMin()
-</code></pre><p><strong>复杂度分析：</strong></p>
-<ul>
-<li>时间复杂度：O(1)，push/pop/top/getMin 均为常数时间</li>
-<li>空间复杂度：O(n)，辅助栈存储最小值</li>
-</ul>
+				<p><a href="https://leetcode.com/problems/min-stack/">Min Stack</a>要求在普通栈的压入、弹出、读取栈顶之外，快速读取当前最小值。每次调用 <code>min(stack)</code> 都遍历一遍当然正确，但栈越大，查询成本越高。</p>
+<p>最直接的改进是保存一个“当前最小值”。不过仅保存一个数仍然不够：如果当前最小值被弹出，应该恢复到哪个值？问题的关键在于保存最小值变化的历史。</p>
+<h2 id="用一个反例确定要保存什么">用一个反例确定要保存什么</h2>
+<p>依次压入 4、2、2、3，再依次弹出。设一个辅助栈只记录小于当前最小值的新元素，那么第二个 2 不会被记录。弹出 3 后再弹出一个 2，辅助栈会把唯一记录的 2 删除，错误地报告最小值是 4；实际上数据栈里还剩一个 2。</p>
+<p>所以压入条件必须包含相等：<code>x &lt;= mins[-1]</code>。每一份重复最小值都要有对应记录，这样一次弹出只撤销一份记录。</p>
+<table>
+  <thead>
+      <tr>
+          <th>操作完成后</th>
+          <th>数据栈</th>
+          <th>最小值栈</th>
+          <th>当前最小值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>压入 4</td>
+          <td><code>[4]</code></td>
+          <td><code>[4]</code></td>
+          <td>4</td>
+      </tr>
+      <tr>
+          <td>压入 2</td>
+          <td><code>[4, 2]</code></td>
+          <td><code>[4, 2]</code></td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>再压入 2</td>
+          <td><code>[4, 2, 2]</code></td>
+          <td><code>[4, 2, 2]</code></td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>压入 3</td>
+          <td><code>[4, 2, 2, 3]</code></td>
+          <td><code>[4, 2, 2]</code></td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>弹出 3</td>
+          <td><code>[4, 2, 2]</code></td>
+          <td><code>[4, 2, 2]</code></td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>弹出一个 2</td>
+          <td><code>[4, 2]</code></td>
+          <td><code>[4, 2]</code></td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>再弹出一个 2</td>
+          <td><code>[4]</code></td>
+          <td><code>[4]</code></td>
+          <td>4</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="两个栈共同维护的不变量">两个栈共同维护的不变量</h2>
+<p>数据栈非空时，辅助栈的栈顶总是所有数据的最小值；辅助栈从底部到顶部不递增。压入一个更大的数时，最小值没有变化，不需要增加记录。压入一个更小或相等的数时，记录一次新的最小值状态。</p>
+<p>弹出时，如果移除的元素等于当前最小值，就同步弹出辅助栈；否则当前最小值不受影响。这两条规则配对使用，才能在重复值、负数、完全清空后重新压入等情况下继续成立。</p>
+<h2 id="完整-python-实现">完整 Python 实现</h2>
+<p>代码约定输入为整数，不考虑多个线程并发修改同一实例。空栈的 <code>pop</code>、<code>top</code> 和 <code>getMin</code> 都抛出 <code>IndexError</code>，保持一致；用正无穷作为初始哨兵容易让空栈查询悄悄返回一个并不存在的值，因此这里直接使用空列表。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MinStack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mins</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">mins</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">getMin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">MinStack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">getMin</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">getMin</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">operation</span> <span class="ow">in</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">getMin</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">operation</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&#34;empty stack did not raise IndexError&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span><span class="p">()</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="n">getMin</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 用普通列表作为参照，覆盖负数、重复值和不同压入顺序。</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="p">,</span> <span class="n">reference</span> <span class="o">=</span> <span class="n">MinStack</span><span class="p">(),</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reference</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span><span class="p">()</span> <span class="o">==</span> <span class="n">reference</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">getMin</span><span class="p">()</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">reference</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="n">reference</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">reference</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">top</span><span class="p">()</span> <span class="o">==</span> <span class="n">reference</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">getMin</span><span class="p">()</span> <span class="o">==</span> <span class="nb">min</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">stack</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="n">mins</span> <span class="o">==</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;min-stack checks passed&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>代码适用于 Python 3.9 及以上版本，保存后直接执行即可。参照检查故意使用较慢但直接的 <code>min(reference)</code>，以便从外部行为验证辅助栈，而不是再写一份相同实现来互相比较。</p>
+<h2 id="成本与另一种保存方式">成本与另一种保存方式</h2>
+<p><code>top</code> 和 <code>getMin</code> 只读取末尾元素，时间是 O(1)。Python 列表尾部压入、弹出的成本按一串操作计算为均摊 O(1)，因此这里的 <code>push</code>、<code>pop</code> 也应表述为均摊 O(1)，不能把一次扩容的成本忽略后宣称每次都严格恒定。</p>
+<p>辅助栈的最坏空间是 O(n)。例如输入持续递减，或者全部相等时，每次压入都会保存一条记录。它只是在部分输入上比为每个元素保存最小值节省空间，并没有改变最坏空间复杂度。</p>
+<p>另一种实现是每个数据栈元素都存 <code>(当前值, 此时的最小值)</code>。这样弹出一个元素就同时撤销一份最小值快照，不需要同步两个列表；代价是每次压入都增加一份记录。两种实现都围绕同一个事实：最小值必须能随栈操作回退，单独保存一个全局最小值做不到这一点。</p>
 
 			</div>
 
@@ -194,6 +266,7 @@ class MinStack(object):
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
+		<p><a href="/about/">关于与联系</a> · <a href="/privacy/">隐私说明</a></p>
 		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>

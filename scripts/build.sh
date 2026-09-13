@@ -6,12 +6,7 @@ set -ex
 # Usage:
 #   HUGO_BASEURL="https://example.com/" bash -ex scripts/build.sh
 
-BASEURL_FLAG=""
-if [ -n "${HUGO_BASEURL:-}" ]; then
-  BASEURL_FLAG="-b ${HUGO_BASEURL}"
-fi
-
 rm -rf public
-hugo -D ${BASEURL_FLAG}
+hugo --baseURL "${HUGO_BASEURL:-https://buhuipao.github.io/}"
 rm -rf docs
 mv public docs

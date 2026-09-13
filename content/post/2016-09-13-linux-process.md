@@ -2,6 +2,7 @@
 title: Linux 进程杂乱总结
 author: 咩
 type: post
+draft: true
 date: 2016-09-13T03:46:16+00:00
 url: /2016/09/13/linux-process/
 categories:

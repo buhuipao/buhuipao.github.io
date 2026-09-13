@@ -6,14 +6,14 @@
     <description>Recent content in 数据结构 on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Jun 2017 03:08:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>LeetCode-Min_Stack</title>
+      <title>最小栈：重复最小值为什么不能漏记</title>
       <link>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</link>
       <pubDate>Thu, 29 Jun 2017 03:08:00 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</guid>
-      <description>&lt;p&gt;经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈弹得是最小元素，那么最小元素栈也弹栈。原题链接：&lt;a href=&#34;https://leetcode.com/problems/min-stack/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/min-stack/&#34;&gt;https://leetcode.com/problems/min-stack/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/min-stack/&#34;&gt;Min Stack&lt;/a&gt;要求在普通栈的压入、弹出、读取栈顶之外，快速读取当前最小值。每次调用 &lt;code&gt;min(stack)&lt;/code&gt; 都遍历一遍当然正确，但栈越大，查询成本越高。&lt;/p&gt;&#xA;&lt;p&gt;最直接的改进是保存一个“当前最小值”。不过仅保存一个数仍然不够：如果当前最小值被弹出，应该恢复到哪个值？问题的关键在于保存最小值变化的历史。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

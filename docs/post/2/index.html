@@ -4,20 +4,24 @@
 	<meta name="generator" content="Hugo 0.158.0">
 	<meta charset="utf-8" />
 	<meta name="google-adsense-account" content="ca-pub-3487149104434430">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3487149104434430" crossorigin="anonymous"></script>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>不会跑 - work for life </title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="从具体问题出发学习 Python、Linux 和算法，提供过程分析、边界示例与可运行代码。">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>不会跑 - Python、Linux 与算法实践笔记 </title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="alternate" type="application/rss+xml" href="https://buhuipao.github.io/index.xml" title="不会跑" />
 	
   <meta itemprop="name" content="不会跑">
-  <meta itemprop="datePublished" content="2023-06-20T20:31:47+00:00">
-  <meta itemprop="dateModified" content="2023-06-20T20:31:47+00:00"><meta property="og:url" content="https://buhuipao.github.io/">
+  <meta itemprop="description" content="从具体问题出发学习 Python、Linux 和算法，提供过程分析、边界示例与可运行代码。">
+  <meta itemprop="datePublished" content="2026-09-13T00:00:00+08:00">
+  <meta itemprop="dateModified" content="2026-09-13T00:00:00+08:00">
+  <meta itemprop="wordCount" content="286"><meta property="og:url" content="https://buhuipao.github.io/">
   <meta property="og:site_name" content="不会跑">
   <meta property="og:title" content="不会跑">
+  <meta property="og:description" content="从具体问题出发学习 Python、Linux 和算法，提供过程分析、边界示例与可运行代码。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="不会跑">
+  <meta name="twitter:description" content="从具体问题出发学习 Python、Linux 和算法，提供过程分析、边界示例与可运行代码。">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -40,7 +44,7 @@
 		</div>
 	
 	<h1 class="site-title"><a href="https://buhuipao.github.io/">不会跑</a></h1>
-	<div class="site-description"><p>work for life</p><nav class="nav social">
+	<div class="site-description"><p>Python、Linux 与算法实践笔记</p><nav class="nav social">
 			<ul class="flat"><li><a href="https://twitter.com/buhuipao" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
 		</nav>
 	</div>
@@ -72,10 +76,20 @@
 	</nav>
 </div>
 
+		<div class="markdown"><p>这里记录 Python、Linux 和算法实践。教程从一个具体问题出发，解释选择一种实现的原因，并用小例子检查边界条件。</p>
+<h2 id="从这些教程开始">从这些教程开始</h2>
+<ul>
+<li><a href="/2017/06/23/python_bisect/">用 bisect 查询时间窗口</a>：重复时间戳和左右边界怎样影响结果，二分查找为什么不等于快速插入。</li>
+<li><a href="/2017/06/23/leetcode-longest_increasing_subsequence/">最长递增子序列：从动态规划到二分查找</a>：推导状态、逐步跟踪数组变化，并检查重复元素和空输入。</li>
+<li><a href="/2017/06/29/leetcode-min_stack/">最小栈：重复最小值为什么不能漏记</a>：从一个会出错的操作序列理解辅助栈的不变量。</li>
+<li><a href="/2017/06/21/apue-8-process_fork/">fork 后哪些状态独立，哪些仍然共享</a>：用一个单线程实验区分内存副本、文件偏移和子进程回收。</li>
+</ul>
+<p>旧笔记保留在<a href="/post/">文章目录</a>。文章上的日期是最初发布时间，修订日期会单独显示；运行旧代码前请留意 Python 和工具版本。</p>
+<h2 id="最近发布">最近发布</h2>
+</div>
 
 		<div class="recent-posts section">
 			<div class="posts">
-				
 				
 				
 					<div class="post">
@@ -88,18 +102,15 @@
 	</div>
 	<div class="matter">
 		<h4 class="title small">
-			<a href="/2017/06/29/leetcode-min_stack/">LeetCode-Min_Stack</a>
+			<a href="/2017/06/29/leetcode-min_stack/">最小栈：重复最小值为什么不能漏记</a>
 		</h4>
 		<span class="description">
-			
-				经典的stack相关的设计题，实现一个栈要求能够O(1)时间获取当前栈中最小元素，基本思路是：一个数据栈，另一个栈用栈顶存最小元素，如果弹栈弹得是最小元素，那么最小元素栈也弹栈。原题链接：https://leetcode.com/probl...
-			
+				从重复最小值的反例推导双栈不变量，说明空栈行为与均摊复杂度，并给出可直接运行的操作序列检查。
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -113,16 +124,13 @@
 			<a href="/2017/06/29/leetcode-reorder_list/">LeetCode-Reorder_List</a>
 		</h4>
 		<span class="description">
-			
 				经典的链表题，考查了反转链表和一些细节，题意也很明白，把L0→L1→…→Ln-1→Ln变为L0→Ln→L1→Ln-1→L2→Ln-2→…即可，原题链接：https://leetcode.com/problems/reorder-list/
 ...
-			
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -136,16 +144,13 @@
 			<a href="/2017/06/29/leetcode-partition_list/">LeetCode-Partition_List</a>
 		</h4>
 		<span class="description">
-			
 				晚上送妹子回家后做了这个链表的题，怕自己忘了睡前总结下。
 题目的意思就是：给定一个链表和一个数，把小于这个数的节点放前边，此外的都移到后边，而且保证两部分的节点原有顺序不变；在自己憋了一个来小时后终于AC了，后来对比其他人的提交结果，发现基...
-			
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -159,16 +164,13 @@
 			<a href="/2017/06/28/leetcode-linked_list_cycle_ii/">LeetCode-Linked_List_Cycle_II</a>
 		</h4>
 		<span class="description">
-			
 				判断链表是否存在循环的变形题，需要你找出链表循环的开始节点，解题思路：先用快慢指针便利链表知道快慢指针指向同一个节点，然后让快指针从head重新开始走，这次每个指针一次只走一步，再一次指向相同节电的第一个就是要找的节点；
 可以用简单的数学推...
-			
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -182,16 +184,13 @@
 			<a href="/2017/06/28/leetcode-linked_list_cycle/">LeetCode-Linked_List_Cycle</a>
 		</h4>
 		<span class="description">
-			
 				经典的链表题，判断一个链表是否存在循环，而且不许使用额外的空间，解题思路：只要分别设定一个快慢指针，当快慢指针重合时就证明有循环，原题链接：https://leetcode.com/problems/linked-list-cycle/
 G...
-			
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -205,15 +204,12 @@ G...
 			<a href="/2017/06/28/leetcode-copy_list_with_random_pointer/">LeetCode-Copy_List_with_Random_Pointer</a>
 		</h4>
 		<span class="description">
-			
 				一个比较经典的链表操作题，深度复制一个链表，链表包含一个next指针和一个random的指针，目前比较多的方法是hash表和自我复制法（在自己后面加一个自己），我写的是第二种方法需要注意的细节比较多，后面加了别人的hash表方法，原题链接：...
-			
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -227,16 +223,13 @@ G...
 			<a href="/2017/06/28/leetcode-remove_nth_node_from_end_of_list/">LeetCode-Remove_Nth_Node_From_End_of_List</a>
 		</h4>
 		<span class="description">
-			
 				比较简单的一个题，意思就是删除链表中倒数第几个节点，需要最后考虑下删除的是否恰巧为头节点，原题链接：https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 Given ...
-			
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -247,19 +240,15 @@ Given ...
 	</div>
 	<div class="matter">
 		<h4 class="title small">
-			<a href="/2017/06/23/leetcode-longest_increasing_subsequence/">LeetCode-Longest_Increasing_Subsequence</a>
+			<a href="/2017/06/23/leetcode-longest_increasing_subsequence/">最长递增子序列：从动态规划到二分查找</a>
 		</h4>
 		<span class="description">
-			
-				经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode.com/problems/longest-increasing-subsequence/
-Give...
-			
+				推导 LIS 的两种状态表示，用反例区分最小末尾数组与真实子序列，并通过穷举小输入检查重复值和空输入。
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -273,16 +262,13 @@ Give...
 			<a href="/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/">Python三目运算符两种写法及exec的用法</a>
 		</h4>
 		<span class="description">
-			
 				三目运算符第一种写法：
 In [302]: a = 1 if 5 &gt; 3 else 0 In [303]: a Out[303]: 1 In [304]: a = 1 if 2 &gt; 3 else 0 In [305]: a Ou...
-			
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 					<div class="post">
 						<div class="post-header">
 	<div class="meta">
@@ -293,19 +279,15 @@ In [302]: a = 1 if 5 &gt; 3 else 0 In [303]: a Out[303]: 1 In [304]: a = 1 if 2 
 	</div>
 	<div class="matter">
 		<h4 class="title small">
-			<a href="/2017/06/23/python_bisect/">Python二分查找的一个库–bisect</a>
+			<a href="/2017/06/23/python_bisect/">Python bisect：用时间窗口理解左右边界</a>
 		</h4>
 		<span class="description">
-			
-				今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：
-In [248]: import bisect In [249]: dir(bisect...
-			
+				用带重复时间戳的事件列表推导半开区间查询，区分插入位置、查找结果与列表插入成本，并提供可运行的边界检查。
 		</span>
 	</div>
 </div>
 
 					</div>
-				
 				
 
 <ul class="pagination">
@@ -327,6 +309,7 @@ In [248]: import bisect In [249]: dir(bisect...
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
+		<p><a href="/about/">关于与联系</a> · <a href="/privacy/">隐私说明</a></p>
 		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>

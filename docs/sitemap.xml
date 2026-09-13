@@ -2,17 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://buhuipao.github.io/</loc>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://buhuipao.github.io/privacy/</loc>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://buhuipao.github.io/categories/aigc/</loc>
     <lastmod>2023-06-20T20:31:47+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/categories/</loc>
-    <lastmod>2023-06-20T20:31:47+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/colab/</loc>
     <lastmod>2023-06-20T20:31:47+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/post/</loc>
-    <lastmod>2023-06-20T20:31:47+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/sd-ui/</loc>
     <lastmod>2023-06-20T20:31:47+00:00</lastmod>
@@ -24,10 +30,7 @@
     <lastmod>2023-06-20T20:31:47+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/</loc>
-    <lastmod>2023-06-20T20:31:47+00:00</lastmod>
-  </url><url>
-    <loc>https://buhuipao.github.io/</loc>
-    <lastmod>2023-06-20T20:31:47+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/link/</loc>
     <lastmod>2017-11-06T10:16:52+00:00</lastmod>
@@ -45,13 +48,13 @@
     <lastmod>2017-11-06T01:16:52+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/categories/python/</loc>
-    <lastmod>2017-09-17T10:01:47+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
     <lastmod>2017-09-17T10:01:47+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2017-09-17T10:01:47+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/09/17/%E8%BD%AC%E6%8D%A2bst%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</loc>
     <lastmod>2017-09-17T10:01:47+00:00</lastmod>
@@ -60,7 +63,7 @@
     <lastmod>2017-08-26T16:06:53+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2017-08-26T16:06:53+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2017-08-26T16:06:53+00:00</lastmod>
@@ -69,7 +72,7 @@
     <lastmod>2017-08-26T15:56:21+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/leetcode/</loc>
-    <lastmod>2017-07-15T01:13:02+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/07/15/leetcode-unique_binary_search_trees/</loc>
     <lastmod>2017-07-15T01:13:02+00:00</lastmod>
@@ -84,7 +87,7 @@
     <lastmod>2017-07-01T04:42:14+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</loc>
-    <lastmod>2017-07-01T04:42:14+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E5%A0%86/</loc>
     <lastmod>2017-07-01T04:42:14+00:00</lastmod>
@@ -101,14 +104,14 @@
     <loc>https://buhuipao.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2017-06-29T07:36:15+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</loc>
-    <lastmod>2017-06-29T03:08:00+00:00</lastmod>
-  </url><url>
     <loc>https://buhuipao.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2017-06-29T03:08:00+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://buhuipao.github.io/2017/06/29/leetcode-min_stack/</loc>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E6%A0%88/</loc>
-    <lastmod>2017-06-29T03:08:00+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/06/29/leetcode-reorder_list/</loc>
     <lastmod>2017-06-29T02:40:50+00:00</lastmod>
@@ -131,14 +134,14 @@
     <loc>https://buhuipao.github.io/2017/06/28/leetcode-remove_nth_node_from_end_of_list/</loc>
     <lastmod>2017-06-28T08:18:03+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</loc>
-    <lastmod>2017-06-23T10:03:46+00:00</lastmod>
-  </url><url>
     <loc>https://buhuipao.github.io/tags/lis/</loc>
-    <lastmod>2017-06-23T10:03:46+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
-    <lastmod>2017-06-23T10:03:46+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</loc>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/06/23/python%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%E5%8F%8Aexec%E7%9A%84%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2017-06-23T05:29:44+00:00</lastmod>
@@ -147,7 +150,7 @@
     <lastmod>2017-06-23T05:29:44+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/06/23/python_bisect/</loc>
-    <lastmod>2017-06-23T04:52:44+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/06/22/leetcode-edit_distance/</loc>
     <lastmod>2017-06-22T14:52:57+00:00</lastmod>
@@ -174,22 +177,22 @@
     <lastmod>2017-06-21T09:46:10+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/apue/</loc>
-    <lastmod>2017-06-21T04:39:30+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/06/21/aupe-11-thread_fork/</loc>
     <lastmod>2017-06-21T04:39:30+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/categories/linux/</loc>
-    <lastmod>2017-06-21T04:39:30+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2017-06-21T04:39:30+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E8%BF%9B%E7%A8%8B/</loc>
-    <lastmod>2017-06-21T04:39:30+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</loc>
-    <lastmod>2017-06-21T03:15:52+00:00</lastmod>
+    <lastmod>2026-09-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2017/06/20/leetcode-remove_duplicates_from_sorted_array/</loc>
     <lastmod>2017-06-20T05:13:19+00:00</lastmod>
@@ -326,15 +329,6 @@
     <loc>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</loc>
     <lastmod>2016-09-13T05:09:02+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/tags/linux/</loc>
-    <lastmod>2016-09-13T03:46:16+00:00</lastmod>
-  </url><url>
-    <loc>https://buhuipao.github.io/2016/09/13/linux-process/</loc>
-    <lastmod>2016-09-13T03:46:16+00:00</lastmod>
-  </url><url>
-    <loc>https://buhuipao.github.io/tags/shell/</loc>
-    <lastmod>2016-09-13T03:46:16+00:00</lastmod>
-  </url><url>
     <loc>https://buhuipao.github.io/2016/09/12/netease-coding-test/</loc>
     <lastmod>2016-09-12T14:28:47+00:00</lastmod>
   </url><url>
@@ -344,23 +338,14 @@
     <loc>https://buhuipao.github.io/2016/09/06/jingdong-codingtest/</loc>
     <lastmod>2016-09-06T09:50:39+00:00</lastmod>
   </url><url>
-    <loc>https://buhuipao.github.io/tags/tcp/ip/</loc>
-    <lastmod>2016-08-28T13:21:37+00:00</lastmod>
-  </url><url>
-    <loc>https://buhuipao.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</loc>
-    <lastmod>2016-08-28T13:21:37+00:00</lastmod>
-  </url><url>
-    <loc>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</loc>
-    <lastmod>2016-08-28T13:21:37+00:00</lastmod>
-  </url><url>
-    <loc>https://buhuipao.github.io/2016/08/28/network-ip-mask-host/</loc>
-    <lastmod>2016-08-28T13:09:25+00:00</lastmod>
-  </url><url>
     <loc>https://buhuipao.github.io/2016/08/25/python-spider-duanzi/</loc>
     <lastmod>2016-08-25T04:43:26+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/tags/%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2016-08-25T04:43:26+00:00</lastmod>
+  </url><url>
+    <loc>https://buhuipao.github.io/tags/linux/</loc>
+    <lastmod>2016-08-16T03:31:21+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2016/08/16/linux-etc-host/</loc>
     <lastmod>2016-08-16T03:31:21+00:00</lastmod>
@@ -381,6 +366,9 @@
     <lastmod>2016-04-25T11:57:38+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2016/04/25/mysql_basic_operation/</loc>
+    <lastmod>2016-04-25T11:57:38+00:00</lastmod>
+  </url><url>
+    <loc>https://buhuipao.github.io/tags/shell/</loc>
     <lastmod>2016-04-25T11:57:38+00:00</lastmod>
   </url><url>
     <loc>https://buhuipao.github.io/2016/04/20/shell%E4%B9%8Bis_root/</loc>

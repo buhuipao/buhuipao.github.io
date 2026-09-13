@@ -3,29 +3,30 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="google-adsense-account" content="ca-pub-3487149104434430">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3487149104434430" crossorigin="anonymous"></script>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>APUE-8-进程控制之Fork - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="用单线程 Python 实验观察 fork 返回值、字典副本、共享文件偏移和 waitpid 回收，区分进程内存与内核中的打开文件状态。">
+	<link rel="canonical" href="https://buhuipao.com/2017/06/21/apue-8-process_fork/">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>fork 实验：独立的内存与共享的文件偏移 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
-  <meta itemprop="name" content="APUE-8-进程控制之Fork">
-  <meta itemprop="description" content="最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用getppid()获取的是父进程的pid；返回值为进程id(子进程的）的是父进程，getppid返回的是自己的pid。">
+  <meta itemprop="name" content="fork 实验：独立的内存与共享的文件偏移">
+  <meta itemprop="description" content="用单线程 Python 实验观察 fork 返回值、字典副本、共享文件偏移和 waitpid 回收，区分进程内存与内核中的打开文件状态。">
   <meta itemprop="datePublished" content="2017-06-21T03:15:52+00:00">
-  <meta itemprop="dateModified" content="2017-06-21T03:15:52+00:00">
-  <meta itemprop="wordCount" content="629">
+  <meta itemprop="dateModified" content="2026-09-13T00:00:00+08:00">
+  <meta itemprop="wordCount" content="1355">
   <meta itemprop="keywords" content="APUE,进程"><meta property="og:url" content="https://buhuipao.github.io/2017/06/21/apue-8-process_fork/">
   <meta property="og:site_name" content="不会跑">
-  <meta property="og:title" content="APUE-8-进程控制之Fork">
-  <meta property="og:description" content="最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用getppid()获取的是父进程的pid；返回值为进程id(子进程的）的是父进程，getppid返回的是自己的pid。">
+  <meta property="og:title" content="fork 实验：独立的内存与共享的文件偏移">
+  <meta property="og:description" content="用单线程 Python 实验观察 fork 返回值、字典副本、共享文件偏移和 waitpid 回收，区分进程内存与内核中的打开文件状态。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-06-21T03:15:52+00:00">
-    <meta property="article:modified_time" content="2017-06-21T03:15:52+00:00">
+    <meta property="article:modified_time" content="2026-09-13T00:00:00+08:00">
     <meta property="article:tag" content="APUE">
     <meta property="article:tag" content="进程">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="APUE-8-进程控制之Fork">
-  <meta name="twitter:description" content="最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用getppid()获取的是父进程的pid；返回值为进程id(子进程的）的是父进程，getppid返回的是自己的pid。">
+  <meta name="twitter:title" content="fork 实验：独立的内存与共享的文件偏移">
+  <meta name="twitter:description" content="用单线程 Python 实验观察 fork 返回值、字典副本、共享文件偏移和 waitpid 回收，区分进程内存与内核中的打开文件状态。">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -48,7 +49,7 @@
 		</div>
 	
 	<h1 class="site-title"><a href="https://buhuipao.github.io/">不会跑</a></h1>
-	<div class="site-description"><p>work for life</p><nav class="nav social">
+	<div class="site-description"><p>Python、Linux 与算法实践笔记</p><nav class="nav social">
 			<ul class="flat"><li><a href="https://twitter.com/buhuipao" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
 		</nav>
 	</div>
@@ -92,45 +93,65 @@
 					</div>
 				
 				<div class="matter">
-					<h1 class="title">APUE-8-进程控制之Fork</h1>
+					<h1 class="title">fork 实验：独立的内存与共享的文件偏移</h1>
+					<p>作者：咩 · 更新于 2026-09-13</p>
 				</div>
 			</div>
 					
 			<div class="markdown">
-				<p>最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用getppid()获取的是父进程的pid；返回值为进程id(子进程的）的是父进程，getppid返回的是自己的pid。</p>
-<p>父子进程共享继承的是：</p>
-<ul>
-<li>实际用户ID，实际组ID，有效用户ID，有效组ID，附属组ID</li>
-<li>进程组ID</li>
-<li>会话ID</li>
-<li>文件偏移量</li>
-<li>控制终端</li>
-<li>目录等环境变量</li>
-<li>信号屏蔽和安排</li>
-<li>连接的共享存储段</li>
-<li>存储镜像、资源限制</li>
-</ul>
-<p>父子进程不同的是：</p>
-<ul>
-<li>fork返回值</li>
-<li>进程ID不同</li>
-<li>子进程的tms_utime, tms_stime, tms_cutime, tms_cstime的值为0</li>
-<li>子进程不继承父进程的文件锁</li>
-<li>子进程的未处理闹钟会被清除</li>
-<li>子进程的未处理的信号寄清空</li>
-</ul>
-<p>fork之后对于文件描述符有以下两种处理方式：</p>
-<ol>
-<li>父进程等待子进程完成。父进程无需对文件描述符做任何处理，子进程结束后，父进程的文件描述符的偏移量以做相应更新；</li>
-<li>父进程和子进程执行不同程序段。这种情况下，fork之后，父子进程会关闭各自不需要使用的文件描述符（网络服务常用）。</li>
-</ol>
-<p>fork用在两种用法：</p>
-<ol>
-<li>父进程希望子进程复制自己，但是去执行不同的代码段，常见于网络服务：父进程负责监听信号，子进程负责处理请求；</li>
-<li>一个进程要执行另一个不同程序，最常见shell：进程fork后立即调用exec执行其他程序。</li>
-</ol>
-<p>Linux 之后弄出一个clone， 就是可以在fork时可以自己设定需要共享不共享的数据，然后fork应该是在clone的一个实现（猜）。</p>
-<p><em>(参考 APUE 第 8 章 进程控制)</em></p>
+				<p>阅读 APUE 的进程控制章节时，容易把“子进程复制父进程”和“父子进程共享文件偏移”理解成互相矛盾的说法。实际需要区分两层状态：进程自己的内存，以及文件描述符指向的内核对象。</p>
+<p>下面用一个实验同时检查这两层。它使用 Python 3.9 及以上版本，在支持 <code>os.fork</code> 的 Linux 或 macOS 上以独立、单线程命令行脚本运行；不适用于 Windows，也不要直接放进已有线程的服务或 Notebook 内核执行。</p>
+<h2 id="先分清三个进程编号">先分清三个进程编号</h2>
+<p>一次成功的 fork 会让父子进程分别从调用处继续执行。父进程收到的是子进程的 PID，子进程收到 0。<code>getpid()</code> 始终表示正在执行这段代码的进程自身，而 <code>getppid()</code> 表示它的父进程。</p>
+<p>因此父进程中的 <code>getppid()</code> 并不是它自己的编号；子进程里的 <code>getppid()</code> 也只在父进程仍存活时，才等于 fork 前记录的父进程 PID。具体返回规则见 <a href="https://man7.org/linux/man-pages/man2/fork.2.html">fork(2)</a>。</p>
+<p>实验让父进程等待子进程退出，这样既能保证父进程仍在，也能固定观察顺序，避免用 sleep 猜测哪个进程先获得调度。</p>
+<h2 id="一段同时观察两种状态的代码">一段同时观察两种状态的代码</h2>
+<p>临时文件只有两个字节 <code>AB</code>。fork 前把文件偏移移回开头，子进程读取一个字节并修改自己的字典。父进程等它完成后，检查字典和下一次读取的结果。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tempfile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">os</span><span class="p">,</span> <span class="s2">&#34;fork&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&#34;This example requires a Unix system with os.fork&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">state</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;count&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">parent_pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fd</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">fileno</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&#34;AB&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">lseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_SET</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">child_pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">child_pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span><span class="p">[</span><span class="s2">&#34;count&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ok</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()</span> <span class="o">==</span> <span class="n">parent_pid</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&#34;A&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">_exit</span><span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">ok</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">waited_pid</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">waitpid</span><span class="p">(</span><span class="n">child_pid</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">waited_pid</span> <span class="o">==</span> <span class="n">child_pid</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">waitstatus_to_exitcode</span><span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">state</span><span class="p">[</span><span class="s2">&#34;count&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&#34;B&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">waitpid</span><span class="p">(</span><span class="n">child_pid</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">ChildProcessError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&#34;the child should already have been reaped&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;fork checks passed: independent memory, shared file offset&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>保存为 <code>fork_state.py</code>，执行 <code>python3 fork_state.py</code>。成功时输出 <code>fork checks passed: independent memory, shared file offset</code>。临时文件会在父进程离开 with 语句时关闭并清理，不需要指定或改动已有文件。</p>
+<p>这里使用 <code>os.read</code> 和 <code>os.write</code> 直接操作描述符，避免 Python 文件对象的缓冲区预读干扰观察。子进程用 <code>os._exit</code> 结束，不再次刷新从父进程复制过来的用户态输出缓冲；这是为了使这个小实验的退出行为明确，不是所有业务代码的通用退出写法。</p>
+<h2 id="从两个断言解释结果">从两个断言解释结果</h2>
+<p><code>state[&quot;count&quot;] == 1</code> 检查的是普通内存：子进程把自己的字典改成 99，并没有改变父进程的字典。Linux 通常用写时复制实现这类内存继承，但在程序语义上仍是两个独立的地址空间。</p>
+<p><code>os.read(fd, 1) == b&quot;B&quot;</code> 检查的是文件位置：父子进程各有自己的描述符表项，但 fork 继承的两个表项指向同一个打开文件描述，其中包括当前偏移。子进程读过 A 后，这个共享偏移已经前进了一字节，所以父进程接着读到 B。这个关系也由 <a href="https://man7.org/linux/man-pages/man2/fork.2.html">fork(2) 对文件描述符继承的说明</a>规定。</p>
+<p>同一个数字 fd 并不能单独证明共享关系。如果父子进程各自重新打开同一个路径，它们可以拥有独立的打开文件描述与偏移。诊断并发读写时，需要追踪描述符是通过 fork 或 dup 继承的，还是分别 open 得到的。</p>
+<h2 id="退出与回收是两个步骤">退出与回收是两个步骤</h2>
+<p>子进程退出后，父进程调用 <code>waitpid</code> 取得终止状态并完成回收。上面的第二次 wait 会得到 <code>ChildProcessError</code>，因为这个子进程已经被回收，不能再取一次状态。</p>
+<p>在默认的子进程回收语义下，如果子进程退出而父进程迟迟没有 wait，它会保留用于报告终止状态的内核记录，通常表现为僵尸进程。僵尸不再执行用户代码；仅向它发送终止信号不能替代父进程回收。细节及信号处理方式带来的例外可参阅 <a href="https://man7.org/linux/man-pages/man2/wait.2.html">wait(2)</a>。</p>
+<p>这个实验适合观察 fork 本身，不是并发任务框架。实际只是想启动另一个命令时，优先使用 <code>subprocess</code>；如果程序已经有多个线程，fork 后的子进程可能继承由消失线程持有的锁，不能照搬这里的任意 Python 操作。运行边界及平台限制见 <a href="https://docs.python.org/3/library/os.html#os.fork">Python os.fork 文档</a>。</p>
 
 			</div>
 
@@ -166,6 +187,7 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
+		<p><a href="/about/">关于与联系</a> · <a href="/privacy/">隐私说明</a></p>
 		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>

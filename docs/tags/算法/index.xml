@@ -6,7 +6,7 @@
     <description>Recent content in 算法 on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 26 Aug 2017 16:06:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>稳定婚姻匹配问题</title>
@@ -58,11 +58,11 @@
       <description>&lt;p&gt;一个比较经典的链表操作题，深度复制一个链表，链表包含一个next指针和一个random的指针，目前比较多的方法是hash表和自我复制法（在自己后面加一个自己），我写的是第二种方法需要注意的细节比较多，后面加了别人的hash表方法，原题链接：&lt;a href=&#34;https://leetcode.com/problems/copy-list-with-random-pointer/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/copy-list-with-random-pointer/&#34;&gt;https://leetcode.com/problems/copy-list-with-random-pointer/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>LeetCode-Longest_Increasing_Subsequence</title>
+      <title>最长递增子序列：从动态规划到二分查找</title>
       <link>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</link>
       <pubDate>Fri, 23 Jun 2017 10:03:46 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/</guid>
-      <description>&lt;p&gt;经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：&lt;a href=&#34;https://leetcode.com/problems/longest-increasing-subsequence/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/longest-increasing-subsequence/&#34;&gt;https://leetcode.com/problems/longest-increasing-subsequence/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Given an unsorted array of integers, find the length of longest increasing subsequence.&lt;/p&gt;&#xA;&lt;p&gt;For example,&lt;/p&gt;&#xA;&lt;p&gt;Given [10, 9, 2, 5, 3, 7, 101, 18],&lt;/p&gt;</description>
+      <description>&lt;p&gt;这篇笔记讨论 &lt;a href=&#34;https://leetcode.com/problems/longest-increasing-subsequence/&#34;&gt;LeetCode 的最长递增子序列问题&lt;/a&gt;：按原有顺序挑出一些数，使它们严格递增，求最多能挑多少个。子序列可以跳过元素，但不能重新排列它们。&lt;/p&gt;&#xA;&lt;p&gt;例如 &lt;code&gt;[4, 7, 2, 3, 6]&lt;/code&gt; 可以选 &lt;code&gt;[2, 3, 6]&lt;/code&gt;，长度是 3。直接把整个数组排序会改变问题；把相邻递增的连续片段找出来，也会漏掉允许跳跃的解。下面先建立一个容易检查的动态规划，再改变状态表示来减少查找成本。&lt;/p&gt;</description>
     </item>
     <item>
       <title>LeetCode-Edit_Distance</title>

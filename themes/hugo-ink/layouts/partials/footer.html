@@ -1,5 +1,6 @@
 <div class="footer wrapper">
 	<nav class="nav">
+		<p><a href="{{ "/about/" | relURL }}">关于与联系</a> · <a href="{{ "/privacy/" | relURL }}">隐私说明</a></p>
 		<div>{{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . | safeHTML }} | {{ end }} <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 20 Jun 2023 20:31:47 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Colab</title>
@@ -282,38 +282,17 @@
       <description></description>
     </item>
     <item>
-      <title>Linux</title>
-      <link>https://buhuipao.github.io/tags/linux/</link>
-      <pubDate>Tue, 13 Sep 2016 03:46:16 +0000</pubDate>
-      <guid>https://buhuipao.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Shell</title>
-      <link>https://buhuipao.github.io/tags/shell/</link>
-      <pubDate>Tue, 13 Sep 2016 03:46:16 +0000</pubDate>
-      <guid>https://buhuipao.github.io/tags/shell/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>TCP/IP</title>
-      <link>https://buhuipao.github.io/tags/tcp/ip/</link>
-      <pubDate>Sun, 28 Aug 2016 13:21:37 +0000</pubDate>
-      <guid>https://buhuipao.github.io/tags/tcp/ip/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>网络协议</title>
-      <link>https://buhuipao.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</link>
-      <pubDate>Sun, 28 Aug 2016 13:21:37 +0000</pubDate>
-      <guid>https://buhuipao.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>爬虫</title>
       <link>https://buhuipao.github.io/tags/%E7%88%AC%E8%99%AB/</link>
       <pubDate>Thu, 25 Aug 2016 04:43:26 +0000</pubDate>
       <guid>https://buhuipao.github.io/tags/%E7%88%AC%E8%99%AB/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://buhuipao.github.io/tags/linux/</link>
+      <pubDate>Tue, 16 Aug 2016 03:31:21 +0000</pubDate>
+      <guid>https://buhuipao.github.io/tags/linux/</guid>
       <description></description>
     </item>
     <item>
@@ -328,6 +307,13 @@
       <link>https://buhuipao.github.io/tags/mysql/</link>
       <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
       <guid>https://buhuipao.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://buhuipao.github.io/tags/shell/</link>
+      <pubDate>Mon, 25 Apr 2016 11:57:38 +0000</pubDate>
+      <guid>https://buhuipao.github.io/tags/shell/</guid>
       <description></description>
     </item>
   </channel>

@@ -6,7 +6,7 @@
     <description>Recent content in Linux on 不会跑</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 21 Jun 2017 04:39:30 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://buhuipao.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AUPE-11-线程同步及线程的Fork</title>
@@ -16,11 +16,11 @@
       <description>&lt;p&gt;线程是对进程的一种模仿，而协程（微线程）是对线程的一种模仿；&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;线程创建&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;# include &amp;#34;pthread_h&amp;#34;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;pthread_create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;pthread_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;restrict&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tidp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;pthread_attr_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resrict&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start_rtm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;restrict&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;线程同步&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;互斥量（锁），但需要避免死锁；&lt;/li&gt;&#xA;&lt;li&gt;读写锁（共享锁）；&lt;/li&gt;&#xA;&lt;li&gt;条件变量；&lt;/li&gt;&#xA;&lt;li&gt;自旋锁（适应于：a)锁被持有的时间短 ； b)线程不希望被重新调度）&lt;/li&gt;&#xA;&lt;li&gt;屏障（参考《现代操作系统》，只有多个合作线程都到达同一点时才放行）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;读写锁&lt;/strong&gt;又名共享锁，基本特征是：&lt;/p&gt;</description>
     </item>
     <item>
-      <title>APUE-8-进程控制之Fork</title>
+      <title>fork 实验：独立的内存与共享的文件偏移</title>
       <link>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</link>
       <pubDate>Wed, 21 Jun 2017 03:15:52 +0000</pubDate>
       <guid>https://buhuipao.github.io/2017/06/21/apue-8-process_fork/</guid>
-      <description>&lt;p&gt;最近又在回顾进程的Fork知识，然后手头又有APUE，悔恨大学没有看这样的书；在进程Fork时，将会返回两次，返回值为0的为子进程，用getppid()获取的是父进程的pid；返回值为进程id(子进程的）的是父进程，getppid返回的是自己的pid。&lt;/p&gt;</description>
+      <description>&lt;p&gt;阅读 APUE 的进程控制章节时，容易把“子进程复制父进程”和“父子进程共享文件偏移”理解成互相矛盾的说法。实际需要区分两层状态：进程自己的内存，以及文件描述符指向的内核对象。&lt;/p&gt;</description>
     </item>
     <item>
       <title>关于fork和操作系统一些知识</title>
@@ -35,27 +35,6 @@
       <pubDate>Tue, 13 Sep 2016 05:09:02 +0000</pubDate>
       <guid>https://buhuipao.github.io/2016/09/13/linux-ps-head-tail-less-more/</guid>
       <description>&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;ps -ef&lt;/p&gt;&#xA;&lt;p&gt;ps aux&lt;/p&gt;&#xA;&lt;p&gt;按所占用的cpu降序(-pcpu)排序，取top10,注意head会把第一列打印出来，所以取11&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;buhuipao@bogon ~&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;$ ps -eo user,pid,ppid,pcpu,pmem,comm --sort&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;-pcpu &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; head -n 11&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tail -n &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;13704&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;3176&lt;/span&gt; 9.2 3.1 netease-cloud-m&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;8040&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;3189&lt;/span&gt; 3.9 6.8 chrome&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;31576&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8055&lt;/span&gt; 3.4 4.5 chrome&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;13741&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;13715&lt;/span&gt; 3.2 4.1 netease-cloud-m&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;root &lt;span class=&#34;m&#34;&gt;1292&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1275&lt;/span&gt; 3.1 1.0 Xorg&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;8110&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8040&lt;/span&gt; 2.5 4.2 chrome&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;15087&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8055&lt;/span&gt; 1.5 3.7 chrome&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;16130&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8055&lt;/span&gt; 1.3 4.5 chrome&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;27911&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8055&lt;/span&gt; 0.8 5.6 chrome&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;buhuipao &lt;span class=&#34;m&#34;&gt;2511&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8055&lt;/span&gt; 0.7 6.2 chrome&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;#假如 ps -eo user,pid,ppid,pcpu,pmem,comm –sort=+pmem,-pcpu | tail -n 10&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Linux 进程杂乱总结</title>
-      <link>https://buhuipao.github.io/2016/09/13/linux-process/</link>
-      <pubDate>Tue, 13 Sep 2016 03:46:16 +0000</pubDate>
-      <guid>https://buhuipao.github.io/2016/09/13/linux-process/</guid>
-      <description>&lt;p&gt;我们知道在unix/linux中，正常情况下，子进程是通过父进程创建的，子进程在创建新的进程。子进程的结束和父进程的运行是一个异步过程,即父进程永远无法预测子进程 到底什么时候结束。 当一个 进程完成它的工作终止之后，它的父进程需要调用wait()或者waitpid()系统调用取得子进程的终止状态。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手</title>
-      <link>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</link>
-      <pubDate>Sun, 28 Aug 2016 13:21:37 +0000</pubDate>
-      <guid>https://buhuipao.github.io/2016/08/28/network-tcp-ip/</guid>
-      <description>&lt;ol start=&#34;5&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;ARP/RARP协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;路由选择协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;TCP/IP协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;UDP协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;DNS协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;NAT协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;DHCP协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;HTTP协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;一个举例&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;ARP/RARP协议&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。地址解析协议是建立在网络中各个主机互相信任的基础上的，网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存；由此攻击者就可以向某一主机发送伪ARP应答报文，使其发送的信息无法到达预期的主机或到达错误的主机，这就构成了一个ARP欺骗。ARP命令可用于查询本机ARP缓存中IP地址和MAC地址的对应关系、添加或删除静态对应关系等。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>计算机网络基础知识总结（1）–网络层，IP，主机，子网</title>
-      <link>https://buhuipao.github.io/2016/08/28/network-ip-mask-host/</link>
-      <pubDate>Sun, 28 Aug 2016 13:09:25 +0000</pubDate>
-      <guid>https://buhuipao.github.io/2016/08/28/network-ip-mask-host/</guid>
-      <description>&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;网络层次划分&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;OSI七层网络模型&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;IP地址&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;子网掩码及网络划分&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进行数据交换而建立的规则、标准或者说是约定的集合。因为不同用户的数据终端可能采取的字符集是不同的，两者需要进行通信，必须要在一定的标准上进行。一个很形象地比喻就是我们的语言，我们大天朝地广人多，地方性语言也非常丰富，而且方言之间差距巨大。A地区的方言可能B地区的人根本无法接受，所以我们要为全国人名进行沟通建立一个语言标准，这就是我们的普通话的作用。同样，放眼全球，我们与外国友人沟通的标准语言是英语，所以我们才要苦逼的学习英语。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux下/etc的hosts,hosts.conf,hostname, resolv.conf,hosts.deny/allow文件解释</title>

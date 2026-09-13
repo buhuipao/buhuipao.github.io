@@ -3,39 +3,31 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="google-adsense-account" content="ca-pub-3487149104434430">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3487149104434430" crossorigin="anonymous"></script>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>LeetCode-Longest_Increasing_Subsequence - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="推导 LIS 的两种状态表示，用反例区分最小末尾数组与真实子序列，并通过穷举小输入检查重复值和空输入。">
+	<link rel="canonical" href="https://buhuipao.com/2017/06/23/leetcode-longest_increasing_subsequence/">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>最长递增子序列：从动态规划到二分查找 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
-  <meta itemprop="name" content="LeetCode-Longest_Increasing_Subsequence">
-  <meta itemprop="description" content="经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode.com/problems/longest-increasing-subsequence/
-Given an unsorted array of integers, find the length of longest increasing subsequence.
-For example,
-Given [10, 9, 2, 5, 3, 7, 101, 18],">
+  <meta itemprop="name" content="最长递增子序列：从动态规划到二分查找">
+  <meta itemprop="description" content="推导 LIS 的两种状态表示，用反例区分最小末尾数组与真实子序列，并通过穷举小输入检查重复值和空输入。">
   <meta itemprop="datePublished" content="2017-06-23T10:03:46+00:00">
-  <meta itemprop="dateModified" content="2017-06-23T10:03:46+00:00">
-  <meta itemprop="wordCount" content="431">
+  <meta itemprop="dateModified" content="2026-09-13T00:00:00+08:00">
+  <meta itemprop="wordCount" content="1350">
   <meta itemprop="keywords" content="LIS,动态规划,算法"><meta property="og:url" content="https://buhuipao.github.io/2017/06/23/leetcode-longest_increasing_subsequence/">
   <meta property="og:site_name" content="不会跑">
-  <meta property="og:title" content="LeetCode-Longest_Increasing_Subsequence">
-  <meta property="og:description" content="经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode.com/problems/longest-increasing-subsequence/
-Given an unsorted array of integers, find the length of longest increasing subsequence.
-For example,
-Given [10, 9, 2, 5, 3, 7, 101, 18],">
+  <meta property="og:title" content="最长递增子序列：从动态规划到二分查找">
+  <meta property="og:description" content="推导 LIS 的两种状态表示，用反例区分最小末尾数组与真实子序列，并通过穷举小输入检查重复值和空输入。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-06-23T10:03:46+00:00">
-    <meta property="article:modified_time" content="2017-06-23T10:03:46+00:00">
+    <meta property="article:modified_time" content="2026-09-13T00:00:00+08:00">
     <meta property="article:tag" content="LIS">
     <meta property="article:tag" content="动态规划">
     <meta property="article:tag" content="算法">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LeetCode-Longest_Increasing_Subsequence">
-  <meta name="twitter:description" content="经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：https://leetcode.com/problems/longest-increasing-subsequence/
-Given an unsorted array of integers, find the length of longest increasing subsequence.
-For example,
-Given [10, 9, 2, 5, 3, 7, 101, 18],">
+  <meta name="twitter:title" content="最长递增子序列：从动态规划到二分查找">
+  <meta name="twitter:description" content="推导 LIS 的两种状态表示，用反例区分最小末尾数组与真实子序列，并通过穷举小输入检查重复值和空输入。">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -58,7 +50,7 @@ Given [10, 9, 2, 5, 3, 7, 101, 18],">
 		</div>
 	
 	<h1 class="site-title"><a href="https://buhuipao.github.io/">不会跑</a></h1>
-	<div class="site-description"><p>work for life</p><nav class="nav social">
+	<div class="site-description"><p>Python、Linux 与算法实践笔记</p><nav class="nav social">
 			<ul class="flat"><li><a href="https://twitter.com/buhuipao" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
 		</nav>
 	</div>
@@ -102,67 +94,114 @@ Given [10, 9, 2, 5, 3, 7, 101, 18],">
 					</div>
 				
 				<div class="matter">
-					<h1 class="title">LeetCode-Longest_Increasing_Subsequence</h1>
+					<h1 class="title">最长递增子序列：从动态规划到二分查找</h1>
+					<p>作者：咩 · 更新于 2026-09-13</p>
 				</div>
 			</div>
 					
 			<div class="markdown">
-				<p>经典的dp题目：最长增长子序列，都是dp的方法但是时间复杂度分别为O(N^2)、O(NlogN);原题链接：<a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank"><a href="https://leetcode.com/problems/longest-increasing-subsequence/">https://leetcode.com/problems/longest-increasing-subsequence/</a></a></p>
-<p>Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
-<p>For example,</p>
-<p>Given [10, 9, 2, 5, 3, 7, 101, 18],</p>
-<p>The longest increasing subsequence is [2, 3, 7, 101], therefore the length is 4.</p>
-<p>Note that there may be more than one LIS combination, it is only necessary for you to return the length.</p>
-<p>Your algorithm should run in O(n2) complexity.</p>
-<p>Follow up: Could you improve it to O(n log n) time complexity?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># _*_ coding: utf-8 _*_</span>
+				<p>这篇笔记讨论 <a href="https://leetcode.com/problems/longest-increasing-subsequence/">LeetCode 的最长递增子序列问题</a>：按原有顺序挑出一些数，使它们严格递增，求最多能挑多少个。子序列可以跳过元素，但不能重新排列它们。</p>
+<p>例如 <code>[4, 7, 2, 3, 6]</code> 可以选 <code>[2, 3, 6]</code>，长度是 3。直接把整个数组排序会改变问题；把相邻递增的连续片段找出来，也会漏掉允许跳跃的解。下面先建立一个容易检查的动态规划，再改变状态表示来减少查找成本。</p>
+<h2 id="以在当前位置结束定义状态">以“在当前位置结束”定义状态</h2>
+<p>令 <code>dp[i]</code> 表示必须使用 <code>nums[i]</code> 作为最后一个数时，能得到的最长长度。每个数自己都能形成长度为 1 的子序列。</p>
+<p>要把 <code>nums[i]</code> 接在一个已有子序列后面，那个子序列的末尾下标 j 必须满足 <code>j &lt; i</code>，而且 <code>nums[j] &lt; nums[i]</code>。因此更新规则是：对所有符合条件的 j，尝试用 <code>dp[j] + 1</code> 更新 <code>dp[i]</code>。</p>
+<p>最终结果取整个 dp 数组的最大值。不能只返回 <code>dp[-1]</code>，因为最长解未必使用输入的最后一个数：<code>[1, 2, 3, 0]</code> 的答案是 3，在 0 处结束的答案却只有 1。</p>
+<h2 id="换成同样长度末尾尽量小">换成“同样长度，末尾尽量小”</h2>
+<p>上面的实现会检查当前位置之前的所有元素，时间是 O(n²)。进一步观察：如果两个递增子序列一样长，末尾较小的那个更容易接上后续输入。</p>
+<p>因此令 <code>tails[k]</code> 表示已处理前缀里，长度为 k+1 的递增子序列能够取得的最小末尾。遇到 x 时，找到第一个大于等于 x 的末尾：如果找到了，就用 x 替换它；如果没找到，就把 x 追加到末尾。</p>
+<p>替换保持长度不变，但给相同长度留下更好的延长机会。追加则说明 x 能接在当前最长序列后面，让已知最长长度增加 1。</p>
+<table>
+  <thead>
+      <tr>
+          <th>新读入的数</th>
+          <th>tails</th>
+          <th>这一步的含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>4</td>
+          <td><code>[4]</code></td>
+          <td>长度 1 的末尾是 4</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td><code>[4, 7]</code></td>
+          <td>可以扩展到长度 2</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td><code>[2, 7]</code></td>
+          <td>改善长度 1 的末尾</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td><code>[2, 3]</code></td>
+          <td>改善长度 2 的末尾</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td><code>[2, 3, 6]</code></td>
+          <td>可以扩展到长度 3</td>
+      </tr>
+  </tbody>
+</table>
+<p>这些最小末尾保持递增，所以可以用 <code>bisect_left</code> 找替换位置。它返回的是插入边界，具体语义可参见 <a href="https://docs.python.org/3/library/bisect.html">Python 标准库文档</a>。这里执行的是替换或尾部追加，不是在列表中间插入。</p>
+<h2 id="两个容易混淆的地方">两个容易混淆的地方</h2>
+<p>第一，严格递增不允许相等元素延长序列。输入 <code>[2, 2, 2]</code> 时，三个 2 都应该替换位置 0，答案是 1。如果使用 <code>bisect_right</code>，它们会不断追加，解决的就变成允许相等的最长不下降子序列。</p>
+<p>第二，最终的 tails 不一定是输入中的一个合法子序列。对 <code>[2, 6, 3, 4, 1, 5]</code>，最终 tails 是 <code>[1, 3, 4, 5]</code>，但输入中的 1 出现在 3 和 4 后面。长度 4 是正确的，例如 <code>[2, 3, 4, 5]</code>；各个最小末尾却可能来自不同的选择路径。</p>
+<p>如果需求是输出具体的子序列，需要额外记录前驱下标并回溯。本文只求长度，因此没有添加这部分状态。</p>
+<h2 id="可运行实现与交叉检查">可运行实现与交叉检查</h2>
+<p>下面代码适用于 Python 3.9 及以上版本。输入约定为可重复遍历的整数列表，不修改原列表。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bisect</span> <span class="kn">import</span> <span class="n">bisect_left</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">lengthOfLIS1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
-</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
-</span></span></span><span class="line"><span class="cl"><span class="s2">        时间复杂度O(N^2)
-</span></span></span><span class="line"><span class="cl"><span class="s2">        dp状态方程：
-</span></span></span><span class="line"><span class="cl"><span class="s2">            dp[0] = 1
-</span></span></span><span class="line"><span class="cl"><span class="s2">            dp[i] = max(dp[i], dp[j]+biger(nums[i], nums[j]))
-</span></span></span><span class="line"><span class="cl"><span class="s2">        其中0 &amp;lt;= j &amp;lt; i, biger函数返回1／0
-</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">size</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">y</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">dp</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="k">if</span> <span class="n">dp</span> <span class="k">else</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">lis_dp</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">lengthOfLIS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
-</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: int
-</span></span></span><span class="line"><span class="cl"><span class="s2">        时间复杂度O(NlogN)
-</span></span></span><span class="line"><span class="cl"><span class="s2">        dp遇到数原则上大于最后的dp[-1]的将会被append，
-</span></span></span><span class="line"><span class="cl"><span class="s2">        小于的会去替换相应位置的数，而dp长度(l)不会缩短一只保持最长
-</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">low</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="n">high</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">low</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dp</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">dp</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">l</span>
-</span></span></code></pre></div>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">lis_length</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tails</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">bisect_left</span><span class="p">(</span><span class="n">tails</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tails</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tails</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tails</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">tails</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cases</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([],</span> <span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">values</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">original</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">lis_dp</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="n">lis_length</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="n">values</span> <span class="o">==</span> <span class="n">original</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 穷举长度 0～6、取值为 0/1/2 的所有输入，共 1093 组。</span>
+</span></span><span class="line"><span class="cl"><span class="n">checked</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="n">size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">lis_length</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="n">lis_dp</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="n">values</span>
+</span></span><span class="line"><span class="cl">        <span class="n">checked</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">checked</span> <span class="o">==</span> <span class="mi">1093</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;LIS checks passed:&#34;</span><span class="p">,</span> <span class="n">checked</span><span class="p">)</span>
+</span></span></code></pre></div><p>保存后用 <code>python3</code> 执行，末尾输出 <code>LIS checks passed: 1093</code>。固定用例约束题目语义，穷举检查则更容易发现二分边界和重复值处理的不一致；它不能替代上面的状态推导。</p>
+<p><code>lis_dp</code> 使用 O(n²) 时间和 O(n) 空间。<code>lis_length</code> 每个元素做一次二分定位，替换为常数成本，尾部追加为均摊常数成本，因此整体为 O(n log n) 时间、O(n) 空间。没有使用 <code>insort</code>，因为向中间插入既会破坏状态含义，也会带来元素移动成本。</p>
+
 			</div>
 
 			<div class="tags">
@@ -199,6 +238,7 @@ Given [10, 9, 2, 5, 3, 7, 101, 18],">
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
+		<p><a href="/about/">关于与联系</a> · <a href="/privacy/">隐私说明</a></p>
 		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>

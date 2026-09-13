@@ -1,7 +1,14 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="google-adsense-account" content="ca-pub-3487149104434430">
+	{{- if and .IsPage (eq .Type "post") (eq .Params.ads true) (eq .Site.BaseURL .Site.Params.canonicalBaseURL) }}
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3487149104434430" crossorigin="anonymous"></script>
+	{{- end }}
+	<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+	{{- if .IsPage }}
+	<link rel="canonical" href="{{ strings.TrimSuffix "/" .Site.Params.canonicalBaseURL }}{{ .RelPermalink }}">
+	{{- end }}
+	{{- if eq .Kind "404" }}<meta name="robots" content="noindex, follow">{{ end }}
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	{{- $title := ( .Title ) -}}
 	{{- $siteTitle := ( .Site.Title ) -}}

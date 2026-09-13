@@ -3,28 +3,29 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="google-adsense-account" content="ca-pub-3487149104434430">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3487149104434430" crossorigin="anonymous"></script>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Python二分查找的一个库–bisect - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="用带重复时间戳的事件列表推导半开区间查询，区分插入位置、查找结果与列表插入成本，并提供可运行的边界检查。">
+	<link rel="canonical" href="https://buhuipao.com/2017/06/23/python_bisect/">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Python bisect：用时间窗口理解左右边界 - 不会跑</title><link rel="icon" type="image/png" href=https://avatars.githubusercontent.com/u/14309948?v&#61;4 /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
-  <meta itemprop="name" content="Python二分查找的一个库–bisect">
-  <meta itemprop="description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：">
+  <meta itemprop="name" content="Python bisect：用时间窗口理解左右边界">
+  <meta itemprop="description" content="用带重复时间戳的事件列表推导半开区间查询，区分插入位置、查找结果与列表插入成本，并提供可运行的边界检查。">
   <meta itemprop="datePublished" content="2017-06-23T04:52:44+00:00">
-  <meta itemprop="dateModified" content="2017-06-23T04:52:44+00:00">
-  <meta itemprop="wordCount" content="857">
+  <meta itemprop="dateModified" content="2026-09-13T00:00:00+08:00">
+  <meta itemprop="wordCount" content="1322">
   <meta itemprop="keywords" content="二分查找"><meta property="og:url" content="https://buhuipao.github.io/2017/06/23/python_bisect/">
   <meta property="og:site_name" content="不会跑">
-  <meta property="og:title" content="Python二分查找的一个库–bisect">
-  <meta property="og:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：">
+  <meta property="og:title" content="Python bisect：用时间窗口理解左右边界">
+  <meta property="og:description" content="用带重复时间戳的事件列表推导半开区间查询，区分插入位置、查找结果与列表插入成本，并提供可运行的边界检查。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2017-06-23T04:52:44+00:00">
-    <meta property="article:modified_time" content="2017-06-23T04:52:44+00:00">
+    <meta property="article:modified_time" content="2026-09-13T00:00:00+08:00">
     <meta property="article:tag" content="二分查找">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Python二分查找的一个库–bisect">
-  <meta name="twitter:description" content="今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：">
+  <meta name="twitter:title" content="Python bisect：用时间窗口理解左右边界">
+  <meta name="twitter:description" content="用带重复时间戳的事件列表推导半开区间查询，区分插入位置、查找结果与列表插入成本，并提供可运行的边界检查。">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://buhuipao.github.io/css/main.css" />
@@ -47,7 +48,7 @@
 		</div>
 	
 	<h1 class="site-title"><a href="https://buhuipao.github.io/">不会跑</a></h1>
-	<div class="site-description"><p>work for life</p><nav class="nav social">
+	<div class="site-description"><p>Python、Linux 与算法实践笔记</p><nav class="nav social">
 			<ul class="flat"><li><a href="https://twitter.com/buhuipao" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/buhuipao" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
 		</nav>
 	</div>
@@ -91,101 +92,94 @@
 					</div>
 				
 				<div class="matter">
-					<h1 class="title">Python二分查找的一个库–bisect</h1>
+					<h1 class="title">Python bisect：用时间窗口理解左右边界</h1>
+					<p>作者：咩 · 更新于 2026-09-13</p>
 				</div>
 			</div>
 					
 			<div class="markdown">
-				<p>今天在刷Leetcode的动态规划LIS题时，在提交页发现了一个返回即将插入列表的元素的下标的库bisect，下面应该是用二分查找做的，库的用法如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">248</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">bisect</span>
+				<p>假设一段日志的事件时间已经按升序整理成 <code>[1000, 1010, 1010, 1020]</code>，现在要统计从 1010 开始、到 1020 之前发生了几次事件。遍历一次当然能得到答案，但如果同一批日志要回答很多时间窗口查询，就可以利用已经有序这个条件。</p>
+<p>本文的例子使用 Python 3.9 及以上版本，只依赖标准库。列表中的时间是为了说明边界而设定的整数，不涉及实际日志数据。</p>
+<h2 id="先确定时间窗口怎样包含边界">先确定时间窗口怎样包含边界</h2>
+<p>本文采用半开区间 <code>[start, stop)</code>：包含开始时刻，不包含结束时刻。这样，连续窗口 <code>[1000, 1010)</code> 与 <code>[1010, 1020)</code> 不会重复统计恰好发生在 1010 的事件。</p>
+<p><code>bisect_left(times, start)</code> 找到第一个不小于 <code>start</code> 的位置；对 <code>stop</code> 再执行一次同样的查找，就得到第一个不属于当前窗口的位置。两者之差就是事件数量。这里的语义依据 <a href="https://docs.python.org/3/library/bisect.html">Python bisect 文档</a>，下面用具体数据检查它如何影响查询结果。</p>
+<table>
+  <thead>
+      <tr>
+          <th>查询</th>
+          <th>左边界下标</th>
+          <th>右边界下标</th>
+          <th>事件数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>[1000, 1010)</code></td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td><code>[1010, 1020)</code></td>
+          <td>1</td>
+          <td>3</td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td><code>[1010, 1010)</code></td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td><code>[1021, 1030)</code></td>
+          <td>4</td>
+          <td>4</td>
+          <td>0</td>
+      </tr>
+  </tbody>
+</table>
+<p>重复时间戳保留的是两条事件，不能先用 <code>set</code> 去重。查找返回 4 也是合法结果，它表示位置在列表末尾之后，并不表示存在下标为 4 的元素。</p>
+<h2 id="一个可以直接运行的实现">一个可以直接运行的实现</h2>
+<p>下面的函数约定 <code>times</code> 已经升序排列。它不会在每次查询前重新排序，也不会切片复制命中的事件。如果数据来自外部输入，应在导入时先校验时间类型并完成排序。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bisect</span> <span class="kn">import</span> <span class="n">bisect_left</span><span class="p">,</span> <span class="n">bisect_right</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">249</span><span class="p">]:</span> <span class="nb">dir</span><span class="p">(</span><span class="n">bisect</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">249</span><span class="p">]:</span> <span class="p">[</span><span class="s1">&#39;bisect&#39;</span><span class="p">,</span> <span class="s1">&#39;bisect_left&#39;</span><span class="p">,</span> <span class="s1">&#39;bisect_right&#39;</span><span class="p">,</span> <span class="s1">&#39;insort&#39;</span><span class="p">,</span> <span class="s1">&#39;insort_left&#39;</span><span class="p">,</span> <span class="s1">&#39;insort_right&#39;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">250</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">count_in_window</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">stop</span> <span class="o">&lt;</span> <span class="n">start</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;stop must be greater than or equal to start&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">bisect_left</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span> <span class="o">-</span> <span class="n">bisect_left</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">251</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">insort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">252</span><span class="p">]:</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">252</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mi">1020</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">count_in_window</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1010</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">count_in_window</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">count_in_window</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mi">1010</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">count_in_window</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">1021</span><span class="p">,</span> <span class="mi">1030</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">count_in_window</span><span class="p">([],</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">count_in_window</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">253</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># 只试探并不插入，返回下标</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">253</span><span class="p">]:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果业务改成包含结束时刻，右边界才改用 bisect_right。</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">bisect_right</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span> <span class="o">-</span> <span class="n">bisect_left</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">1010</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">254</span><span class="p">]:</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">254</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</span></span></code></pre></div><h3 id="bisect_left-和-bisect_right-的区别">bisect_left 和 bisect_right 的区别</h3>
-<p>这两个函数都是返回元素应该插入的位置索引，区别在于遇到重复元素时的处理：</p>
-<ul>
-<li><code>bisect_left</code>：返回重复元素的<strong>左边</strong>位置；</li>
-<li><code>bisect_right</code>（等价于 <code>bisect</code>）：返回重复元素的<strong>右边</strong>位置；</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">255</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">count_in_window</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="mi">1020</span><span class="p">,</span> <span class="mi">1010</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s2">&#34;reversed window was accepted&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">256</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_left</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>   <span class="c1"># 重复项的左边</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">256</span><span class="p">]:</span> <span class="mi">3</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">257</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_right</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># 重复项的右边</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">257</span><span class="p">]:</span> <span class="mi">4</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">258</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_left</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>   <span class="c1"># 不存在的元素，返回应该插入的位置</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">258</span><span class="p">]:</span> <span class="mi">4</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">259</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_right</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># 不存在时两者结果一样</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">259</span><span class="p">]:</span> <span class="mi">4</span>
-</span></span></code></pre></div><h3 id="insort_left-和-insort_right-的用法">insort_left 和 insort_right 的用法</h3>
-<p><code>insort</code> 系列函数会真正将元素插入到列表中，保持列表有序：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">260</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">261</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">insort_left</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># 插入8到合适位置</span>
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">262</span><span class="p">]:</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">262</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">263</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">insort_left</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># 再插入一个8，放在已有8的左边</span>
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">264</span><span class="p">]:</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">264</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>    <span class="c1"># 左边的8才是最后插入的</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">265</span><span class="p">]:</span> <span class="n">bisect</span><span class="o">.</span><span class="n">insort_right</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="c1"># 放在已有8的右边</span>
-</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">266</span><span class="p">]:</span> <span class="n">a</span>
-</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">266</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</span></span></code></pre></div><h3 id="实际应用场景">实际应用场景</h3>
-<p><strong>1. 维护有序列表</strong></p>
-<p>需要频繁插入元素并保持有序时，<code>insort</code> 比先 append 再 sort 更高效：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">bisect</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 维护一个有序的成绩列表</span>
-</span></span><span class="line"><span class="cl"><span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">88</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">bisect</span><span class="o">.</span><span class="n">insort</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>  <span class="c1"># [78, 85, 88, 92, 95]</span>
-</span></span></code></pre></div><p><strong>2. 查找分数等级</strong></p>
-<p>官方文档里的经典例子，根据分数查找对应等级：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">bisect</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">grade</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">breakpoints</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">grades</span><span class="o">=</span><span class="s1">&#39;FDCBA&#39;</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;根据分数返回等级&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 测试</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">([</span><span class="n">grade</span><span class="p">(</span><span class="n">score</span><span class="p">)</span> <span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">100</span><span class="p">]])</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 输出: [&#39;F&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;A&#39;]</span>
-</span></span></code></pre></div><p><strong>3. 在有序列表中查找元素</strong></p>
-<p>利用 bisect 做二分查找，比线性查找快：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">bisect</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;在有序列表中查找target，找到返回索引，否则返回-1&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_left</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">sorted_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">i</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">binary_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>   <span class="c1"># 3</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">binary_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>   <span class="c1"># -1</span>
-</span></span></code></pre></div><h3 id="小结">小结</h3>
-<p>bisect 模块底层用的是二分查找，查找插入位置的时间复杂度为 O(logN)，但实际插入操作（insort）由于涉及列表元素的移动，时间复杂度为 O(N)。在刷题和日常开发中用起来都很方便，尤其适合需要维护有序列表的场景。</p>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;time-window checks passed&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>保存为 <code>bisect_window.py</code> 后执行 <code>python3 bisect_window.py</code>，所有检查通过时输出 <code>time-window checks passed</code>。开始、结束相同的窗口应该为空，而开始晚于结束是输入错误，两者不能都被默默当作零条事件。</p>
+<h2 id="插入位置不等于找到了这个元素">插入位置不等于“找到了这个元素”</h2>
+<p>如果想判断事件时间 1015 是否存在，<code>bisect_left(times, 1015)</code> 会返回 3；那里实际存放的是 1020。这个结果只说明把 1015 放到下标 3 可以维持顺序。</p>
+<p>因此，“判断是否存在”还需要同时检查 <code>i &lt; len(times)</code> 和 <code>times[i] == target</code>。如果要找不晚于目标时间的最近事件，可以取 <code>bisect_right(times, target) - 1</code>，但必须先排除结果为 -1 的情况；Python 的负下标会读取最后一个元素，容易把“没有历史事件”误判为“最后一条事件”。</p>
+<p>左右边界的区别在重复值处尤其明显：对 1010，<code>bisect_left</code> 返回 1，<code>bisect_right</code> 返回 3。它们之间正好夹住所有等于 1010 的事件。</p>
+<h2 id="二分查找快不代表列表插入也快">二分查找快，不代表列表插入也快</h2>
+<p>这个计数函数执行两次二分查找，查询时间是 O(log n)，额外空间是 O(1)。如果还要返回窗口内的 k 条事件，切片和输出本身就需要 O(k) 的工作。</p>
+<p><code>insort</code> 则分成两步：先定位，再向 Python 列表中间插入。第二步可能移动后面的元素，所以整体仍是 O(n)。一批乱序数据如果逐条插入，最坏会积累到 O(n²)；只需要最后得到有序结果时，一次 <code>sorted</code> 更合适。不能仅因为名字里有二分查找，就断言它一定比追加后排序更快。</p>
+<p>对于这个日志查询例子，实用的安排是：先整理一批有序时间，再让多个查询复用它。如果多个线程同时修改同一个列表，查询边界可能失效，需要在外层统一同步；本文的函数只处理查询期间保持不变的列表。</p>
+<p><a href="/2017/06/23/leetcode-longest_increasing_subsequence/">最长递增子序列</a>还有一个不同的用法：利用 <code>bisect_left</code> 定位并替换已有元素。替换不会移动后面的列表元素，所以能保住算法整体的 O(n log n) 时间。</p>
 
 			</div>
 
@@ -219,6 +213,7 @@
 	</div>
 	<div class="footer wrapper">
 	<nav class="nav">
+		<p><a href="/about/">关于与联系</a> · <a href="/privacy/">隐私说明</a></p>
 		<div>2026  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>

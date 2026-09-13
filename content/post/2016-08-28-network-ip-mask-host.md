@@ -2,6 +2,7 @@
 title: 计算机网络基础知识总结（1）–网络层，IP，主机，子网
 author: 咩
 type: post
+draft: true
 date: 2016-08-28T13:09:25+00:00
 url: /2016/08/28/network-ip-mask-host/
 categories:

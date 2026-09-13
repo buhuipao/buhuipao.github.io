@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+{{ partial "header.html" . }}
+<body>
+	<div class="container wrapper">
+		{{ partial "head.html" . }}
+		<h1>页面未找到</h1>
+		<p>这个地址可能已失效，或文章已经撤下。</p>
+		<p><a href="{{ "/" | relURL }}">返回首页</a>，或查看<a href="{{ "/post/" | relURL }}">文章目录</a>。</p>
+	</div>
+	{{ partial "footer.html" . }}
+</body>
+</html>

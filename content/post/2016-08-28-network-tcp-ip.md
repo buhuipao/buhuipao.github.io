@@ -2,6 +2,7 @@
 title: 计算机网络基础知识总结（2）– 网络协议，三次握手，四次挥手
 author: 咩
 type: post
+draft: true
 date: 2016-08-28T13:21:37+00:00
 url: /2016/08/28/network-tcp-ip/
 categories:

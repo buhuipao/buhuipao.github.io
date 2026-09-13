@@ -35,7 +35,7 @@ sshd:all:deny
   
 tcpd服务器可以控制外部IP对本机服务的访问
   
-<a href="http://www.buhuipao.com/category/linux_web/" target="_blank">linux</a> 系统会先检查/etc/hosts.allow，再检查/etc/hosts.deny，和iptables一样，前面的匹配了后面的就不看了
+<a href="/categories/linux/">linux</a> 系统会先检查/etc/hosts.allow，再检查/etc/hosts.deny，和iptables一样，前面的匹配了后面的就不看了
   
 禁止所有ip访问linux 的ssh功能:
   
