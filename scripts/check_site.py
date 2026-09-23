@@ -73,6 +73,8 @@ def check():
                 if url != "/":
                     assert page.canonicals == [PRIMARY.rstrip("/") + url], url
             sitemap = (output / "sitemap.xml").read_text()
+            if base == PRIMARY:
+                assert sitemap.count(f"<loc>{PRIMARY}") > 1, "PRIMARY sitemap does not point at the blog host"
             for url in drafts:
                 assert not (output / url.lstrip("/")).exists(), url
                 assert url not in sitemap, url

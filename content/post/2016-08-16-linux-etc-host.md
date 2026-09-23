@@ -62,4 +62,4 @@ hosts.deny/aloow解释见：[此处][1]
 
 * * *
 
- [1]: http://www.buhuipao.com/2016/08/16/etchosts-allow-etchosts-deny/
+ [1]: /2016/08/16/etchosts-allow-etchosts-deny/
