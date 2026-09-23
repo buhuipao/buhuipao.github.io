@@ -44,7 +44,7 @@ HUGO_BASEURL="https://blog.buhuipao.com/" bash scripts/build.sh
 ## 域名与顶层站点
 
 - `buhuipao.com`（及 `www`）现在是个人主页，不再是本博客；博客只在新域名 `blog.buhuipao.com` 提供
-- 旧地址 `buhuipao.com/20xx/...`、`/post/`、`/categories/`、`/tags/`、`/about/`、`/privacy/`、`/link/` 由主页站点（`homepage` Cloudflare Pages 项目）的 `_redirects` 301 到对应子域路径；新增或调整博客顶层路径时需同步该文件
+- 旧地址（`buhuipao.com/2016/*`、`/2017/*`、`/2023/*`，以及 `/post`、`/categories`、`/tags`、`/about`、`/privacy`、`/link`、`/index.xml`，含不带结尾斜杠的形式）由主页仓库 `buhuipao/homepage` 根目录的 `_redirects` 301 到对应子域路径；博客新增年份目录或顶层路径时，必须在 `_redirects` 中补一条规则
 - GitHub Pages 镜像仍为 `buhuipao.github.io`，正文 canonical 统一指向 `blog.buhuipao.com`
 
 ## 注意事项

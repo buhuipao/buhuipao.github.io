@@ -73,8 +73,10 @@ def check():
                 if url != "/":
                     assert page.canonicals == [PRIMARY.rstrip("/") + url], url
             sitemap = (output / "sitemap.xml").read_text()
+            locs = re.findall(r"<loc>(.*?)</loc>", sitemap)
+            assert locs and all(l.startswith(base) for l in locs), f"sitemap host mismatch: {base}"
             if base == PRIMARY:
-                assert sitemap.count(f"<loc>{PRIMARY}") > 1, "PRIMARY sitemap does not point at the blog host"
+                assert re.search(r'^baseURL = "https://blog\.buhuipao\.com/"$', (ROOT / "config.toml").read_text(), re.M), "config.toml baseURL is not the blog host"
             for url in drafts:
                 assert not (output / url.lstrip("/")).exists(), url
                 assert url not in sitemap, url
