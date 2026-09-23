@@ -8,6 +8,11 @@
 
 		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 		var disqus_shortname = '{{ .Site.Params.disqusShortname }}';
+{{- with .Site.Params.disqusThreadHost }}
+		// Threads were created while the blog lived on this host; keep using it as
+		// the lookup key so existing comments survive the move.
+		var disqus_url = '{{ . }}{{ $.RelPermalink }}';
+{{- end }}
 		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();

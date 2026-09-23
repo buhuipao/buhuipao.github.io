@@ -5,7 +5,7 @@
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3487149104434430" crossorigin="anonymous"></script>
 	{{- end }}
 	<meta name="description" content="{{ .Description | default .Site.Params.description }}">
-	{{- if .IsPage }}
+	{{- if or .IsPage .IsHome }}
 	<link rel="canonical" href="{{ strings.TrimSuffix "/" .Site.Params.canonicalBaseURL }}{{ .RelPermalink }}">
 	{{- end }}
 	{{- if eq .Kind "404" }}<meta name="robots" content="noindex, follow">{{ end }}

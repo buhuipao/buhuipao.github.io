@@ -28,6 +28,9 @@ copyright = "© Copyright buhuipao | <a href='https://beian.miit.gov.cn/' target
   favicon = "https://avatars.githubusercontent.com/u/14309948?v=4"
   googleAnalyticsID = "G-5QSMC5LSP3"
   disqusShortname = "buhuipao"
+  # Disqus 帖子的原始主机。博客搬到 blog.buhuipao.com 后，仍用它作为帖子查找键，
+  # 让既有评论显示在子域页面上。若改为在 Disqus 后台完成 URL 迁移，请删除本项。
+  disqusThreadHost = "https://buhuipao.com"
 
 [[menu.main]]
   name = "首页"

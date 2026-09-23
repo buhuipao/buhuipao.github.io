@@ -70,8 +70,7 @@ def check():
             for url in ["/", "/about/", "/privacy/", *reviewed]:
                 page = Page((output / url.lstrip("/") / "index.html").read_text())
                 assert page.accounts == [PUBLISHER], url
-                if url != "/":
-                    assert page.canonicals == [PRIMARY.rstrip("/") + url], url
+                assert page.canonicals == [PRIMARY.rstrip("/") + url], url
             sitemap = (output / "sitemap.xml").read_text()
             locs = re.findall(r"<loc>(.*?)</loc>", sitemap)
             assert locs and all(l.startswith(base) for l in locs), f"sitemap host mismatch: {base}"
