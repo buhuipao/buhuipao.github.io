@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLISHER = "ca-pub-3487149104434430"
-PRIMARY = "https://buhuipao.com/"
+PRIMARY = "https://blog.buhuipao.com/"
 MIRROR = "https://buhuipao.github.io/"
 ADS_TXT = "google.com, pub-3487149104434430, DIRECT, f08c47fec0942fa0"
 

@@ -4,7 +4,7 @@
 
 | 平台 | 域名 | 部署方式 |
 |------|------|----------|
-| Cloudflare Pages | `buhuipao.com` / `buhuipao-github-io.pages.dev` | 自动：push 到 `hugo` 分支后 Cloudflare 自动构建 |
+| Cloudflare Pages | `blog.buhuipao.com` / `buhuipao-github-io.pages.dev` | 自动：push 到 `hugo` 分支后 Cloudflare 自动构建 |
 | GitHub Pages | `buhuipao.github.io` | 手动：需要本地运行构建脚本生成 `docs/` 目录后 push |
 
 ## 日常发布流程
@@ -35,10 +35,10 @@ push 后：
 1. 运行 `hugo` 生成正式站点到 `public/`，不发布 `draft: true` 的文章
 2. 将 `public/` 重命名为 `docs/`（GitHub Pages 的部署目录）
 
-配置文件的默认 `baseURL` 是主站 `https://buhuipao.com/`，Cloudflare Pages 使用主站地址构建。`scripts/build.sh` 默认使用 `https://buhuipao.github.io/`，也支持通过环境变量覆盖：
+配置文件的默认 `baseURL` 是博客站 `https://blog.buhuipao.com/`，Cloudflare Pages 使用博客站地址构建。`scripts/build.sh` 默认使用 `https://buhuipao.github.io/`，也支持通过环境变量覆盖：
 
 ```bash
-HUGO_BASEURL="https://buhuipao.com/" bash scripts/build.sh
+HUGO_BASEURL="https://blog.buhuipao.com/" bash scripts/build.sh
 ```
 
 ## 注意事项
@@ -46,7 +46,7 @@ HUGO_BASEURL="https://buhuipao.com/" bash scripts/build.sh
 - `docs/` 必须提交到 Git（不在 .gitignore 中），否则 GitHub Pages 无内容可部署
 - `public/` 和 `resources/_gen/` 在 .gitignore 中，不会被提交
 - Cloudflare Pages 不依赖 `docs/` 目录，它自己运行 Hugo 构建
-- Cloudflare Pages 的生产构建命令必须使用 `hugo`，不能带 `-D` / `--buildDrafts`；`HUGO_BASEURL` 如已设置，应为 `https://buhuipao.com/`
+- Cloudflare Pages 的生产构建命令必须使用 `hugo`，不能带 `-D` / `--buildDrafts`；`HUGO_BASEURL` 如已设置，应为 `https://blog.buhuipao.com/`
 
 ## 内容与 AdSense
 
@@ -55,7 +55,7 @@ HUGO_BASEURL="https://buhuipao.com/" bash scripts/build.sh
 - 开启单篇广告前，检查来源、正文的实际价值、示例能否运行以及引用是否清楚。`ads: true` 是本站的编辑选择，不代表 Google 已批准该文章
 - 当前三篇明确转载的网络基础和 Linux 进程文章设为草稿，源码保留；有实质原创分析后再考虑发布。请勿为复审使用包含草稿的构建
 - 四篇已修订教程在原 URL 上补充了分析、边界案例和运行检查，并使用 `lastmod` 标注修订日期
-- `params.canonicalBaseURL` 为 `https://buhuipao.com/`，正文的 canonical 统一指向主站，镜像保留访问能力
+- `params.canonicalBaseURL` 为 `https://blog.buhuipao.com/`，正文的 canonical 统一指向博客站，镜像保留访问能力
 - 隐私说明位于 `/privacy/`，联系与纠错入口位于 `/about/`
 
 运行 `python3 scripts/check_site.py` 检查两个域名的构建、广告范围、草稿排除、验证信息及教程示例。已在 Hugo 0.158.0、Python 3.9.13、macOS 上验证；检查需要 Python 3.9+、Hugo，以及支持 `os.fork` 的 macOS/Linux。

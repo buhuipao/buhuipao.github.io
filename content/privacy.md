@@ -6,7 +6,7 @@ description: 本站广告、访问统计、评论及第三方服务的数据使�
 disqus: false
 ---
 
-本说明适用于不会跑（buhuipao.com）及其 GitHub Pages 镜像。本站是公开的静态技术博客，不提供本站用户注册或在线付款。
+本说明适用于不会跑（blog.buhuipao.com）及其 GitHub Pages 镜像。本站是公开的静态技术博客，不提供本站用户注册或在线付款。
 
 ## 访问与统计
 
